@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="13dp"
+        android:background="@mipmap/arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageusagi"
+        android:layout_width="98dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/user_usagi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="名稱"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageusagi" />
+
+    <!-- 手機號碼 Text -->
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/cr12be8f4d9"
+        android:backgroundTint="#D0F5C9"
+        android:hint="   請輸入名稱"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textName" />
+
+    <TextView
+        android:id="@+id/textPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text="手機號碼"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextName" />
+
+    <!-- 手機號碼 EditText -->
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/cr12bffe7e7"
+        android:backgroundTint="#FAD1D1"
+        android:hint="   請輸入手機號碼"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textPhone" />
+
+    <!-- 密碼 Text -->
+    <TextView
+        android:id="@+id/textPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text="密碼"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextPhone" />
+
+    <!-- 密碼 EditText -->
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/cr12bfff5cc"
+        android:hint="   請輸入密碼"
+        android:inputType="textPassword"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textPassword" />
+
+    <!-- 確認密碼 Text -->
+    <TextView
+        android:id="@+id/textConfirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text="確認密碼"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextPassword" />
+
+    <!-- 確認密碼 EditText -->
+    <EditText
+        android:id="@+id/editTextConfirmPassword"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/cr12be8f4d9"
+        android:backgroundTint="#D0F5C9"
+        android:hint="   請再次輸入密碼"
+        android:inputType="textPassword"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textConfirmPassword" />
+
+    <!-- 註冊 Button -->
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_register"
+        android:layout_width="83dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="登入"
+        app:backgroundTint="#00BCD4"
+        app:cornerRadius="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword"
+        app:strokeColor="#00FFFFFF"
+        app:strokeWidth="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imagecamera"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageusagi"
+        app:layout_constraintEnd_toEndOf="@+id/imageusagi"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageusagi"
+        app:layout_constraintTop_toTopOf="@+id/imageusagi"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@mipmap/camera" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

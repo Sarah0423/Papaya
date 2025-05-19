@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="400dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/orange" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="98dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:contentDescription="上一頁"
+        android:scaleType="fitCenter"
+        android:src="@drawable/arrow"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="BBQ"
+        android:textColor="#FC5C2E"
+        app:backgroundTint="#00FFFFFF"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:strokeColor="#FC5C2E"
+        app:strokeWidth="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Pineapple"
+        android:textColor="#FC5C2E"
+        app:backgroundTint="#00FFFFFF"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:strokeColor="#FC5C2E"
+        app:strokeWidth="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Pepperoni "
+        android:textColor="#FC5C2E"
+        app:backgroundTint="#00FFFFFF"
+        app:cornerRadius="8dp"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/button4"
+        app:strokeColor="#FC5C2E"
+        app:strokeWidth="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Red Onions"
+        android:textColor="#FC5C2E"
+        app:backgroundTint="#00FFFFFF"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/button9"
+        app:layout_constraintStart_toEndOf="@+id/button7"
+        app:layout_constraintTop_toTopOf="@+id/button7"
+        app:strokeColor="#FC5C2E"
+        app:strokeWidth="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Anchovies"
+        android:textColor="#FC5C2E"
+        app:backgroundTint="#00FFFFFF"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/button6"
+        app:layout_constraintTop_toTopOf="@+id/button8"
+        app:strokeColor="#FC5C2E"
+        app:strokeWidth="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:text="Garlic Hurb"
+        android:textColor="#FC5C2E"
+        app:backgroundTint="#00FFFFFF"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button3"
+        app:strokeColor="#FC5C2E"
+        app:strokeWidth="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sweet Corn"
+        android:textColor="#FC5C2E"
+        app:backgroundTint="#00FFFFFF"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/button2"
+        app:layout_constraintTop_toTopOf="@+id/button5"
+        app:strokeColor="#FC5C2E"
+        app:strokeWidth="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tomato"
+        android:textColor="#FC5C2E"
+        app:backgroundTint="#00FFFFFF"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="@+id/button"
+        app:strokeColor="#FC5C2E"
+        app:strokeWidth="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jalapenos"
+        android:textColor="#FC5C2E"
+        app:backgroundTint="#00FFFFFF"
+        app:cornerRadius="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/button6"
+        app:layout_constraintStart_toEndOf="@+id/button4"
+        app:layout_constraintTop_toTopOf="@+id/button4"
+        app:strokeColor="#FC5C2E"
+        app:strokeWidth="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        android:text="我們的經典白吐司深受大家喜愛，柔軟的口感和多用途的風味是它受歡迎的原因。不管搭配甜食還是鹹食，都能滿足您的味蕾。"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Sauce"
+        android:textColorLink="#24262F"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text="Choose Toppings"
+        android:textColorLink="#24262F"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        app:backgroundTint="#19C4EA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/button9" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
