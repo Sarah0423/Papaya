@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".taipei">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView"
@@ -14,7 +13,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/orange" />
+        tools:srcCompat="@drawable/cr12bff9500" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -23,7 +22,7 @@
         android:adjustViewBounds="true"
         android:background="@null"
         android:scaleType="fitCenter"
-        android:src="@drawable/arrow"
+        android:src="@mipmap/arrow"
         android:contentDescription="上一頁"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
         app:layout_constraintStart_toStartOf="@+id/imageView"
@@ -39,7 +38,7 @@
         android:adjustViewBounds="true"
         android:background="@null"
         android:scaleType="fitCenter"
-        android:src="@drawable/taipei"
+        android:src="@mipmap/taipei"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
