@@ -1,0 +1,161 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:id="@+id/r3ib3buhmk7"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginHorizontal="17dp"
+        android:layout_marginTop="30dp"
+        android:background="#D0CFCF"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rcmukyh1t2ij"></LinearLayout>
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="6dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/arrow" />
+
+    <TextView
+        android:id="@+id/rcmukyh1t2ij"
+        android:layout_width="107dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="運送資訊"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+        app:layout_constraintTop_toTopOf="@+id/imageButton3" />
+
+    <TextView
+        android:id="@+id/r3zra71bldk4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="名稱"
+        android:textColor="#1E1E1E"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/r3ib3buhmk7"
+        app:layout_constraintTop_toBottomOf="@+id/r3ib3buhmk7" />
+
+    <EditText
+        android:id="@+id/rb02o6a9khb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/sd9d9d9sw1cr8bffffff"
+        android:hint="請填入名稱"
+        android:inputType="text"
+        android:paddingVertical="12dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="32dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/r3ib3buhmk7"
+        app:layout_constraintStart_toStartOf="@+id/r3ib3buhmk7"
+        app:layout_constraintTop_toBottomOf="@+id/r3zra71bldk4" />
+
+    <TextView
+        android:id="@+id/rhqbwk1mlzl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="選擇店舖"
+        android:textColor="#1E1E1E"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/rb02o6a9khb"
+        app:layout_constraintTop_toBottomOf="@+id/rb02o6a9khb" />
+
+    <TextView
+        android:id="@+id/rarkpp8c6rz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="運送地址"
+        android:textColor="#1E1E1E"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
+
+    <Button
+        android:id="@+id/button2"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="372dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="39dp"
+        android:background="@drawable/cr12bff9500"
+        android:text="確認"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自取"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+
+    <Button
+        android:id="@+id/button4"
+        style="@android:style/Widget.Material.Light.Button.Inset"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="選擇店鋪"
+        android:textAllCaps="false"
+        android:textColor="#ADADAD"
+        app:layout_constraintEnd_toEndOf="@+id/rb02o6a9khb"
+        app:layout_constraintStart_toStartOf="@+id/rb02o6a9khb"
+        app:layout_constraintTop_toBottomOf="@+id/rhqbwk1mlzl" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/sd9d9d9sw1cr8bffffff"
+        android:hint="請填入地址"
+        android:inputType="textMultiLine"
+        android:paddingVertical="12dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="32dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/button4"
+        app:layout_constraintStart_toStartOf="@+id/button4"
+        app:layout_constraintTop_toBottomOf="@+id/rarkpp8c6rz" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="-12dp"
+        android:text="如需自取請勾選"
+        app:layout_constraintStart_toStartOf="@+id/checkBox"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
