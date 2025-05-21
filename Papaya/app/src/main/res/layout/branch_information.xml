@@ -13,7 +13,7 @@
         android:layout_height="718dp"
         android:layout_marginStart="-75dp"
         android:layout_marginTop="12dp"
-        android:src="@mipmap/Taiwan"
+        android:src="@mipmap/taiwan"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
