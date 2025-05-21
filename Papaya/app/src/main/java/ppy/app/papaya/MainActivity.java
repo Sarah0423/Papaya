@@ -8,6 +8,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.tabs.TabLayout;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -20,5 +22,15 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        TabLayout tabLayout = findViewById(R.id.tabLayout);
+        String[] categories = {"Starters", "Asian", "Roasts", "Classci"};
+
+        for (String title : categories) {
+            TabLayout.Tab tab = tabLayout.newTab();
+            tab.setText(title);
+            tabLayout.addTab(tab);
+        }
     }
+
 }
