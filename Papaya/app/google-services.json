@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "110246386534",
+    "project_id": "papaya-ac8fe",
+    "storage_bucket": "papaya-ac8fe.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110246386534:android:c088340654d361f73a86a7",
+        "android_client_info": {
+          "package_name": "ppy.app.papaya"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAe9ihyiJ5DhPcgXYSiacJsOUPiwcJeL-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
