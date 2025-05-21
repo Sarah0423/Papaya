@@ -7,13 +7,364 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <LinearLayout
+        android:layout_width="188dp"
+        android:layout_height="241dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="20dp"
+        tools:layout_editor_absoluteY="412dp">
+
+        <LinearLayout
+            android:layout_width="188dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="146.25dp"
+                android:layout_height="123.05dp"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:scaleType="centerCrop"
+                app:srcCompat="@mipmap/bigtoast" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="$0"
+                    android:textAlignment="center"
+                    android:textColor="#FD5C2E"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="\?\?\?\?"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:lineSpacingExtra="5sp"
+                    android:text="這是一個神祕吐司\n就快吃到了！"
+                    android:textAlignment="center"
+                    android:textColor="#969AB0"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="-16.5dp"
+            android:text="Add"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="12dp"
+            android:textStyle="bold"
+            app:backgroundTint="#FFAA2C"
+            app:cornerRadius="32dp"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_topbar"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/main_topbar" />
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginEnd="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_topbar"
+        app:layout_constraintEnd_toEndOf="@+id/iv_topbar"
+        app:layout_constraintTop_toTopOf="@+id/iv_topbar">
+
+        <ImageButton
+            android:id="@+id/ib_notification"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            app:srcCompat="@mipmap/notification" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_goto_cart"
+                android:layout_width="120dp"
+                android:layout_height="58dp"
+                android:text="$52.99"
+                android:textAlignment="viewStart"
+                app:backgroundTint="#24262F"
+                app:cornerRadius="27dp"
+                app:strokeColor="#00FFFFFF"
+                app:strokeWidth="2dp"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/iv_usagi_cart"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="-46dp"
+                app:srcCompat="@mipmap/cart_usagi" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/circularImageView"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="center"
+                    app:srcCompat="@drawable/linear_circle" />
+
+                <TextView
+                    android:id="@+id/tv_item_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="-14dp"
+                    android:text="3"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_topbar"
+        app:layout_constraintStart_toStartOf="@+id/iv_topbar"
+        app:layout_constraintTop_toTopOf="@+id/iv_topbar">
+
+        <ImageButton
+            android:id="@+id/ib_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/index" />
+
+        <TextView
+            android:id="@+id/tv_papaya"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Papaya"
+            android:textAlignment="textStart"
+            android:textColor="@color/white"
+            android:textSize="19sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="241dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="6dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="189.79dp"
+                android:layout_height="210dp"
+                android:background="@drawable/sf6742bsw1cr5lr270ff9d81ffe347"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_chii_res"
+                    android:layout_width="188dp"
+                    android:layout_height="130dp"
+                    app:srcCompat="@mipmap/restaurant2" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_create"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Create Your Own Toast"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_choose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:lineSpacingExtra="5sp"
+                        android:text="Choose From Our Options Of Designa\nAnd Make Your Own Toast !"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_create"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="-16.5dp"
+                android:text="Create Now"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="32dp"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="189.79dp"
+                android:layout_height="210dp"
+                android:background="@drawable/sf6742bsw1cr5lr270ff9d81ffe347"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_chii_res2"
+                    android:layout_width="188dp"
+                    android:layout_height="130dp"
+                    app:srcCompat="@mipmap/bigtoast" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_create2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Create Your Own Toast"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_choose2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:lineSpacingExtra="5sp"
+                        android:text="Choose From Our Options Of Designa\nAnd Make Your Own Toast !"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_create2"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="-16.5dp"
+                android:text="Create Now"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:backgroundTint="@color/white"
+                app:cornerRadius="32dp"
+                tools:ignore="MissingConstraints" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/iv_topbar"
+        app:tabBackground="@drawable/tab_selector"
+        app:tabGravity="start"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@android:color/white"
+        app:tabTextColor="#3E404A"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
