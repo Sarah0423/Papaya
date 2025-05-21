@@ -63,7 +63,7 @@
         android:adjustViewBounds="true"
         android:background="@null"
         android:scaleType="fitCenter"
-        android:src="@mipmap/bigKuri"
+        android:src="@mipmap/bigkuri"
         app:layout_constraintEnd_toStartOf="@+id/imageButton10"
         app:layout_constraintStart_toEndOf="@+id/imageButton8"
         app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
