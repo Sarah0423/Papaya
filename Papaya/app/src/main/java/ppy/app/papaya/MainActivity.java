@@ -57,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         // 初始化 Adapter 並設置給 RecyclerView
         adapter = new ToastAdapter(this, toastItemList);
         recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("toast") // ← 替換成你的資料集名稱
