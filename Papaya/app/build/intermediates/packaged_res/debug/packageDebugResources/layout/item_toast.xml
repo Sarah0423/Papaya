@@ -1,90 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
-        android:id="@+id/ll_toast_card"
-        android:layout_width="188dp"
-        android:layout_height="241dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="412dp">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="5dp">
 
         <LinearLayout
+            android:id="@+id/ll_toast_card"
             android:layout_width="188dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_height="241dp"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/iv_toast_item_img"
-                android:layout_width="146.25dp"
-                android:layout_height="123.05dp"
-                android:layout_gravity="center"
-                android:background="@color/white"
-                android:scaleType="centerCrop"
-                app:srcCompat="@mipmap/bigtoast" />
-
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="188dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="8dp"
+                android:background="@color/white"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_toast_item_price"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageView
+                    android:id="@+id/iv_toast_item_img"
+                    android:layout_width="146.25dp"
+                    android:layout_height="123.05dp"
                     android:layout_gravity="center"
-                    android:text="$0"
-                    android:textAlignment="center"
-                    android:textColor="#FD5C2E"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:background="@color/white"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@mipmap/bigtoast" />
 
-                <TextView
-                    android:id="@+id/tv_toast_item_name"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="\?\?\?\?"
-                    android:textAlignment="center"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_toast_item_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:lineSpacingExtra="5sp"
-                    android:text="這是一個神祕吐司\n就快吃到了！"
-                    android:textAlignment="center"
-                    android:textColor="#969AB0"
-                    android:textSize="10sp" />
+                    <TextView
+                        android:id="@+id/tv_toast_item_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="$0"
+                        android:textAlignment="center"
+                        android:textColor="#FD5C2E"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_toast_item_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="\?\?\?\?"
+                        android:textAlignment="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_toast_item_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:lineSpacingExtra="5sp"
+                        android:text="這是一個神祕吐司\n就快吃到了！"
+                        android:textAlignment="center"
+                        android:textColor="#969AB0"
+                        android:textSize="10sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="-16.5dp"
+                android:text="Add"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                app:backgroundTint="#FFAA2C"
+                app:cornerRadius="32dp"
+                tools:ignore="MissingConstraints" />
         </LinearLayout>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_add"
-            android:layout_width="wrap_content"
-            android:layout_height="33dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="-16.5dp"
-            android:text="Add"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="12dp"
-            android:textStyle="bold"
-            app:backgroundTint="#FFAA2C"
-            app:cornerRadius="32dp"
-            tools:ignore="MissingConstraints" />
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
