@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "ppy.app.papaya.app-mergeDebugResources-39:/values-ro/values-ro.xml",
+            "outputFile": "ppy.app.papaya.app-mergeDebugResources-40:/values-ro/values-ro.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\8.10.2\\transforms\\b02148e546cd6215d3f45d3e1f8eeea8\\transformed\\material-1.10.0\\res\\values-ro\\values-ro.xml",

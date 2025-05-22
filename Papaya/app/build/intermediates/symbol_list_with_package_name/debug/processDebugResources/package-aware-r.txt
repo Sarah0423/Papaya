@@ -3402,6 +3402,7 @@ id frost
 id fullscreen_header
 id ghost_view
 id ghost_view_holder
+id glide_custom_view_target_tag
 id gone
 id graph
 id graph_wrap
@@ -3467,6 +3468,7 @@ id iv_daily_spin
 id iv_favorite
 id iv_order
 id iv_signout
+id iv_toast_item_img
 id iv_topbar
 id iv_usagi_cart
 id iv_user
@@ -3491,6 +3493,7 @@ id ll_date
 id ll_date_and_verify
 id ll_i_love_toast
 id ll_i_mystery_toast
+id ll_toast_card
 id ll_toast_killer
 id ll_update_to_pro
 id ll_user_info
@@ -3639,6 +3642,7 @@ id rounded
 id row_index_key
 id rt37yj8luoj
 id rugqtneve0y
+id rv_toast_item
 id rzjetrxj8yyr
 id save_non_transition_alpha
 id save_overlay_view
@@ -3734,13 +3738,10 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
-id textView10
 id textView2
 id textView3
 id textView4
 id textView6
-id textView8
-id textView9
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3822,6 +3823,9 @@ id tv_price_i_love_toast
 id tv_price_mystery_toast
 id tv_price_toast_killer
 id tv_signout
+id tv_toast_item_info
+id tv_toast_item_name
+id tv_toast_item_price
 id tv_toast_killer
 id tv_total
 id tv_unknown_i_love_toast
@@ -4000,6 +4004,7 @@ layout design_text_input_start_icon
 layout function_menu
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
+layout item_toast
 layout login
 layout login_function_menu
 layout login_pro_info

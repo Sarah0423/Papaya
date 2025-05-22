@@ -137,6 +137,7 @@ id iv_daily_spin
 id iv_favorite
 id iv_order
 id iv_signout
+id iv_toast_item_img
 id iv_topbar
 id iv_usagi_cart
 id iv_user
@@ -148,6 +149,7 @@ id ll_date
 id ll_date_and_verify
 id ll_i_love_toast
 id ll_i_mystery_toast
+id ll_toast_card
 id ll_toast_killer
 id ll_update_to_pro
 id ll_user_info
@@ -170,6 +172,7 @@ id rhqbwk1mlzl
 id rnr6d2w3cqo
 id rt37yj8luoj
 id rugqtneve0y
+id rv_toast_item
 id rzjetrxj8yyr
 id tabLayout
 id taiwan
@@ -183,13 +186,10 @@ id textPhone
 id textPhoneNumber
 id textProblemType
 id textView
-id textView10
 id textView2
 id textView3
 id textView4
 id textView6
-id textView8
-id textView9
 id tv_bp_i_love_toast
 id tv_bp_mystery_toast
 id tv_bp_toast_killer
@@ -246,6 +246,9 @@ id tv_price_i_love_toast
 id tv_price_mystery_toast
 id tv_price_toast_killer
 id tv_signout
+id tv_toast_item_info
+id tv_toast_item_name
+id tv_toast_item_price
 id tv_toast_killer
 id tv_total
 id tv_unknown_i_love_toast
@@ -264,6 +267,7 @@ layout customer_service
 layout daily_spin
 layout delivery_information
 layout function_menu
+layout item_toast
 layout login
 layout login_function_menu
 layout login_pro_info

@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "ppy.app.papaya.app-mergeDebugResources-39:/values-iw/values-iw.xml",
+            "outputFile": "ppy.app.papaya.app-mergeDebugResources-40:/values-iw/values-iw.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\8.10.2\\transforms\\48333002a4162ac1ccedc82297093cb0\\transformed\\core-1.13.0\\res\\values-iw\\values-iw.xml",
