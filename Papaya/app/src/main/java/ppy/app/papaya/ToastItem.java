@@ -1,0 +1,39 @@
+package ppy.app.papaya;
+
+import com.google.firebase.firestore.PropertyName;
+
+public class ToastItem {
+
+    @PropertyName("toast_name")
+    private String name;
+
+    @PropertyName("toast_info")
+    private String info;
+
+    @PropertyName("toast_price")
+    private int price;
+
+    @PropertyName("toast_photo")
+    private String imageName; // ← 不是 imageUrl，而是圖片名稱
+
+    public ToastItem() {}
+
+    public ToastItem(String name, String info, int price, String imageName) {
+        this.name = name;
+        this.info = info;
+        this.price = price;
+        this.imageName = imageName;
+    }
+
+    @PropertyName("toast_name")
+    public String getName() { return name; }
+
+    @PropertyName("toast_info")
+    public String getInfo() { return info; }
+
+    @PropertyName("toast_price")
+    public int getPrice() { return price; }
+
+    @PropertyName("toast_photo")
+    public String getImageName() { return imageName; }
+}

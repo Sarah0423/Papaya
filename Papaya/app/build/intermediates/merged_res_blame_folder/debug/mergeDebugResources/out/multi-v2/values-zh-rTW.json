@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "ppy.app.papaya.app-mergeDebugResources-39:/values-zh-rTW/values-zh-rTW.xml",
+            "outputFile": "ppy.app.papaya.app-mergeDebugResources-40:/values-zh-rTW/values-zh-rTW.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\8.10.2\\transforms\\c4a06ced2ef7964254a2b876e9473b2c\\transformed\\play-services-base-18.1.0\\res\\values-zh-rTW\\values.xml",

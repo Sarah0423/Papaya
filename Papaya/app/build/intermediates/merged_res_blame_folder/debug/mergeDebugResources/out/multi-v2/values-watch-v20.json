@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "ppy.app.papaya.app-mergeDebugResources-39:/values-watch-v20/values-watch-v20.xml",
+            "outputFile": "ppy.app.papaya.app-mergeDebugResources-40:/values-watch-v20/values-watch-v20.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\8.10.2\\transforms\\f0e4b7e30b69e5258d6648f202380e1d\\transformed\\play-services-auth-20.7.0\\res\\values-watch-v20\\values.xml",
