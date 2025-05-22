@@ -41,7 +41,7 @@ public class  ToastAdapter extends RecyclerView.Adapter<ToastAdapter.ToastViewHo
 
         // 使用圖片名稱找 drawable 資源 ID
         int imageResId = context.getResources().getIdentifier(
-                toastItem.getImageName(), "drawable", context.getPackageName());
+                toastItem.getImageName(), "mipmap", context.getPackageName());
 
         if (imageResId != 0) {
             holder.ivImage.setImageResource(imageResId);

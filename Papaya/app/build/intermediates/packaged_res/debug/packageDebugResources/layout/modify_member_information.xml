@@ -49,7 +49,7 @@
     <!-- 手機號碼 Text -->
 
     <TextView
-        android:id="@+id/textName"
+        android:id="@+id/textMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="160dp"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@id/imageusagi" />
 
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/editTextMail"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -70,31 +70,31 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textName" />
+        app:layout_constraintTop_toBottomOf="@id/textMail" />
 
     <TextView
-        android:id="@+id/textPhone"
+        android:id="@+id/Textemail1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:text="手機號碼"
+        android:text="電子郵件"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextName" />
+        app:layout_constraintTop_toBottomOf="@id/editTextMail" />
 
     <!-- 手機號碼 EditText -->
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/editTextTextEmailAddress1"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/cr12bffe7e7"
         android:backgroundTint="#FAD1D1"
-        android:hint="   +919373937382"
+        android:hint="   xxx@gmail.com"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textPhone" />
+        app:layout_constraintTop_toBottomOf="@id/Textemail1" />
 
     <!-- 密碼 Text -->
     <TextView
@@ -105,7 +105,7 @@
         android:text="密碼"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextPhone" />
+        app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress1" />
 
     <!-- 密碼 EditText -->
     <EditText
@@ -196,7 +196,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword1" />
 
     <ImageButton
         android:id="@+id/imageButton2"

@@ -49,34 +49,34 @@
 
 
     <TextView
-        android:id="@+id/textName"
+        android:id="@+id/textEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="手機號碼"
+        android:text="電子郵件"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageusagi" />
 
-    <!-- 手機號碼 Text -->
+
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/editTextTextEmailAddress"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/cr12be8f4d9"
         android:backgroundTint="#D0F5C9"
+        android:hint="   xxx@gmail.com"
         android:textColor="#000000"
-        android:hint="   +886 0123456789"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textName" />
+        app:layout_constraintTop_toBottomOf="@id/textEmail" />
 
     <TextView
-        android:id="@+id/textPhone"
+        android:id="@+id/Textemail1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -84,11 +84,11 @@
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextName" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
     <!-- 手機號碼 EditText -->
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/editTextPassword1"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -97,7 +97,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textPhone" />
+        app:layout_constraintTop_toBottomOf="@id/Textemail1" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_login"
@@ -124,7 +124,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword1" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

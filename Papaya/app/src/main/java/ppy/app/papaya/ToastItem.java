@@ -16,13 +16,17 @@ public class ToastItem {
     @PropertyName("toast_photo")
     private String imageName; // ← 不是 imageUrl，而是圖片名稱
 
+    @PropertyName("toast_index")
+    private int index;
+
     public ToastItem() {}
 
-    public ToastItem(String name, String info, int price, String imageName) {
+    public ToastItem(String name, String info, int price, String imageName,int index) {
         this.name = name;
         this.info = info;
         this.price = price;
         this.imageName = imageName;
+        this.index = index;
     }
 
     @PropertyName("toast_name")
@@ -36,4 +40,7 @@ public class ToastItem {
 
     @PropertyName("toast_photo")
     public String getImageName() { return imageName; }
+
+    @PropertyName("toast_index")
+    public int getIndex() { return index; }
 }

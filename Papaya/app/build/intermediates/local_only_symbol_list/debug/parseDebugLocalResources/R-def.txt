@@ -48,6 +48,8 @@ drawable sffa500sw1cr34bfff4ed4d
 drawable sffa500sw1cr43bfff4ed4d
 drawable sffaa2bsw1cr10bffffff
 drawable tab_selector
+id TPmapView
+id Textemail1
 id btn_add
 id btn_add_i_love_toast
 id btn_add_mystery_toast
@@ -91,9 +93,11 @@ id constraintLayout
 id editTextConfirmAdd
 id editTextConfirmPassword
 id editTextDetail
-id editTextName
+id editTextMail
 id editTextPassword
-id editTextPhone
+id editTextPassword1
+id editTextTextEmailAddress
+id editTextTextEmailAddress1
 id editTextTextMultiLine
 id editTextType
 id et_card_num
@@ -155,7 +159,6 @@ id ll_update_to_pro
 id ll_user_info
 id ll_verification_code
 id main
-id mapView
 id pointBalance
 id promoText
 id r3ib3buhmk7
@@ -180,9 +183,9 @@ id textCallSupport
 id textConfirmAdd
 id textConfirmPassword
 id textDetail
-id textName
+id textEmail
+id textMail
 id textPassword
-id textPhone
 id textPhoneNumber
 id textProblemType
 id textView
@@ -323,6 +326,7 @@ mipmap ppy9
 mipmap restaurant2
 mipmap taipei
 mipmap taiwan
+mipmap taoyuan
 mipmap toast
 mipmap toast_button
 mipmap user_usagi
