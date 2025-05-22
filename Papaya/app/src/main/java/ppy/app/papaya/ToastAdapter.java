@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class ToastAdapter extends RecyclerView.Adapter<ToastAdapter.ToastViewHolder> {
+public class  ToastAdapter extends RecyclerView.Adapter<ToastAdapter.ToastViewHolder> {
 
     private Context context;
     private List<ToastItem> toastItemList;
