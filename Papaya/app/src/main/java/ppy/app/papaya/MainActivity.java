@@ -1,7 +1,9 @@
 package ppy.app.papaya;
 
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -102,21 +104,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 點 function_menu 外層區域隱藏（點背景時收起）
-        functionMenuContainer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                functionMenuContainer.setVisibility(View.GONE);
-            }
-        });
 
-        // 如果要點 function_menu 裡的內容時 **不要收起**
-        functionMenuView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 不做事，避免傳到外層收起
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            if (functionMenuContainer.getVisibility() == View.VISIBLE) {
+                Rect outRect = new Rect();
+                functionMenuContainer.getGlobalVisibleRect(outRect);
+                if (!outRect.contains((int) ev.getRawX(), (int) ev.getRawY())) {
+                    functionMenuContainer.setVisibility(View.GONE);
+                }
             }
-        });
+        }
+        return super.dispatchTouchEvent(ev);
     }
 
 }
