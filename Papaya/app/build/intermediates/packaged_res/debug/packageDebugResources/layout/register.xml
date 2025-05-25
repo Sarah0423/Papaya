@@ -140,7 +140,7 @@
         android:layout_width="83dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="登入"
+        android:text="註冊"
         app:backgroundTint="#00BCD4"
         app:cornerRadius="32dp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,31 +1,20 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout2"
-    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="286dp"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
     android:clipChildren="false"
     android:clipToPadding="false">
 
-    <!-- 側邊選單 -->
-
-    <LinearLayout
-        android:layout_width="286dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.042">
 
         <LinearLayout
             android:id="@+id/ll_user_info"
             android:layout_width="144dp"
             android:layout_height="67dp"
+            android:layout_marginTop="14dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="14dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/userAvatar"
@@ -50,9 +39,9 @@
             android:id="@+id/ll_update_to_pro"
             android:layout_width="224dp"
             android:layout_height="52dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -74,9 +63,9 @@
         <LinearLayout
             android:layout_width="224dp"
             android:layout_height="27dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <TextView
                 android:id="@+id/textView3"
@@ -101,17 +90,17 @@
         <View
             android:layout_width="224dp"
             android:layout_height="1dp"
-            android:layout_marginVertical="12dp"
-            android:background="@android:color/darker_gray"
             android:layout_gravity="center"
-            android:layout_marginTop="28dp"/>
+            android:layout_marginVertical="12dp"
+            android:layout_marginTop="28dp"
+            android:background="@android:color/darker_gray" />
 
         <LinearLayout
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_order"
@@ -125,17 +114,17 @@
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="我的訂單"
+                android:textAlignment="center"
                 android:textSize="16dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_daily_spin"
@@ -149,8 +138,8 @@
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="每日轉盤"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>
@@ -158,9 +147,9 @@
         <LinearLayout
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/idelivery"
@@ -174,8 +163,8 @@
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="外送進度"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>
@@ -183,9 +172,9 @@
         <LinearLayout
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_customer_service"
@@ -199,8 +188,8 @@
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="客服中心"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>
@@ -208,9 +197,9 @@
         <LinearLayout
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_branch_info"
@@ -224,8 +213,8 @@
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="分店資訊"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>
@@ -233,9 +222,9 @@
         <LinearLayout
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="60dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="60dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_signout"
@@ -249,8 +238,8 @@
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="登出"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>
@@ -258,9 +247,9 @@
         <LinearLayout
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_favorite"
@@ -274,12 +263,12 @@
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="我的收藏"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
