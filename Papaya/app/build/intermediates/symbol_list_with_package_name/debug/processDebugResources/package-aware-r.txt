@@ -3449,12 +3449,16 @@ id homeAsUp
 id honorRequest
 id horizontal_only
 id hybrid
+id ib_chii_user_img
 id ib_choose_user_img
+id ib_hachi_user_img
 id ib_index
 id ib_jcb
 id ib_master
 id ib_notification
 id ib_rupay
+id ib_unknown_user_img
+id ib_usagi_user_img
 id ib_visa
 id icon
 id icon_group
@@ -3467,7 +3471,6 @@ id image
 id imageButton
 id imageButton10
 id imageButton11
-id imageButton12
 id imageButton13
 id imageButton2
 id imageButton3
@@ -4178,6 +4181,8 @@ mipmap taiwan
 mipmap taoyuan
 mipmap toast
 mipmap toast_button
+mipmap user_chii
+mipmap user_hachi
 mipmap user_usagi
 mipmap vegan_toast
 mipmap wheat_toast

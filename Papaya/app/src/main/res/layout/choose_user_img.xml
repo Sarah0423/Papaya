@@ -8,18 +8,67 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:background="#52F38E00"
+        android:orientation="vertical"
+        android:padding="10dp"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="79dp">
 
-        <ImageButton
-            android:id="@+id/imageButton12"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            android:background="@null"
-            app:srcCompat="@mipmap/user_usagi" />
+            android:orientation="horizontal" >
+
+
+            <ImageButton
+                android:id="@+id/ib_unknown_user_img"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:scaleType="centerCrop"
+                app:srcCompat="@mipmap/login_usagi" />
+
+            <ImageButton
+                android:id="@+id/ib_chii_user_img"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:layout_marginStart="10dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:scaleType="centerCrop"
+                app:srcCompat="@mipmap/user_chii" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/ib_hachi_user_img"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:scaleType="centerCrop"
+                app:srcCompat="@mipmap/user_hachi" />
+
+            <ImageButton
+                android:id="@+id/ib_usagi_user_img"
+                android:layout_width="77dp"
+                android:layout_height="77dp"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:scaleType="centerCrop"
+                app:srcCompat="@mipmap/user_usagi" />
+        </LinearLayout>
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

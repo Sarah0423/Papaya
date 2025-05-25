@@ -3448,12 +3448,16 @@ int id homeAsUp 0x7f080115
 int id honorRequest 0x7f080116
 int id horizontal_only 0x7f080117
 int id hybrid 0x7f080118
+int id ib_chii_user_img 0x7f0802fa
 int id ib_choose_user_img 0x7f0802f6
+int id ib_hachi_user_img 0x7f0802fb
 int id ib_index 0x7f080119
 int id ib_jcb 0x7f08011a
 int id ib_master 0x7f08011b
 int id ib_notification 0x7f08011c
 int id ib_rupay 0x7f08011d
+int id ib_unknown_user_img 0x7f0802fc
+int id ib_usagi_user_img 0x7f0802fd
 int id ib_visa 0x7f08011e
 int id icon 0x7f08011f
 int id icon_group 0x7f080120
@@ -3466,7 +3470,6 @@ int id image 0x7f080126
 int id imageButton 0x7f080127
 int id imageButton10 0x7f080128
 int id imageButton11 0x7f080129
-int id imageButton12 0x7f0802f9
 int id imageButton13 0x7f08012a
 int id imageButton2 0x7f08012b
 int id imageButton3 0x7f08012c
@@ -4177,6 +4180,8 @@ int mipmap taiwan 0x7f0d002e
 int mipmap taoyuan 0x7f0d002f
 int mipmap toast 0x7f0d0030
 int mipmap toast_button 0x7f0d0031
+int mipmap user_chii 0x7f0d0036
+int mipmap user_hachi 0x7f0d0037
 int mipmap user_usagi 0x7f0d0032
 int mipmap vegan_toast 0x7f0d0033
 int mipmap wheat_toast 0x7f0d0034
