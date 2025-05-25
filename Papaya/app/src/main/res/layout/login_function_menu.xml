@@ -28,7 +28,7 @@
             android:layout_marginTop="14dp">
 
             <ImageView
-                android:id="@+id/userAvatar"
+                android:id="@+id/iv_user_img_login"
                 android:layout_width="67dp"
                 android:layout_height="67dp"
                 android:layout_gravity="center_horizontal"
@@ -36,7 +36,7 @@
                 android:src="@mipmap/login_usagi" />
 
             <TextView
-                android:id="@+id/userName"
+                android:id="@+id/tv_user_name_login"
                 android:layout_width="97dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
@@ -55,14 +55,14 @@
             android:layout_marginTop="28dp">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/iv_pro_img_login"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 app:srcCompat="@mipmap/crown" />
 
             <TextView
-                android:id="@+id/promoText"
+                android:id="@+id/tv_pro_login"
                 android:layout_width="176dp"
                 android:layout_height="52dp"
                 android:layout_gravity="center"
@@ -79,7 +79,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btn_signin"
+                android:id="@+id/btn_signin_function_menu"
                 android:layout_width="83dp"
                 android:layout_height="48dp"
                 android:text="登入"
@@ -88,7 +88,7 @@
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btn_register"
+                android:id="@+id/btn_register_function_menu"
                 android:layout_width="83dp"
                 android:layout_height="48dp"
                 android:layout_marginStart="54dp"
@@ -114,14 +114,14 @@
             android:layout_marginTop="28dp">
 
             <ImageView
-                android:id="@+id/iv_order"
+                android:id="@+id/iv_order_login"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
                 tools:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
-                android:id="@+id/tv_order"
+                android:id="@+id/tv_order_login"
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
@@ -138,14 +138,14 @@
             android:layout_marginTop="28dp">
 
             <ImageView
-                android:id="@+id/iv_daily_spin"
+                android:id="@+id/iv_daily_spin_login"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
                 tools:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
-                android:id="@+id/tv_daily_spin"
+                android:id="@+id/tv_daily_spin_login"
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
@@ -163,14 +163,14 @@
             android:layout_marginTop="28dp">
 
             <ImageView
-                android:id="@+id/idelivery"
+                android:id="@+id/idelivery_login"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
                 tools:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
-                android:id="@+id/tv_delivery"
+                android:id="@+id/tv_delivery_login"
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
@@ -188,14 +188,14 @@
             android:layout_marginTop="28dp">
 
             <ImageView
-                android:id="@+id/iv_customer_service"
+                android:id="@+id/iv_customer_service_login"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
                 tools:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
-                android:id="@+id/tv_customer_service"
+                android:id="@+id/tv_customer_service_login"
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
@@ -213,14 +213,14 @@
             android:layout_marginTop="28dp">
 
             <ImageView
-                android:id="@+id/iv_branch_info"
+                android:id="@+id/iv_branch_info_login"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
                 tools:srcCompat="@drawable/ic_launcher_background" />
 
             <TextView
-                android:id="@+id/tv_branch_info"
+                android:id="@+id/tv_branch_info_login"
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"

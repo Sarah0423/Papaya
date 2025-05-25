@@ -1,10 +1,12 @@
 package ppy.app.papaya;
 
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 用 LayoutInflater 把 function_menu.xml 塞進 container
         LayoutInflater inflater = LayoutInflater.from(this);
-        functionMenuView = inflater.inflate(R.layout.function_menu, functionMenuContainer, false);
+        functionMenuView = inflater.inflate(R.layout.login_function_menu, functionMenuContainer, false);
         functionMenuContainer.addView(functionMenuView);
         functionMenuContainer.setVisibility(View.GONE);
 
@@ -104,9 +106,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button btnRegister = functionMenuView.findViewById(R.id.btn_register_function_menu);
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Register.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
+    // 點擊外面會從function_menu回到主頁
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
@@ -120,5 +133,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.dispatchTouchEvent(ev);
     }
+
 
 }

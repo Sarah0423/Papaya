@@ -73,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@id/textMail" />
 
     <TextView
-        android:id="@+id/Textemail1"
+        android:id="@+id/tv_password_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -94,7 +94,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Textemail1" />
+        app:layout_constraintTop_toBottomOf="@id/tv_password_login" />
 
     <!-- 密碼 Text -->
     <TextView
@@ -196,7 +196,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword1" />
+        app:layout_constraintTop_toBottomOf="@+id/et_login_password" />
 
     <ImageButton
         android:id="@+id/imageButton2"

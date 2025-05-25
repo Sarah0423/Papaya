@@ -40,7 +40,7 @@ public class Register extends AppCompatActivity {
 
         FirebaseApp.initializeApp(this);
         mAuth = FirebaseAuth.getInstance();
-        editEmail = findViewById(R.id.editTextTextEmailAddress);
+        editEmail = findViewById(R.id.et_login_email);
         editPassword = findViewById(R.id.editTextPassword);
         btnRegister = findViewById(R.id.btn_register);
 
