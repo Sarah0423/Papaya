@@ -3431,6 +3431,7 @@ id forever
 id fragment_container_view_tag
 id frost
 id fullscreen_header
+id function_menu_container
 id ghost_view
 id ghost_view_holder
 id glide_custom_view_target_tag
@@ -3497,13 +3498,16 @@ id iv_chii_res
 id iv_chii_res2
 id iv_customer_service
 id iv_daily_spin
+id iv_delivery
 id iv_favorite
 id iv_order
+id iv_pro_img
 id iv_signout
 id iv_toast_item_img
 id iv_topbar
 id iv_usagi_cart
 id iv_user
+id iv_user_img
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -3641,7 +3645,6 @@ id pathRelative
 id peekHeight
 id percent
 id pin
-id pointBalance
 id position
 id postLayout
 id pressed
@@ -3800,6 +3803,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tv_balance
 id tv_bp_i_love_toast
 id tv_bp_mystery_toast
 id tv_bp_toast_killer
@@ -3852,9 +3856,11 @@ id tv_name
 id tv_order
 id tv_papaya
 id tv_pay
+id tv_pointBalance
 id tv_price_i_love_toast
 id tv_price_mystery_toast
 id tv_price_toast_killer
+id tv_pro
 id tv_signout
 id tv_toast_item_info
 id tv_toast_item_name
@@ -3864,6 +3870,7 @@ id tv_total
 id tv_unknown_i_love_toast
 id tv_unknown_mystery_toast
 id tv_unknown_toast_killer
+id tv_user_name
 id tv_verification_code
 id unchecked
 id uniform

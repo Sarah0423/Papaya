@@ -3430,6 +3430,7 @@ int id forever 0x7f080104
 int id fragment_container_view_tag 0x7f080105
 int id frost 0x7f080106
 int id fullscreen_header 0x7f080107
+int id function_menu_container 0x7f0802e0
 int id ghost_view 0x7f080108
 int id ghost_view_holder 0x7f080109
 int id glide_custom_view_target_tag 0x7f08010a
@@ -3496,13 +3497,16 @@ int id iv_chii_res 0x7f080146
 int id iv_chii_res2 0x7f080147
 int id iv_customer_service 0x7f080148
 int id iv_daily_spin 0x7f080149
+int id iv_delivery 0x7f0802d9
 int id iv_favorite 0x7f08014a
 int id iv_order 0x7f08014b
+int id iv_pro_img 0x7f0802da
 int id iv_signout 0x7f08014c
 int id iv_toast_item_img 0x7f08014d
 int id iv_topbar 0x7f08014e
 int id iv_usagi_cart 0x7f08014f
 int id iv_user 0x7f080150
+int id iv_user_img 0x7f0802db
 int id jumpToEnd 0x7f080151
 int id jumpToStart 0x7f080152
 int id labeled 0x7f080153
@@ -3640,7 +3644,6 @@ int id pathRelative 0x7f0801d6
 int id peekHeight 0x7f0801d7
 int id percent 0x7f0801d8
 int id pin 0x7f0801d9
-int id pointBalance 0x7f0801da
 int id position 0x7f0801db
 int id postLayout 0x7f0801dc
 int id pressed 0x7f0801dd
@@ -3799,6 +3802,7 @@ int id transition_position 0x7f080275
 int id transition_scene_layoutid_cache 0x7f080276
 int id transition_transform 0x7f080277
 int id triangle 0x7f080278
+int id tv_balance 0x7f0802dc
 int id tv_bp_i_love_toast 0x7f080279
 int id tv_bp_mystery_toast 0x7f08027a
 int id tv_bp_toast_killer 0x7f08027b
@@ -3851,9 +3855,11 @@ int id tv_name 0x7f0802a9
 int id tv_order 0x7f0802aa
 int id tv_papaya 0x7f0802ab
 int id tv_pay 0x7f0802ac
+int id tv_pointBalance 0x7f0802dd
 int id tv_price_i_love_toast 0x7f0802ad
 int id tv_price_mystery_toast 0x7f0802ae
 int id tv_price_toast_killer 0x7f0802af
+int id tv_pro 0x7f0802de
 int id tv_signout 0x7f0802b0
 int id tv_toast_item_info 0x7f0802b1
 int id tv_toast_item_name 0x7f0802b2
@@ -3863,6 +3869,7 @@ int id tv_total 0x7f0802b5
 int id tv_unknown_i_love_toast 0x7f0802b6
 int id tv_unknown_mystery_toast 0x7f0802b7
 int id tv_unknown_toast_killer 0x7f0802b8
+int id tv_user_name 0x7f0802df
 int id tv_verification_code 0x7f0802b9
 int id unchecked 0x7f0802ba
 int id uniform 0x7f0802bb

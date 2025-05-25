@@ -1,6 +1,10 @@
 package ppy.app.papaya;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -26,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<ToastItem> toastItemList;
     private ToastAdapter adapter;
+    private FrameLayout functionMenuContainer;
+    private View functionMenuView;
+    private ImageButton ibIndex;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +85,38 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
+        functionMenuContainer = findViewById(R.id.function_menu_container);
+        ibIndex = findViewById(R.id.ib_index);
+
+        // 用 LayoutInflater 把 function_menu.xml 塞進 container
+        LayoutInflater inflater = LayoutInflater.from(this);
+        functionMenuView = inflater.inflate(R.layout.function_menu, functionMenuContainer, false);
+        functionMenuContainer.addView(functionMenuView);
+        functionMenuContainer.setVisibility(View.GONE);
+
+        // 點 ib_index 顯示 function_menu
+        ibIndex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                functionMenuContainer.setVisibility(View.VISIBLE);
+            }
+        });
+
+        // 點 function_menu 外層區域隱藏（點背景時收起）
+        functionMenuContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                functionMenuContainer.setVisibility(View.GONE);
+            }
+        });
+
+        // 如果要點 function_menu 裡的內容時 **不要收起**
+        functionMenuView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 不做事，避免傳到外層收起
+            }
+        });
     }
 
 }
