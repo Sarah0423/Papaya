@@ -3040,6 +3040,7 @@ drawable cr36bff9500
 drawable cr5bffffff66
 drawable cr6bff6716
 drawable cr6bffffff
+drawable cut_user_img
 drawable design_fab_background
 drawable design_ic_visibility
 drawable design_ic_visibility_off
@@ -3313,7 +3314,6 @@ id buttonService
 id buttonSubmit
 id cache_measures
 id callMeasure
-id camera
 id cancel_button
 id carryVelocity
 id center
@@ -3449,6 +3449,7 @@ id homeAsUp
 id honorRequest
 id horizontal_only
 id hybrid
+id ib_choose_user_img
 id ib_index
 id ib_jcb
 id ib_master
@@ -3466,6 +3467,7 @@ id image
 id imageButton
 id imageButton10
 id imageButton11
+id imageButton12
 id imageButton13
 id imageButton2
 id imageButton3
@@ -3483,7 +3485,6 @@ id imageView5
 id imageView7
 id imageView8
 id imageView9
-id imageusagi
 id immediateStop
 id included
 id indeterminate
@@ -3498,6 +3499,7 @@ id iv_chii_res
 id iv_chii_res2
 id iv_customer_service
 id iv_customer_service_login
+id iv_cut_img
 id iv_daily_spin
 id iv_daily_spin_login
 id iv_delivery
@@ -3513,6 +3515,7 @@ id iv_usagi_cart
 id iv_user
 id iv_user_img
 id iv_user_img_login
+id iv_user_register_img
 id jumpToEnd
 id jumpToStart
 id labeled
@@ -4033,6 +4036,7 @@ layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout buy_pro
 layout checkout_cart
+layout choose_user_img
 layout custom_dialog
 layout customer_service
 layout daily_spin

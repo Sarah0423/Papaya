@@ -21,18 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageusagi"
-        android:layout_width="98dp"
-        android:layout_height="111dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="40dp"
-        android:src="@mipmap/user_usagi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textMail"
         android:layout_width="wrap_content"
@@ -42,7 +30,7 @@
         android:text="名稱"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageusagi" />
+        app:layout_constraintTop_toBottomOf="@id/iv_user_register_img" />
 
     <!-- 手機號碼 Text -->
     <EditText
@@ -153,16 +141,42 @@
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/camera"
+        android:id="@+id/iv_user_register_img"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="40dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/login_usagi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_cut_img"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_user_register_img"
+        app:layout_constraintEnd_toEndOf="@+id/iv_user_register_img"
+        app:layout_constraintStart_toStartOf="@+id/iv_user_register_img"
+        app:layout_constraintTop_toTopOf="@+id/iv_user_register_img"
+        app:srcCompat="@drawable/cut_user_img" />
+
+    <ImageButton
+        android:id="@+id/ib_choose_user_img"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="41dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/camera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.022"
-        app:layout_constraintStart_toStartOf="@+id/imageusagi"
-        app:layout_constraintTop_toTopOf="@+id/imageusagi"
-        app:srcCompat="@mipmap/camera" />
+        app:layout_constraintStart_toStartOf="@+id/iv_user_register_img"
+        app:layout_constraintTop_toTopOf="@+id/iv_user_register_img" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
