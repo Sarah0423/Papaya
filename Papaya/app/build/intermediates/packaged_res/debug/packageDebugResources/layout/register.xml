@@ -37,6 +37,7 @@
         android:id="@+id/textMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="名稱"
         android:textSize="16sp"
@@ -45,17 +46,17 @@
 
     <!-- 手機號碼 Text -->
     <EditText
-        android:id="@+id/editTextMail"
+        android:id="@+id/editTextName"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="21dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/cr12be8f4d9"
         android:backgroundTint="#D0F5C9"
         android:hint="   請輸入名稱"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textMail"
         app:layout_constraintTop_toBottomOf="@id/textMail" />
 
     <TextView
@@ -65,8 +66,8 @@
         android:layout_marginTop="31dp"
         android:text="電子郵件"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextMail" />
+        app:layout_constraintStart_toStartOf="@+id/textMail"
+        app:layout_constraintTop_toBottomOf="@id/editTextName" />
 
 
     <EditText
@@ -78,8 +79,8 @@
         android:backgroundTint="#FAD1D1"
         android:hint="   請輸入電子郵件"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextName"
+        app:layout_constraintStart_toStartOf="@+id/editTextName"
         app:layout_constraintTop_toBottomOf="@id/tv_email_login" />
 
     <!-- 密碼 Text -->
@@ -90,7 +91,7 @@
         android:layout_marginTop="31dp"
         android:text="密碼"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textMail"
         app:layout_constraintTop_toBottomOf="@id/et_login_email" />
 
     <!-- 密碼 EditText -->
@@ -103,8 +104,8 @@
         android:hint="   請輸入密碼"
         android:inputType="textPassword"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/et_login_email"
+        app:layout_constraintStart_toStartOf="@+id/et_login_email"
         app:layout_constraintTop_toBottomOf="@id/textPassword" />
 
     <!-- 確認密碼 Text -->
@@ -115,7 +116,7 @@
         android:layout_marginTop="31dp"
         android:text="確認密碼"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textPassword"
         app:layout_constraintTop_toBottomOf="@id/editTextPassword" />
 
     <!-- 確認密碼 EditText -->
@@ -129,8 +130,8 @@
         android:hint="   請再次輸入密碼"
         android:inputType="textPassword"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
+        app:layout_constraintStart_toStartOf="@+id/editTextPassword"
         app:layout_constraintTop_toBottomOf="@id/textConfirmPassword" />
 
     <!-- 註冊 Button -->

@@ -3390,7 +3390,7 @@ int id edge 0x7f0800dc
 int id editTextConfirmAdd 0x7f0800dd
 int id editTextConfirmPassword 0x7f0800de
 int id editTextDetail 0x7f0800df
-int id editTextMail 0x7f0800e0
+int id editTextName 0x7f0802f5
 int id editTextPassword 0x7f0800e1
 int id editTextTextEmailAddress1 0x7f0800e4
 int id editTextTextMultiLine 0x7f0800e5

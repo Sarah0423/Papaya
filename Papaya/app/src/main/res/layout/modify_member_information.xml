@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@id/imageusagi" />
 
     <EditText
-        android:id="@+id/editTextMail"
+        android:id="@+id/editTextName"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
@@ -80,7 +80,7 @@
         android:text="電子郵件"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextMail" />
+        app:layout_constraintTop_toBottomOf="@id/editTextName" />
 
     <!-- 手機號碼 EditText -->
     <EditText

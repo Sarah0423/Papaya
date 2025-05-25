@@ -93,7 +93,7 @@ id constraintLayout
 id editTextConfirmAdd
 id editTextConfirmPassword
 id editTextDetail
-id editTextMail
+id editTextName
 id editTextPassword
 id editTextTextEmailAddress1
 id editTextTextMultiLine

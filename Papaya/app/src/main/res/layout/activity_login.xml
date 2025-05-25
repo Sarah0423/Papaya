@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?android:attr/colorActivatedHighlight"
@@ -22,42 +23,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/arrow_og" />
 
-    <ImageView
-        android:id="@+id/imageusagi"
-        android:layout_width="98dp"
-        android:layout_height="111dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="40dp"
-        android:src="@mipmap/user_usagi"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <ImageView
-        android:id="@+id/camera"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="68dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.022"
-        app:layout_constraintStart_toStartOf="@+id/imageusagi"
-        app:layout_constraintTop_toTopOf="@+id/imageusagi"
-        app:srcCompat="@mipmap/camera" />
-
 
     <TextView
         android:id="@+id/tv_email_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
         android:text="電子郵件"
         android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageusagi" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton" />
 
 
     <EditText
@@ -65,14 +42,14 @@
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:layout_marginTop="15dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/cr12be8f4d9"
         android:backgroundTint="#D0F5C9"
         android:hint="   xxx@gmail.com"
         android:textColor="#000000"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_email_login"
         app:layout_constraintTop_toBottomOf="@id/tv_email_login" />
 
     <TextView
@@ -83,7 +60,7 @@
         android:text="密碼"
         android:textColor="#000000"
         android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_email_login"
         app:layout_constraintTop_toBottomOf="@+id/et_login_email" />
 
     <!-- 手機號碼 EditText -->
@@ -95,8 +72,8 @@
         android:background="@drawable/cr12bfff5cc"
         android:hint="   ********"
         android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/et_login_email"
+        app:layout_constraintStart_toStartOf="@+id/et_login_email"
         app:layout_constraintTop_toBottomOf="@id/tv_password_login" />
 
     <com.google.android.material.button.MaterialButton
@@ -121,9 +98,7 @@
         android:layout_marginTop="12dp"
         android:text="忘記密碼?"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/et_login_password"
         app:layout_constraintTop_toBottomOf="@+id/et_login_password" />
 
 
