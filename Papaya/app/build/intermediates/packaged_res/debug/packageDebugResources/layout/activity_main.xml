@@ -285,10 +285,4 @@
         app:tabTextColor="#3E404A"
         tools:layout_editor_absoluteX="0dp" />
 
-    <include
-        android:id="@+id/function_menu"
-        layout="@layout/function_menu"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

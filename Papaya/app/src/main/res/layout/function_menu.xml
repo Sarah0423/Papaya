@@ -28,7 +28,7 @@
             android:layout_marginTop="14dp">
 
             <ImageView
-                android:id="@+id/userAvatar"
+                android:id="@+id/iv_user_img"
                 android:layout_width="67dp"
                 android:layout_height="67dp"
                 android:layout_gravity="center_horizontal"
@@ -36,7 +36,7 @@
                 android:src="@mipmap/user_usagi" />
 
             <TextView
-                android:id="@+id/userName"
+                android:id="@+id/tv_user_name"
                 android:layout_width="64dp"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
@@ -55,14 +55,14 @@
             android:layout_marginTop="28dp">
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/iv_pro_img"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
                 app:srcCompat="@mipmap/crown" />
 
             <TextView
-                android:id="@+id/promoText"
+                android:id="@+id/tv_pro"
                 android:layout_width="176dp"
                 android:layout_height="52dp"
                 android:layout_gravity="center"
@@ -79,14 +79,14 @@
             android:layout_marginTop="28dp">
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tv_balance"
                 android:layout_width="65dp"
                 android:layout_height="21dp"
                 android:text="帳戶餘額"
                 android:textSize="16dp" />
 
             <TextView
-                android:id="@+id/pointBalance"
+                android:id="@+id/tv_pointBalance"
                 android:layout_width="98dp"
                 android:layout_height="27dp"
                 android:layout_gravity="center_horizontal"
@@ -163,7 +163,7 @@
             android:layout_marginTop="28dp">
 
             <ImageView
-                android:id="@+id/idelivery"
+                android:id="@+id/iv_delivery"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
