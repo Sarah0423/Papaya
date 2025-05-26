@@ -37,8 +37,6 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout functionMenuContainer;
     private View functionMenuView;
     private ImageButton ibIndex;
-    private LinearLayout linearBranch;
-    private LinearLayout linearBranchLogin;
 
 
 
@@ -135,7 +133,25 @@ public class MainActivity extends AppCompatActivity {
             functionMenuContainer.setVisibility(View.VISIBLE);
         }
 
-        View functionMenuView = getLayoutInflater().inflate(R.layout.function_menu, null);
+        LinearLayout linearOrderLogin = functionMenuView.findViewById(R.id.order_login_layout);
+        linearOrderLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Login.class);
+                startActivity(intent);
+            }
+        });
+
+        LinearLayout linearBranchLogin = functionMenuView.findViewById(R.id.branch_login_layout);
+        linearBranchLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Branch_info.class);
+                startActivity(intent);
+            }
+        });
+
+        /*View functionMenuView = getLayoutInflater().inflate(R.layout.function_menu, null);
         LinearLayout linearBranch = functionMenuView.findViewById(R.id.branch_layout);
         linearBranch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -144,18 +160,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, Branch_info.class);
                 startActivity(intent);
             }
-        });
+        });*/
 
-        View functionMenuLoginView = getLayoutInflater().inflate(R.layout.login_function_menu, null);
-        LinearLayout linearBranchLogin = functionMenuLoginView.findViewById(R.id.branch_login_layout);
-        linearBranchLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "點擊了，準備跳轉", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, Branch_info.class);
-                startActivity(intent);
-            }
-        });
+
 
 
     }
