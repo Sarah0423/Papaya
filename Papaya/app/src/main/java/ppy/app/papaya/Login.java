@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -79,6 +80,18 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Login.this, MainActivity.class);
                 intent.putExtra("SHOW_FUNCTION_MENU", true);
+                startActivity(intent);
+
+            }
+        });
+
+
+        TextView btnLogSignin = findViewById(R.id.btn_login_signin);
+        btnLogSignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, Register.class);
+
                 startActivity(intent);
 
             }

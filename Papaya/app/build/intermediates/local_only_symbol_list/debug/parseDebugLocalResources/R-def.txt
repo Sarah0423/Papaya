@@ -68,6 +68,7 @@ id btn_hsinchu
 id btn_hualian
 id btn_kaohsiung
 id btn_login
+id btn_login_signin
 id btn_nantou
 id btn_newtaipei
 id btn_pingtung

@@ -3291,6 +3291,7 @@ int id btn_hsinchu 0x7f080074
 int id btn_hualian 0x7f080075
 int id btn_kaohsiung 0x7f080076
 int id btn_login 0x7f080077
+int id btn_login_signin 0x7f0802fe
 int id btn_nantou 0x7f080078
 int id btn_newtaipei 0x7f080079
 int id btn_pingtung 0x7f08007a
