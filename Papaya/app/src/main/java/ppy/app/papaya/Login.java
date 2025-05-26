@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -26,6 +27,7 @@ public class Login extends AppCompatActivity {
     private EditText etEmail;
     private EditText etPassword;
     private Button btnLogin;
+    private ImageButton btnReturn;
     private FirebaseAuth mAuth;
 
     @Override
@@ -45,6 +47,7 @@ public class Login extends AppCompatActivity {
         etEmail = findViewById(R.id.et_login_email);
         etPassword = findViewById(R.id.et_login_password);
         btnLogin = findViewById(R.id.btn_login);
+        btnReturn= findViewById(R.id.btn_return);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,5 +72,18 @@ public class Login extends AppCompatActivity {
                         });
             }
         });
+
+
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, MainActivity.class);
+                intent.putExtra("SHOW_FUNCTION_MENU", true);
+                startActivity(intent);
+
+            }
+        });
+
+
     }
 }

@@ -3269,6 +3269,8 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id branch_layout
+id branch_login_layout
 id browser_actions_header_text
 id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
@@ -3291,6 +3293,7 @@ id btn_newtaipei
 id btn_pingtung
 id btn_register
 id btn_register_function_menu
+id btn_return
 id btn_signin_function_menu
 id btn_taichung
 id btn_tainan
@@ -3468,7 +3471,6 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageButton
 id imageButton10
 id imageButton11
 id imageButton13
@@ -4032,9 +4034,9 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_branch_info
 layout activity_login
 layout activity_main
-layout branch_information
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
 layout buy_pro

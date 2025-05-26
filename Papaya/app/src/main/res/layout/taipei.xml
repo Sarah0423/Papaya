@@ -17,7 +17,7 @@
         tools:srcCompat="@drawable/cr12bff9500" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btn_return"
         android:layout_width="98dp"
         android:layout_height="65dp"
         android:adjustViewBounds="true"

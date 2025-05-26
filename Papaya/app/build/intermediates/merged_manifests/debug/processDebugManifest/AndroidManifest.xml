@@ -44,6 +44,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.Papaya" >
         <activity
+            android:name="ppy.app.papaya.Branch_info"
+            android:exported="false" />
+        <activity
             android:name="ppy.app.papaya.Login"
             android:exported="false" />
         <activity

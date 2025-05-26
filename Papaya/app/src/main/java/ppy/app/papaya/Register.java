@@ -33,6 +33,7 @@ public class Register extends AppCompatActivity {
 
     private EditText editName, editEmail, editPassword, editConfirmPassword;
     private Button btnRegister;
+    private ImageButton btnReturn;
     private FirebaseAuth mAuth;
     private ImageView ivUserRegisterImg;
     private String selectedAvatarName = "login_usagi"; // 預設值
@@ -58,6 +59,7 @@ public class Register extends AppCompatActivity {
         editConfirmPassword = findViewById(R.id.editTextConfirmPassword);
         ivUserRegisterImg = findViewById(R.id.iv_user_register_img);
         ImageButton ibChooseUserImg = findViewById(R.id.ib_choose_user_img);
+        btnReturn= findViewById(R.id.btn_return);
 
         ibChooseUserImg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +120,20 @@ public class Register extends AppCompatActivity {
             }
         });
 
+
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Register.this, MainActivity.class);
+                intent.putExtra("SHOW_FUNCTION_MENU", true);
+                startActivity(intent);
+
+            }
+        });
+
     }
+
+
     private void openChooseAvatarDialog() {
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.choose_user_img);

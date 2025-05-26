@@ -206,11 +206,15 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/branch_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground"
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_branch_info"
@@ -224,8 +228,8 @@
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="分店資訊"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>

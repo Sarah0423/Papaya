@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:2:1-35:12
-INJECTED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:2:1-35:12
+ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:2:1-38:12
+INJECTED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:2:1-38:12
 MERGED from [com.github.bumptech.glide:glide:4.16.0] C:\Users\User\.gradle\caches\8.10.2\transforms\ed925bb749151e4aea84b6aeacaa3b50\transformed\glide-4.16.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-maps:19.2.0] C:\Users\User\.gradle\caches\8.10.2\transforms\039de6f4ef83b1e90bcb8c1eaf02d574\transformed\play-services-maps-19.2.0\AndroidManifest.xml:16:1-35:12
 MERGED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\User\.gradle\caches\8.10.2\transforms\373a65e31b3d47a9ced7cf956347387b\transformed\firebase-auth-23.2.0\AndroidManifest.xml:17:1-75:12
@@ -87,8 +87,8 @@ MERGED from [com.google.android.play:core-common:2.0.3] C:\Users\User\.gradle\ca
 	xmlns:android
 		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:5:5-33:19
-INJECTED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:5:5-33:19
+ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:5:5-36:19
+INJECTED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:5:5-36:19
 MERGED from [com.google.android.gms:play-services-maps:19.2.0] C:\Users\User\.gradle\caches\8.10.2\transforms\039de6f4ef83b1e90bcb8c1eaf02d574\transformed\play-services-maps-19.2.0\AndroidManifest.xml:31:5-34:19
 MERGED from [com.google.android.gms:play-services-maps:19.2.0] C:\Users\User\.gradle\caches\8.10.2\transforms\039de6f4ef83b1e90bcb8c1eaf02d574\transformed\play-services-maps-19.2.0\AndroidManifest.xml:31:5-34:19
 MERGED from [com.google.firebase:firebase-auth:23.2.0] C:\Users\User\.gradle\caches\8.10.2\transforms\373a65e31b3d47a9ced7cf956347387b\transformed\firebase-auth-23.2.0\AndroidManifest.xml:28:5-73:19
@@ -161,40 +161,46 @@ MERGED from [com.google.android.play:core-common:2.0.3] C:\Users\User\.gradle\ca
 		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:13:9-44
 	android:dataExtractionRules
 		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:7:9-65
-activity#ppy.app.papaya.Login
+activity#ppy.app.papaya.Branch_info
 ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:15:9-17:40
 	android:exported
 		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:17:13-37
 	android:name
-		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:16:13-34
-activity#ppy.app.papaya.Register
+		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:16:13-40
+activity#ppy.app.papaya.Login
 ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:18:9-20:40
 	android:exported
 		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:20:13-37
 	android:name
-		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:19:13-37
-activity#ppy.app.papaya.TaipeiMap
+		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:19:13-34
+activity#ppy.app.papaya.Register
 ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:21:9-23:40
 	android:exported
 		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:23:13-37
 	android:name
-		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:22:13-38
-activity#ppy.app.papaya.MainActivity
-ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:24:9-32:20
+		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:22:13-37
+activity#ppy.app.papaya.TaipeiMap
+ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:24:9-26:40
 	android:exported
-		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:26:13-36
+		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:26:13-37
 	android:name
-		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:25:13-41
+		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:25:13-38
+activity#ppy.app.papaya.MainActivity
+ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:27:9-35:20
+	android:exported
+		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:29:13-36
+	android:name
+		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:28:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:27:13-31:29
+ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:30:13-34:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:28:17-69
+ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:31:17-69
 	android:name
-		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:28:25-66
+		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:31:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:30:17-77
+ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:33:17-77
 	android:name
-		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:30:27-74
+		ADDED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml:33:27-74
 uses-sdk
 INJECTED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\User\Papaya\Papaya\app\src\main\AndroidManifest.xml

@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/cr12bff9500" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btn_return"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
@@ -211,7 +211,7 @@
         android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.963"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/btn_return"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -50,6 +50,8 @@ drawable sffa500sw1cr43bfff4ed4d
 drawable sffaa2bsw1cr10bffffff
 drawable tab_selector
 id TPmapView
+id branch_layout
+id branch_login_layout
 id btn_add
 id btn_add_i_love_toast
 id btn_add_mystery_toast
@@ -67,6 +69,7 @@ id btn_newtaipei
 id btn_pingtung
 id btn_register
 id btn_register_function_menu
+id btn_return
 id btn_signin_function_menu
 id btn_taichung
 id btn_tainan
@@ -117,7 +120,6 @@ id ib_unknown_user_img
 id ib_usagi_user_img
 id ib_visa
 id idelivery_login
-id imageButton
 id imageButton10
 id imageButton11
 id imageButton13
@@ -285,9 +287,9 @@ id tv_user_name_login
 id tv_verification_code
 id v_down
 id v_up
+layout activity_branch_info
 layout activity_login
 layout activity_main
-layout branch_information
 layout buy_pro
 layout checkout_cart
 layout choose_user_img

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -24,7 +25,6 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout functionMenuContainer;
     private View functionMenuView;
     private ImageButton ibIndex;
+    private LinearLayout linearBranch;
+    private LinearLayout linearBranchLogin;
+
 
 
     @Override
@@ -116,6 +119,44 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button btnSignin = functionMenuView.findViewById(R.id.btn_signin_function_menu);
+
+        btnSignin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Login.class);
+                startActivity(intent);
+            }
+        });
+
+
+        boolean showFunctionMenu = getIntent().getBooleanExtra("SHOW_FUNCTION_MENU", false);
+        if (showFunctionMenu) {
+            functionMenuContainer.setVisibility(View.VISIBLE);
+        }
+
+        View functionMenuView = getLayoutInflater().inflate(R.layout.function_menu, null);
+        LinearLayout linearBranch = functionMenuView.findViewById(R.id.branch_layout);
+        linearBranch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "點擊了，準備跳轉", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Branch_info.class);
+                startActivity(intent);
+            }
+        });
+
+        View functionMenuLoginView = getLayoutInflater().inflate(R.layout.login_function_menu, null);
+        LinearLayout linearBranchLogin = functionMenuLoginView.findViewById(R.id.branch_login_layout);
+        linearBranchLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "點擊了，準備跳轉", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(MainActivity.this, Branch_info.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -133,6 +174,9 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.dispatchTouchEvent(ev);
     }
+
+
+
 
 
 }
