@@ -177,7 +177,7 @@
 
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_forget_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -198,7 +198,7 @@
         android:text="Sauce"
         android:textColorLink="#24262F"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_forget_password" />
 
     <TextView
         android:id="@+id/textView4"

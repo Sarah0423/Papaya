@@ -3,6 +3,7 @@ local
 color black
 color white
 drawable add_num_circle
+drawable branch_info
 drawable cr12b19c4e9
 drawable cr12b4cd96433
 drawable cr12be8f4d9
@@ -25,17 +26,22 @@ drawable cr36bff9500
 drawable cr5bffffff66
 drawable cr6bff6716
 drawable cr6bffffff
+drawable customer_service
 drawable cut_user_img
+drawable delivery
 drawable dots
+drawable favorite
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable index
 drawable linear_circle
 drawable location
+drawable logout
 drawable lr270fc5c2efe7121
 drawable lr270ffffff00ffffff
 drawable main_topbar
 drawable moon
+drawable order
 drawable phone
 drawable pro_info_boarder_color1
 drawable pro_info_boarder_color2
@@ -68,7 +74,6 @@ id btn_hsinchu
 id btn_hualian
 id btn_kaohsiung
 id btn_login
-id btn_login_signin
 id btn_nantou
 id btn_newtaipei
 id btn_pingtung
@@ -115,6 +120,7 @@ id et_login_email
 id et_login_password
 id et_name
 id et_tv_verification_code
+id frameLayout
 id function_menu_container
 id ib_chii_user_img
 id ib_choose_user_img
@@ -218,11 +224,9 @@ id textPassword
 id textPhoneNumber
 id textProblemType
 id textView
-id textView2
 id textView3
 id textView4
 id textView6
-id textView9
 id tv_address
 id tv_balance
 id tv_bp_i_love_toast
@@ -231,6 +235,7 @@ id tv_bp_toast_killer
 id tv_branch_info
 id tv_branch_info_address
 id tv_branch_info_login
+id tv_branch_info_name
 id tv_branch_info_tel
 id tv_card_num
 id tv_choose
@@ -253,6 +258,7 @@ id tv_ds_mystery_toast
 id tv_ds_toast_killer
 id tv_email_login
 id tv_favorite
+id tv_forget_password
 id tv_i_love_toast
 id tv_item_num
 id tv_list1_i_love_toast
@@ -270,6 +276,7 @@ id tv_list4_toast_killer
 id tv_list5_i_love_toast
 id tv_list5_mystery_toast
 id tv_list5_toast_killer
+id tv_login_signin
 id tv_mo_i_love_toast
 id tv_mo_mystery_toast
 id tv_mo_toast_killer
@@ -319,12 +326,12 @@ layout daily_spin
 layout delivery_information
 layout function_menu
 layout item_toast
+layout location_info
 layout login_function_menu
 layout login_pro_info
 layout modify_member_information
 layout pro_info
 layout register
-layout taipei
 layout white_toast
 mipmap arrow
 mipmap arrow_og

@@ -43,6 +43,10 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Papaya" >
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDbXIcgrNpplICHpMYg2XfDPDuNeD6A1YY" />
+
         <activity
             android:name="ppy.app.papaya.Branch_info"
             android:exported="false" />
@@ -53,7 +57,7 @@
             android:name="ppy.app.papaya.Register"
             android:exported="false" />
         <activity
-            android:name="ppy.app.papaya.TaipeiMap"
+            android:name="ppy.app.papaya.LocationInfo"
             android:exported="false" />
         <activity
             android:name="ppy.app.papaya.MainActivity"
@@ -64,6 +68,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!-- Needs to be explicitly declared on P+ -->
         <uses-library
             android:name="org.apache.http.legacy"

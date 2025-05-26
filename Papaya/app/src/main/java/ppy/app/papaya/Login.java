@@ -1,6 +1,7 @@
 package ppy.app.papaya;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,8 @@ public class Login extends AppCompatActivity {
     private Button btnLogin;
     private ImageButton btnReturn;
     private FirebaseAuth mAuth;
+    private TextView tvForgetPassword;
+    private TextView tvLoginSignin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +52,11 @@ public class Login extends AppCompatActivity {
         etPassword = findViewById(R.id.et_login_password);
         btnLogin = findViewById(R.id.btn_login);
         btnReturn= findViewById(R.id.btn_return);
+
+        tvForgetPassword = findViewById(R.id.tv_forget_password);
+        tvLoginSignin = findViewById(R.id.tv_login_signin);
+        tvForgetPassword.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
+        tvLoginSignin.setPaintFlags(Paint.UNDERLINE_TEXT_FLAG);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +94,7 @@ public class Login extends AppCompatActivity {
         });
 
 
-        TextView btnLogSignin = findViewById(R.id.btn_login_signin);
+        TextView btnLogSignin = findViewById(R.id.tv_login_signin);
         btnLogSignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

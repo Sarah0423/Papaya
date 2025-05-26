@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Papaya"
         tools:targetApi="31">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDbXIcgrNpplICHpMYg2XfDPDuNeD6A1YY" />
+
         <activity
             android:name=".Branch_info"
             android:exported="false" />
@@ -22,7 +27,7 @@
             android:name=".Register"
             android:exported="false" />
         <activity
-            android:name=".TaipeiMap"
+            android:name=".LocationInfo"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -33,6 +38,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

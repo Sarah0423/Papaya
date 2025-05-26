@@ -42,7 +42,7 @@
         </FrameLayout>
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/tv_branch_info_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
@@ -104,6 +104,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="4dp"
+                        android:clickable="true"
                         android:text="(02) 2501-1234"
                         android:textSize="15sp" />
                 </LinearLayout>
