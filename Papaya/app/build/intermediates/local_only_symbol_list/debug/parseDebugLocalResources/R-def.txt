@@ -93,6 +93,9 @@ id buttonSubmit
 id checkBox
 id circularImageView
 id constraintLayout
+id customer_service_login_layout
+id daily_spin_layout
+id delivery_login_layout
 id editTextConfirmAdd
 id editTextConfirmPassword
 id editTextDetail

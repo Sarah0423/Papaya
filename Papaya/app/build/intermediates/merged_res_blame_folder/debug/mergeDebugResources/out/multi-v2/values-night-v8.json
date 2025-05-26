@@ -4,25 +4,6 @@
             "outputFile": "ppy.app.papaya.app-mergeDebugResources-41:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\User\\Papaya\\Papaya\\app\\src\\main\\res\\values-night\\themes.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "102",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "318"
-                    },
-                    "to": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "164"
-                    }
-                },
-                {
                     "source": "C:\\Users\\User\\.gradle\\caches\\8.10.2\\transforms\\927a807239b8177001975b57dbfafddd\\transformed\\appcompat-1.6.1\\res\\values-night-v8\\values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
@@ -54,6 +35,25 @@
                         "startOffsets": "801,876,987,1076,1177,1284,1391,1490,1597,1700,1788,1912,2014,2116,2232,2334,2448,2576,2692,2814,2950,3070,3204,3324,3436,3651,3768,3892,4022,4144,4282,4416,4532",
                         "endColumns": "74,110,88,100,106,106,98,106,102,87,123,101,101,115,101,113,127,115,121,135,119,133,119,111,125,116,123,129,121,137,133,115,119",
                         "endOffsets": "871,982,1071,1172,1279,1386,1485,1592,1695,1783,1907,2009,2111,2227,2329,2443,2571,2687,2809,2945,3065,3199,3319,3431,3557,3763,3887,4017,4139,4277,4411,4527,4647"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\User\\Downloads\\Papaya\\Papaya\\app\\src\\main\\res\\values-night\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "102",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "318"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "164"
                     }
                 }
             ]

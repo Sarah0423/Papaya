@@ -224,12 +224,12 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\ppy4.jpg"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_branch_info.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_branch_info.xml"
-    },
-    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_bigkuri.jpg.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\bigkuri.jpg"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_branch_info.xml.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_branch_info.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_cr20bff9500.xml.flat",
@@ -506,10 +506,6 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-anydpi_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-anydpi\\ic_launcher_round.xml"
-    },
-    {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_branch_information.xml.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\branch_information.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy8.jpg.flat",

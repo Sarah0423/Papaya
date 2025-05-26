@@ -151,6 +151,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        LinearLayout linearDailyLogin = functionMenuView.findViewById(R.id.daily_spin_layout);
+        linearDailyLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Login.class);
+                startActivity(intent);
+            }
+        });
+
+        LinearLayout linearDeliveryLogin = functionMenuView.findViewById(R.id.delivery_login_layout);
+        linearDeliveryLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Login.class);
+                startActivity(intent);
+            }
+        });
+
+
+        LinearLayout linearCustomerServiceLogin = functionMenuView.findViewById(R.id.customer_service_login_layout);
+        linearCustomerServiceLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Login.class);
+                startActivity(intent);
+            }
+        });
+
+
         /*View functionMenuView = getLayoutInflater().inflate(R.layout.function_menu, null);
         LinearLayout linearBranch = functionMenuView.findViewById(R.id.branch_layout);
         linearBranch.setOnClickListener(new View.OnClickListener() {
