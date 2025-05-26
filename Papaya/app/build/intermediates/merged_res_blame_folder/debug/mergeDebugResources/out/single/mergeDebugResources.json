@@ -16,12 +16,12 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\cr27b24262f.xml"
     },
     {
-        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy1.jpg.flat",
-        "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\ppy1.jpg"
-    },
-    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_cr18bffffff.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\cr18bffffff.xml"
+    },
+    {
+        "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy1.jpg.flat",
+        "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\ppy1.jpg"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_cut_user_img.xml.flat",
@@ -82,6 +82,10 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_french_toast.jpg.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\french_toast.jpg"
+    },
+    {
+        "merged": "ppy.app.papaya.app-debug-43:/drawable_location.xml.flat",
+        "source": "ppy.app.papaya.app-main-45:/drawable/location.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_login_pro_info.xml.flat",
@@ -172,6 +176,10 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\user_chii.jpg"
     },
     {
+        "merged": "ppy.app.papaya.app-debug-43:/drawable_phone.xml.flat",
+        "source": "ppy.app.papaya.app-main-45:/drawable/phone.xml"
+    },
+    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy7.jpg.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\ppy7.jpg"
     },
@@ -194,6 +202,10 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_s000000sw1cr8bffffff.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\s000000sw1cr8bffffff.xml"
+    },
+    {
+        "merged": "ppy.app.papaya.app-debug-43:/layout_branches.xml.flat",
+        "source": "ppy.app.papaya.app-main-45:/layout/branches.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy12.jpg.flat",
@@ -368,10 +380,6 @@
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\cr18bffaa2b.xml"
     },
     {
-        "merged": "ppy.app.papaya.app-debug-43:/layout_login_function_menu.xml.flat",
-        "source": "ppy.app.papaya.app-main-45:/layout/login_function_menu.xml"
-    },
-    {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_s975101sw1cr8bffa941.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\s975101sw1cr8bffa941.xml"
     },
@@ -390,6 +398,10 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "ppy.app.papaya.app-debug-43:/drawable_moon.xml.flat",
+        "source": "ppy.app.papaya.app-main-45:/drawable/moon.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy6.jpg.flat",
@@ -450,6 +462,10 @@
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_delivery_information.xml.flat",
         "source": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\delivery_information.xml"
+    },
+    {
+        "merged": "ppy.app.papaya.app-debug-43:/drawable_dots.xml.flat",
+        "source": "ppy.app.papaya.app-main-45:/drawable/dots.xml"
     },
     {
         "merged": "C:\\Users\\User\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_sf5f2efsw1cr5bffffff.xml.flat",

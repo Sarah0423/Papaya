@@ -3045,6 +3045,7 @@ int drawable design_ic_visibility 0x7f0700ae
 int drawable design_ic_visibility_off 0x7f0700af
 int drawable design_password_eye 0x7f0700b0
 int drawable design_snackbar_background 0x7f0700b1
+int drawable dots 0x7f07012c
 int drawable googleg_disabled_color_18 0x7f0700b2
 int drawable googleg_standard_color_18 0x7f0700b3
 int drawable ic_arrow_back_black_24 0x7f0700b4
@@ -3072,6 +3073,7 @@ int drawable ic_password 0x7f0700c9
 int drawable ic_search_black_24 0x7f0700ca
 int drawable index 0x7f0700cb
 int drawable linear_circle 0x7f0700cc
+int drawable location 0x7f07012d
 int drawable lr270fc5c2efe7121 0x7f0700cd
 int drawable lr270ffffff00ffffff 0x7f0700ce
 int drawable m3_appbar_background 0x7f0700cf
@@ -3097,6 +3099,7 @@ int drawable material_ic_keyboard_arrow_previous_black_24dp 0x7f0700e2
 int drawable material_ic_keyboard_arrow_right_black_24dp 0x7f0700e3
 int drawable material_ic_menu_arrow_down_black_24dp 0x7f0700e4
 int drawable material_ic_menu_arrow_up_black_24dp 0x7f0700e5
+int drawable moon 0x7f07012e
 int drawable mtrl_bottomsheet_drag_handle 0x7f0700e6
 int drawable mtrl_checkbox_button 0x7f0700e7
 int drawable mtrl_checkbox_button_checked_unchecked 0x7f0700e8
@@ -3148,6 +3151,7 @@ int drawable notification_template_icon_bg 0x7f070115
 int drawable notification_template_icon_low_bg 0x7f070116
 int drawable notification_tile_bg 0x7f070117
 int drawable notify_panel_notification_icon_bg 0x7f070118
+int drawable phone 0x7f07012f
 int drawable pro_info_boarder_color1 0x7f070119
 int drawable pro_info_boarder_color2 0x7f07011a
 int drawable pro_info_button_color1 0x7f07011b
@@ -3486,9 +3490,13 @@ int id imageButton8 0x7f080138
 int id imageButton9 0x7f080139
 int id imagePhone 0x7f08013a
 int id imageView 0x7f08013b
+int id imageView10 0x7f0802f3
+int id imageView11 0x7f0802f4
+int id imageView12 0x7f0802f5
 int id imageView2 0x7f08013c
 int id imageView3 0x7f08013d
 int id imageView5 0x7f08013e
+int id imageView6 0x7f0802f6
 int id imageView7 0x7f08013f
 int id imageView8 0x7f080140
 int id imageView9 0x7f080141
@@ -3501,6 +3509,7 @@ int id inward 0x7f080147
 int id italic 0x7f080148
 int id item_touch_helper_previous_elevation 0x7f080149
 int id iv_branch_info 0x7f08014a
+int id iv_branch_info_img 0x7f0802f7
 int id iv_branch_info_login 0x7f08014b
 int id iv_chii_res 0x7f08014c
 int id iv_chii_res2 0x7f08014d
@@ -3510,6 +3519,7 @@ int id iv_cut_img 0x7f080150
 int id iv_daily_spin 0x7f080151
 int id iv_daily_spin_login 0x7f080152
 int id iv_delivery 0x7f080153
+int id iv_dots 0x7f0802f8
 int id iv_favorite 0x7f080154
 int id iv_order 0x7f080155
 int id iv_order_login 0x7f080156
@@ -3792,6 +3802,7 @@ int id textView2 0x7f08026a
 int id textView3 0x7f08026b
 int id textView4 0x7f08026c
 int id textView6 0x7f08026d
+int id textView9 0x7f0802f9
 int id text_input_end_icon 0x7f08026e
 int id text_input_error_icon 0x7f08026f
 int id text_input_start_icon 0x7f080270
@@ -3817,12 +3828,15 @@ int id transition_position 0x7f080283
 int id transition_scene_layoutid_cache 0x7f080284
 int id transition_transform 0x7f080285
 int id triangle 0x7f080286
+int id tv_address 0x7f0802fa
 int id tv_balance 0x7f080287
 int id tv_bp_i_love_toast 0x7f080288
 int id tv_bp_mystery_toast 0x7f080289
 int id tv_bp_toast_killer 0x7f08028a
 int id tv_branch_info 0x7f08028b
+int id tv_branch_info_address 0x7f0802fb
 int id tv_branch_info_login 0x7f08028c
+int id tv_branch_info_tel 0x7f0802fc
 int id tv_card_num 0x7f08028d
 int id tv_choose 0x7f08028e
 int id tv_choose2 0x7f08028f
@@ -3884,6 +3898,7 @@ int id tv_price_toast_killer 0x7f0802c6
 int id tv_pro 0x7f0802c7
 int id tv_pro_login 0x7f0802c8
 int id tv_signout 0x7f0802c9
+int id tv_tel 0x7f0802fd
 int id tv_toast_item_info 0x7f0802ca
 int id tv_toast_item_name 0x7f0802cb
 int id tv_toast_item_price 0x7f0802cc
@@ -4040,6 +4055,7 @@ int layout abc_tooltip 0x7f0b001b
 int layout activity_branch_info 0x7f0b001c
 int layout activity_login 0x7f0b001d
 int layout activity_main 0x7f0b001e
+int layout branches 0x7f0b007f
 int layout browser_actions_context_menu_page 0x7f0b001f
 int layout browser_actions_context_menu_row 0x7f0b0020
 int layout buy_pro 0x7f0b0021
