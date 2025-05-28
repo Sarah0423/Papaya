@@ -44,6 +44,15 @@
         android:testOnly="true"
         android:theme="@style/Theme.Papaya" >
         <activity
+            android:name="ppy.app.papaya.SplashActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="ppy.app.papaya.CustomerService"
             android:exported="false" />
         <activity
@@ -68,12 +77,7 @@
             android:exported="false" />
         <activity
             android:name="ppy.app.papaya.MainActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:exported="false" >
         </activity>
         <!-- Needs to be explicitly declared on P+ -->
         <uses-library

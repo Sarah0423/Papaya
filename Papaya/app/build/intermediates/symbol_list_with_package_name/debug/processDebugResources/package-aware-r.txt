@@ -1463,6 +1463,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color ic_launcher_background
 color m3_appbar_overlay_color
 color m3_assist_chip_icon_tint_color
 color m3_assist_chip_stroke_color
@@ -3174,6 +3175,18 @@ drawable sff9500sw2cr15bffffff
 drawable sffa500sw1cr34bfff4ed4d
 drawable sffa500sw1cr43bfff4ed4d
 drawable sffaa2bsw1cr10bffffff
+drawable splash_1
+drawable splash_10
+drawable splash_11
+drawable splash_12
+drawable splash_2
+drawable splash_3
+drawable splash_4
+drawable splash_5
+drawable splash_6
+drawable splash_7
+drawable splash_8
+drawable splash_9
 drawable tab_selector
 drawable test_level_drawable
 drawable tooltip_frame_dark
@@ -3750,6 +3763,7 @@ id snapMargins
 id south
 id spacer
 id special_effects_controller_view_tag
+id splash_image
 id spline
 id split_action_bar
 id spread
@@ -4057,6 +4071,7 @@ layout activity_customer_service
 layout activity_daily_spin
 layout activity_login
 layout activity_main
+layout activity_splash
 layout branches
 layout browser_actions_context_menu_page
 layout browser_actions_context_menu_row
@@ -4177,6 +4192,7 @@ mipmap discount_coupon
 mipmap french_toast
 mipmap grain_toast
 mipmap ic_launcher
+mipmap ic_launcher_foreground
 mipmap ic_launcher_round
 mipmap login_usagi
 mipmap map
