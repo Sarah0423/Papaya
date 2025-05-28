@@ -129,7 +129,7 @@
             <TextView
                 android:id="@+id/tv_pointBalance"
                 android:layout_width="98dp"
-                android:layout_height="27dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="#FFA941"
                 android:padding="8dp"
@@ -160,7 +160,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/ic_launcher_background" />
+                tools:srcCompat="@drawable/order" />
 
             <TextView
                 android:id="@+id/tv_order"
@@ -211,7 +211,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/ic_launcher_background" />
+                tools:srcCompat="@drawable/delivery" />
 
             <TextView
                 android:id="@+id/tv_delivery"
@@ -237,7 +237,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/ic_launcher_background" />
+                tools:srcCompat="@drawable/customer_service" />
 
             <TextView
                 android:id="@+id/tv_customer_service"
@@ -266,7 +266,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/ic_launcher_background" />
+                tools:srcCompat="@drawable/branch_info" />
 
             <TextView
                 android:id="@+id/tv_branch_info"
@@ -321,7 +321,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/ic_launcher_background" />
+                tools:srcCompat="@drawable/favorite" />
 
             <TextView
                 android:id="@+id/tv_favorite"
