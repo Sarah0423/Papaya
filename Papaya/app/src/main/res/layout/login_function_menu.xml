@@ -22,31 +22,19 @@
 
         <LinearLayout
             android:id="@+id/ll_user_info"
-            android:layout_width="wrap_content"
+            android:layout_width="177dp"
             android:layout_height="67dp"
             android:orientation="horizontal"
             android:translationX="25dp"
             android:layout_marginTop="14dp">
 
-            <FrameLayout
+            <ImageView
+                android:id="@+id/iv_user_img_login"
                 android:layout_width="67dp"
-                android:layout_height="67dp">
-
-                <ImageView
-                    android:id="@+id/iv_user_img_login"
-                    android:layout_width="67dp"
-                    android:layout_height="67dp"
-                    android:layout_gravity="center"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/login_usagi" />
-
-                <ImageView
-                    android:id="@+id/iv_cut_img"
-                    android:layout_width="95dp"
-                    android:layout_height="95dp"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/cut_user_img" />
-            </FrameLayout>
+                android:layout_height="67dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/login_usagi" />
 
             <TextView
                 android:id="@+id/tv_user_name_login"
