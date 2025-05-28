@@ -21,7 +21,7 @@
 
         <LinearLayout
             android:id="@+id/ll_user_info"
-            android:layout_width="144dp"
+            android:layout_width="wrap_content"
             android:layout_height="67dp"
             android:orientation="horizontal"
             android:translationX="25dp"
@@ -37,7 +37,7 @@
                     android:layout_height="67dp"
                     android:layout_gravity="center"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/user_usagi" />
+                    android:src="@mipmap/login_usagi" />
 
                 <ImageView
                     android:id="@+id/iv_cut_user_img"
@@ -53,7 +53,7 @@
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="13dp"
-                android:text="Usagi"
+                android:text="尚未登入"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -81,6 +81,34 @@
                 android:layout_marginStart="8dp"
                 android:text="成為Pro會員，免外送費，月月領優惠"
                 android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_btn_login_register"
+            android:layout_width="220dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal"
+            android:translationX="25dp">
+
+            <Button
+                android:id="@+id/btn_signin_function_menu"
+                android:layout_width="83dp"
+                android:layout_height="48dp"
+                android:text="登入"
+                android:textAlignment="center"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_register_function_menu"
+                android:layout_width="83dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="54dp"
+                android:text="註冊"
+                android:textAlignment="center"
+                android:textSize="24dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -281,11 +309,12 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/my_favorite_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_favorite"
@@ -299,8 +328,8 @@
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="我的收藏"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>

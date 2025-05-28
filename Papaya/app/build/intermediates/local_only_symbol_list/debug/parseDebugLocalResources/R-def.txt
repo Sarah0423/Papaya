@@ -184,6 +184,7 @@ id iv_user_img_login
 id iv_user_register_img
 id linearLayout
 id linearLayout2
+id ll_btn_login_register
 id ll_commit
 id ll_credit_card
 id ll_date
@@ -197,6 +198,7 @@ id ll_user_info
 id ll_verification_code
 id logout_layout
 id main
+id my_favorite_layout
 id order_layout
 id points_layout
 id r3ib3buhmk7

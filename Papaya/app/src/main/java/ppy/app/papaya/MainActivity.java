@@ -3,6 +3,7 @@ package ppy.app.papaya;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -40,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout functionMenuContainer;
     private View functionMenuView;
     private ImageButton ibIndex;
+    private LinearLayout llBtnLoginRegister;
+    private LinearLayout pointsLayout;
+    private LinearLayout logoutLayout;
+    private LinearLayout myFavoriteLayout;
 
 
     @Override
@@ -97,12 +102,23 @@ public class MainActivity extends AppCompatActivity {
         functionMenuContainer = findViewById(R.id.function_menu_container);
         LayoutInflater inflater = LayoutInflater.from(this);
 
+        functionMenuView = inflater.inflate(R.layout.function_menu, functionMenuContainer, false);
+        llBtnLoginRegister = functionMenuView.findViewById(R.id.ll_btn_login_register);
+        pointsLayout = functionMenuView.findViewById(R.id.points_layout);
+        logoutLayout = functionMenuView.findViewById(R.id.logout_layout);
+        myFavoriteLayout = functionMenuView.findViewById(R.id.my_favorite_layout);
+
+        // 控制顯示按鈕
         if (currentUser != null) {
-            // 已登入 → 使用 function_menu.xml
-            functionMenuView = inflater.inflate(R.layout.function_menu, functionMenuContainer, false);
-        } else {
-            // 未登入 → 使用 login_function_menu.xml
-            functionMenuView = inflater.inflate(R.layout.login_function_menu, functionMenuContainer, false);
+            llBtnLoginRegister.setVisibility(View.GONE);
+            pointsLayout.setVisibility(View.VISIBLE);
+            logoutLayout.setVisibility(View.VISIBLE);
+            myFavoriteLayout.setVisibility(View.VISIBLE);
+        }else{
+            llBtnLoginRegister.setVisibility(View.VISIBLE);
+            pointsLayout.setVisibility(View.GONE);
+            logoutLayout.setVisibility(View.GONE);
+            myFavoriteLayout.setVisibility(View.GONE);
         }
 
         functionMenuContainer.addView(functionMenuView);
@@ -245,7 +261,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    // 點擊外面會從function_menu回到主頁
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {

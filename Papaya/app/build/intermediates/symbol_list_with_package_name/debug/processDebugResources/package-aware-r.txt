@@ -3556,6 +3556,7 @@ id linearLayout
 id linearLayout2
 id listMode
 id list_item
+id ll_btn_login_register
 id ll_commit
 id ll_credit_card
 id ll_date
@@ -3629,6 +3630,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id my_favorite_layout
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view

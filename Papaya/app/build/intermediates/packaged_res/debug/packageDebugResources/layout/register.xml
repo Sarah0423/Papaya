@@ -42,7 +42,6 @@
         android:background="@drawable/cr12be8f4d9"
         android:backgroundTint="#D0F5C9"
         android:hint="   請輸入名稱"
-        android:textAlignment="textStart"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textMail"

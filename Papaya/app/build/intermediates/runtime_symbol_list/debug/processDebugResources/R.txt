@@ -3555,6 +3555,7 @@ int id linearLayout 0x7f080176
 int id linearLayout2 0x7f080177
 int id listMode 0x7f080178
 int id list_item 0x7f080179
+int id ll_btn_login_register 0x7f080306
 int id ll_commit 0x7f08017a
 int id ll_credit_card 0x7f08017b
 int id ll_date 0x7f08017c
@@ -3628,6 +3629,7 @@ int id mtrl_picker_text_input_range_start 0x7f0801be
 int id mtrl_picker_title_text 0x7f0801bf
 int id mtrl_view_tag_bottom_padding 0x7f0801c0
 int id multiply 0x7f0801c1
+int id my_favorite_layout 0x7f080307
 int id navigation_bar_item_active_indicator_view 0x7f0801c2
 int id navigation_bar_item_icon_container 0x7f0801c3
 int id navigation_bar_item_icon_view 0x7f0801c4
