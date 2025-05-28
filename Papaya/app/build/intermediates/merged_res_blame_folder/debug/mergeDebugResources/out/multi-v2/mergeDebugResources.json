@@ -9348,9 +9348,9 @@
                     "from": {
                         "startLines": "1",
                         "startColumns": "4",
-                        "startOffsets": "17",
+                        "startOffsets": "16",
                         "endColumns": "43",
-                        "endOffsets": "56"
+                        "endOffsets": "55"
                     },
                     "to": {
                         "startLines": "1986",

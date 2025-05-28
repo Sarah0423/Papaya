@@ -3305,6 +3305,7 @@ id btn_register_function_menu
 id btn_return
 id btn_save_name
 id btn_signin_function_menu
+id btn_submit_form
 id btn_taichung
 id btn_tainan
 id btn_taipei
@@ -3323,8 +3324,6 @@ id button7
 id button8
 id button9
 id buttonPanel
-id buttonService
-id buttonSubmit
 id cache_measures
 id callMeasure
 id cancel_button
@@ -3406,12 +3405,10 @@ id east
 id edge
 id editTextConfirmAdd
 id editTextConfirmPassword
-id editTextDetail
 id editTextName
 id editTextPassword
 id editTextTextEmailAddress1
 id editTextTextMultiLine
-id editTextType
 id edit_query
 id edit_text_id
 id elastic
@@ -3422,10 +3419,12 @@ id enterAlways
 id enterAlwaysCollapsed
 id et_card_num
 id et_date
+id et_detail_info
 id et_login_email
 id et_login_password
 id et_name
 id et_new_name
+id et_question_type
 id et_tv_verification_code
 id exitUntilCollapsed
 id expand_activities_button
@@ -3798,7 +3797,6 @@ id textDetail
 id textEnd
 id textMail
 id textPassword
-id textPhoneNumber
 id textProblemType
 id textSpacerNoButtons
 id textSpacerNoTitle
@@ -3899,6 +3897,7 @@ id tv_price_i_love_toast
 id tv_price_mystery_toast
 id tv_price_toast_killer
 id tv_pro
+id tv_service_phone_number
 id tv_signout
 id tv_tel
 id tv_toast_item_info
@@ -4054,6 +4053,8 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_branch_info
+layout activity_customer_service
+layout activity_daily_spin
 layout activity_login
 layout activity_main
 layout branches
@@ -4063,8 +4064,6 @@ layout buy_pro
 layout checkout_cart
 layout choose_user_img
 layout custom_dialog
-layout customer_service
-layout daily_spin
 layout delivery_information
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog

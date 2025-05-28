@@ -249,8 +249,13 @@ public class MainActivity extends AppCompatActivity {
         linearDailyLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
+                if (currentUser != null) {
+                    Intent intent = new Intent(MainActivity.this, DailySpin.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -268,8 +273,13 @@ public class MainActivity extends AppCompatActivity {
         linearCustomerServiceLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
+                if (currentUser != null) {
+                    Intent intent = new Intent(MainActivity.this, CustomerService.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
+                }
             }
         });
 

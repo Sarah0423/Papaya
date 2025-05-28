@@ -20,16 +20,16 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\pro_info_button_color2.xml"
     },
     {
-        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_phone.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\phone.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_index.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\index.xml"
     },
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_index.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\index.xml"
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_phone.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\phone.xml"
     },
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy6.jpg.flat",
@@ -88,10 +88,6 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\ppy11.jpg"
     },
     {
-        "merged": "ppy.app.papaya.app-debug-43:/layout_dialog_edit_name.xml.flat",
-        "source": "ppy.app.papaya.app-main-45:/layout/dialog_edit_name.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_user_usagi.jpg.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\user_usagi.jpg"
     },
@@ -134,6 +130,10 @@
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_choose_user_img.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\choose_user_img.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_daily_spin.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_daily_spin.xml"
     },
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_location.xml.flat",
@@ -340,6 +340,10 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\ppy8.jpg"
     },
     {
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_customer_service.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_customer_service.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_login_usagi.jpg.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\login_usagi.jpg"
     },
@@ -448,10 +452,6 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_daily_spin.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\daily_spin.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_sffa500sw1cr43bfff4ed4d.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\sffa500sw1cr43bfff4ed4d.xml"
     },
@@ -520,10 +520,6 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\location_info.xml"
     },
     {
-        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_login_function_menu.xml.flat",
-        "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\login_function_menu.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_bigtoast.jpg.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\bigtoast.jpg"
     },
@@ -552,12 +548,20 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\cr12bffe7e7.xml"
     },
     {
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_dialog_edit_name.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\dialog_edit_name.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_bigbug.jpg.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\bigbug.jpg"
     },
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_bigkani.jpg.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\bigkani.jpg"
+    },
+    {
+        "merged": "ppy.app.papaya.app-debug-43:/layout_activity_customer_service.xml.flat",
+        "source": "ppy.app.papaya.app-main-45:/layout/activity_customer_service.xml"
     },
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_sd9d9d9sw1cr8bffffff.xml.flat",

@@ -43,6 +43,13 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Papaya" >
+        <activity
+            android:name="ppy.app.papaya.CustomerService"
+            android:exported="false" />
+        <activity
+            android:name="ppy.app.papaya.DailySpin"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDbXIcgrNpplICHpMYg2XfDPDuNeD6A1YY" />
@@ -68,7 +75,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <!-- Needs to be explicitly declared on P+ -->
         <uses-library
             android:name="org.apache.http.legacy"
