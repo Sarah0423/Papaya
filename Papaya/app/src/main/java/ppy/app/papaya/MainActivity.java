@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -18,11 +20,12 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -39,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton ibIndex;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +53,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        FirebaseApp.initializeApp(this);
-
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         String[] categories = {"Starters", "Asian", "Roasts", "Classci"};
 
@@ -62,9 +62,13 @@ public class MainActivity extends AppCompatActivity {
             tabLayout.addTab(tab);
         }
 
-        recyclerView = findViewById(R.id.rv_toast_item);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        FirebaseApp.initializeApp(this);
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
 
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        recyclerView = findViewById(R.id.rv_toast_item);
         // 初始化資料列表
         toastItemList = new ArrayList<>();
         // 初始化 Adapter 並設置給 RecyclerView
@@ -72,8 +76,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
 
-
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("toast") // ← 替換成你的資料集名稱
                 .orderBy("toast_index")
                 .get()
@@ -90,13 +92,19 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "資料讀取失敗", Toast.LENGTH_SHORT).show();
                 });
 
-
-        functionMenuContainer = findViewById(R.id.function_menu_container);
         ibIndex = findViewById(R.id.ib_index);
 
-        // 用 LayoutInflater 把 function_menu.xml 塞進 container
+        functionMenuContainer = findViewById(R.id.function_menu_container);
         LayoutInflater inflater = LayoutInflater.from(this);
-        functionMenuView = inflater.inflate(R.layout.login_function_menu, functionMenuContainer, false);
+
+        if (currentUser != null) {
+            // 已登入 → 使用 function_menu.xml
+            functionMenuView = inflater.inflate(R.layout.function_menu, functionMenuContainer, false);
+        } else {
+            // 未登入 → 使用 login_function_menu.xml
+            functionMenuView = inflater.inflate(R.layout.login_function_menu, functionMenuContainer, false);
+        }
+
         functionMenuContainer.addView(functionMenuView);
         functionMenuContainer.setVisibility(View.GONE);
 
@@ -108,25 +116,67 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button btnRegister = functionMenuView.findViewById(R.id.btn_register_function_menu);
+        TextView tvUserName = functionMenuView.findViewById(R.id.tv_user_name);
+        ImageView ivUserImg = functionMenuView.findViewById(R.id.iv_user_img);
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Register.class);
-                startActivity(intent);
-            }
-        });
+        if (currentUser != null) {
+            String email = currentUser.getEmail();
+            db.collection("users")
+                    .whereEqualTo("email", email)
+                    .get()
+                    .addOnSuccessListener(queryDocumentSnapshots -> {
+                        for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                            String name = document.getString("name");
+                            String avatar = document.getString("avatar");
+
+                            if (tvUserName != null && name != null) {
+                                tvUserName.setText(name);
+                            }
+
+                            if (ivUserImg != null) {
+                                int imageResId;
+                                if (avatar != null) {
+                                    // 取得對應資源 id
+                                    imageResId = getResources().getIdentifier(avatar, "mipmap", getPackageName());
+                                    if (imageResId == 0) {
+                                        // 如果找不到，使用預設圖
+                                        imageResId = R.mipmap.login_usagi;
+                                    }
+                                } else {
+                                    imageResId = R.mipmap.login_usagi;
+                                }
+                                ivUserImg.setImageResource(imageResId);
+                            }
+                        }
+                    })
+                    .addOnFailureListener(e -> {
+                        e.printStackTrace();
+                        Toast.makeText(MainActivity.this, "讀取用戶資料失敗", Toast.LENGTH_SHORT).show();
+                    });
+        }
+
+        Button btnRegister = functionMenuView.findViewById(R.id.btn_register_function_menu);
+        if (btnRegister != null) {
+            btnRegister.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, Register.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
         Button btnSignin = functionMenuView.findViewById(R.id.btn_signin_function_menu);
 
-        btnSignin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
-            }
-        });
+        if(btnSignin != null) {
+            btnSignin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
 
         boolean showFunctionMenu = getIntent().getBooleanExtra("SHOW_FUNCTION_MENU", false);
@@ -134,7 +184,20 @@ public class MainActivity extends AppCompatActivity {
             functionMenuContainer.setVisibility(View.VISIBLE);
         }
 
-        LinearLayout linearOrderLogin = functionMenuView.findViewById(R.id.order_login_layout);
+        LinearLayout linearLogout = functionMenuView.findViewById(R.id.logout_layout);
+        if(linearLogout != null) {
+            linearLogout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mAuth.signOut();
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
+        LinearLayout linearOrderLogin = functionMenuView.findViewById(R.id.order_layout);
+
         linearOrderLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        LinearLayout linearBranchLogin = functionMenuView.findViewById(R.id.branch_login_layout);
+        LinearLayout linearBranchLogin = functionMenuView.findViewById(R.id.branch_layout);
         linearBranchLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        LinearLayout linearDeliveryLogin = functionMenuView.findViewById(R.id.delivery_login_layout);
+        LinearLayout linearDeliveryLogin = functionMenuView.findViewById(R.id.delivery_layout);
         linearDeliveryLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -171,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        LinearLayout linearCustomerServiceLogin = functionMenuView.findViewById(R.id.customer_service_login_layout);
+        LinearLayout linearCustomerServiceLogin = functionMenuView.findViewById(R.id.customer_service_layout);
         linearCustomerServiceLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -179,21 +242,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-        /*View functionMenuView = getLayoutInflater().inflate(R.layout.function_menu, null);
-        LinearLayout linearBranch = functionMenuView.findViewById(R.id.branch_layout);
-        linearBranch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "點擊了，準備跳轉", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(MainActivity.this, Branch_info.class);
-                startActivity(intent);
-            }
-        });*/
-
-
-
 
     }
 

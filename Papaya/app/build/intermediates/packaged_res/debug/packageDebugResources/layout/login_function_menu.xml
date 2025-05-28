@@ -22,11 +22,12 @@
 
         <LinearLayout
             android:id="@+id/ll_user_info"
-            android:layout_width="wrap_content"
+            android:layout_width="177dp"
             android:layout_height="67dp"
             android:orientation="horizontal"
             android:translationX="25dp"
             android:layout_marginTop="14dp">
+
 
             <FrameLayout
                 android:layout_width="67dp"
@@ -36,12 +37,12 @@
                     android:id="@+id/iv_user_img_login"
                     android:layout_width="67dp"
                     android:layout_height="67dp"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center_horizontal"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/login_usagi" />
 
                 <ImageView
-                    android:id="@+id/iv_cut_img"
+                    android:id="@+id/iv_cut_user_img"
                     android:layout_width="95dp"
                     android:layout_height="95dp"
                     android:layout_gravity="center"
@@ -120,7 +121,7 @@
             android:layout_marginTop="28dp"/>
 
         <LinearLayout
-            android:id="@+id/order_login_layout"
+            android:id="@+id/order_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
             android:layout_marginTop="28dp"
@@ -177,7 +178,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/delivery_login_layout"
+            android:id="@+id/delivery_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
             android:layout_marginTop="28dp"
@@ -206,7 +207,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/customer_service_login_layout"
+            android:id="@+id/customer_service_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
             android:layout_marginTop="28dp"
@@ -235,7 +236,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/branch_login_layout"
+            android:id="@+id/branch_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
             android:layout_marginTop="28dp"

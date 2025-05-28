@@ -61,7 +61,6 @@ drawable sffaa2bsw1cr10bffffff
 drawable tab_selector
 id TPmapView
 id branch_layout
-id branch_login_layout
 id btn_add
 id btn_add_i_love_toast
 id btn_add_mystery_toast
@@ -103,9 +102,9 @@ id buttonSubmit
 id checkBox
 id circularImageView
 id constraintLayout
-id customer_service_login_layout
+id customer_service_layout
 id daily_spin_layout
-id delivery_login_layout
+id delivery_layout
 id editTextConfirmAdd
 id editTextConfirmPassword
 id editTextDetail
@@ -165,6 +164,7 @@ id iv_chii_res2
 id iv_customer_service
 id iv_customer_service_login
 id iv_cut_img
+id iv_cut_user_img
 id iv_daily_spin
 id iv_daily_spin_login
 id iv_delivery
@@ -195,8 +195,10 @@ id ll_toast_killer
 id ll_update_to_pro
 id ll_user_info
 id ll_verification_code
+id logout_layout
 id main
-id order_login_layout
+id order_layout
+id points_layout
 id r3ib3buhmk7
 id r3zra71bldk4
 id r70ny5s0y5h2

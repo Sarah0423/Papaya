@@ -28,13 +28,26 @@
             android:translationX="25dp"
             android:layout_marginTop="14dp">
 
-            <ImageView
-                android:id="@+id/iv_user_img_login"
+
+            <FrameLayout
                 android:layout_width="67dp"
-                android:layout_height="67dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/login_usagi" />
+                android:layout_height="67dp">
+
+                <ImageView
+                    android:id="@+id/iv_user_img_login"
+                    android:layout_width="67dp"
+                    android:layout_height="67dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/login_usagi" />
+
+                <ImageView
+                    android:id="@+id/iv_cut_user_img"
+                    android:layout_width="95dp"
+                    android:layout_height="95dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/cut_user_img" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/tv_user_name_login"
@@ -108,7 +121,7 @@
             android:layout_marginTop="28dp"/>
 
         <LinearLayout
-            android:id="@+id/order_login_layout"
+            android:id="@+id/order_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
             android:layout_marginTop="28dp"
@@ -165,7 +178,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/delivery_login_layout"
+            android:id="@+id/delivery_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
             android:layout_marginTop="28dp"
@@ -194,7 +207,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/customer_service_login_layout"
+            android:id="@+id/customer_service_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
             android:layout_marginTop="28dp"
@@ -223,7 +236,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/branch_login_layout"
+            android:id="@+id/branch_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
             android:layout_marginTop="28dp"
