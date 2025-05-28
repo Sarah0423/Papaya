@@ -3280,7 +3280,6 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id branch_layout
-id branch_login_layout
 id browser_actions_header_text
 id browser_actions_menu_item_icon
 id browser_actions_menu_item_text
@@ -3304,6 +3303,7 @@ id btn_pingtung
 id btn_register
 id btn_register_function_menu
 id btn_return
+id btn_save_name
 id btn_signin_function_menu
 id btn_taichung
 id btn_tainan
@@ -3365,7 +3365,7 @@ id cradle
 id currentState
 id custom
 id customPanel
-id customer_service_login_layout
+id customer_service_layout
 id cut
 id daily_spin_layout
 id dark
@@ -3374,7 +3374,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
-id delivery_login_layout
+id delivery_layout
 id deltaRelative
 id dependency_ordering
 id design_bottom_sheet
@@ -3425,6 +3425,7 @@ id et_date
 id et_login_email
 id et_login_password
 id et_name
+id et_new_name
 id et_tv_verification_code
 id exitUntilCollapsed
 id expand_activities_button
@@ -3480,7 +3481,6 @@ id ib_visa
 id icon
 id icon_group
 id icon_only
-id idelivery_login
 id ifRoom
 id ignore
 id ignoreRequest
@@ -3518,28 +3518,23 @@ id italic
 id item_touch_helper_previous_elevation
 id iv_branch_info
 id iv_branch_info_img
-id iv_branch_info_login
 id iv_chii_res
 id iv_chii_res2
 id iv_customer_service
-id iv_customer_service_login
 id iv_cut_img
+id iv_cut_user_img
 id iv_daily_spin
-id iv_daily_spin_login
 id iv_delivery
 id iv_dots
 id iv_favorite
 id iv_order
-id iv_order_login
 id iv_pro_img
-id iv_pro_img_login
 id iv_signout
 id iv_toast_item_img
 id iv_topbar
 id iv_usagi_cart
 id iv_user
 id iv_user_img
-id iv_user_img_login
 id iv_user_register_img
 id jumpToEnd
 id jumpToStart
@@ -3556,6 +3551,7 @@ id linearLayout
 id linearLayout2
 id listMode
 id list_item
+id ll_btn_login_register
 id ll_commit
 id ll_credit_card
 id ll_date
@@ -3567,6 +3563,7 @@ id ll_toast_killer
 id ll_update_to_pro
 id ll_user_info
 id ll_verification_code
+id logout_layout
 id m3_side_sheet
 id main
 id marquee
@@ -3628,6 +3625,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id my_favorite_layout
 id navigation_bar_item_active_indicator_view
 id navigation_bar_item_icon_container
 id navigation_bar_item_icon_view
@@ -3663,7 +3661,7 @@ id open_search_view_search_prefix
 id open_search_view_status_bar_spacer
 id open_search_view_toolbar
 id open_search_view_toolbar_container
-id order_login_layout
+id order_layout
 id outline
 id outward
 id overshoot
@@ -3679,6 +3677,7 @@ id pathRelative
 id peekHeight
 id percent
 id pin
+id points_layout
 id position
 id postLayout
 id pressed
@@ -3841,7 +3840,6 @@ id tv_bp_mystery_toast
 id tv_bp_toast_killer
 id tv_branch_info
 id tv_branch_info_address
-id tv_branch_info_login
 id tv_branch_info_name
 id tv_branch_info_tel
 id tv_card_num
@@ -3853,12 +3851,9 @@ id tv_coupon_toast_killer
 id tv_create
 id tv_create2
 id tv_customer_service
-id tv_customer_service_login
 id tv_daily_spin
-id tv_daily_spin_login
 id tv_date
 id tv_delivery
-id tv_delivery_login
 id tv_discount
 id tv_ds_i_love_toast
 id tv_ds_mystery_toast
@@ -3896,7 +3891,6 @@ id tv_mp_toast_killer
 id tv_mystery_toast
 id tv_name
 id tv_order
-id tv_order_login
 id tv_papaya
 id tv_password_login
 id tv_pay
@@ -3905,7 +3899,6 @@ id tv_price_i_love_toast
 id tv_price_mystery_toast
 id tv_price_toast_killer
 id tv_pro
-id tv_pro_login
 id tv_signout
 id tv_tel
 id tv_toast_item_info
@@ -3917,7 +3910,6 @@ id tv_unknown_i_love_toast
 id tv_unknown_mystery_toast
 id tv_unknown_toast_killer
 id tv_user_name
-id tv_user_name_login
 id tv_verification_code
 id unchecked
 id uniform
@@ -4089,12 +4081,12 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout dialog_edit_name
 layout function_menu
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_toast
 layout location_info
-layout login_function_menu
 layout login_pro_info
 layout m3_alert_dialog
 layout m3_alert_dialog_actions

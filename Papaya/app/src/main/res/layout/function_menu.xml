@@ -21,27 +21,39 @@
 
         <LinearLayout
             android:id="@+id/ll_user_info"
-            android:layout_width="144dp"
+            android:layout_width="wrap_content"
             android:layout_height="67dp"
             android:orientation="horizontal"
             android:translationX="25dp"
             android:layout_marginTop="14dp">
 
-            <ImageView
-                android:id="@+id/iv_user_img"
+            <FrameLayout
                 android:layout_width="67dp"
-                android:layout_height="67dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/user_usagi" />
+                android:layout_height="67dp">
+
+                <ImageView
+                    android:id="@+id/iv_user_img"
+                    android:layout_width="67dp"
+                    android:layout_height="67dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/login_usagi" />
+
+                <ImageView
+                    android:id="@+id/iv_cut_user_img"
+                    android:layout_width="95dp"
+                    android:layout_height="95dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/cut_user_img" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/tv_user_name"
-                android:layout_width="64dp"
+                android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:layout_gravity="center"
                 android:layout_marginStart="13dp"
-                android:text="Usagi"
+                android:text="尚未登入"
                 android:textSize="24sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -72,11 +84,40 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_btn_login_register"
+            android:layout_width="220dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="28dp"
+            android:orientation="horizontal"
+            android:translationX="25dp">
+
+            <Button
+                android:id="@+id/btn_signin_function_menu"
+                android:layout_width="83dp"
+                android:layout_height="48dp"
+                android:text="登入"
+                android:textAlignment="center"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btn_register_function_menu"
+                android:layout_width="83dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="54dp"
+                android:text="註冊"
+                android:textAlignment="center"
+                android:textSize="24dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/points_layout"
             android:layout_width="224dp"
             android:layout_height="27dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <TextView
                 android:id="@+id/tv_balance"
@@ -88,7 +129,7 @@
             <TextView
                 android:id="@+id/tv_pointBalance"
                 android:layout_width="98dp"
-                android:layout_height="27dp"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:background="#FFA941"
                 android:padding="8dp"
@@ -107,35 +148,37 @@
             android:layout_marginTop="28dp"/>
 
         <LinearLayout
+            android:id="@+id/order_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_order"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/ic_launcher_background" />
+                tools:srcCompat="@drawable/order" />
 
             <TextView
                 android:id="@+id/tv_order"
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="我的訂單"
+                android:textAlignment="center"
                 android:textSize="16dp" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/daily_spin_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_daily_spin"
@@ -149,58 +192,60 @@
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="每日轉盤"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/delivery_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_delivery"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/ic_launcher_background" />
+                tools:srcCompat="@drawable/delivery" />
 
             <TextView
                 android:id="@+id/tv_delivery"
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="外送進度"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/customer_service_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_customer_service"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/ic_launcher_background" />
+                tools:srcCompat="@drawable/customer_service" />
 
             <TextView
                 android:id="@+id/tv_customer_service"
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="客服中心"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>
@@ -221,7 +266,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/ic_launcher_background" />
+                tools:srcCompat="@drawable/branch_info" />
 
             <TextView
                 android:id="@+id/tv_branch_info"
@@ -235,11 +280,15 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/logout_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="60dp"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="60dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_signout"
@@ -253,33 +302,34 @@
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="登出"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/my_favorite_layout"
             android:layout_width="199dp"
             android:layout_height="24dp"
+            android:layout_marginTop="28dp"
             android:orientation="horizontal"
-            android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:translationX="25dp">
 
             <ImageView
                 android:id="@+id/iv_favorite"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/ic_launcher_background" />
+                tools:srcCompat="@drawable/favorite" />
 
             <TextView
                 android:id="@+id/tv_favorite"
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:textAlignment="center"
                 android:text="我的收藏"
+                android:textAlignment="center"
                 android:textSize="16dp" />
 
         </LinearLayout>

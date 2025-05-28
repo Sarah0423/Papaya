@@ -3279,7 +3279,6 @@ int id bounceBoth 0x7f080062
 int id bounceEnd 0x7f080063
 int id bounceStart 0x7f080064
 int id branch_layout 0x7f080065
-int id branch_login_layout 0x7f080066
 int id browser_actions_header_text 0x7f080067
 int id browser_actions_menu_item_icon 0x7f080068
 int id browser_actions_menu_item_text 0x7f080069
@@ -3303,6 +3302,7 @@ int id btn_pingtung 0x7f08007a
 int id btn_register 0x7f08007b
 int id btn_register_function_menu 0x7f08007c
 int id btn_return 0x7f08007d
+int id btn_save_name 0x7f080308
 int id btn_signin_function_menu 0x7f08007e
 int id btn_taichung 0x7f08007f
 int id btn_tainan 0x7f080080
@@ -3364,7 +3364,7 @@ int id cradle 0x7f0800b7
 int id currentState 0x7f0800b8
 int id custom 0x7f0800b9
 int id customPanel 0x7f0800ba
-int id customer_service_login_layout 0x7f0800bb
+int id customer_service_layout 0x7f080302
 int id cut 0x7f0800bc
 int id daily_spin_layout 0x7f0800bd
 int id dark 0x7f0800be
@@ -3373,7 +3373,7 @@ int id decelerate 0x7f0800c0
 int id decelerateAndComplete 0x7f0800c1
 int id decor_content_parent 0x7f0800c2
 int id default_activity_button 0x7f0800c3
-int id delivery_login_layout 0x7f0800c4
+int id delivery_layout 0x7f080303
 int id deltaRelative 0x7f0800c5
 int id dependency_ordering 0x7f0800c6
 int id design_bottom_sheet 0x7f0800c7
@@ -3424,6 +3424,7 @@ int id et_date 0x7f0800f3
 int id et_login_email 0x7f0800f4
 int id et_login_password 0x7f0800f5
 int id et_name 0x7f0800f6
+int id et_new_name 0x7f080309
 int id et_tv_verification_code 0x7f0800f7
 int id exitUntilCollapsed 0x7f0800f8
 int id expand_activities_button 0x7f0800f9
@@ -3479,7 +3480,6 @@ int id ib_visa 0x7f08012a
 int id icon 0x7f08012b
 int id icon_group 0x7f08012c
 int id icon_only 0x7f08012d
-int id idelivery_login 0x7f08012e
 int id ifRoom 0x7f08012f
 int id ignore 0x7f080130
 int id ignoreRequest 0x7f080131
@@ -3517,28 +3517,23 @@ int id italic 0x7f080150
 int id item_touch_helper_previous_elevation 0x7f080151
 int id iv_branch_info 0x7f080152
 int id iv_branch_info_img 0x7f080153
-int id iv_branch_info_login 0x7f080154
 int id iv_chii_res 0x7f080155
 int id iv_chii_res2 0x7f080156
 int id iv_customer_service 0x7f080157
-int id iv_customer_service_login 0x7f080158
 int id iv_cut_img 0x7f080159
+int id iv_cut_user_img 0x7f080305
 int id iv_daily_spin 0x7f08015a
-int id iv_daily_spin_login 0x7f08015b
 int id iv_delivery 0x7f08015c
 int id iv_dots 0x7f08015d
 int id iv_favorite 0x7f08015e
 int id iv_order 0x7f08015f
-int id iv_order_login 0x7f080160
 int id iv_pro_img 0x7f080161
-int id iv_pro_img_login 0x7f080162
 int id iv_signout 0x7f080163
 int id iv_toast_item_img 0x7f080164
 int id iv_topbar 0x7f080165
 int id iv_usagi_cart 0x7f080166
 int id iv_user 0x7f080167
 int id iv_user_img 0x7f080168
-int id iv_user_img_login 0x7f080169
 int id iv_user_register_img 0x7f08016a
 int id jumpToEnd 0x7f08016b
 int id jumpToStart 0x7f08016c
@@ -3555,6 +3550,7 @@ int id linearLayout 0x7f080176
 int id linearLayout2 0x7f080177
 int id listMode 0x7f080178
 int id list_item 0x7f080179
+int id ll_btn_login_register 0x7f080306
 int id ll_commit 0x7f08017a
 int id ll_credit_card 0x7f08017b
 int id ll_date 0x7f08017c
@@ -3566,6 +3562,7 @@ int id ll_toast_killer 0x7f080181
 int id ll_update_to_pro 0x7f080182
 int id ll_user_info 0x7f080183
 int id ll_verification_code 0x7f080184
+int id logout_layout 0x7f080300
 int id m3_side_sheet 0x7f080185
 int id main 0x7f080186
 int id marquee 0x7f080187
@@ -3627,6 +3624,7 @@ int id mtrl_picker_text_input_range_start 0x7f0801be
 int id mtrl_picker_title_text 0x7f0801bf
 int id mtrl_view_tag_bottom_padding 0x7f0801c0
 int id multiply 0x7f0801c1
+int id my_favorite_layout 0x7f080307
 int id navigation_bar_item_active_indicator_view 0x7f0801c2
 int id navigation_bar_item_icon_container 0x7f0801c3
 int id navigation_bar_item_icon_view 0x7f0801c4
@@ -3662,7 +3660,7 @@ int id open_search_view_search_prefix 0x7f0801e1
 int id open_search_view_status_bar_spacer 0x7f0801e2
 int id open_search_view_toolbar 0x7f0801e3
 int id open_search_view_toolbar_container 0x7f0801e4
-int id order_login_layout 0x7f0801e5
+int id order_layout 0x7f080304
 int id outline 0x7f0801e6
 int id outward 0x7f0801e7
 int id overshoot 0x7f0801e8
@@ -3678,6 +3676,7 @@ int id pathRelative 0x7f0801f1
 int id peekHeight 0x7f0801f2
 int id percent 0x7f0801f3
 int id pin 0x7f0801f4
+int id points_layout 0x7f080301
 int id position 0x7f0801f5
 int id postLayout 0x7f0801f6
 int id pressed 0x7f0801f7
@@ -3840,7 +3839,6 @@ int id tv_bp_mystery_toast 0x7f080293
 int id tv_bp_toast_killer 0x7f080294
 int id tv_branch_info 0x7f080295
 int id tv_branch_info_address 0x7f080296
-int id tv_branch_info_login 0x7f080297
 int id tv_branch_info_name 0x7f080298
 int id tv_branch_info_tel 0x7f080299
 int id tv_card_num 0x7f08029a
@@ -3852,12 +3850,9 @@ int id tv_coupon_toast_killer 0x7f08029f
 int id tv_create 0x7f0802a0
 int id tv_create2 0x7f0802a1
 int id tv_customer_service 0x7f0802a2
-int id tv_customer_service_login 0x7f0802a3
 int id tv_daily_spin 0x7f0802a4
-int id tv_daily_spin_login 0x7f0802a5
 int id tv_date 0x7f0802a6
 int id tv_delivery 0x7f0802a7
-int id tv_delivery_login 0x7f0802a8
 int id tv_discount 0x7f0802a9
 int id tv_ds_i_love_toast 0x7f0802aa
 int id tv_ds_mystery_toast 0x7f0802ab
@@ -3895,7 +3890,6 @@ int id tv_mp_toast_killer 0x7f0802ca
 int id tv_mystery_toast 0x7f0802cb
 int id tv_name 0x7f0802cc
 int id tv_order 0x7f0802cd
-int id tv_order_login 0x7f0802ce
 int id tv_papaya 0x7f0802cf
 int id tv_password_login 0x7f0802d0
 int id tv_pay 0x7f0802d1
@@ -3904,7 +3898,6 @@ int id tv_price_i_love_toast 0x7f0802d3
 int id tv_price_mystery_toast 0x7f0802d4
 int id tv_price_toast_killer 0x7f0802d5
 int id tv_pro 0x7f0802d6
-int id tv_pro_login 0x7f0802d7
 int id tv_signout 0x7f0802d8
 int id tv_tel 0x7f0802d9
 int id tv_toast_item_info 0x7f0802da
@@ -3916,7 +3909,6 @@ int id tv_unknown_i_love_toast 0x7f0802df
 int id tv_unknown_mystery_toast 0x7f0802e0
 int id tv_unknown_toast_killer 0x7f0802e1
 int id tv_user_name 0x7f0802e2
-int id tv_user_name_login 0x7f0802e3
 int id tv_verification_code 0x7f0802e4
 int id unchecked 0x7f0802e5
 int id uniform 0x7f0802e6
@@ -4088,12 +4080,12 @@ int layout design_navigation_menu 0x7f0b0034
 int layout design_navigation_menu_item 0x7f0b0035
 int layout design_text_input_end_icon 0x7f0b0036
 int layout design_text_input_start_icon 0x7f0b0037
+int layout dialog_edit_name 0x7f0b0080
 int layout function_menu 0x7f0b0038
 int layout ime_base_split_test_activity 0x7f0b0039
 int layout ime_secondary_split_test_activity 0x7f0b003a
 int layout item_toast 0x7f0b003b
 int layout location_info 0x7f0b003c
-int layout login_function_menu 0x7f0b003d
 int layout login_pro_info 0x7f0b003e
 int layout m3_alert_dialog 0x7f0b003f
 int layout m3_alert_dialog_actions 0x7f0b0040
