@@ -1,5 +1,6 @@
 package ppy.app.papaya;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.FrameLayout;
@@ -171,6 +173,18 @@ public class MainActivity extends AppCompatActivity {
                     });
         }
 
+        ivUserImg.setOnClickListener(v -> {
+            if (currentUser != null) {
+                openChooseAvatarDialog(currentUser.getEmail(), tvUserName, ivUserImg);
+            }
+        });
+
+        tvUserName.setOnClickListener(v -> {
+            if (currentUser != null) {
+                openEditUserNameDialog(currentUser.getEmail(), tvUserName);
+            }
+        });
+
         Button btnRegister = functionMenuView.findViewById(R.id.btn_register_function_menu);
         if (btnRegister != null) {
             btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -275,8 +289,95 @@ public class MainActivity extends AppCompatActivity {
         return super.dispatchTouchEvent(ev);
     }
 
+    private void openChooseAvatarDialog(String email, TextView tvUserName, ImageView ivUserImg) {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.choose_user_img);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        ImageButton ibUnknown = dialog.findViewById(R.id.ib_unknown_user_img);
+        ImageButton ibChii = dialog.findViewById(R.id.ib_chii_user_img);
+        ImageButton ibHachi = dialog.findViewById(R.id.ib_hachi_user_img);
+        ImageButton ibUsagi = dialog.findViewById(R.id.ib_usagi_user_img);
+
+        View.OnClickListener listener = v -> {
+            String selectedAvatarName;
+            int id = v.getId();
+            if (id == R.id.ib_unknown_user_img) {
+                selectedAvatarName = "login_usagi";
+            } else if (id == R.id.ib_chii_user_img) {
+                selectedAvatarName = "user_chii";
+            } else if (id == R.id.ib_hachi_user_img) {
+                selectedAvatarName = "user_hachi";
+            } else if (id == R.id.ib_usagi_user_img) {
+                selectedAvatarName = "user_usagi";
+            }else {
+                return;
+            }
+
+            db.collection("users")
+                    .whereEqualTo("email", email)
+                    .get()
+                    .addOnSuccessListener(snapshots -> {
+                        for (QueryDocumentSnapshot doc : snapshots) {
+                            db.collection("users")
+                                    .document(doc.getId())
+                                    .update("avatar", selectedAvatarName)
+                                    .addOnSuccessListener(aVoid -> {
+                                        int imageResId = getResources().getIdentifier(selectedAvatarName, "mipmap", getPackageName());
+                                        ivUserImg.setImageResource(imageResId);
+                                        Toast.makeText(this, "頭像更新成功", Toast.LENGTH_SHORT).show();
+                                    })
+                                    .addOnFailureListener(e -> Toast.makeText(this, "更新失敗", Toast.LENGTH_SHORT).show());
+                        }
+                    });
+            dialog.dismiss();
+        };
+
+        ibUnknown.setOnClickListener(listener);
+        ibChii.setOnClickListener(listener);
+        ibHachi.setOnClickListener(listener);
+        ibUsagi.setOnClickListener(listener);
+
+        dialog.show();
+    }
 
 
+    private void openEditUserNameDialog(String email, TextView tvUserName) {
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.dialog_edit_name);
 
+        EditText etNewName = dialog.findViewById(R.id.et_new_name);
+        Button btnSave = dialog.findViewById(R.id.btn_save_name);
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        btnSave.setOnClickListener(v -> {
+            String newName = etNewName.getText().toString().trim();
+            if (newName.isEmpty()) {
+                Toast.makeText(this, "名字不能空白", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            db.collection("users")
+                    .whereEqualTo("email", email)
+                    .get()
+                    .addOnSuccessListener(snapshots -> {
+                        for (QueryDocumentSnapshot doc : snapshots) {
+                            db.collection("users")
+                                    .document(doc.getId())
+                                    .update("name", newName)
+                                    .addOnSuccessListener(aVoid -> {
+                                        tvUserName.setText(newName);
+                                        Toast.makeText(this, "名稱更新成功", Toast.LENGTH_SHORT).show();
+                                    })
+                                    .addOnFailureListener(e -> Toast.makeText(this, "更新失敗", Toast.LENGTH_SHORT).show());
+                        }
+                    });
+            dialog.dismiss();
+        });
+
+        dialog.show();
+    }
 
 }
