@@ -323,6 +323,7 @@ layout activity_branch_info
 layout activity_customer_service
 layout activity_daily_spin
 layout activity_login
+layout activity_login_pro_info
 layout activity_main
 layout activity_splash
 layout branches
@@ -334,7 +335,6 @@ layout dialog_edit_name
 layout function_menu
 layout item_toast
 layout location_info
-layout login_pro_info
 layout modify_member_information
 layout pro_info
 layout register

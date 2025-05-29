@@ -4070,6 +4070,7 @@ layout activity_branch_info
 layout activity_customer_service
 layout activity_daily_spin
 layout activity_login
+layout activity_login_pro_info
 layout activity_main
 layout activity_splash
 layout branches
@@ -4101,7 +4102,6 @@ layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_toast
 layout location_info
-layout login_pro_info
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
