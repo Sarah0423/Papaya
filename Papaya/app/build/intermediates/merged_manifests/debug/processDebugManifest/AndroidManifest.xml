@@ -44,6 +44,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.Papaya" >
         <activity
+            android:name="ppy.app.papaya.ToastInfo"
+            android:exported="false" />
+        <activity
             android:name="ppy.app.papaya.LoginProInfo"
             android:exported="false" />
         <activity
