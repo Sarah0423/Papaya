@@ -62,15 +62,22 @@ public class DailySpin extends AppCompatActivity {
                         .putString("lastPrize", prizeMessage)
                         .apply();
 
-                // 回到 MainActivity
-                Intent intent = new Intent(DailySpin.this, MainActivity.class);
-                intent.putExtra("SHOW_FUNCTION_MENU", true);
-                startActivity(intent);
-                finish(); // 關閉當前頁面
+                // 顯示中獎結果 Dialog
+                new androidx.appcompat.app.AlertDialog.Builder(DailySpin.this)
+                        .setTitle("抽獎結果")
+                        .setMessage(prizeMessage)
+                        .setCancelable(false)
+                        .setPositiveButton("確定", (dialog, which) -> {
+                            // 點確定後跳轉回 MainActivity
+                            Intent intent = new Intent(DailySpin.this, MainActivity.class);
+                            intent.putExtra("SHOW_FUNCTION_MENU", false);
+                            startActivity(intent);
+                            finish(); // 關閉當前頁面
+                        })
+                        .show();
             }
         };
 
-// 把 listener 設給所有 imageButton
         int[] ids = {R.id.btn_chii, R.id.btn_shisa, R.id.btn_rakko, R.id.btn_kuri,
                 R.id.btn_bug, R.id.btn_momo, R.id.btn_kani, R.id.btn_hachi,
                 R.id.btn_usa};
