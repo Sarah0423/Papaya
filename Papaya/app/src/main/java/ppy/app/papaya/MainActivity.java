@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout pointsLayout;
     private LinearLayout logoutLayout;
     private LinearLayout myFavoriteLayout;
+    private LinearLayout UpdateToPro;
 
 
     @Override
@@ -249,8 +250,13 @@ public class MainActivity extends AppCompatActivity {
         linearDailyLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
+                if (currentUser != null) {
+                    Intent intent = new Intent(MainActivity.this, DailySpin.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -268,8 +274,27 @@ public class MainActivity extends AppCompatActivity {
         linearCustomerServiceLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
+                if (currentUser != null) {
+                    Intent intent = new Intent(MainActivity.this, CustomerService.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        LinearLayout linearUpdateToPro = functionMenuView.findViewById(R.id.ll_update_to_pro);
+        linearUpdateToPro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (currentUser != null) {
+                    Intent intent = new Intent(MainActivity.this, LoginProInfo.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
+                }
             }
         });
 

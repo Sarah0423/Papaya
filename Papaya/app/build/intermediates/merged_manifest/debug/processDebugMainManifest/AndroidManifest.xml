@@ -43,6 +43,28 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.Papaya" >
+        <activity
+            android:name="ppy.app.papaya.ToastInfo"
+            android:exported="false" />
+        <activity
+            android:name="ppy.app.papaya.LoginProInfo"
+            android:exported="false" />
+        <activity
+            android:name="ppy.app.papaya.SplashActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="ppy.app.papaya.CustomerService"
+            android:exported="false" />
+        <activity
+            android:name="ppy.app.papaya.DailySpin"
+            android:exported="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDbXIcgrNpplICHpMYg2XfDPDuNeD6A1YY" />
@@ -61,14 +83,7 @@
             android:exported="false" />
         <activity
             android:name="ppy.app.papaya.MainActivity"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
+            android:exported="false" />
         <!-- Needs to be explicitly declared on P+ -->
         <uses-library
             android:name="org.apache.http.legacy"
