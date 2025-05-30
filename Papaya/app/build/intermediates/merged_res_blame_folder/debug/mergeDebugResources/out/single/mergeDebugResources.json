@@ -36,16 +36,12 @@
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\choose_user_img.xml"
     },
     {
-        "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy7.jpg.flat",
-        "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\ppy7.jpg"
-    },
-    {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_main.xml.flat",
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_main.xml"
     },
     {
-        "merged": "ppy.app.papaya.app-debug-43:/layout_activity_branch_info.xml.flat",
-        "source": "ppy.app.papaya.app-main-45:/layout/activity_branch_info.xml"
+        "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy7.jpg.flat",
+        "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\ppy7.jpg"
     },
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_white_toast.jpg.flat",
@@ -360,10 +356,6 @@
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\phone.xml"
     },
     {
-        "merged": "ppy.app.papaya.app-debug-43:/layout_location_info.xml.flat",
-        "source": "ppy.app.papaya.app-main-45:/layout/location_info.xml"
-    },
-    {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy3.jpg.flat",
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\ppy3.jpg"
     },
@@ -510,6 +502,10 @@
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_cr28bffffff.xml.flat",
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\cr28bffffff.xml"
+    },
+    {
+        "merged": "ppy.app.papaya.app-debug-43:/layout_activity_daily_spin.xml.flat",
+        "source": "ppy.app.papaya.app-main-45:/layout/activity_daily_spin.xml"
     },
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_favorite.xml.flat",
