@@ -16,11 +16,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton9"
+        app:layout_constraintTop_toBottomOf="@+id/btn_kuri"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/btn_chii"
         android:layout_width="120dp"
         android:layout_height="114dp"
         android:layout_marginStart="16dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
+        android:id="@+id/btn_shisa"
         android:layout_width="120dp"
         android:layout_height="114dp"
         android:layout_marginTop="16dp"
@@ -41,12 +41,12 @@
         android:background="@null"
         android:scaleType="fitCenter"
         android:src="@mipmap/bigshisa"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton2"
-        app:layout_constraintStart_toStartOf="@+id/imageButton2"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_chii"
+        app:layout_constraintStart_toStartOf="@+id/btn_chii"
+        app:layout_constraintTop_toBottomOf="@+id/btn_chii" />
 
     <ImageButton
-        android:id="@+id/imageButton8"
+        android:id="@+id/btn_rakko"
         android:layout_width="120dp"
         android:layout_height="114dp"
         android:layout_marginTop="16dp"
@@ -54,12 +54,12 @@
         android:background="@null"
         android:scaleType="fitCenter"
         android:src="@mipmap/bigrakko"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton5"
-        app:layout_constraintStart_toStartOf="@+id/imageButton5"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_shisa"
+        app:layout_constraintStart_toStartOf="@+id/btn_shisa"
+        app:layout_constraintTop_toBottomOf="@+id/btn_shisa" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/btn_kuri"
         android:layout_width="120dp"
         android:layout_height="114dp"
         android:layout_marginTop="16dp"
@@ -67,12 +67,12 @@
         android:background="@null"
         android:scaleType="fitCenter"
         android:src="@mipmap/bigkuri"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton10"
-        app:layout_constraintStart_toEndOf="@+id/imageButton8"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+        app:layout_constraintEnd_toStartOf="@+id/btn_bug"
+        app:layout_constraintStart_toEndOf="@+id/btn_rakko"
+        app:layout_constraintTop_toBottomOf="@+id/btn_momo" />
 
     <ImageButton
-        android:id="@+id/imageButton10"
+        android:id="@+id/btn_bug"
         android:layout_width="120dp"
         android:layout_height="114dp"
         android:layout_marginTop="16dp"
@@ -80,12 +80,12 @@
         android:background="@null"
         android:scaleType="fitCenter"
         android:src="@mipmap/bigbug"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton7"
-        app:layout_constraintStart_toStartOf="@+id/imageButton7"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton7" />
+        app:layout_constraintEnd_toEndOf="@+id/btn_kani"
+        app:layout_constraintStart_toStartOf="@+id/btn_kani"
+        app:layout_constraintTop_toBottomOf="@+id/btn_kani" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/btn_momo"
         android:layout_width="120dp"
         android:layout_height="114dp"
         android:layout_marginTop="16dp"
@@ -93,12 +93,12 @@
         android:background="@null"
         android:scaleType="fitCenter"
         android:src="@mipmap/bigmomo"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton7"
-        app:layout_constraintStart_toEndOf="@+id/imageButton5"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3" />
+        app:layout_constraintEnd_toStartOf="@+id/btn_kani"
+        app:layout_constraintStart_toEndOf="@+id/btn_shisa"
+        app:layout_constraintTop_toBottomOf="@+id/btn_hachi" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
+        android:id="@+id/btn_kani"
         android:layout_width="120dp"
         android:layout_height="114dp"
         android:layout_marginTop="16dp"
@@ -107,23 +107,23 @@
         android:scaleType="fitCenter"
         android:src="@mipmap/bigkani"
         app:layout_constraintEnd_toEndOf="@+id/imageButton4"
-        app:layout_constraintStart_toStartOf="@+id/imageButton4"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4" />
+        app:layout_constraintStart_toStartOf="@+id/btn_usa"
+        app:layout_constraintTop_toBottomOf="@+id/btn_usa" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/btn_hachi"
         android:layout_width="120dp"
         android:layout_height="114dp"
         android:adjustViewBounds="true"
         android:background="@null"
         android:scaleType="fitCenter"
         android:src="@mipmap/bighachi"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
-        app:layout_constraintTop_toTopOf="@+id/imageButton2" />
+        app:layout_constraintEnd_toStartOf="@+id/btn_usa"
+        app:layout_constraintStart_toEndOf="@+id/btn_chii"
+        app:layout_constraintTop_toTopOf="@+id/btn_chii" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/btn_usa"
         android:layout_width="120dp"
         android:layout_height="114dp"
         android:layout_marginEnd="16dp"
@@ -132,7 +132,7 @@
         android:scaleType="fitCenter"
         android:src="@mipmap/bigusa"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageButton2" />
+        app:layout_constraintTop_toTopOf="@+id/btn_chii" />
 
     <ImageView
         android:id="@+id/imageView"

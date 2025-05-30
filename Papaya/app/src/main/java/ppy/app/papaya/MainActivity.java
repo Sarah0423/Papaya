@@ -1,5 +1,6 @@
 package ppy.app.papaya;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Rect;
@@ -297,6 +298,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        ImageButton reminderBtn = findViewById(R.id.ib_notification); // 替換為你對應的 id
+        reminderBtn.setOnClickListener(v -> {
+            String prize = getSharedPreferences("PapayaPrefs", MODE_PRIVATE)
+                    .getString("lastPrize", "目前尚未中獎");
+
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("中獎提醒")
+                    .setMessage(prize)
+                    .setPositiveButton("確定", null)
+                    .show();
+        });
+
 
     }
 

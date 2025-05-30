@@ -26,6 +26,60 @@ public class DailySpin extends AppCompatActivity {
             return insets;
         });
 
+        View.OnClickListener prizeClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int random = (int) (Math.random() * 9) + 1;
+                String prizeMessage;
+
+                switch (random) {
+                    case 1:
+                        prizeMessage = "獲得免外送費";
+                        break;
+                    case 2:
+                        prizeMessage = "獲得$30折價券";
+                        break;
+                    case 3:
+                        prizeMessage = "吐司買一送一";
+                        break;
+                    case 4:
+                        prizeMessage = "獲得會員點數2點";
+                        break;
+                    case 5:
+                        prizeMessage = "滿百享九折";
+                        break;
+                    case 6:
+                        prizeMessage = "吐司買二送一";
+                        break;
+                    default:
+                        prizeMessage = "沒中獎，再試一次！";
+                        break;
+                }
+
+                // 儲存中獎結果到 SharedPreferences（推薦方法）
+                getSharedPreferences("PapayaPrefs", MODE_PRIVATE)
+                        .edit()
+                        .putString("lastPrize", prizeMessage)
+                        .apply();
+
+                // 回到 MainActivity
+                Intent intent = new Intent(DailySpin.this, MainActivity.class);
+                intent.putExtra("SHOW_FUNCTION_MENU", true);
+                startActivity(intent);
+                finish(); // 關閉當前頁面
+            }
+        };
+
+// 把 listener 設給所有 imageButton
+        int[] ids = {R.id.btn_chii, R.id.btn_shisa, R.id.btn_rakko, R.id.btn_kuri,
+                R.id.btn_bug, R.id.btn_momo, R.id.btn_kani, R.id.btn_hachi,
+                R.id.btn_usa};
+
+        for (int id : ids) {
+            findViewById(id).setOnClickListener(prizeClickListener);
+        }
+
+
         btnReturn= findViewById(R.id.btn_return);
 
         btnReturn.setOnClickListener(new View.OnClickListener() {
