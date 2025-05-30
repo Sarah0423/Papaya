@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="beige">#F5F3EF</color>
     <color name="black">#FF000000</color>
     <color name="ic_launcher_background">#F8F8F8</color>
+    <color name="orange">#FC5C2E</color>
     <color name="white">#FFFFFFFF</color>
+    <dimen name="item_spacing">8dp</dimen>
     <string name="app_name">Papaya</string>
     <string name="gcm_defaultSenderId" translatable="false">110246386534</string>
     <string name="google_api_key" translatable="false">AIzaSyAe9ihyiJ5DhPcgXYSiacJsOUPiwcJeL-g</string>

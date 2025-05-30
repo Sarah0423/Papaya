@@ -3,6 +3,7 @@ package ppy.app.papaya;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +12,7 @@ public class SplashActivity extends AppCompatActivity {
 
     private ImageView splashImageView;
     private int currentFrame = 0;
-    private Handler handler = new Handler();
+    private Handler handler = new Handler(Looper.getMainLooper());
     private int[] splashFrames = {
             R.drawable.splash_1, R.drawable.splash_2, R.drawable.splash_2,
             R.drawable.splash_3, R.drawable.splash_4, R.drawable.splash_5,

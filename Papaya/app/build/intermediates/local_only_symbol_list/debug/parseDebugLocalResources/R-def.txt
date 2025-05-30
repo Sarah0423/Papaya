@@ -1,8 +1,11 @@
 R_DEF: Internal format may change without notice
 local
+color beige
 color black
 color ic_launcher_background
+color orange
 color white
+dimen item_spacing
 drawable add_num_circle
 drawable branch_info
 drawable cr12b19c4e9
@@ -29,6 +32,7 @@ drawable cr6bff6716
 drawable cr6bffffff
 drawable customer_service
 drawable cut_user_img
+drawable cut_user_img_org
 drawable delivery
 drawable dots
 drawable favorite
@@ -74,7 +78,6 @@ drawable splash_9
 drawable tab_selector
 id TPmapView
 id branch_layout
-id btn_add
 id btn_add_i_love_toast
 id btn_add_mystery_toast
 id btn_add_to_cart
@@ -85,9 +88,11 @@ id btn_choose_coupon
 id btn_create
 id btn_create2
 id btn_goto_cart
+id btn_goto_toast_info
 id btn_hachi
 id btn_hsinchu
 id btn_hualian
+id btn_ingredient
 id btn_kani
 id btn_kaohsiung
 id btn_kuri
@@ -112,7 +117,6 @@ id btn_usa
 id btn_write_delivery_info
 id btn_yilan
 id btn_yunlin
-id button
 id button2
 id button4
 id checkBox
@@ -136,6 +140,9 @@ id et_name
 id et_new_name
 id et_question_type
 id et_tv_verification_code
+id fl_toast_cur
+id fl_toast_next
+id fl_toast_pre
 id frameLayout
 id function_menu_container
 id ib_chii_user_img
@@ -145,15 +152,15 @@ id ib_hachi_user_img
 id ib_index
 id ib_jcb
 id ib_master
+id ib_minus_num
 id ib_next_toast
 id ib_notification
+id ib_plus_num
 id ib_pre_toast
 id ib_rupay
 id ib_unknown_user_img
 id ib_usagi_user_img
 id ib_visa
-id imageButton11
-id imageButton13
 id imageButton2
 id imageButton3
 id imageButton4
@@ -174,6 +181,9 @@ id iv_chii_res2
 id iv_circle_background
 id iv_customer_service
 id iv_cut_img
+id iv_cut_img_org
+id iv_cut_toast_next
+id iv_cut_toast_pre
 id iv_cut_user_img
 id iv_daily_spin
 id iv_delivery
@@ -222,10 +232,15 @@ id rhqbwk1mlzl
 id rnr6d2w3cqo
 id rt37yj8luoj
 id rugqtneve0y
+id rv_common
+id rv_fruit
+id rv_jam
+id rv_meat
 id rv_toast_item
+id rv_vegetable
 id rzjetrxj8yyr
-id scrollView2
 id splash_image
+id sv_ingredients
 id tabLayout
 id taiwan
 id textCallSupport
@@ -268,6 +283,7 @@ id tv_favorite
 id tv_forget_password
 id tv_fruit
 id tv_i_love_toast
+id tv_item_category_cur
 id tv_item_num
 id tv_jam
 id tv_list1_i_love_toast
@@ -315,6 +331,7 @@ id tv_toast_item_info
 id tv_toast_item_name
 id tv_toast_item_price
 id tv_toast_killer
+id tv_toast_name_cur
 id tv_toast_num
 id tv_toast_price
 id tv_total
@@ -361,6 +378,7 @@ mipmap bigmoney
 mipmap bigrakko
 mipmap bigshisa
 mipmap bigtoast
+mipmap bigtoast_for_cart
 mipmap bigusa
 mipmap camera
 mipmap cart_usagi
@@ -371,6 +389,7 @@ mipmap deliver_coupon
 mipmap discount_coupon
 mipmap french_toast
 mipmap grain_toast
+mipmap honey_toast
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round

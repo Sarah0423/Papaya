@@ -30,17 +30,17 @@ public class ToastItem {
     }
 
     @PropertyName("toast_name")
-    public String getName() { return name; }
+    public String getToastName() { return name; }
 
     @PropertyName("toast_info")
-    public String getInfo() { return info; }
+    public String getToastInfo() { return info; }
 
     @PropertyName("toast_price")
-    public int getPrice() { return price; }
+    public int getToastPrice() { return price; }
 
     @PropertyName("toast_photo")
-    public String getImageName() { return imageName; }
+    public String getToastImageName() { return imageName; }
 
     @PropertyName("toast_index")
-    public int getIndex() { return index; }
+    public int getToastIndex() { return index; }
 }

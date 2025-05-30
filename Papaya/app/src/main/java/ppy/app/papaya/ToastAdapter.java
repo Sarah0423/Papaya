@@ -1,9 +1,11 @@
 package ppy.app.papaya;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,20 +36,25 @@ public class  ToastAdapter extends RecyclerView.Adapter<ToastAdapter.ToastViewHo
     @Override
     public void onBindViewHolder(@NonNull ToastViewHolder holder, int position) {
         ToastItem toastItem = toastItemList.get(position);
-
-        holder.tvName.setText(toastItem.getName());
-        holder.tvPrice.setText("$" + toastItem.getPrice());
-        holder.tvInfo.setText(toastItem.getInfo());
+        holder.tvName.setText(toastItem.getToastName());
+        holder.tvPrice.setText("$" + toastItem.getToastPrice());
+        holder.tvInfo.setText(toastItem.getToastInfo());
 
         // 使用圖片名稱找 drawable 資源 ID
         int imageResId = context.getResources().getIdentifier(
-                toastItem.getImageName(), "mipmap", context.getPackageName());
+                toastItem.getToastImageName(), "mipmap", context.getPackageName());
 
         if (imageResId != 0) {
             holder.ivImage.setImageResource(imageResId);
         } else {
             holder.ivImage.setImageResource(R.mipmap.bigtoast); // 顯示預設圖片
         }
+
+        holder.btnGotoInfo.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ToastInfo.class);
+            intent.putExtra("toast_index", toastItem.getToastIndex());
+            context.startActivity(intent);
+        });
     }
 
     @Override
@@ -58,6 +65,7 @@ public class  ToastAdapter extends RecyclerView.Adapter<ToastAdapter.ToastViewHo
     public static class ToastViewHolder extends RecyclerView.ViewHolder {
         ImageView ivImage;
         TextView tvName, tvPrice, tvInfo;
+        Button btnGotoInfo;
 
         public ToastViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,6 +73,7 @@ public class  ToastAdapter extends RecyclerView.Adapter<ToastAdapter.ToastViewHo
             tvName = itemView.findViewById(R.id.tv_toast_item_name);
             tvPrice = itemView.findViewById(R.id.tv_toast_item_price);
             tvInfo = itemView.findViewById(R.id.tv_toast_item_info);
+            btnGotoInfo = itemView.findViewById(R.id.btn_goto_toast_info);
         }
     }
 }
