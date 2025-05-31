@@ -76,5 +76,7 @@ public class  ToastAdapter extends RecyclerView.Adapter<ToastAdapter.ToastViewHo
             btnGotoInfo = itemView.findViewById(R.id.btn_goto_toast_info);
         }
     }
+
+
 }
 

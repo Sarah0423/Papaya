@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -195,6 +196,35 @@ public class ToastInfo extends AppCompatActivity {
                 updateTotalPrice(num);
             } else {
                 Toast.makeText(this, "數量不能小於 1", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Button btnAdd = findViewById(R.id.btn_add_to_cart); // 你的加入購物車按鈕
+
+
+        btnAdd.setOnClickListener(v -> {
+            try {
+                String priceText = tvToastPrice.getText().toString().replace("$", "").trim();
+                int totalPrice = Integer.parseInt(priceText);
+                int quantity = Integer.parseInt(tvToastNum.getText().toString());
+
+                SharedPreferences prefs = getSharedPreferences("CartPrefs", MODE_PRIVATE);
+                int cartCount = prefs.getInt("cart_count", 0);
+                int cartTotal = prefs.getInt("cart_total", 0);
+
+                SharedPreferences.Editor editor = prefs.edit();
+                int newCount = cartCount + quantity;
+                int newTotal = cartTotal + totalPrice;
+
+                editor.putInt("cart_count", newCount);
+                editor.putInt("cart_total", newTotal);
+                editor.apply();
+
+                Toast.makeText(this, "已加入購物車", Toast.LENGTH_SHORT).show();
+
+            } catch (NumberFormatException e) {
+                Toast.makeText(this, "價格格式錯誤，請聯絡開發者", Toast.LENGTH_LONG).show();
+                e.printStackTrace(); // 開發階段用來查錯
             }
         });
     }

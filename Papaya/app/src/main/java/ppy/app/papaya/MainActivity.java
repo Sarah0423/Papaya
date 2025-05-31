@@ -3,6 +3,7 @@ package ppy.app.papaya;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.Layout;
@@ -417,6 +418,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         dialog.show();
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences prefs = getSharedPreferences("CartPrefs", MODE_PRIVATE);
+        int cartCount = prefs.getInt("cart_count", 0);
+        int cartTotal = prefs.getInt("cart_total", 0);
+        TextView tvItemNum = findViewById(R.id.tv_item_num);
+        Button btnGotoCart = findViewById(R.id.btn_goto_cart);
+        tvItemNum.setText(String.valueOf(cartCount));
+        btnGotoCart.setText("$" + cartTotal);
     }
 
 }
