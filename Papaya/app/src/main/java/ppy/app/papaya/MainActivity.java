@@ -312,7 +312,11 @@ public class MainActivity extends AppCompatActivity {
                     .show();
         });
 
-
+        Button btnGotoCart = findViewById(R.id.btn_goto_cart);
+        btnGotoCart.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CheckCart.class);
+            startActivity(intent);
+        });
     }
 
     @Override
