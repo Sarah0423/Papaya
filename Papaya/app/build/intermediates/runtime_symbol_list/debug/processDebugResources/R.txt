@@ -3055,6 +3055,7 @@ int drawable design_password_eye 0x7f0700b3
 int drawable design_snackbar_background 0x7f0700b4
 int drawable dots 0x7f0700b5
 int drawable favorite 0x7f0700b6
+int drawable favorite_fill 0x7f070143
 int drawable googleg_disabled_color_18 0x7f0700b7
 int drawable googleg_standard_color_18 0x7f0700b8
 int drawable ic_arrow_back_black_24 0x7f0700b9
@@ -3547,6 +3548,7 @@ int id iv_daily_spin 0x7f080157
 int id iv_delivery 0x7f080158
 int id iv_dots 0x7f080159
 int id iv_favorite 0x7f08015a
+int id iv_favorite_branch 0x7f080311
 int id iv_order 0x7f08015b
 int id iv_pro_img 0x7f08015c
 int id iv_signout 0x7f08015d

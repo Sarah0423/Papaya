@@ -36,6 +36,7 @@ drawable cut_user_img_org
 drawable delivery
 drawable dots
 drawable favorite
+drawable favorite_fill
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable index
@@ -189,6 +190,7 @@ id iv_daily_spin
 id iv_delivery
 id iv_dots
 id iv_favorite
+id iv_favorite_branch
 id iv_order
 id iv_pro_img
 id iv_signout

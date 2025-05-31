@@ -1,6 +1,7 @@
 package ppy.app.papaya;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
@@ -19,10 +20,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ToastInfo extends AppCompatActivity {
 
@@ -194,6 +199,22 @@ public class ToastInfo extends AppCompatActivity {
         });
     }
 
+    private void resetExtras() {
+        allSelectedIngredients.clear();
+        extraTotalPrice = 0;
+
+        for (RecyclerView rv : Arrays.asList(rvMeat, rvVegetable, rvFruit, rvCommon, rvJam)) {
+            IngredientAdapter adapter = (IngredientAdapter) rv.getAdapter();
+            if (adapter != null) {
+                for (IngredientItem item : adapter.getIngredientList()) {
+                    item.setSelected(false);  // 取消勾選
+                }
+                adapter.notifyDataSetChanged();  // 通知刷新畫面
+            }
+        }
+    }
+
+
     private void updateUI() {
         if (toastList.isEmpty()) return;
 
@@ -201,8 +222,8 @@ public class ToastInfo extends AppCompatActivity {
         ToastItem preItem = toastList.get((currentIndex - 1 + toastList.size()) % toastList.size());
         ToastItem nextItem = toastList.get((currentIndex + 1) % toastList.size());
 
-        // 淡出動畫
-        int duration = 200; // 動畫時間（毫秒）
+        int duration = 200;
+
         ibCurToast.animate().alpha(0f).setDuration(duration).withEndAction(() -> {
             int resId = getResources().getIdentifier(
                     curItem.getToastImageName(), "mipmap", getPackageName());
@@ -234,13 +255,17 @@ public class ToastInfo extends AppCompatActivity {
             tvToastIntro.animate().alpha(1f).setDuration(duration);
         }).start();
 
-        tvToastPrice.animate().alpha(0f).setDuration(duration).withEndAction(() -> {
-            tvToastPrice.setText("$"+curItem.getToastPrice());
-            tvToastPrice.animate().alpha(1f).setDuration(duration);
-        }).start();
+        // 重設數量為 1
+        tvToastNum.setText("1");
 
-        updateTotalPrice(Integer.parseInt(tvToastNum.getText().toString()));
+        // 重設配料選擇
+        resetExtras();
+
+        restoreSelectedIngredientsForCurrentToast();
+        updateExtraPrice(); // 重新計算價格
+        updateTotalPrice(1);
     }
+
 
     public class SpaceItemDecoration extends RecyclerView.ItemDecoration {
         private final int space;
@@ -277,16 +302,52 @@ public class ToastInfo extends AppCompatActivity {
         }
         extraTotalPrice = total;
         tvToastPrice.setText("$" + (toastList.get(currentIndex).getToastPrice() + extraTotalPrice));
+        saveSelectedIngredientsForCurrentToast();
     }
 
     private void updateTotalPrice(int num) {
         int basePrice = toastList.get(currentIndex).getToastPrice();
         int totalPrice = (basePrice + extraTotalPrice) * num;
-        tvToastPrice.setText("$" + totalPrice);
+        int duration = 200; // 動畫時間
+        tvToastPrice.animate().alpha(0f).setDuration(duration).withEndAction(() -> {
+            tvToastPrice.setText("$" + totalPrice);
+            tvToastPrice.animate().alpha(1f).setDuration(duration);
+        }).start();
     }
 
+    private void saveSelectedIngredientsForCurrentToast() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userId = user != null ? user.getUid() : "guest";
 
+        SharedPreferences prefs = getSharedPreferences("ToastSelections_" + userId, MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
 
+        Set<String> selectedNames = new HashSet<>();
+        for (IngredientItem item : allSelectedIngredients) {
+            selectedNames.add(item.getIngredientsName());
+        }
 
+        String key = "toast_selected_" + toastList.get(currentIndex).getToastIndex();
+        editor.putStringSet(key, selectedNames);
+        editor.apply();
+    }
 
+    private void restoreSelectedIngredientsForCurrentToast() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String userId = user != null ? user.getUid() : "guest";
+
+        SharedPreferences prefs = getSharedPreferences("ToastSelections_" + userId, MODE_PRIVATE);
+        String key = "toast_selected_" + toastList.get(currentIndex).getToastIndex();
+        Set<String> savedNames = prefs.getStringSet(key, new HashSet<>());
+
+        for (RecyclerView rv : Arrays.asList(rvMeat, rvVegetable, rvFruit, rvCommon, rvJam)) {
+            IngredientAdapter adapter = (IngredientAdapter) rv.getAdapter();
+            if (adapter != null) {
+                for (IngredientItem item : adapter.getIngredientList()) {
+                    item.setSelected(savedNames.contains(item.getIngredientsName()));
+                }
+                adapter.notifyDataSetChanged();
+            }
+        }
+    }
 }

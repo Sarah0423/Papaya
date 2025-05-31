@@ -3056,6 +3056,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable dots
 drawable favorite
+drawable favorite_fill
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_back_black_24
@@ -3548,6 +3549,7 @@ id iv_daily_spin
 id iv_delivery
 id iv_dots
 id iv_favorite
+id iv_favorite_branch
 id iv_order
 id iv_pro_img
 id iv_signout

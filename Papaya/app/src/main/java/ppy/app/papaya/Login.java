@@ -1,6 +1,8 @@
 package ppy.app.papaya;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
@@ -70,8 +72,15 @@ public class Login extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
+                                    String userId = user != null ? user.getUid() : "guest";
+
+                                    SharedPreferences preferences = Login.this.getSharedPreferences("ingredient_prefs_" + userId, Context.MODE_PRIVATE);
+                                    preferences.edit().clear().apply();
+
+                                    SharedPreferences toastPrefs = Login.this.getSharedPreferences("ToastSelections_" + userId, Context.MODE_PRIVATE);
+                                    toastPrefs.edit().clear().apply();
+
                                     Toast.makeText(Login.this, "登入成功：" + user.getEmail(), Toast.LENGTH_SHORT).show();
-                                    // 跳轉至主畫面
                                     startActivity(new Intent(Login.this, MainActivity.class));
                                     finish();
                                 } else {

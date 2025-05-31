@@ -204,7 +204,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="meat"
+                android:text="meat(最多擇一)"
                 android:textAlignment="textStart"
                 android:textColorLink="#24262F" />
 
@@ -219,7 +219,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="vegetable"
+                android:text="vegetable(最多擇二)"
                 android:textAlignment="textStart"
                 android:textColorLink="#24262F" />
 
@@ -234,7 +234,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="fruit"
+                android:text="fruit(最多擇一)"
                 android:textAlignment="textStart"
                 android:textColorLink="#24262F" />
 
@@ -249,7 +249,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="common"
+                android:text="common(最多擇二)"
                 android:textAlignment="textStart"
                 android:textColorLink="#24262F" />
 
@@ -264,7 +264,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="jam"
+                android:text="jam(最多擇二)"
                 android:textAlignment="textStart"
                 android:textColorLink="#24262F" />
 
