@@ -25,7 +25,6 @@ public class Branch_info extends AppCompatActivity {
 
     private ImageButton btnReturn;
     private FirebaseFirestore db;
-    private ImageButton btnTaipei;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +38,6 @@ public class Branch_info extends AppCompatActivity {
         });
 
         btnReturn= findViewById(R.id.btn_return);
-        btnTaipei = findViewById(R.id.btn_taipei);
 
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
