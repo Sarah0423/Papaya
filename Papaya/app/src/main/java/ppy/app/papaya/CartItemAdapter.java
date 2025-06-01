@@ -103,6 +103,21 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartVi
                     });
 
         });
+
+        holder.tvItemName.setText(item.getItem_name());
+        holder.tvIngredients.setText(item.getItem_selected());
+        holder.tvIngredients.setVisibility(View.GONE); // 預設隱藏
+
+        holder.ibShowIngredients.setOnClickListener(v -> {
+            if (holder.tvIngredients.getVisibility() == View.GONE) {
+                holder.tvIngredients.setVisibility(View.VISIBLE);
+                holder.ibShowIngredients.setImageResource(R.drawable.ic_collapse); // 換收合圖示
+            } else {
+                holder.tvIngredients.setVisibility(View.GONE);
+                holder.ibShowIngredients.setImageResource(R.drawable.ic_expand); // 換展開圖示
+            }
+        });
+
     }
 
     @Override
@@ -113,7 +128,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartVi
     static class CartViewHolder extends RecyclerView.ViewHolder {
         ImageView ivItemPhoto;
         TextView tvItemName, tvIngredients, tvQuantity, tvPrice;
-        ImageButton ibTrash;
+        ImageButton ibTrash, ibShowIngredients;
 
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -123,6 +138,8 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartVi
             tvQuantity = itemView.findViewById(R.id.tv_num_in_cart);
             tvPrice = itemView.findViewById(R.id.tv_price_in_cart);
             ibTrash = itemView.findViewById(R.id.ib_trash_in_cart);
+            ibShowIngredients = itemView.findViewById(R.id.ib_show_ingredients);
+
         }
     }
 }
