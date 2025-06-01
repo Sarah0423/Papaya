@@ -2,6 +2,7 @@ package ppy.app.papaya;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -15,11 +16,15 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,6 +46,10 @@ public class CheckCart extends AppCompatActivity {
 
         btnReturn = findViewById(R.id.btn_return);
 
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        String uid = currentUser.getUid();
+
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,5 +58,27 @@ public class CheckCart extends AppCompatActivity {
                 finish();
             }
         });
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("cart_item")
+                .whereEqualTo("item_user_id", uid)
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    List<CartItem> cartItemList = new ArrayList<>();
+                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                        CartItem item = document.toObject(CartItem.class);
+                        cartItemList.add(item);
+                    }
+                    setupRecyclerView(cartItemList);
+                })
+                .addOnFailureListener(e -> Log.e("FIRESTORE", "Error fetching cart items", e));
+
+    }
+
+    private void setupRecyclerView(List<CartItem> cartItemList) {
+        RecyclerView recyclerView = findViewById(R.id.rv_item_in_cart);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        CartItemAdapter adapter = new CartItemAdapter(this, cartItemList);
+        recyclerView.setAdapter(adapter);
     }
 }

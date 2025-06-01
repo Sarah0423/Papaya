@@ -19,6 +19,8 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,8 +28,10 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class ToastInfo extends AppCompatActivity {
@@ -208,25 +212,93 @@ public class ToastInfo extends AppCompatActivity {
                 int totalPrice = Integer.parseInt(priceText);
                 int quantity = Integer.parseInt(tvToastNum.getText().toString());
 
-                SharedPreferences prefs = getSharedPreferences("CartPrefs", MODE_PRIVATE);
-                int cartCount = prefs.getInt("cart_count", 0);
-                int cartTotal = prefs.getInt("cart_total", 0);
+                // 獲取當前登入使用者的 email
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                String userUid = (user != null) ? user.getUid() : "unknown_user";
 
-                SharedPreferences.Editor editor = prefs.edit();
-                int newCount = cartCount + quantity;
-                int newTotal = cartTotal + totalPrice;
+                // 取得當前吐司資料
+                ToastItem curItem = toastList.get(currentIndex);
+                String toastName = curItem.getToastName();
+                String toastPhoto = curItem.getToastImageName(); // 因為存在 mipmap，所以存檔名就好
 
-                editor.putInt("cart_count", newCount);
-                editor.putInt("cart_total", newTotal);
-                editor.apply();
+                // 取得選擇的配料名稱（用逗號串接）
+                List<String> selectedNames = new ArrayList<>();
+                for (RecyclerView rv : Arrays.asList(rvMeat, rvVegetable, rvFruit, rvCommon, rvJam)) {
+                    IngredientAdapter adapter = (IngredientAdapter) rv.getAdapter();
+                    if (adapter != null) {
+                        for (IngredientItem item : adapter.getIngredientList()) {
+                            if (item.isSelected()) {
+                                selectedNames.add(item.getIngredientsName());
+                            }
+                        }
+                    }
+                }
+                String selectedIngredients = String.join(", ", selectedNames);
 
-                Toast.makeText(this, "已加入購物車", Toast.LENGTH_SHORT).show();
+                // 建立要存入 Firestore 的資料
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+// Step 1: 取得 cart_info/{userUid}
+                DocumentReference cartInfoRef = db.collection("cart_info").document(userUid);
+
+                db.runTransaction(transaction -> {
+                    DocumentSnapshot snapshot = transaction.get(cartInfoRef);
+
+                    long currentTotalPrice = 0;
+                    long currentTotalQuantity = 0;
+
+                    if (snapshot.exists()) {
+                        currentTotalPrice = snapshot.getLong("total_price") != null ? snapshot.getLong("total_price") : 0;
+                        currentTotalQuantity = snapshot.getLong("total_quantity") != null ? snapshot.getLong("total_quantity") : 0;
+                    }
+
+                    // Step 2: 計算新的加總
+                    long newTotalPrice = currentTotalPrice + totalPrice;
+                    long newTotalQuantity = currentTotalQuantity + quantity;
+
+                    // Step 3: 更新 cart_info 文件
+                    Map<String, Object> updates = new HashMap<>();
+                    updates.put("total_price", newTotalPrice);
+                    updates.put("total_quantity", newTotalQuantity);
+
+                    transaction.set(cartInfoRef, updates);
+
+                    return null;
+                }).addOnSuccessListener(aVoid -> {
+                    // 更新 cart_item（你的原本邏輯）
+                    HashMap<String, Object> cartItem = new HashMap<>();
+                    cartItem.put("item_name", toastName);
+                    cartItem.put("item_photo", toastPhoto);
+                    cartItem.put("item_price", totalPrice);
+                    cartItem.put("item_quantity", quantity);
+                    cartItem.put("item_selected", selectedIngredients);
+                    cartItem.put("item_user_id", userUid);
+
+                    db.collection("cart_item")
+                            .add(cartItem)
+                            .addOnSuccessListener(documentReference -> {
+                                Toast.makeText(this, "已加入購物車", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(ToastInfo.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            })
+                            .addOnFailureListener(e -> {
+                                Toast.makeText(this, "加入購物車失敗：" + e.getMessage(), Toast.LENGTH_LONG).show();
+                                e.printStackTrace();
+                            });
+
+                }).addOnFailureListener(e -> {
+                    Toast.makeText(this, "更新購物資訊失敗：" + e.getMessage(), Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                });
+
 
             } catch (NumberFormatException e) {
                 Toast.makeText(this, "價格格式錯誤，請聯絡開發者", Toast.LENGTH_LONG).show();
-                e.printStackTrace(); // 開發階段用來查錯
+                e.printStackTrace();
             }
         });
+
     }
 
     private void resetExtras() {

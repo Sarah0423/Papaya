@@ -31,6 +31,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -424,17 +425,45 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
-        SharedPreferences prefs = getSharedPreferences("CartPrefs", MODE_PRIVATE);
-        int cartCount = prefs.getInt("cart_count", 0);
-        int cartTotal = prefs.getInt("cart_total", 0);
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         TextView tvItemNum = findViewById(R.id.tv_item_num);
         Button btnGotoCart = findViewById(R.id.btn_goto_cart);
-        tvItemNum.setText(String.valueOf(cartCount));
-        btnGotoCart.setText("$" + cartTotal);
+        LinearLayout llBtnCartCircle = findViewById(R.id.ll_btn_cart_circle);
+
+        if (currentUser == null) {
+            // 使用者未登入 → 隱藏購物車區塊
+            llBtnCartCircle.setVisibility(View.GONE);
+            return;
+        }
+
+        String userUid = currentUser.getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference cartInfoRef = db.collection("cart_info").document(userUid);
+
+        cartInfoRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                long totalQuantity = documentSnapshot.getLong("total_quantity") != null ? documentSnapshot.getLong("total_quantity") : 0;
+                long totalPrice = documentSnapshot.getLong("total_price") != null ? documentSnapshot.getLong("total_price") : 0;
+
+                if (totalQuantity <= 0) {
+                    llBtnCartCircle.setVisibility(View.GONE);
+                } else {
+                    llBtnCartCircle.setVisibility(View.VISIBLE);
+                    tvItemNum.setText(String.valueOf(totalQuantity));
+                    btnGotoCart.setText("$" + totalPrice);
+                }
+            } else {
+                llBtnCartCircle.setVisibility(View.GONE);
+            }
+        }).addOnFailureListener(e -> {
+            llBtnCartCircle.setVisibility(View.GONE);
+            e.printStackTrace();
+        });
     }
+
 
 }

@@ -60,7 +60,7 @@
                 android:id="@+id/btn_goto_cart"
                 android:layout_width="120dp"
                 android:layout_height="58dp"
-                android:text="$52.99"
+                android:text="$0"
                 android:textAlignment="viewStart"
                 app:backgroundTint="#24262F"
                 app:cornerRadius="27dp"
@@ -77,6 +77,7 @@
                 app:srcCompat="@mipmap/cart_usagi" />
 
             <LinearLayout
+                android:id="@+id/ll_btn_cart_circle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="-10dp"

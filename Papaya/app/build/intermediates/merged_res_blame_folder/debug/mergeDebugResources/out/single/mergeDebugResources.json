@@ -380,10 +380,6 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-mdpi\\ic_launcher.webp"
     },
     {
-        "merged": "ppy.app.papaya.app-debug-43:/layout_activity_main.xml.flat",
-        "source": "ppy.app.papaya.app-main-45:/layout/activity_main.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_pro_info_boarder_color2.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\pro_info_boarder_color2.xml"
     },
@@ -706,6 +702,10 @@
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_sffaa2bsw1cr10bffffff.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\sffaa2bsw1cr10bffffff.xml"
+    },
+    {
+        "merged": "ppy.app.papaya.app-debug-43:/layout_item_in_cart.xml.flat",
+        "source": "ppy.app.papaya.app-main-45:/layout/item_in_cart.xml"
     },
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_toast_info.xml.flat",

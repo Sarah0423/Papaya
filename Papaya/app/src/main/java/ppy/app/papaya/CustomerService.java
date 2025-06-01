@@ -120,13 +120,13 @@ public class CustomerService extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = auth.getCurrentUser();
 
-        String userEmail = (currentUser != null) ? currentUser.getEmail() : "unknown";
+        String userUid = (currentUser != null) ? currentUser.getUid() : "unknown";
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> formData = new HashMap<>();
         formData.put("form_type", selectedQuestionIndex); // 傳數字
         formData.put("form_detail", detailInfo);
-        formData.put("form_user_email", userEmail);
+        formData.put("form_user_id", userUid);
 
         db.collection("forms")
                 .add(formData)
