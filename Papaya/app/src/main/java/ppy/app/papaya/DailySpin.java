@@ -52,7 +52,7 @@ public class DailySpin extends AppCompatActivity {
                         prizeMessage = "吐司買二送一";
                         break;
                     default:
-                        prizeMessage = "沒中獎，再試一次！";
+                        prizeMessage = "沒中獎，祝下次好運！";
                         break;
                 }
 
