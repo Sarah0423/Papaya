@@ -33,6 +33,11 @@ import java.util.List;
 public class CheckCart extends AppCompatActivity {
 
     private ImageButton btnReturn;
+    private TextView tvTotal;
+    private FirebaseFirestore db;
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+    private String uid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,61 +51,67 @@ public class CheckCart extends AppCompatActivity {
         });
 
         btnReturn = findViewById(R.id.btn_return);
+        tvTotal = findViewById(R.id.tv_total);
 
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        String uid = currentUser.getUid();
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
+        uid = currentUser.getUid();
+        db = FirebaseFirestore.getInstance();
 
-        btnReturn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CheckCart.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
+        btnReturn.setOnClickListener(v -> {
+            Intent intent = new Intent(CheckCart.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         });
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        listenToCartItems();
+    }
+
+    private void listenToCartItems() {
         db.collection("cart_item")
                 .whereEqualTo("item_user_id", uid)
-                .get()
-                .addOnSuccessListener(queryDocumentSnapshots -> {
+                .addSnapshotListener((snapshots, e) -> {
+                    if (e != null) {
+                        Log.e("FIRESTORE", "Listen failed.", e);
+                        return;
+                    }
+
                     List<CartItem> cartItemList = new ArrayList<>();
-                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
-                        CartItem item = document.toObject(CartItem.class);
-                        item.setFirestoreId(document.getId());
-                        cartItemList.add(item);
+                    int totalQuantity = 0;
+                    long totalAmount = 0;
+
+                    if (snapshots != null) {
+                        for (QueryDocumentSnapshot doc : snapshots) {
+                            CartItem item = doc.toObject(CartItem.class);
+                            item.setFirestoreId(doc.getId());
+                            cartItemList.add(item);
+
+                            Long price = doc.getLong("item_price");
+                            Long quantity = doc.getLong("item_quantity");
+
+                            if (price != null && quantity != null) {
+                                totalQuantity += quantity;
+                                totalAmount += price * quantity;
+                            }
+                        }
                     }
+
+                    // 更新畫面
+                    tvTotal.setText("$" + totalAmount);
+
+                    // 更新 Firestore 的 cart_info 文件（如果需要後端同步）
+                    db.collection("cart_info").document(uid)
+                            .set(new CartInfo(totalAmount, totalQuantity));
+
                     setupRecyclerView(cartItemList);
-                })
-                .addOnFailureListener(e -> Log.e("FIRESTORE", "Error fetching cart items", e));
-
-        TextView tvTotal = findViewById(R.id.tv_total);
-
-        db.collection("cart_info")
-                .document(uid)
-                .get()
-                .addOnSuccessListener(documentSnapshot -> {
-                    if (documentSnapshot.exists()) {
-                        long totalPrice = documentSnapshot.getLong("total_price") != null ? documentSnapshot.getLong("total_price") : 0;
-                        tvTotal.setText("$" + totalPrice);
-                    } else {
-                        tvTotal.setText("$0");
-                    }
-                })
-                .addOnFailureListener(e -> {
-                    tvTotal.setText("讀取總價失敗");
-                    Log.e("FIRESTORE", "Error fetching total price", e);
                 });
-
     }
+
 
     private void setupRecyclerView(List<CartItem> cartItemList) {
         RecyclerView recyclerView = findViewById(R.id.rv_item_in_cart);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        TextView tvTotal = findViewById(R.id.tv_total);
         CartItemAdapter adapter = new CartItemAdapter(this, cartItemList, tvTotal);
         recyclerView.setAdapter(adapter);
     }
-
 }

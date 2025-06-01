@@ -25,6 +25,9 @@ public class CartItem {
     public String getItem_name() { return item_name; }
     public String getItem_selected() { return item_selected; }
     public int getItem_quantity() { return item_quantity; }
+    public void setItem_quantity(int item_quantity) {
+        this.item_quantity = item_quantity;
+    }
     public int getItem_price() { return item_price; }
     public String getItem_id(){return item_user_id;}
 }

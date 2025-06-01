@@ -47,7 +47,7 @@
                     android:layout_height="20dp"
                     android:background="@null"
                     android:scaleType="fitCenter"
-                    app:srcCompat="@mipmap/down_arrow" />
+                    app:srcCompat="@drawable/ic_expand" />
 
 
                 <TextView
