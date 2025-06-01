@@ -8,6 +8,18 @@
     tools:context=".MainActivity">
 
 
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="470dp"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_toast_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+    </ScrollView>
 
     <ImageView
         android:id="@+id/iv_topbar"
@@ -287,19 +299,5 @@
         app:layout_constraintTop_toTopOf="parent" >
 
     </FrameLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="470dp"
-        android:layout_marginTop="0dp"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_toast_item"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
-    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
