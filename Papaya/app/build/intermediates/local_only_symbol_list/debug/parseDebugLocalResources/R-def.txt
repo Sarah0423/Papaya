@@ -39,6 +39,8 @@ drawable delivery
 drawable dots
 drawable favorite
 drawable favorite_fill
+drawable ic_collapse
+drawable ic_expand
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable index
@@ -164,6 +166,7 @@ id ib_plus_num
 id ib_plus_num_in_cart
 id ib_pre_toast
 id ib_rupay
+id ib_show_ingredients
 id ib_trash_in_cart
 id ib_unknown_user_img
 id ib_usagi_user_img
@@ -413,6 +416,7 @@ mipmap cola_beverage
 mipmap crown
 mipmap deliver_coupon
 mipmap discount_coupon
+mipmap down_arrow
 mipmap french_toast
 mipmap grain_toast
 mipmap green_tea_beverage
@@ -454,6 +458,7 @@ mipmap taiwan
 mipmap taoyuan
 mipmap toast
 mipmap toast_button
+mipmap up_arrow
 mipmap user_chii
 mipmap user_hachi
 mipmap user_usagi

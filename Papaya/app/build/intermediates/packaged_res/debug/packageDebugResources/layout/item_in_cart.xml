@@ -41,13 +41,23 @@
                     android:text="\?\?\?\?"
                     android:textColor="#1E1E1E"
                     android:textSize="18sp" />
+                <ImageButton
+                    android:id="@+id/ib_show_ingredients"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@null"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@mipmap/down_arrow" />
+
 
                 <TextView
                     android:id="@+id/tv_ingredients_in_cart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="無配料"
-                    android:textSize="14sp" />
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
 
             </LinearLayout>
         </LinearLayout>
