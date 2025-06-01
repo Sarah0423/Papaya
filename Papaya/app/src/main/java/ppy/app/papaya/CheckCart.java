@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -67,18 +68,39 @@ public class CheckCart extends AppCompatActivity {
                     List<CartItem> cartItemList = new ArrayList<>();
                     for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                         CartItem item = document.toObject(CartItem.class);
+                        item.setFirestoreId(document.getId());
                         cartItemList.add(item);
                     }
                     setupRecyclerView(cartItemList);
                 })
                 .addOnFailureListener(e -> Log.e("FIRESTORE", "Error fetching cart items", e));
 
+        TextView tvTotal = findViewById(R.id.tv_total);
+
+        db.collection("cart_info")
+                .document(uid)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        long totalPrice = documentSnapshot.getLong("total_price") != null ? documentSnapshot.getLong("total_price") : 0;
+                        tvTotal.setText("$" + totalPrice);
+                    } else {
+                        tvTotal.setText("$0");
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    tvTotal.setText("讀取總價失敗");
+                    Log.e("FIRESTORE", "Error fetching total price", e);
+                });
+
     }
 
     private void setupRecyclerView(List<CartItem> cartItemList) {
         RecyclerView recyclerView = findViewById(R.id.rv_item_in_cart);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        CartItemAdapter adapter = new CartItemAdapter(this, cartItemList);
+        TextView tvTotal = findViewById(R.id.tv_total);
+        CartItemAdapter adapter = new CartItemAdapter(this, cartItemList, tvTotal);
         recyclerView.setAdapter(adapter);
     }
+
 }

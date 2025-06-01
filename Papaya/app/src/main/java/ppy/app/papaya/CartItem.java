@@ -7,6 +7,15 @@ public class CartItem {
     private String item_user_id;
     private int item_quantity;
     private int item_price;
+    private String firestoreId;
+
+    public String getFirestoreId() {
+        return firestoreId;
+    }
+
+    public void setFirestoreId(String firestoreId) {
+        this.firestoreId = firestoreId;
+    }
 
     public CartItem() {
         // Firestore needs a public no-arg constructor

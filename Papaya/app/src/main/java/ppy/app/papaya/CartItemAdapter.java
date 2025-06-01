@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -30,10 +31,14 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartVi
     private Context context;
     private List<CartItem> itemList;
 
-    public CartItemAdapter(Context context, List<CartItem> itemList) {
+    private TextView tvTotal;
+
+    public CartItemAdapter(Context context, List<CartItem> itemList, TextView tvTotal) {
         this.context = context;
         this.itemList = itemList;
+        this.tvTotal = tvTotal;
     }
+
 
     @NonNull
     @Override
@@ -63,31 +68,40 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartVi
 
             String uid = currentUser.getUid();
 
-            // 先刪除 cart_item 裡的該筆資料（找不到 ID 時你需要事先存進 item 裡）
-            db.collection("cart_item")
-                    .whereEqualTo("item_user_id", uid)
-                    .whereEqualTo("item_id", item.getItem_id()) // 確保 item_id 是唯一識別欄位
-                    .get()
-                    .addOnSuccessListener(snapshots -> {
-                        for (QueryDocumentSnapshot doc : snapshots) {
-                            db.collection("cart_item").document(doc.getId()).delete();
-                        }
+            String docId = item.getFirestoreId();
 
-                        // 🧮 接著更新 cart_info
+            db.collection("cart_item").document(docId)
+                    .delete()
+                    .addOnSuccessListener(aVoid -> {
+                        // 🧮 更新 cart_info
                         int price = item.getItem_price() * item.getItem_quantity();
                         db.collection("cart_info").document(uid)
                                 .update(
-                                        "total_price", com.google.firebase.firestore.FieldValue.increment(-price),
-                                        "total_quantity", com.google.firebase.firestore.FieldValue.increment(-item.getItem_quantity())
+                                        "total_price", FieldValue.increment(-price),
+                                        "total_quantity", FieldValue.increment(-item.getItem_quantity())
                                 );
 
-                        // ❌ 移除該項目 & 更新 RecyclerView
+                        // ❌ 從列表移除
                         int removeIndex = holder.getAdapterPosition();
                         itemList.remove(removeIndex);
                         notifyItemRemoved(removeIndex);
 
                         Toast.makeText(context, "已移除項目", Toast.LENGTH_SHORT).show();
+
+                        // ✅ 如果你有傳進來 tvTotal 的話，這裡也可以重新抓一次總價
+                        if (tvTotal != null) {
+                            db.collection("cart_info").document(uid)
+                                    .get()
+                                    .addOnSuccessListener(documentSnapshot -> {
+                                        if (documentSnapshot.exists()) {
+                                            long newTotal = documentSnapshot.getLong("total_price") != null ?
+                                                    documentSnapshot.getLong("total_price") : 0;
+                                            tvTotal.setText("$" + newTotal);
+                                        }
+                                    });
+                        }
                     });
+
         });
     }
 
