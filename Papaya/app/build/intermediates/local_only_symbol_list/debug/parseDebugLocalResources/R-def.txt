@@ -7,6 +7,8 @@ color orange
 color white
 dimen item_spacing
 drawable add_num_circle
+drawable arrow_down
+drawable arrow_up
 drawable branch_info
 drawable cr12b19c4e9
 drawable cr12b4cd96433
@@ -77,6 +79,7 @@ drawable splash_7
 drawable splash_8
 drawable splash_9
 drawable tab_selector
+drawable trash_can
 id TPmapView
 id branch_layout
 id btn_add_i_love_toast
@@ -154,11 +157,14 @@ id ib_index
 id ib_jcb
 id ib_master
 id ib_minus_num
+id ib_minus_num_in_cart
 id ib_next_toast
 id ib_notification
 id ib_plus_num
+id ib_plus_num_in_cart
 id ib_pre_toast
 id ib_rupay
+id ib_trash_in_cart
 id ib_unknown_user_img
 id ib_usagi_user_img
 id ib_visa
@@ -191,6 +197,7 @@ id iv_delivery
 id iv_dots
 id iv_favorite
 id iv_favorite_branch
+id iv_item_in_cart
 id iv_order
 id iv_pro_img
 id iv_signout
@@ -236,6 +243,7 @@ id rt37yj8luoj
 id rugqtneve0y
 id rv_common
 id rv_fruit
+id rv_item_in_cart
 id rv_jam
 id rv_meat
 id rv_toast_item
@@ -243,6 +251,7 @@ id rv_vegetable
 id rzjetrxj8yyr
 id splash_image
 id sv_ingredients
+id sv_item_in_cart
 id tabLayout
 id taiwan
 id textCallSupport
@@ -264,6 +273,7 @@ id tv_branch_info_address
 id tv_branch_info_name
 id tv_branch_info_tel
 id tv_card_num
+id tv_cart
 id tv_choose
 id tv_choose2
 id tv_common
@@ -285,7 +295,9 @@ id tv_favorite
 id tv_forget_password
 id tv_fruit
 id tv_i_love_toast
+id tv_ingredients_in_cart
 id tv_item_category_cur
+id tv_item_in_cart
 id tv_item_num
 id tv_jam
 id tv_list1_i_love_toast
@@ -316,12 +328,14 @@ id tv_mp_mystery_toast
 id tv_mp_toast_killer
 id tv_mystery_toast
 id tv_name
+id tv_num_in_cart
 id tv_order
 id tv_papaya
 id tv_password_login
 id tv_pay
 id tv_pointBalance
 id tv_price_i_love_toast
+id tv_price_in_cart
 id tv_price_mystery_toast
 id tv_price_toast_killer
 id tv_pro
@@ -343,6 +357,7 @@ id tv_unknown_toast_killer
 id tv_user_name
 id tv_vegetable
 id tv_verification_code
+id v_cart
 id v_down
 id v_up
 layout activity_branch_info
@@ -362,6 +377,7 @@ layout choose_user_img
 layout delivery_information
 layout dialog_edit_name
 layout function_menu
+layout item_in_cart
 layout item_toast
 layout location_info
 layout modify_member_information
@@ -452,6 +468,7 @@ string google_crash_reporting_api_key
 string google_storage_bucket
 string project_id
 style Base.Theme.Papaya
+style ImageRoundCorner
 style Theme.Papaya
 xml backup_rules
 xml data_extraction_rules
