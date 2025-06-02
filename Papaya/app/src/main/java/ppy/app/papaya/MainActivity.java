@@ -1,7 +1,9 @@
 package ppy.app.papaya;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.Layout;
@@ -29,6 +31,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -298,6 +301,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        ImageButton reminderBtn = findViewById(R.id.ib_notification); // 替換為你對應的 id
+        reminderBtn.setOnClickListener(v -> {
+            String prize = getSharedPreferences("PapayaPrefs", MODE_PRIVATE)
+                    .getString("lastPrize", "目前尚未中獎");
+
+            new AlertDialog.Builder(MainActivity.this)
+                    .setTitle("中獎提醒")
+                    .setMessage(prize)
+                    .setPositiveButton("確定", null)
+                    .show();
+        });
+
+        Button btnGotoCart = findViewById(R.id.btn_goto_cart);
+        btnGotoCart.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, CheckCart.class);
+            startActivity(intent);
+        });
     }
 
     @Override
@@ -404,5 +424,46 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        TextView tvItemNum = findViewById(R.id.tv_item_num);
+        Button btnGotoCart = findViewById(R.id.btn_goto_cart);
+        LinearLayout llBtnCartCircle = findViewById(R.id.ll_btn_cart_circle);
+
+        if (currentUser == null) {
+            // 使用者未登入 → 隱藏購物車區塊
+            llBtnCartCircle.setVisibility(View.GONE);
+            return;
+        }
+
+        String userUid = currentUser.getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        DocumentReference cartInfoRef = db.collection("cart_info").document(userUid);
+
+        cartInfoRef.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                long totalQuantity = documentSnapshot.getLong("total_quantity") != null ? documentSnapshot.getLong("total_quantity") : 0;
+                long totalPrice = documentSnapshot.getLong("total_price") != null ? documentSnapshot.getLong("total_price") : 0;
+
+                if (totalQuantity <= 0) {
+                    llBtnCartCircle.setVisibility(View.GONE);
+                } else {
+                    llBtnCartCircle.setVisibility(View.VISIBLE);
+                    tvItemNum.setText(String.valueOf(totalQuantity));
+                    btnGotoCart.setText("$" + totalPrice);
+                }
+            } else {
+                llBtnCartCircle.setVisibility(View.GONE);
+            }
+        }).addOnFailureListener(e -> {
+            llBtnCartCircle.setVisibility(View.GONE);
+            e.printStackTrace();
+        });
+    }
+
 
 }

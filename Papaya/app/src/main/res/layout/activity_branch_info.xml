@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/cr12bff9500" />
+        app:srcCompat="@drawable/cr12bff9500" />
 
     <ImageButton
         android:id="@+id/btn_return"

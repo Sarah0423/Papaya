@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main"
     tools:context=".ToastInfo">
 
 
@@ -19,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/add_num_circle" />
+        app:srcCompat="@drawable/add_num_circle" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -28,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/cr12bff9500" />
+        app:srcCompat="@drawable/cr12bff9500" />
 
     <ImageButton
         android:id="@+id/btn_return"
@@ -43,6 +44,30 @@
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView" />
 
+
+    <TextView
+        android:id="@+id/tv_item_category_cur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageView"
+        android:textSize="10dp"
+        android:text="Toast" />
+
+    <TextView
+        android:id="@+id/tv_toast_name_cur"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="白吐司"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_item_category_cur" />
 
     <TextView
         android:id="@+id/tv_toast_intro"
@@ -61,7 +86,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="30dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,13 +109,12 @@
                     app:srcCompat="@drawable/add_num_circle" />
 
                 <ImageButton
-                    android:id="@+id/imageButton13"
+                    android:id="@+id/ib_minus_num"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:background="@null"
                     android:scaleType="fitCenter"
-                    android:src="@mipmap/plus"
                     app:srcCompat="@mipmap/minus"
                     tools:ignore="MissingConstraints" />
 
@@ -105,7 +129,7 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_gravity="center"
-                    app:srcCompat="@mipmap/bigtoast" />
+                    app:srcCompat="@mipmap/bigtoast_for_cart" />
 
                 <TextView
                     android:id="@+id/tv_toast_num"
@@ -128,7 +152,7 @@
                     app:srcCompat="@drawable/add_num_circle" />
 
                 <ImageButton
-                    android:id="@+id/imageButton11"
+                    android:id="@+id/ib_plus_num"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
@@ -161,9 +185,9 @@
     </LinearLayout>
 
     <ScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/sv_ingredients"
         android:layout_width="match_parent"
-        android:layout_height="290dp"
+        android:layout_height="280dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -180,11 +204,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="meat"
+                android:text="meat(最多擇一)"
                 android:textAlignment="textStart"
                 android:textColorLink="#24262F" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_meat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp" />
@@ -194,11 +219,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="vegetable"
+                android:text="vegetable(最多擇二)"
                 android:textAlignment="textStart"
                 android:textColorLink="#24262F" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_vegetable"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp" />
@@ -208,11 +234,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="fruit"
+                android:text="fruit(最多擇一)"
                 android:textAlignment="textStart"
                 android:textColorLink="#24262F" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_fruit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp" />
@@ -222,11 +249,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="common"
+                android:text="common(最多擇二)"
                 android:textAlignment="textStart"
                 android:textColorLink="#24262F" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_common"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp" />
@@ -236,11 +264,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="jam"
+                android:text="jam(最多擇二)"
                 android:textAlignment="textStart"
                 android:textColorLink="#24262F" />
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_jam"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp" />
@@ -250,30 +279,84 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/tv_toast_intro"
         app:layout_constraintEnd_toEndOf="@id/iv_circle_background"
         app:layout_constraintStart_toStartOf="@id/iv_circle_background"
         app:layout_constraintTop_toBottomOf="@id/btn_return">
 
-        <ImageButton
-            android:id="@+id/ib_cur_toast"
+        <FrameLayout
+            android:id="@+id/fl_toast_pre"
+            android:layout_width="113dp"
+            android:layout_height="113dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="-56.5dp">
+
+            <ImageButton
+                android:id="@+id/ib_pre_toast"
+                android:layout_width="113dp"
+                android:layout_height="113dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@mipmap/vegan_toast" />
+
+            <ImageView
+                android:id="@+id/iv_cut_toast_pre"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/cut_user_img_org" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_toast_next"
+            android:layout_width="113dp"
+            android:layout_height="113dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="-56.5dp">
+
+            <ImageButton
+                android:id="@+id/ib_next_toast"
+                android:layout_width="113dp"
+                android:layout_height="113dp"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@mipmap/wheat_toast" />
+
+            <ImageView
+                android:id="@+id/iv_cut_toast_next"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/cut_user_img_org" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_toast_cur"
             android:layout_width="268dp"
             android:layout_height="268dp"
-            android:layout_gravity="center"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_gravity="center_horizontal">
 
-        <ImageButton
-            android:id="@+id/ib_pre_toast"
-            android:layout_width="113dp"
-            android:layout_height="113dp"
-            android:layout_marginStart="-56.5dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            <ImageButton
+                android:id="@+id/ib_cur_toast"
+                android:layout_width="268dp"
+                android:layout_height="268dp"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:background="@null"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@mipmap/white_toast" />
 
-        <ImageButton
-            android:id="@+id/ib_next_toast"
-            android:layout_width="113dp"
-            android:layout_height="113dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            <ImageView
+                android:id="@+id/iv_cut_img_org"
+                android:layout_width="385dp"
+                android:layout_height="385dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/cut_user_img_org" />
+        </FrameLayout>
+
     </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
