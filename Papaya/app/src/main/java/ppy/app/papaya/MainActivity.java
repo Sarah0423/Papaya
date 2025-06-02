@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout UpdateToPro;
     private ImageView llBtnCartCircle;
     private TextView tvItemNum;
-    private MaterialButton btnGotoCart;
+    private Button btnGotoCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
 
         llBtnCartCircle = findViewById(R.id.circularImageView);
         tvItemNum = findViewById(R.id.tv_item_num);
-        btnGotoCart = findViewById(R.id.btn_goto_cart);
 
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         String[] categories = {"Starters", "Asian", "Roasts", "Classci"};
@@ -366,7 +365,8 @@ public class MainActivity extends AppCompatActivity {
                     .show();
         });
 
-        Button btnGotoCart = findViewById(R.id.btn_goto_cart);
+
+        btnGotoCart = findViewById(R.id.btn_goto_cart);
         btnGotoCart.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, CheckCart.class);
             startActivity(intent);
@@ -489,7 +489,7 @@ public class MainActivity extends AppCompatActivity {
         DocumentReference cartInfoRef = db.collection("users")
                 .document(userUid)
                 .collection("cart_info")
-                .document("cart");  // ← 你實際使用的 document ID，確認一下是不是叫這個
+                .document("summary");  // ← 你實際使用的 document ID，確認一下是不是叫這個
 
         cartInfoRef.get().addOnSuccessListener(documentSnapshot -> {
             if (documentSnapshot.exists()) {

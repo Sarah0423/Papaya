@@ -68,8 +68,9 @@ public class CheckCart extends AppCompatActivity {
     }
 
     private void listenToCartItems() {
-        db.collection("cart_item")
-                .whereEqualTo("item_user_id", uid)
+        db.collection("users")
+                .document(uid)
+                .collection("cart_item")
                 .addSnapshotListener((snapshots, e) -> {
                     if (e != null) {
                         Log.e("FIRESTORE", "Listen failed.", e);
@@ -99,9 +100,12 @@ public class CheckCart extends AppCompatActivity {
                     // 更新畫面
                     tvTotal.setText("$" + totalAmount);
 
-                    // 更新 Firestore 的 cart_info 文件（如果需要後端同步）
-                    db.collection("cart_info").document(uid)
+                    db.collection("users")
+                            .document(uid)
+                            .collection("cart_info")
+                            .document("summary")
                             .set(new CartInfo(totalAmount, totalQuantity));
+
 
                     setupRecyclerView(cartItemList);
                 });
