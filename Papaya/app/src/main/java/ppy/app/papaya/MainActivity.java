@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.Timestamp;
@@ -55,7 +56,9 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout logoutLayout;
     private LinearLayout myFavoriteLayout;
     private LinearLayout UpdateToPro;
-
+    private ImageView llBtnCartCircle;
+    private TextView tvItemNum;
+    private MaterialButton btnGotoCart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +70,10 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        llBtnCartCircle = findViewById(R.id.circularImageView);
+        tvItemNum = findViewById(R.id.tv_item_num);
+        btnGotoCart = findViewById(R.id.btn_goto_cart);
 
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         String[] categories = {"Starters", "Asian", "Roasts", "Classci"};
@@ -476,19 +483,13 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-        TextView tvItemNum = findViewById(R.id.tv_item_num);
-        Button btnGotoCart = findViewById(R.id.btn_goto_cart);
-        LinearLayout llBtnCartCircle = findViewById(R.id.ll_btn_cart_circle);
-
-        if (currentUser == null) {
-            // 使用者未登入 → 隱藏購物車區塊
-            llBtnCartCircle.setVisibility(View.GONE);
-            return;
-        }
-
         String userUid = currentUser.getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        DocumentReference cartInfoRef = db.collection("cart_info").document(userUid);
+
+        DocumentReference cartInfoRef = db.collection("users")
+                .document(userUid)
+                .collection("cart_info")
+                .document("cart");  // ← 你實際使用的 document ID，確認一下是不是叫這個
 
         cartInfoRef.get().addOnSuccessListener(documentSnapshot -> {
             if (documentSnapshot.exists()) {
@@ -509,6 +510,7 @@ public class MainActivity extends AppCompatActivity {
             llBtnCartCircle.setVisibility(View.GONE);
             e.printStackTrace();
         });
+
     }
 
 

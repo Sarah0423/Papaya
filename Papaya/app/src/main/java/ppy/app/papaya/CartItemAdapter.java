@@ -58,26 +58,23 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartVi
             FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
             if (currentUser == null) return;
-
             String uid = currentUser.getUid();
 
             String docId = item.getFirestoreId();
 
-            db.collection("cart_item").document(docId)
+            db.collection("users").document(uid)
+                    .collection("cart_item").document(docId)
                     .delete()
                     .addOnSuccessListener(aVoid -> {
-                        // 🧮 更新 cart_info
-                        int price = item.getItem_price() * item.getItem_quantity();
-
-
-                        // ❌ 從列表移除
                         int removeIndex = holder.getAdapterPosition();
                         itemList.remove(removeIndex);
                         notifyItemRemoved(removeIndex);
-
                         Toast.makeText(context, "已移除項目", Toast.LENGTH_SHORT).show();
 
+                        // 更新 cart_info
+                        updateCartInfo(uid);
                     });
+
 
         });
 
@@ -94,12 +91,11 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartVi
                 if (currentUser == null) return;
                 String uid = currentUser.getUid();
 
-                // 更新 cart_item 的數量
-                db.collection("cart_item").document(item.getFirestoreId())
+                db.collection("users").document(uid)
+                        .collection("cart_item").document(item.getFirestoreId())
                         .update("item_quantity", newQuantity);
 
-                // 更新畫面總價
-                updateTotalPrice(tvTotal, itemList);
+                updateCartInfo(uid);
             } else {
                 Toast.makeText(context, "數量不能小於 1", Toast.LENGTH_SHORT).show();
             }
@@ -118,7 +114,8 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartVi
             String uid = currentUser.getUid();
 
             // 更新 cart_item 的數量
-            db.collection("cart_item").document(item.getFirestoreId())
+            db.collection("users").document(uid)
+                    .collection("cart_item").document(item.getFirestoreId())
                     .update("item_quantity", newQuantity);
 
 
@@ -150,6 +147,27 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartVi
         }
         tvTotal.setText("$" + totalAmount);
     }
+
+    private void updateCartInfo(String uid) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        long totalPrice = 0;
+        int totalQuantity = 0;
+
+        for (CartItem item : itemList) {
+            totalPrice += item.getItem_price() * item.getItem_quantity();
+            totalQuantity += item.getItem_quantity();
+        }
+
+        CartInfo cartInfo = new CartInfo(totalPrice, totalQuantity);
+
+        db.collection("users").document(uid)
+                .collection("cart_info")
+                .document("summary")  // 可以固定為 summary，也可以叫 total
+                .set(cartInfo);
+
+        tvTotal.setText("$" + totalPrice);  // 更新畫面
+    }
+
 
 
     @Override

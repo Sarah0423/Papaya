@@ -239,7 +239,11 @@ public class ToastInfo extends AppCompatActivity {
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 // Step 1: 取得 cart_info/{userUid}
-                DocumentReference cartInfoRef = db.collection("cart_info").document(userUid);
+                DocumentReference cartInfoRef = db.collection("users")
+                        .document(userUid)
+                        .collection("cart_info")
+                        .document("summary");
+
 
                 db.runTransaction(transaction -> {
                     DocumentSnapshot snapshot = transaction.get(cartInfoRef);
@@ -274,7 +278,9 @@ public class ToastInfo extends AppCompatActivity {
                     cartItem.put("item_selected", selectedIngredients);
                     cartItem.put("item_user_id", userUid);
 
-                    db.collection("cart_item")
+                    db.collection("users")
+                            .document(userUid)
+                            .collection("cart_item")
                             .add(cartItem)
                             .addOnSuccessListener(documentReference -> {
                                 Toast.makeText(this, "已加入購物車", Toast.LENGTH_SHORT).show();
@@ -286,6 +292,7 @@ public class ToastInfo extends AppCompatActivity {
                                 Toast.makeText(this, "加入購物車失敗：" + e.getMessage(), Toast.LENGTH_LONG).show();
                                 e.printStackTrace();
                             });
+
 
                 }).addOnFailureListener(e -> {
                     Toast.makeText(this, "更新購物資訊失敗：" + e.getMessage(), Toast.LENGTH_LONG).show();
