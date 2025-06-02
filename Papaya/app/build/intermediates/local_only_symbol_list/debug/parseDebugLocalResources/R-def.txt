@@ -83,6 +83,7 @@ drawable splash_9
 drawable tab_selector
 drawable trash_can
 id TPmapView
+id alarm_overlay
 id branch_layout
 id btn_add_i_love_toast
 id btn_add_mystery_toast
@@ -93,6 +94,7 @@ id btn_chii
 id btn_choose_coupon
 id btn_create
 id btn_create2
+id btn_edit_favorite
 id btn_goto_cart
 id btn_goto_toast_info
 id btn_hachi
@@ -214,6 +216,7 @@ id iv_user_img
 id iv_user_register_img
 id linearLayout
 id linearLayout2
+id ll_alarm_and_cart
 id ll_btn_cart_circle
 id ll_btn_login_register
 id ll_commit
@@ -248,6 +251,7 @@ id rt37yj8luoj
 id rugqtneve0y
 id rv_alarm
 id rv_common
+id rv_favorite_branch
 id rv_fruit
 id rv_item_in_cart
 id rv_jam
@@ -372,6 +376,7 @@ layout activity_branch_info
 layout activity_check_cart
 layout activity_customer_service
 layout activity_daily_spin
+layout activity_favorite_branch
 layout activity_login
 layout activity_login_pro_info
 layout activity_main
@@ -386,6 +391,7 @@ layout checkout_cart
 layout choose_user_img
 layout delivery_information
 layout dialog_edit_name
+layout favorite_add
 layout function_menu
 layout item_in_cart
 layout item_toast

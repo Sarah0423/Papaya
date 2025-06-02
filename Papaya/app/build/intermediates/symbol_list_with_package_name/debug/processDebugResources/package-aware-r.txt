@@ -3303,6 +3303,7 @@ id activity_chooser_view_content
 id add
 id adjust_height
 id adjust_width
+id alarm_overlay
 id alertTitle
 id aligned
 id all
@@ -3345,6 +3346,7 @@ id btn_chii
 id btn_choose_coupon
 id btn_create
 id btn_create2
+id btn_edit_favorite
 id btn_goto_cart
 id btn_goto_toast_info
 id btn_hachi
@@ -3614,6 +3616,7 @@ id linearLayout
 id linearLayout2
 id listMode
 id list_item
+id ll_alarm_and_cart
 id ll_btn_cart_circle
 id ll_btn_login_register
 id ll_commit
@@ -3774,6 +3777,7 @@ id rt37yj8luoj
 id rugqtneve0y
 id rv_alarm
 id rv_common
+id rv_favorite_branch
 id rv_fruit
 id rv_item_in_cart
 id rv_jam
@@ -4147,6 +4151,7 @@ layout activity_branch_info
 layout activity_check_cart
 layout activity_customer_service
 layout activity_daily_spin
+layout activity_favorite_branch
 layout activity_login
 layout activity_login_pro_info
 layout activity_main
@@ -4179,6 +4184,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout dialog_edit_name
+layout favorite_add
 layout function_menu
 layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity

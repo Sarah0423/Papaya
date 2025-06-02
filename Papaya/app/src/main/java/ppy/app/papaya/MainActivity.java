@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -273,6 +275,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        LinearLayout linearFavoriteLogin = functionMenuView.findViewById(R.id.my_favorite_layout);
+        if(linearFavoriteLogin != null){
+            linearFavoriteLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MainActivity.this, FavoriteBranch.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
         LinearLayout linearDeliveryLogin = functionMenuView.findViewById(R.id.delivery_layout);
         linearDeliveryLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -311,67 +324,82 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        ImageButton reminderBtn = findViewById(R.id.ib_notification); // 替換為你對應的 id
+        ImageButton reminderBtn = findViewById(R.id.ib_notification);
+        FrameLayout alarmOverlay = findViewById(R.id.alarm_overlay);
+        RecyclerView rvAlarm = findViewById(R.id.rv_alarm);
+        rvAlarm.setLayoutManager(new LinearLayoutManager(this));
+        rvAlarm.setAdapter(adapter);
+
+// 加上 14dp 的間隔
+        int spaceInPx = (int) TypedValue.applyDimension(
+                TypedValue.COMPLEX_UNIT_DIP, 14, getResources().getDisplayMetrics());
+        rvAlarm.addItemDecoration(new VerticalSpaceItemDecoration(spaceInPx));
+
+
+        List<Alarm> alarmList = new ArrayList<>();
+        AlarmAdapter adapter = new AlarmAdapter(alarmList);
+        rvAlarm.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+        rvAlarm.setAdapter(adapter);
+
         reminderBtn.setOnClickListener(v -> {
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            if (user == null) {
-                new AlertDialog.Builder(MainActivity.this)
-                        .setTitle("錯誤")
-                        .setMessage("請先登入帳號")
-                        .setPositiveButton("確定", null)
-                        .show();
-                return;
+            if (!checkLogin()) return;
+
+            if (alarmOverlay.getVisibility() == View.VISIBLE) {
+                alarmOverlay.setVisibility(View.GONE);
+            } else {
+                String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+                Calendar cal = Calendar.getInstance();
+                cal.add(Calendar.HOUR_OF_DAY, -24);
+                Timestamp time24HoursAgo = new Timestamp(cal.getTime());
+
+                db.collection("users")
+                        .document(uid)
+                        .collection("alarms")
+                        .whereGreaterThan("alarms_time", time24HoursAgo)
+                        .get()
+                        .addOnSuccessListener(queryDocumentSnapshots -> {
+                            alarmList.clear();
+                            for (DocumentSnapshot doc : queryDocumentSnapshots) {
+                                String photo = doc.getString("alarms_photo");
+                                String type = doc.getString("alarms_type");
+                                String info = doc.getString("alarms_info");
+
+                                alarmList.add(new Alarm(photo, type, info));
+                            }
+                            adapter.notifyDataSetChanged();
+                            alarmOverlay.setVisibility(View.VISIBLE);
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(MainActivity.this, "載入提醒失敗", Toast.LENGTH_SHORT).show();
+                        });
             }
-
-            String uid = user.getUid();
-
-            // 建立 RecyclerView 對話框畫面
-            View dialogView = getLayoutInflater().inflate(R.layout.alarm_list, null);
-            RecyclerView rvAlarm = dialogView.findViewById(R.id.rv_alarm);
-            rvAlarm.setLayoutManager(new LinearLayoutManager(MainActivity.this));
-
-            List<Alarm> alarmList = new ArrayList<>();
-            AlarmAdapter adapter = new AlarmAdapter(alarmList);
-            rvAlarm.setAdapter(adapter);
-
-            Calendar cal = Calendar.getInstance();
-            cal.add(Calendar.HOUR_OF_DAY, -24);
-            Timestamp time24HoursAgo = new Timestamp(cal.getTime());
-
-            db.collection("users")
-                    .document(uid)
-                    .collection("alarms")
-                    .whereGreaterThan("alarms_time", time24HoursAgo)
-                    .get()
-                    .addOnSuccessListener(queryDocumentSnapshots -> {
-                        alarmList.clear();
-                        for (DocumentSnapshot doc : queryDocumentSnapshots) {
-                            String photo = doc.getString("alarms_photo");
-                            String type = doc.getString("alarms_type");
-                            String info = doc.getString("alarms_info");
-
-                            alarmList.add(new Alarm(photo, type, info));
-                        }
-                        adapter.notifyDataSetChanged();
-                    })
-                    .addOnFailureListener(e -> {
-                        Toast.makeText(MainActivity.this, "載入提醒失敗", Toast.LENGTH_SHORT).show();
-                    });
-
-            new AlertDialog.Builder(MainActivity.this)
-                    .setTitle("通知")
-                    .setView(dialogView)
-                    .setPositiveButton("關閉", null)
-                    .show();
         });
 
+// 可選：點擊 overlay 背景也收起
+        alarmOverlay.setOnClickListener(v -> alarmOverlay.setVisibility(View.GONE));
 
         btnGotoCart = findViewById(R.id.btn_goto_cart);
         btnGotoCart.setOnClickListener(v -> {
+            if (!checkLogin()) return;
+
+            // 有登入才執行後續
             Intent intent = new Intent(MainActivity.this, CheckCart.class);
             startActivity(intent);
         });
     }
+
+    private boolean checkLogin() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user == null) {
+            Intent intent = new Intent(MainActivity.this, Login.class);
+            startActivity(intent);
+            Toast.makeText(MainActivity.this, "請先登入帳號", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
+    }
+
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -478,11 +506,15 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null) {
+            return;
+        }
         String userUid = currentUser.getUid();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 

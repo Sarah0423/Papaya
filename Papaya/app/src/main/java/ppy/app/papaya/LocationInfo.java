@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
@@ -17,12 +18,21 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class LocationInfo extends AppCompatActivity  implements OnMapReadyCallback {
 
@@ -91,6 +101,50 @@ public class LocationInfo extends AppCompatActivity  implements OnMapReadyCallba
 
             }
         });
+
+        ImageView ivFavoriteBranch = branchView.findViewById(R.id.iv_favorite_branch);
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser = auth.getCurrentUser();
+
+        if (ivFavoriteBranch != null && currentUser != null) {
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            String uid = currentUser.getUid();
+            CollectionReference favoriteRef = db.collection("users").document(uid).collection("favorite");
+
+            // 預設檢查是否已收藏（可額外補寫）
+            final boolean[] isFavorite = {false};
+
+            favoriteRef.document(mapName).get().addOnSuccessListener(documentSnapshot -> {
+                if (documentSnapshot.exists()) {
+                    ivFavoriteBranch.setImageResource(R.drawable.favorite_fill);
+                    isFavorite[0] = true;
+                } else {
+                    ivFavoriteBranch.setImageResource(R.drawable.favorite);
+                    isFavorite[0] = false;
+                }
+            });
+
+            ivFavoriteBranch.setOnClickListener(v -> {
+                if (isFavorite[0]) {
+                    // 取消收藏
+                    favoriteRef.document(mapName).delete().addOnSuccessListener(unused -> {
+                        ivFavoriteBranch.setImageResource(R.drawable.favorite);
+                        isFavorite[0] = false;
+                        Log.d("Favorite", "Removed from favorites");
+                    }).addOnFailureListener(e -> Log.w("Favorite", "Error removing favorite", e));
+                } else {
+                    favoriteRef.document(mapName).set(new HashMap<>())
+                            .addOnSuccessListener(unused -> {
+                                ivFavoriteBranch.setImageResource(R.drawable.favorite_fill);
+                                isFavorite[0] = true;
+                                Log.d("Favorite", "Added to favorites");
+                            })
+                            .addOnFailureListener(e -> Log.w("Favorite", "Error adding favorite", e));
+                }
+            });
+        } else if (ivFavoriteBranch != null) {
+            ivFavoriteBranch.setVisibility(View.GONE);
+        }
 
         tvBranchInfoTel.setOnClickListener(new View.OnClickListener() {
             @Override
