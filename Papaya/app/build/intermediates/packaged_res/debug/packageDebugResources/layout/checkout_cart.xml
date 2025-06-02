@@ -288,7 +288,7 @@
             android:layout_width="79dp"
             android:layout_height="51.21dp"
             android:scaleType="center"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/master_card" />
 
         <ImageButton
             android:id="@+id/ib_visa"
@@ -296,7 +296,7 @@
             android:layout_height="51.21dp"
             android:layout_marginStart="18.05dp"
             android:scaleType="center"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@mipmap/visa" />
 
         <ImageButton
             android:id="@+id/ib_rupay"
@@ -304,7 +304,7 @@
             android:layout_height="51.21dp"
             android:layout_marginStart="18.05dp"
             android:scaleType="center"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@mipmap/ru_pay" />
 
         <ImageButton
             android:id="@+id/ib_jcb"

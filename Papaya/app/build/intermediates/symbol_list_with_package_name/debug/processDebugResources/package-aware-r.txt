@@ -4286,6 +4286,7 @@ mipmap lemon_black_tea_beverage
 mipmap lemon_sparkling_beverage
 mipmap login_usagi
 mipmap map
+mipmap master_card
 mipmap milktea_beverage
 mipmap minus
 mipmap modify_member_background
@@ -4307,6 +4308,7 @@ mipmap ppy7
 mipmap ppy8
 mipmap ppy9
 mipmap restaurant2
+mipmap ru_pay
 mipmap soy_milk_beverage
 mipmap sprite_beverage
 mipmap taipei
@@ -4319,6 +4321,7 @@ mipmap user_chii
 mipmap user_hachi
 mipmap user_usagi
 mipmap vegan_toast
+mipmap visa
 mipmap wheat_toast
 mipmap white_gourd_tea_beverage
 mipmap white_toast

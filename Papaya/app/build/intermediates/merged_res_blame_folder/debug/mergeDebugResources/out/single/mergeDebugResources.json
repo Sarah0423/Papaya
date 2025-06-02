@@ -108,6 +108,10 @@
         "source": "ppy.app.papaya.app-main-45:/drawable/s975101sw1cr8bffa941.xml"
     },
     {
+        "merged": "ppy.app.papaya.app-debug-43:/mipmap-xhdpi_master_card.jpg.flat",
+        "source": "ppy.app.papaya.app-main-45:/mipmap-xhdpi/master_card.jpg"
+    },
+    {
         "merged": "ppy.app.papaya.app-debug-43:/layout_choose_user_img.xml.flat",
         "source": "ppy.app.papaya.app-main-45:/layout/choose_user_img.xml"
     },
@@ -150,6 +154,10 @@
     {
         "merged": "ppy.app.papaya.app-debug-43:/drawable_sf5f2efsw1cr5bffffff.xml.flat",
         "source": "ppy.app.papaya.app-main-45:/drawable/sf5f2efsw1cr5bffffff.xml"
+    },
+    {
+        "merged": "ppy.app.papaya.app-debug-43:/mipmap-xhdpi_ru_pay.jpg.flat",
+        "source": "ppy.app.papaya.app-main-45:/mipmap-xhdpi/ru_pay.jpg"
     },
     {
         "merged": "ppy.app.papaya.app-debug-43:/mipmap-xxxhdpi_orange_juice_beverage.jpg.flat",
@@ -710,6 +718,10 @@
     {
         "merged": "ppy.app.papaya.app-debug-43:/mipmap-xxxhdpi_hazelnut_latte_beverage.jpg.flat",
         "source": "ppy.app.papaya.app-main-45:/mipmap-xxxhdpi/hazelnut_latte_beverage.jpg"
+    },
+    {
+        "merged": "ppy.app.papaya.app-debug-43:/mipmap-xhdpi_visa.jpg.flat",
+        "source": "ppy.app.papaya.app-main-45:/mipmap-xhdpi/visa.jpg"
     },
     {
         "merged": "ppy.app.papaya.app-debug-43:/mipmap-xxxhdpi_ppy3.jpg.flat",
