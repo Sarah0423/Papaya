@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="338dp"
     android:layout_height="91dp"
+    app:cardCornerRadius="12dp"
     android:padding="32dp">
 
     <LinearLayout
@@ -17,7 +18,8 @@
             android:id="@+id/iv_alarm_img"
             android:layout_width="84dp"
             android:layout_height="65dp"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:clipToOutline="true"
+            tools:srcCompat="@mipmap/egg_delivery" />
 
         <LinearLayout
             android:layout_width="wrap_content"
