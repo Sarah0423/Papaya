@@ -364,6 +364,7 @@ id tv_verification_code
 id v_cart
 id v_down
 id v_up
+layout activity_alarm_list
 layout activity_branch_info
 layout activity_check_cart
 layout activity_customer_service

@@ -536,6 +536,10 @@
         "source": "ppy.app.papaya.app-main-45:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
+        "merged": "ppy.app.papaya.app-debug-43:/layout_activity_alarm_list.xml.flat",
+        "source": "ppy.app.papaya.app-main-45:/layout/activity_alarm_list.xml"
+    },
+    {
         "merged": "ppy.app.papaya.app-debug-43:/mipmap-mdpi_check.png.flat",
         "source": "ppy.app.papaya.app-main-45:/mipmap-mdpi/check.png"
     },

@@ -4139,6 +4139,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_alarm_list
 layout activity_branch_info
 layout activity_check_cart
 layout activity_customer_service
