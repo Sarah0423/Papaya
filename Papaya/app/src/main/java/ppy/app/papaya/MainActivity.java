@@ -25,17 +25,21 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -303,13 +307,55 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton reminderBtn = findViewById(R.id.ib_notification); // 替換為你對應的 id
         reminderBtn.setOnClickListener(v -> {
-            String prize = getSharedPreferences("PapayaPrefs", MODE_PRIVATE)
-                    .getString("lastPrize", "目前尚未中獎");
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user == null) {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("錯誤")
+                        .setMessage("請先登入帳號")
+                        .setPositiveButton("確定", null)
+                        .show();
+                return;
+            }
+
+            String uid = user.getUid();
+
+            // 建立 RecyclerView 對話框畫面
+            View dialogView = getLayoutInflater().inflate(R.layout.alarm_list, null);
+            RecyclerView rvAlarm = dialogView.findViewById(R.id.rv_alarm);
+            rvAlarm.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+
+            List<Alarm> alarmList = new ArrayList<>();
+            AlarmAdapter adapter = new AlarmAdapter(alarmList);
+            rvAlarm.setAdapter(adapter);
+
+            Calendar cal = Calendar.getInstance();
+            cal.add(Calendar.HOUR_OF_DAY, -24);
+            Timestamp time24HoursAgo = new Timestamp(cal.getTime());
+
+            db.collection("users")
+                    .document(uid)
+                    .collection("alarms")
+                    .whereGreaterThan("alarms_time", time24HoursAgo)
+                    .get()
+                    .addOnSuccessListener(queryDocumentSnapshots -> {
+                        alarmList.clear();
+                        for (DocumentSnapshot doc : queryDocumentSnapshots) {
+                            String photo = doc.getString("alarms_photo");
+                            String type = doc.getString("alarms_type");
+                            String info = doc.getString("alarms_info");
+
+                            alarmList.add(new Alarm(photo, type, info));
+                        }
+                        adapter.notifyDataSetChanged();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(MainActivity.this, "載入提醒失敗", Toast.LENGTH_SHORT).show();
+                    });
 
             new AlertDialog.Builder(MainActivity.this)
-                    .setTitle("中獎提醒")
-                    .setMessage(prize)
-                    .setPositiveButton("確定", null)
+                    .setTitle("通知")
+                    .setView(dialogView)
+                    .setPositiveButton("關閉", null)
                     .show();
         });
 

@@ -79,25 +79,46 @@ public class DailySpin extends AppCompatActivity {
                 String uid = user.getUid();
                 FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-                Map<String, Object> data = new HashMap<>();
-                data.put("coupon_index", couponIndex);
-                data.put("acquired_at", Timestamp.now());
+                // ===== 寫入 owned_coupons =====
+                Map<String, Object> couponData = new HashMap<>();
+                couponData.put("coupon_index", couponIndex);
+                couponData.put("acquired_at", Timestamp.now());
 
                 Calendar cal = Calendar.getInstance();
-                cal.add(Calendar.DAY_OF_YEAR, 7);
-                data.put("expire_at", new Timestamp(cal.getTime()));
-                data.put("is_used", false);
+                cal.add(Calendar.DAY_OF_YEAR, 1);
+                couponData.put("expire_at", new Timestamp(cal.getTime()));
+                couponData.put("is_used", false);
 
                 db.collection("users")
                         .document(uid)
                         .collection("owned_coupons")
-                        .add(data)
+                        .add(couponData)
                         .addOnSuccessListener(docRef -> {
-                            showResultDialog(prizeMessage);
+                            String sameId = docRef.getId();  // 取得相同的 document ID
+
+                            // ===== 寫入 alarms =====
+                            Map<String, Object> alarmData = new HashMap<>();
+                            alarmData.put("alarms_info", prizeMessage);
+                            alarmData.put("alarms_photo", "egg_checkout");
+                            alarmData.put("alarms_time", Timestamp.now());
+                            alarmData.put("alarms_type", "獲得優惠券");
+
+                            db.collection("users")
+                                    .document(uid)
+                                    .collection("alarms")
+                                    .document(sameId)  // 用相同 ID
+                                    .set(alarmData)
+                                    .addOnSuccessListener(alarmDocRef -> {
+                                        showResultDialog(prizeMessage + "\n⚠️ 請24小時內使用");
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        showErrorDialog("警報儲存失敗，請稍後再試");
+                                    });
                         })
                         .addOnFailureListener(e -> {
-                            showErrorDialog("儲存失敗，請稍後再試");
+                            showErrorDialog("優惠券儲存失敗，請稍後再試");
                         });
+
             } else {
                 showErrorDialog("請先登入帳號以使用抽獎功能");
             }

@@ -184,6 +184,7 @@ id imageView5
 id imageView6
 id imageView7
 id imageView9
+id iv_alarm_img
 id iv_branch_info
 id iv_branch_info_img
 id iv_chii_res
@@ -245,6 +246,7 @@ id rhqbwk1mlzl
 id rnr6d2w3cqo
 id rt37yj8luoj
 id rugqtneve0y
+id rv_alarm
 id rv_common
 id rv_fruit
 id rv_item_in_cart
@@ -268,6 +270,8 @@ id textProblemType
 id textView
 id textView3
 id tv_address
+id tv_alarm_info
+id tv_alarm_name
 id tv_balance
 id tv_bp_i_love_toast
 id tv_bp_mystery_toast
@@ -364,7 +368,6 @@ id tv_verification_code
 id v_cart
 id v_down
 id v_up
-layout activity_alarm_list
 layout activity_branch_info
 layout activity_check_cart
 layout activity_customer_service
@@ -374,6 +377,8 @@ layout activity_login_pro_info
 layout activity_main
 layout activity_splash
 layout activity_toast_info
+layout alarm
+layout alarm_list
 layout branches
 layout button_ingredient
 layout buy_pro
@@ -418,6 +423,8 @@ mipmap crown
 mipmap deliver_coupon
 mipmap discount_coupon
 mipmap down_arrow
+mipmap egg_checkout
+mipmap egg_delivery
 mipmap french_toast
 mipmap grain_toast
 mipmap green_tea_beverage
