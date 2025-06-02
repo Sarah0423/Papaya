@@ -84,7 +84,7 @@ public class DailySpin extends AppCompatActivity {
                 data.put("acquired_at", Timestamp.now());
 
                 Calendar cal = Calendar.getInstance();
-                cal.add(Calendar.YEAR, 1); // 一年後過期
+                cal.add(Calendar.DAY_OF_YEAR, 7);
                 data.put("expire_at", new Timestamp(cal.getTime()));
                 data.put("is_used", false);
 
