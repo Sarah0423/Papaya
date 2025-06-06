@@ -3611,7 +3611,6 @@ int id light 0x7f08017b
 int id line1 0x7f08017c
 int id line3 0x7f08017d
 int id linear 0x7f08017e
-int id linearLayout 0x7f08017f
 int id linearLayout2 0x7f080180
 int id listMode 0x7f080181
 int id list_item 0x7f080182
@@ -3619,6 +3618,7 @@ int id ll_alarm_and_cart 0x7f080323
 int id ll_btn_cart_circle 0x7f080183
 int id ll_btn_login_register 0x7f080184
 int id ll_commit 0x7f080185
+int id ll_create_toast 0x7f080325
 int id ll_credit_card 0x7f080186
 int id ll_date 0x7f080187
 int id ll_date_and_verify 0x7f080188
@@ -3780,8 +3780,8 @@ int id rv_favorite_branch 0x7f080324
 int id rv_fruit 0x7f080223
 int id rv_item_in_cart 0x7f080224
 int id rv_jam 0x7f080225
+int id rv_main_item 0x7f080326
 int id rv_meat 0x7f080226
-int id rv_toast_item 0x7f080227
 int id rv_vegetable 0x7f080228
 int id rzjetrxj8yyr 0x7f080229
 int id satellite 0x7f08022a
@@ -4151,6 +4151,7 @@ int layout activity_check_cart 0x7f0b001d
 int layout activity_customer_service 0x7f0b001e
 int layout activity_daily_spin 0x7f0b001f
 int layout activity_favorite_branch 0x7f0b0020
+int layout activity_location_info 0x7f0b0088
 int layout activity_login 0x7f0b0021
 int layout activity_login_pro_info 0x7f0b0022
 int layout activity_main 0x7f0b0023
@@ -4189,7 +4190,6 @@ int layout ime_base_split_test_activity 0x7f0b0043
 int layout ime_secondary_split_test_activity 0x7f0b0044
 int layout item_in_cart 0x7f0b0045
 int layout item_toast 0x7f0b0046
-int layout location_info 0x7f0b0047
 int layout m3_alert_dialog 0x7f0b0048
 int layout m3_alert_dialog_actions 0x7f0b0049
 int layout m3_alert_dialog_title 0x7f0b004a

@@ -222,12 +222,12 @@ ADDED from C:\Users\user\Papaya\Papaya\app\src\main\AndroidManifest.xml:43:9-45:
 		ADDED from C:\Users\user\Papaya\Papaya\app\src\main\AndroidManifest.xml:45:13-68
 	android:name
 		ADDED from C:\Users\user\Papaya\Papaya\app\src\main\AndroidManifest.xml:44:13-58
-activity#ppy.app.papaya.Branch_info
+activity#ppy.app.papaya.BranchInfo
 ADDED from C:\Users\user\Papaya\Papaya\app\src\main\AndroidManifest.xml:47:9-49:40
 	android:exported
 		ADDED from C:\Users\user\Papaya\Papaya\app\src\main\AndroidManifest.xml:49:13-37
 	android:name
-		ADDED from C:\Users\user\Papaya\Papaya\app\src\main\AndroidManifest.xml:48:13-40
+		ADDED from C:\Users\user\Papaya\Papaya\app\src\main\AndroidManifest.xml:48:13-39
 activity#ppy.app.papaya.Login
 ADDED from C:\Users\user\Papaya\Papaya\app\src\main\AndroidManifest.xml:50:9-52:40
 	android:exported

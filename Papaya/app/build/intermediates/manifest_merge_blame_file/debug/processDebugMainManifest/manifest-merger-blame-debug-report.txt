@@ -133,8 +133,8 @@
 77
 78        <activity
 78-->C:\Users\user\Papaya\Papaya\app\src\main\AndroidManifest.xml:47:9-49:40
-79            android:name="ppy.app.papaya.Branch_info"
-79-->C:\Users\user\Papaya\Papaya\app\src\main\AndroidManifest.xml:48:13-40
+79            android:name="ppy.app.papaya.BranchInfo"
+79-->C:\Users\user\Papaya\Papaya\app\src\main\AndroidManifest.xml:48:13-39
 80            android:exported="false" />
 80-->C:\Users\user\Papaya\Papaya\app\src\main\AndroidManifest.xml:49:13-37
 81        <activity

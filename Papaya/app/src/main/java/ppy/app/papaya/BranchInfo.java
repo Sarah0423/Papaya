@@ -5,11 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -18,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
 
-public class Branch_info extends AppCompatActivity {
+public class BranchInfo extends AppCompatActivity {
 
     private ImageButton btnReturn;
     private FirebaseFirestore db;
@@ -39,10 +36,10 @@ public class Branch_info extends AppCompatActivity {
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Branch_info.this, MainActivity.class);
+                Intent intent = new Intent(BranchInfo.this, MainActivity.class);
                 intent.putExtra("SHOW_FUNCTION_MENU", true);
                 startActivity(intent);
-
+                finish();
             }
         });
 
@@ -98,7 +95,7 @@ public class Branch_info extends AppCompatActivity {
                         double longitude = mapPoint.getLongitude();
 
                         // 跳到 LocationInfo，傳資料過去
-                        Intent intent = new Intent(Branch_info.this, LocationInfo.class);
+                        Intent intent = new Intent(BranchInfo.this, LocationInfo.class);
                         intent.putExtra("map_img", mapImg);
                         intent.putExtra("map_name", mapName);
                         intent.putExtra("map_tel", mapTel);

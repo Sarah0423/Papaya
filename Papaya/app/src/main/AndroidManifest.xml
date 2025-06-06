@@ -45,7 +45,7 @@
             android:value="AIzaSyDbXIcgrNpplICHpMYg2XfDPDuNeD6A1YY" />
 
         <activity
-            android:name=".Branch_info"
+            android:name=".BranchInfo"
             android:exported="false" />
         <activity
             android:name=".Login"

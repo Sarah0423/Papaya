@@ -3612,7 +3612,6 @@ id light
 id line1
 id line3
 id linear
-id linearLayout
 id linearLayout2
 id listMode
 id list_item
@@ -3620,6 +3619,7 @@ id ll_alarm_and_cart
 id ll_btn_cart_circle
 id ll_btn_login_register
 id ll_commit
+id ll_create_toast
 id ll_credit_card
 id ll_date
 id ll_date_and_verify
@@ -3781,8 +3781,8 @@ id rv_favorite_branch
 id rv_fruit
 id rv_item_in_cart
 id rv_jam
+id rv_main_item
 id rv_meat
-id rv_toast_item
 id rv_vegetable
 id rzjetrxj8yyr
 id satellite
@@ -4152,6 +4152,7 @@ layout activity_check_cart
 layout activity_customer_service
 layout activity_daily_spin
 layout activity_favorite_branch
+layout activity_location_info
 layout activity_login
 layout activity_login_pro_info
 layout activity_main
@@ -4190,7 +4191,6 @@ layout ime_base_split_test_activity
 layout ime_secondary_split_test_activity
 layout item_in_cart
 layout item_toast
-layout location_info
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title

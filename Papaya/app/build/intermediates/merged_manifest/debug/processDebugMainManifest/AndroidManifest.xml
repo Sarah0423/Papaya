@@ -76,7 +76,7 @@
             android:value="AIzaSyDbXIcgrNpplICHpMYg2XfDPDuNeD6A1YY" />
 
         <activity
-            android:name="ppy.app.papaya.Branch_info"
+            android:name="ppy.app.papaya.BranchInfo"
             android:exported="false" />
         <activity
             android:name="ppy.app.papaya.Login"
