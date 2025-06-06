@@ -148,6 +148,8 @@ id et_name
 id et_new_name
 id et_question_type
 id et_tv_verification_code
+id fl_non1
+id fl_non2
 id fl_toast_cur
 id fl_toast_next
 id fl_toast_pre
@@ -155,6 +157,7 @@ id frameLayout
 id function_menu_container
 id ib_chii_user_img
 id ib_choose_user_img
+id ib_cur_drink
 id ib_cur_toast
 id ib_hachi_user_img
 id ib_index
@@ -241,8 +244,19 @@ id r70ny5s0y5h2
 id r83v5v0aefzq
 id rarkpp8c6rz
 id rb02o6a9khb
+id rb_ice_extra
+id rb_ice_hot
+id rb_ice_less
+id rb_ice_none
+id rb_ice_normal
+id rb_sugar_full
+id rb_sugar_half
+id rb_sugar_less
+id rb_sugar_none
 id rcmukyh1t2ij
 id revrvnohagb9
+id rg_ice
+id rg_sugar
 id rginpok5lmng
 id rh6uugcve8da
 id rhqbwk1mlzl
@@ -299,6 +313,9 @@ id tv_daily_spin
 id tv_date
 id tv_delivery
 id tv_discount
+id tv_drink_name
+id tv_drink_num
+id tv_drink_price
 id tv_ds_i_love_toast
 id tv_ds_mystery_toast
 id tv_ds_toast_killer
@@ -376,6 +393,7 @@ layout activity_branch_info
 layout activity_check_cart
 layout activity_customer_service
 layout activity_daily_spin
+layout activity_drink_info
 layout activity_favorite_branch
 layout activity_location_info
 layout activity_login

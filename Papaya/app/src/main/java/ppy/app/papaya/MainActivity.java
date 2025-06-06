@@ -101,6 +101,20 @@ public class MainActivity extends AppCompatActivity {
         rvToast.setAdapter(adapter);
         rvToast.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
 
+        db.collection("toast")
+                .orderBy("toast_index")
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                        ToastItem item = document.toObject(ToastItem.class);
+                        toastItemList.add(item);
+                    }
+                    adapter.notifyDataSetChanged(); // 通知資料更新
+                })
+                .addOnFailureListener(e -> {
+                    e.printStackTrace();
+                    Toast.makeText(MainActivity.this, "吐司資料讀取失敗", Toast.LENGTH_SHORT).show();
+                });
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -127,13 +141,13 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "吐司資料讀取失敗", Toast.LENGTH_SHORT).show();
                             });
                 } else if (position == 1) { // Drink
-                    llCreateToast.setVisibility(View.GONE);
+                    llCreateToast.setVisibility(View.INVISIBLE);
                     rvToast.setAdapter(drinkAdapter); // ✅ 使用 drinkAdapter
 
                     drinkItemList.clear();
 
                     db.collection("beverage")
-                            .orderBy("beverage_type")
+                            .orderBy("beverage_index")
                             .get()
                             .addOnSuccessListener(queryDocumentSnapshots -> {
                                 for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
@@ -156,6 +170,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabReselected(TabLayout.Tab tab) {}
         });
+
+        int tabPosition = getIntent().getIntExtra("tab_position", -1);
+        if (tabPosition != -1 && tabPosition < tabLayout.getTabCount()) {
+            TabLayout.Tab tab = tabLayout.getTabAt(tabPosition);
+            if (tab != null) {
+                tab.select();  // 自動選擇該頁籤
+            }
+        }
 
 
 
@@ -428,7 +450,7 @@ public class MainActivity extends AppCompatActivity {
             if (!checkLogin()) return;
 
             // 有登入才執行後續
-            Intent intent = new Intent(MainActivity.this, CheckCart.class);
+            Intent intent = new Intent(MainActivity.this, CheckCartActivity.class);
             startActivity(intent);
         });
     }

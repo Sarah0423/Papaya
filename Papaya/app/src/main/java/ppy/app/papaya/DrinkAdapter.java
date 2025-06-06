@@ -3,19 +3,28 @@ package ppy.app.papaya;
 import android.content.Context;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.DrinkViewHolder> {
@@ -48,12 +57,19 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.DrinkViewHol
                 context.getPackageName()
         );
 
-        // 設定圖片
         if (imageResId != 0) {
             holder.ivPhoto.setImageResource(imageResId);
         } else {
             holder.ivPhoto.setImageResource(R.mipmap.bigtoast);
         }
+
+        holder.btnGotoInfo.setOnClickListener(v -> {
+            Intent intent = new Intent(context, DrinkInfoActivity.class);
+            intent.putExtra("beverage_index", drinkItem.getBeverage_index());
+            context.startActivity(intent);
+        });
+
+
     }
 
     @Override
@@ -64,6 +80,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.DrinkViewHol
     public static class DrinkViewHolder extends RecyclerView.ViewHolder {
         TextView tvName, tvInfo, tvPrice;
         ImageView ivPhoto;
+        Button btnGotoInfo;
 
         public DrinkViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -71,6 +88,7 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.DrinkViewHol
             tvInfo = itemView.findViewById(R.id.tv_toast_item_info);
             tvPrice = itemView.findViewById(R.id.tv_toast_item_price);
             ivPhoto = itemView.findViewById(R.id.iv_toast_item_img);
+            btnGotoInfo = itemView.findViewById(R.id.btn_goto_toast_info);
         }
     }
 }

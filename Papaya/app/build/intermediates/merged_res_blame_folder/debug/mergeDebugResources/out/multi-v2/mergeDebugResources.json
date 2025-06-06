@@ -3179,21 +3179,6 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\values-w320dp-land-v13_values-w320dp-land-v13.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\8.10.2\\transforms\\cdcede3c7c8730643925b32cf9238765\\transformed\\material-1.11.0\\res\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,110",
-                        "endColumns": "54,61",
-                        "endOffsets": "105,167"
-                    }
-                }
-            ]
-        },
-        {
             "outputFile": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\values-my_values-my.arsc.flat",
             "map": [
                 {
@@ -3315,6 +3300,21 @@
                         "startOffsets": "3779,3882,3986,4089,4191,4296,4402,12490",
                         "endColumns": "102,103,102,101,104,105,118,100",
                         "endOffsets": "3877,3981,4084,4186,4291,4397,4516,12586"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\values-w320dp-land-v13_values-w320dp-land-v13.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\8.10.2\\transforms\\cdcede3c7c8730643925b32cf9238765\\transformed\\material-1.11.0\\res\\values-w320dp-land-v13\\values-w320dp-land-v13.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,110",
+                        "endColumns": "54,61",
+                        "endOffsets": "105,167"
                     }
                 }
             ]

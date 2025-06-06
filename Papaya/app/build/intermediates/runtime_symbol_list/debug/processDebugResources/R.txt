@@ -3495,6 +3495,8 @@ int id fitStart 0x7f080106
 int id fitToContents 0x7f080107
 int id fitXY 0x7f080108
 int id fixed 0x7f080109
+int id fl_non1 0x7f080327
+int id fl_non2 0x7f080328
 int id fl_toast_cur 0x7f08010a
 int id fl_toast_next 0x7f08010b
 int id fl_toast_pre 0x7f08010c
@@ -3526,6 +3528,7 @@ int id horizontal_only 0x7f080125
 int id hybrid 0x7f080126
 int id ib_chii_user_img 0x7f080127
 int id ib_choose_user_img 0x7f080128
+int id ib_cur_drink 0x7f080329
 int id ib_cur_toast 0x7f080129
 int id ib_hachi_user_img 0x7f08012a
 int id ib_index 0x7f08012b
@@ -3757,11 +3760,22 @@ int id radio 0x7f08020c
 int id rarkpp8c6rz 0x7f08020d
 int id ratio 0x7f08020e
 int id rb02o6a9khb 0x7f08020f
+int id rb_ice_extra 0x7f08032a
+int id rb_ice_hot 0x7f08032b
+int id rb_ice_less 0x7f08032c
+int id rb_ice_none 0x7f08032d
+int id rb_ice_normal 0x7f08032e
+int id rb_sugar_full 0x7f08032f
+int id rb_sugar_half 0x7f080330
+int id rb_sugar_less 0x7f080331
+int id rb_sugar_none 0x7f080332
 int id rcmukyh1t2ij 0x7f080210
 int id rectangles 0x7f080211
 int id report_drawn 0x7f080212
 int id reverseSawtooth 0x7f080213
 int id revrvnohagb9 0x7f080214
+int id rg_ice 0x7f080333
+int id rg_sugar 0x7f080334
 int id rginpok5lmng 0x7f080215
 int id rh6uugcve8da 0x7f080216
 int id rhqbwk1mlzl 0x7f080217
@@ -3933,6 +3947,9 @@ int id tv_daily_spin 0x7f0802bc
 int id tv_date 0x7f0802bd
 int id tv_delivery 0x7f0802be
 int id tv_discount 0x7f0802bf
+int id tv_drink_name 0x7f080335
+int id tv_drink_num 0x7f080337
+int id tv_drink_price 0x7f080336
 int id tv_ds_i_love_toast 0x7f0802c0
 int id tv_ds_mystery_toast 0x7f0802c1
 int id tv_ds_toast_killer 0x7f0802c2
@@ -4150,6 +4167,7 @@ int layout activity_branch_info 0x7f0b001c
 int layout activity_check_cart 0x7f0b001d
 int layout activity_customer_service 0x7f0b001e
 int layout activity_daily_spin 0x7f0b001f
+int layout activity_drink_info 0x7f0b0089
 int layout activity_favorite_branch 0x7f0b0020
 int layout activity_location_info 0x7f0b0088
 int layout activity_login 0x7f0b0021

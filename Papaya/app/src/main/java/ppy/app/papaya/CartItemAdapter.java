@@ -67,16 +67,17 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.CartVi
                     .delete()
                     .addOnSuccessListener(aVoid -> {
                         int removeIndex = holder.getAdapterPosition();
-                        itemList.remove(removeIndex);
-                        notifyItemRemoved(removeIndex);
-                        Toast.makeText(context, "已移除項目", Toast.LENGTH_SHORT).show();
-
-                        // 更新 cart_info
-                        updateCartInfo(uid);
+                        if (removeIndex != RecyclerView.NO_POSITION && removeIndex < itemList.size()) {
+                            itemList.remove(removeIndex);
+                            notifyItemRemoved(removeIndex);
+                            Toast.makeText(context, "已移除項目", Toast.LENGTH_SHORT).show();
+                            updateCartInfo(uid);
+                        } else {
+                            Toast.makeText(context, "已移除項目", Toast.LENGTH_SHORT).show();
+                        }
                     });
-
-
         });
+
 
         holder.ibMinus.setOnClickListener(v -> {
             if (item.getItem_quantity() > 1) {

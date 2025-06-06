@@ -4,6 +4,10 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\dots.xml"
     },
     {
+        "merged": "ppy.app.papaya.app-debug-43:/layout_activity_drink_info.xml.flat",
+        "source": "ppy.app.papaya.app-main-45:/layout/activity_drink_info.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_bigbread.jpg.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\bigbread.jpg"
     },
@@ -228,6 +232,10 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\sff9500sw2cr15bffffff.xml"
     },
     {
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_drink_info.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_drink_info.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_pro_info.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\pro_info.xml"
     },
@@ -278,6 +286,10 @@
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_cr200bffaa2b.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\cr200bffaa2b.xml"
+    },
+    {
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_dialog_drink_options.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\dialog_drink_options.xml"
     },
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_item_toast.xml.flat",
@@ -566,10 +578,6 @@
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-mdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-mdpi\\ic_launcher.webp"
-    },
-    {
-        "merged": "ppy.app.papaya.app-debug-43:/layout_activity_main.xml.flat",
-        "source": "ppy.app.papaya.app-main-45:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_wheat_toast.jpg.flat",
