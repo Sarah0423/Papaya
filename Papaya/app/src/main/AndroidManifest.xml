@@ -13,10 +13,13 @@
         android:theme="@style/Theme.Papaya"
         tools:targetApi="31">
         <activity
+            android:name=".DrinkInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".FavoriteBranch"
             android:exported="false" />
         <activity
-            android:name=".CheckCart"
+            android:name=".CheckCartActivity"
             android:exported="false" />
         <activity
             android:name=".ToastInfo"
@@ -45,7 +48,7 @@
             android:value="AIzaSyDbXIcgrNpplICHpMYg2XfDPDuNeD6A1YY" />
 
         <activity
-            android:name=".Branch_info"
+            android:name=".BranchInfo"
             android:exported="false" />
         <activity
             android:name=".Login"

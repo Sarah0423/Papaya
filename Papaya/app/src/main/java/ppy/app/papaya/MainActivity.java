@@ -1,13 +1,9 @@
 package ppy.app.papaya;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Rect;
 import android.os.Bundle;
-import android.text.Layout;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -30,7 +26,6 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.Timestamp;
@@ -47,12 +42,16 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
+    private RecyclerView rvToast;
+    private RecyclerView rvAlarm;
     private List<ToastItem> toastItemList;
+    private List<DrinkItem> drinkItemList;
     private ToastAdapter adapter;
+    private DrinkAdapter drinkAdapter;
     private FrameLayout functionMenuContainer;
     private View functionMenuView;
     private ImageButton ibIndex;
+    private LinearLayout llCreateToast;
     private LinearLayout llBtnLoginRegister;
     private LinearLayout pointsLayout;
     private LinearLayout logoutLayout;
@@ -61,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageView llBtnCartCircle;
     private TextView tvItemNum;
     private Button btnGotoCart;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,8 +74,9 @@ public class MainActivity extends AppCompatActivity {
         llBtnCartCircle = findViewById(R.id.circularImageView);
         tvItemNum = findViewById(R.id.tv_item_num);
 
+        llCreateToast = findViewById(R.id.ll_create_toast);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
-        String[] categories = {"Starters", "Asian", "Roasts", "Classci"};
+        String[] categories = {"Toast", "Drink"};
 
         for (String title : categories) {
             TabLayout.Tab tab = tabLayout.newTab();
@@ -91,15 +90,18 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        recyclerView = findViewById(R.id.rv_toast_item);
+        rvToast = findViewById(R.id.rv_main_item);
         // 初始化資料列表
         toastItemList = new ArrayList<>();
+        drinkItemList = new ArrayList<>();
         // 初始化 Adapter 並設置給 RecyclerView
         adapter = new ToastAdapter(this, toastItemList);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        drinkAdapter = new DrinkAdapter(this, drinkItemList);
 
-        db.collection("toast") // ← 替換成你的資料集名稱
+        rvToast.setAdapter(adapter);
+        rvToast.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
+
+        db.collection("toast")
                 .orderBy("toast_index")
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
@@ -107,13 +109,77 @@ public class MainActivity extends AppCompatActivity {
                         ToastItem item = document.toObject(ToastItem.class);
                         toastItemList.add(item);
                     }
-                    adapter.notifyDataSetChanged(); // ← 通知資料更新
+                    adapter.notifyDataSetChanged(); // 通知資料更新
                 })
                 .addOnFailureListener(e -> {
                     e.printStackTrace();
-                    // 可以加上錯誤訊息提示
-                    Toast.makeText(MainActivity.this, "資料讀取失敗", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "吐司資料讀取失敗", Toast.LENGTH_SHORT).show();
                 });
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int position = tab.getPosition();
+
+                if (position == 0) { // Toast
+                    llCreateToast.setVisibility(View.VISIBLE);
+                    rvToast.setAdapter(adapter); // 正確使用 ToastAdapter
+                    toastItemList.clear(); // ✅ 清空正確的列表
+
+                    db.collection("toast")
+                            .orderBy("toast_index")
+                            .get()
+                            .addOnSuccessListener(queryDocumentSnapshots -> {
+                                for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                                    ToastItem item = document.toObject(ToastItem.class);
+                                    toastItemList.add(item);
+                                }
+                                adapter.notifyDataSetChanged(); // 通知資料更新
+                            })
+                            .addOnFailureListener(e -> {
+                                e.printStackTrace();
+                                Toast.makeText(MainActivity.this, "吐司資料讀取失敗", Toast.LENGTH_SHORT).show();
+                            });
+                } else if (position == 1) { // Drink
+                    llCreateToast.setVisibility(View.INVISIBLE);
+                    rvToast.setAdapter(drinkAdapter); // ✅ 使用 drinkAdapter
+
+                    drinkItemList.clear();
+
+                    db.collection("beverage")
+                            .orderBy("beverage_index")
+                            .get()
+                            .addOnSuccessListener(queryDocumentSnapshots -> {
+                                for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                                    DrinkItem item = document.toObject(DrinkItem.class);
+                                    drinkItemList.add(item);
+                                }
+                                drinkAdapter.notifyDataSetChanged();
+                            })
+                            .addOnFailureListener(e -> {
+                                e.printStackTrace();
+                                Toast.makeText(MainActivity.this, "飲料資料讀取失敗", Toast.LENGTH_SHORT).show();
+                            });
+                }
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {}
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {}
+        });
+
+        int tabPosition = getIntent().getIntExtra("tab_position", -1);
+        if (tabPosition != -1 && tabPosition < tabLayout.getTabCount()) {
+            TabLayout.Tab tab = tabLayout.getTabAt(tabPosition);
+            if (tab != null) {
+                tab.select();  // 自動選擇該頁籤
+            }
+        }
+
+
 
         ibIndex = findViewById(R.id.ib_index);
 
@@ -256,7 +322,7 @@ public class MainActivity extends AppCompatActivity {
         linearBranchLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Branch_info.class);
+                Intent intent = new Intent(MainActivity.this, BranchInfo.class);
                 startActivity(intent);
             }
         });
@@ -326,7 +392,7 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton reminderBtn = findViewById(R.id.ib_notification);
         FrameLayout alarmOverlay = findViewById(R.id.alarm_overlay);
-        RecyclerView rvAlarm = findViewById(R.id.rv_alarm);
+        rvAlarm = findViewById(R.id.rv_alarm);
         rvAlarm.setLayoutManager(new LinearLayoutManager(this));
         rvAlarm.setAdapter(adapter);
 
@@ -384,7 +450,7 @@ public class MainActivity extends AppCompatActivity {
             if (!checkLogin()) return;
 
             // 有登入才執行後續
-            Intent intent = new Intent(MainActivity.this, CheckCart.class);
+            Intent intent = new Intent(MainActivity.this, CheckCartActivity.class);
             startActivity(intent);
         });
     }

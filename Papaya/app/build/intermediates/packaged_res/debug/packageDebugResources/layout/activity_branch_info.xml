@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BranchInfo">
+
+    <ImageView
+        android:id="@+id/taiwan"
+        android:layout_width="549dp"
+        android:layout_height="718dp"
+        android:layout_marginStart="-75dp"
+        android:layout_marginTop="12dp"
+        android:src="@mipmap/taiwan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cr12bff9500" />
+
+    <ImageButton
+        android:id="@+id/btn_return"
+        android:layout_width="98dp"
+        android:layout_height="65dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.512" />
+
+
+
+    <ImageButton
+        android:id="@+id/btn_taipei"
+        android:tag="taipei"
+        android:layout_width="34dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="292dp"
+        android:layout_marginTop="108dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@mipmap/map" />
+
+    <ImageButton
+        android:id="@+id/btn_newtaipei"
+        android:tag="new_taipei"
+        android:layout_width="34dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="328dp"
+        android:layout_marginTop="140dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@mipmap/map" />
+
+    <ImageButton
+        android:id="@+id/btn_yilan"
+        android:tag="yilan"
+        android:layout_width="34dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="316dp"
+        android:layout_marginTop="208dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@mipmap/map" />
+
+    <ImageButton
+        android:id="@+id/btn_hualian"
+        android:tag="hualian"
+        android:layout_width="34dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="284dp"
+        android:layout_marginTop="372dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@mipmap/map" />
+
+    <ImageButton
+        android:id="@+id/btn_pingtung"
+        android:tag="pingtung"
+        android:layout_width="34dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="576dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@mipmap/map" />
+
+    <ImageButton
+        android:id="@+id/btn_kaohsiung"
+        android:tag="kaohsiung"
+        android:layout_width="34dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="488dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@mipmap/map" />
+
+    <ImageButton
+        android:id="@+id/btn_tainan"
+        android:tag="tainan"
+        android:layout_width="34dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="476dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@mipmap/map" />
+
+    <ImageButton
+        android:id="@+id/btn_yunlin"
+        android:tag="yunlin"
+        android:layout_width="34dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="372dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@mipmap/map" />
+
+    <ImageButton
+        android:id="@+id/btn_taichung"
+        android:tag="taichung"
+        android:layout_width="34dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="152dp"
+        android:layout_marginTop="280dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@mipmap/map" />
+
+    <ImageButton
+        android:id="@+id/btn_nantou"
+        android:tag="nantou"
+        android:layout_width="34dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="360dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@mipmap/map" />
+
+    <ImageButton
+        android:id="@+id/btn_taoyuan"
+        android:tag="taoyuan"
+        android:layout_width="34dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="240dp"
+        android:layout_marginTop="140dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@mipmap/map" />
+
+    <ImageButton
+        android:id="@+id/btn_hsinchu"
+        android:tag="hsinchu"
+        android:layout_width="34dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="224dp"
+        android:layout_marginTop="188dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:srcCompat="@mipmap/map" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -19,7 +19,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -29,10 +28,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class LocationInfo extends AppCompatActivity  implements OnMapReadyCallback {
 
@@ -45,7 +42,7 @@ public class LocationInfo extends AppCompatActivity  implements OnMapReadyCallba
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.location_info);
+        setContentView(R.layout.activity_location_info);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -64,7 +61,7 @@ public class LocationInfo extends AppCompatActivity  implements OnMapReadyCallba
         View branchView = getLayoutInflater().inflate(R.layout.branches, frameLayout, false);
         frameLayout.addView(branchView);
 
-        btnReturn= findViewById(R.id.btn_return);
+        btnReturn = findViewById(R.id.btn_return);
 
         // 設定圖片與文字
         ImageView ivBranchInfoImg = branchView.findViewById(R.id.iv_branch_info_img);
@@ -96,9 +93,9 @@ public class LocationInfo extends AppCompatActivity  implements OnMapReadyCallba
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LocationInfo.this, Branch_info.class);
+                Intent intent = new Intent(LocationInfo.this, BranchInfo.class);
                 startActivity(intent);
-
+                finish();
             }
         });
 
