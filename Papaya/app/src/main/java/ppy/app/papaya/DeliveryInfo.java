@@ -32,11 +32,13 @@ public class DeliveryInfo extends AppCompatActivity {
     private ImageButton btnReturn;
     private EditText etName, etPhone, etAddress;
     private CheckBox cbTakeMyself;
-    private Button btnConfirm;
-    private TextView tvAddressLabel;
+    private Button btnConfirm, btnChooseBranch;
+    private TextView tvAddressLabel, tvSelectedBranch;
 
     private FirebaseFirestore db;
     private String userId;
+
+    private String selectedBranch = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,15 +60,59 @@ public class DeliveryInfo extends AppCompatActivity {
         btnConfirm = findViewById(R.id.btn_confirm_delivery);
         btnReturn = findViewById(R.id.btn_return_to_checkout);
         tvAddressLabel = findViewById(R.id.tv_delivery_address);
-
-        TextView tvSelectedBranch = findViewById(R.id.tv_selected_branch);
-        Button btnChooseBranch = findViewById(R.id.btn_choose_branch);
-
-        final String[] selectedBranch = {null}; // 儲存選到的分店
+        tvSelectedBranch = findViewById(R.id.tv_selected_branch);
+        btnChooseBranch = findViewById(R.id.btn_choose_branch);
 
         // Firebase 初始化
         db = FirebaseFirestore.getInstance();
-        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();  // 假設你已登入
+        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        // 自取勾選監聽（立即啟用）
+        cbTakeMyself.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                etAddress.setVisibility(View.GONE);
+                tvAddressLabel.setVisibility(View.GONE);
+            } else {
+                etAddress.setVisibility(View.VISIBLE);
+                tvAddressLabel.setVisibility(View.VISIBLE);
+            }
+        });
+
+        // 讀取 Firebase 資料並填入
+        db.collection("users")
+                .document(userId)
+                .collection("delivery")
+                .document("delivery_info")
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        String name = documentSnapshot.getString("name");
+                        String phone = documentSnapshot.getString("phone");
+                        String address = documentSnapshot.getString("address");
+                        String branch = documentSnapshot.getString("branch");
+
+                        if (name != null) etName.setText(name);
+                        if (phone != null) etPhone.setText(phone);
+                        if (branch != null) {
+                            selectedBranch = branch;
+                            tvSelectedBranch.setText("已選擇：" + branch);
+                        }
+
+                        if ("自取".equals(address)) {
+                            cbTakeMyself.setChecked(true);
+                            etAddress.setVisibility(View.GONE);
+                            tvAddressLabel.setVisibility(View.GONE);
+                        } else {
+                            cbTakeMyself.setChecked(false);
+                            etAddress.setText(address);
+                            etAddress.setVisibility(View.VISIBLE);
+                            tvAddressLabel.setVisibility(View.VISIBLE);
+                        }
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "載入配送資料失敗：" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                });
 
         // 返回按鈕
         btnReturn.setOnClickListener(v -> {
@@ -75,9 +121,41 @@ public class DeliveryInfo extends AppCompatActivity {
             finish();
         });
 
-        // 確認按鈕點擊事件
+        // 選擇分店
+        btnChooseBranch.setOnClickListener(v -> {
+            db.collection("map").get().addOnSuccessListener(querySnapshot -> {
+                List<String> branchList = new ArrayList<>();
+
+                for (QueryDocumentSnapshot doc : querySnapshot) {
+                    String city = doc.getString("map_city");
+                    String name = doc.getString("map_name");
+                    branchList.add(city + " - " + name);
+                }
+
+                String[] branches = branchList.toArray(new String[0]);
+
+                new AlertDialog.Builder(DeliveryInfo.this)
+                        .setTitle("選擇分店")
+                        .setSingleChoiceItems(branches, -1, (dialog, which) -> {
+                            selectedBranch = branches[which];
+                        })
+                        .setPositiveButton("確定", (dialog, which) -> {
+                            if (selectedBranch != null) {
+                                tvSelectedBranch.setText("已選擇：" + selectedBranch);
+                            }
+                        })
+                        .setNegativeButton("取消", null)
+                        .show();
+
+            }).addOnFailureListener(e -> {
+                Toast.makeText(this, "讀取分店失敗：" + e.getMessage(), Toast.LENGTH_SHORT).show();
+            });
+        });
+
+        // 確認按鈕
         btnConfirm.setOnClickListener(v -> {
             String name = etName.getText().toString().trim();
+            String phone = etPhone.getText().toString().trim();
             String address = etAddress.getText().toString().trim();
             boolean isTakeMyself = cbTakeMyself.isChecked();
 
@@ -86,22 +164,18 @@ public class DeliveryInfo extends AppCompatActivity {
                 return;
             }
 
-            // 如果不是自取，地址必填
+            if (phone.isEmpty()) {
+                Toast.makeText(this, "請輸入連絡電話", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             if (!isTakeMyself && address.isEmpty()) {
                 Toast.makeText(this, "請輸入地址或選擇自取", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // 自取的話設為 "自取"
             if (isTakeMyself) {
                 address = "自取";
-            }
-
-            String phone = etPhone.getText().toString().trim();
-
-            if (phone.isEmpty()) {
-                Toast.makeText(this, "請輸入連絡電話", Toast.LENGTH_SHORT).show();
-                return;
             }
 
             Map<String, Object> deliveryInfo = new HashMap<>();
@@ -110,17 +184,6 @@ public class DeliveryInfo extends AppCompatActivity {
             deliveryInfo.put("address", address);
             deliveryInfo.put("branch", selectedBranch != null ? selectedBranch : "未選擇");
 
-            cbTakeMyself.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                if (isChecked) {
-                    etAddress.setVisibility(View.GONE);
-                    tvAddressLabel.setVisibility(View.GONE);
-                } else {
-                    etAddress.setVisibility(View.VISIBLE);
-                    tvAddressLabel.setVisibility(View.VISIBLE);
-                }
-            });
-
-            // 寫入 Firestore
             db.collection("users")
                     .document(userId)
                     .collection("delivery")
@@ -136,38 +199,5 @@ public class DeliveryInfo extends AppCompatActivity {
                         Toast.makeText(this, "儲存失敗：" + e.getMessage(), Toast.LENGTH_SHORT).show();
                     });
         });
-
-        btnChooseBranch.setOnClickListener(v -> {
-            db.collection("map").get().addOnSuccessListener(querySnapshot -> {
-                List<String> branchList = new ArrayList<>();
-                List<String> branchIdList = new ArrayList<>();
-
-                for (QueryDocumentSnapshot doc : querySnapshot) {
-                    String city = doc.getString("map_city");
-                    String name = doc.getString("map_name");
-                    branchList.add(city + " - " + name);
-                    branchIdList.add(doc.getId()); // 若需要存 branchId
-                }
-
-                String[] branches = branchList.toArray(new String[0]);
-
-                new AlertDialog.Builder(DeliveryInfo.this)
-                        .setTitle("選擇分店")
-                        .setSingleChoiceItems(branches, -1, (dialog, which) -> {
-                            selectedBranch[0] = branches[which];
-                        })
-                        .setPositiveButton("確定", (dialog, which) -> {
-                            if (selectedBranch[0] != null) {
-                                tvSelectedBranch.setText("已選擇：" + selectedBranch[0]);
-                            }
-                        })
-                        .setNegativeButton("取消", null)
-                        .show();
-
-            }).addOnFailureListener(e -> {
-                Toast.makeText(this, "讀取分店失敗：" + e.getMessage(), Toast.LENGTH_SHORT).show();
-            });
-        });
-
     }
 }
