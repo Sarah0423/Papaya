@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Papaya"
         tools:targetApi="31">
-
+        <activity
+            android:name=".DeliveryInfo"
+            android:exported="false" />
         <activity
             android:name=".DrinkInfoActivity"
             android:exported="false" />
@@ -63,7 +65,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
         <activity
             android:name=".CheckoutCart"
             android:exported="false" />
