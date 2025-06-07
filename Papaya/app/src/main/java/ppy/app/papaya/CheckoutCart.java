@@ -17,17 +17,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.appcompat.app.AlertDialog;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CheckoutCart extends AppCompatActivity {
 
+    private String userId;
     private ImageButton btnReturn;
     private Button btnDeliveryInfo;
     private FirebaseFirestore db;
@@ -51,6 +54,10 @@ public class CheckoutCart extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
         uid = currentUser.getUid();
         db = FirebaseFirestore.getInstance();
+        userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        Button btnChooseCoupon = findViewById(R.id.btn_choose_coupon);
+        btnChooseCoupon.setOnClickListener(v -> showAvailableCoupons());
 
         btnReturn = findViewById(R.id.btn_return_to_cart);
         btnReturn.setOnClickListener(v -> {
@@ -153,5 +160,96 @@ public class CheckoutCart extends AppCompatActivity {
             finish();
         });
 
+    }
+
+    private void showAvailableCoupons() {
+        // 取得當前時間
+        Date currentDate = new Date();
+
+        // 從 Firestore 讀取用戶的 owned_coupons
+        db.collection("users")
+                .document(userId)
+                .collection("owned_coupons")
+                .get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        List<String> availableCoupons = new ArrayList<>();
+                        List<String> couponIdsToDelete = new ArrayList<>();
+
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            boolean isUsed = document.getBoolean("is_used");
+                            Date expireAt = document.getDate("expire_at");
+                            int couponIndex = document.getLong("coupon_index").intValue();
+
+                            // 判斷優惠券是否過期或已使用
+                            if (isUsed || expireAt == null || expireAt.before(currentDate)) {
+                                couponIdsToDelete.add(document.getId());
+                            } else {
+                                // 根據 coupon_index 查詢主集合中的 coupons
+                                db.collection("coupons")
+                                        .whereEqualTo("coupon_index", couponIndex)
+                                        .get()
+                                        .addOnCompleteListener(couponTask -> {
+                                            if (couponTask.isSuccessful()) {
+                                                for (QueryDocumentSnapshot couponDoc : couponTask.getResult()) {
+                                                    String couponName = couponDoc.getString("coupon_name");
+                                                    Date couponExpireAt = couponDoc.getDate("expire_at");
+
+                                                    if (couponName != null && couponExpireAt != null) {
+                                                        availableCoupons.add(couponName + " - 到期時間: " + couponExpireAt.toString());
+                                                    }
+                                                }
+
+                                                // 刪除過期或已使用的優惠券
+                                                deleteExpiredOrUsedCoupons(couponIdsToDelete);
+
+                                                // 顯示可用的優惠券
+                                                if (!availableCoupons.isEmpty()) {
+                                                    runOnUiThread(() -> showCouponSelectionDialog(availableCoupons));
+                                                } else {
+                                                    runOnUiThread(() -> Toast.makeText(this, "目前沒有可用的優惠券", Toast.LENGTH_SHORT).show());
+                                                }
+                                            } else {
+                                                Log.e("CheckoutCart", "Error getting coupons: ", couponTask.getException());
+                                            }
+                                        });
+                            }
+                        }
+                    } else {
+                        Log.e("CheckoutCart", "Error getting owned_coupons: ", task.getException());
+                    }
+                });
+    }
+
+
+
+    private void deleteExpiredOrUsedCoupons(List<String> couponIdsToDelete) {
+        for (String couponId : couponIdsToDelete) {
+            db.collection("users")
+                    .document(userId)
+                    .collection("owned_coupons")
+                    .document(couponId)
+                    .delete()
+                    .addOnSuccessListener(aVoid -> Log.d("CheckoutCart", "Coupon deleted successfully"))
+                    .addOnFailureListener(e -> Log.e("CheckoutCart", "Error deleting coupon: ", e));
+        }
+    }
+
+    private void showCouponSelectionDialog(List<String> availableCoupons) {
+        new AlertDialog.Builder(this)
+                .setTitle("選擇優惠券")
+                .setItems(availableCoupons.toArray(new String[0]), (dialog, which) -> {
+                    String selectedCoupon = availableCoupons.get(which);
+                    applyCoupon(selectedCoupon);
+                })
+                .setNegativeButton("取消", null)
+                .show();
+    }
+
+    private void applyCoupon(String selectedCoupon) {
+        // 在此處理應用優惠券的邏輯
+        // 例如，更新 Firestore 中的訂單資料，或在結帳時應用折扣
+
+        Toast.makeText(this, "已選擇優惠券: " + selectedCoupon, Toast.LENGTH_SHORT).show();
     }
 }
