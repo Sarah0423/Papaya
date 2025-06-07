@@ -1,13 +1,15 @@
 package ppy.app.papaya;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +36,7 @@ import java.util.Map;
 public class CheckoutCart extends AppCompatActivity {
 
     private String userId;
+    private ImageView ivUser;
     private ImageButton btnReturn;
     private Button btnDeliveryInfo;
     private FirebaseFirestore db;
@@ -41,6 +44,9 @@ public class CheckoutCart extends AppCompatActivity {
     private FirebaseUser currentUser;
     private String uid;
     private TextView total;
+
+    private EditText etName, etCardNum, etDate, etVerificationCode;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,29 +68,41 @@ public class CheckoutCart extends AppCompatActivity {
         Button btnChooseCoupon = findViewById(R.id.btn_choose_coupon);
         btnChooseCoupon.setOnClickListener(v -> showAvailableCoupons());
 
-        btnReturn = findViewById(R.id.btn_return_to_cart);
-        btnReturn.setOnClickListener(v -> {
-            Intent intent = new Intent(CheckoutCart.this, CheckCartActivity.class);
-            startActivity(intent);
-            finish();
-        });
-
-        btnDeliveryInfo = findViewById(R.id.btn_write_delivery_info);
-        btnDeliveryInfo.setOnClickListener(v -> {
-            Intent intent = new Intent(CheckoutCart.this, DeliveryInfo.class);
-            startActivity(intent);
-            finish();
-        });
-
-        total = findViewById(R.id.rginpok5lmng);
+        total = findViewById(R.id.tv_total_amount);
         long totalAmount = getIntent().getLongExtra("totalAmount", 0);
         total.setText("$" + totalAmount);
 
-        TextView tvTotalAmount = findViewById(R.id.rginpok5lmng);
-        TextView tvShipping = findViewById(R.id.rugqtneve0y);
+        ImageView ivUser = findViewById(R.id.iv_user);
+        TextView tvTotalAmount = findViewById(R.id.tv_total_amount);
+        TextView tvShipping = findViewById(R.id.tv_shipping);
         TextView tvDiscount = findViewById(R.id.tv_discount);
-        TextView tvFinalTotal = findViewById(R.id.revrvnohagb9);
+        TextView tvFinalTotal = findViewById(R.id.tv_final_total);
         TextView tvTotal = findViewById(R.id.tv_total);
+
+        db.collection("users")
+                .document(uid)
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        String avatarName = documentSnapshot.getString("avatar");
+
+                        if (avatarName != null && !avatarName.isEmpty()) {
+                            int resId = getResources().getIdentifier(avatarName, "mipmap", getPackageName());
+                            if (resId != 0) {
+                                ivUser.setImageResource(resId);
+                            } else {
+                                ivUser.setImageResource(R.mipmap.login_usagi); // 預設圖
+                            }
+                        } else {
+                            ivUser.setImageResource(R.mipmap.login_usagi);
+                        }
+                    } else {
+                        ivUser.setImageResource(R.mipmap.login_usagi);
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    ivUser.setImageResource(R.mipmap.login_usagi);
+                });
 
         // 從 Firestore 讀取運費與折扣，再計算總金額
         db.collection("users")
@@ -117,13 +135,48 @@ public class CheckoutCart extends AppCompatActivity {
                     }
                 });
 
-        EditText etName = findViewById(R.id.et_name);
-        EditText etCardNum = findViewById(R.id.et_card_num);
-        EditText etDate = findViewById(R.id.et_date);
-        EditText etVerificationCode = findViewById(R.id.et_tv_verification_code);
+        etName = findViewById(R.id.et_name);
+        etCardNum = findViewById(R.id.et_card_num);
+        etDate = findViewById(R.id.et_date);
+        etVerificationCode = findViewById(R.id.et_tv_verification_code);
         LinearLayout llCommit = findViewById(R.id.ll_commit);
 
+        SharedPreferences prefs = getSharedPreferences("checkout_data", MODE_PRIVATE);
+        etName.setText(prefs.getString("name", ""));
+        etCardNum.setText(prefs.getString("cardNum", ""));
+        etDate.setText(prefs.getString("date", ""));
+        etVerificationCode.setText(prefs.getString("code", ""));
 
+        TextWatcher watcher = new SimpleTextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                saveToPrefs();
+            }
+        };
+        etName.addTextChangedListener(watcher);
+        etCardNum.addTextChangedListener(watcher);
+        etDate.addTextChangedListener(watcher);
+        etVerificationCode.addTextChangedListener(watcher);
+
+        btnReturn = findViewById(R.id.btn_return_to_cart);
+        btnReturn.setOnClickListener(v -> {
+            Intent intent = new Intent(CheckoutCart.this, CheckCartActivity.class);
+            putEditTextValues(intent);
+            startActivity(intent);
+        });
+
+        btnChooseCoupon.setOnClickListener(v -> {
+            Intent intent = new Intent(CheckoutCart.this, ChooseCoupon.class);
+            putEditTextValues(intent);
+            startActivity(intent);
+        });
+
+        btnDeliveryInfo = findViewById(R.id.btn_write_delivery_info);
+        btnDeliveryInfo.setOnClickListener(v -> {
+            Intent intent = new Intent(CheckoutCart.this, DeliveryInfo.class);
+            putEditTextValues(intent);
+            startActivity(intent);
+        });
 
         llCommit.setOnClickListener(v -> {
             String name = etName.getText().toString().trim();
@@ -154,6 +207,9 @@ public class CheckoutCart extends AppCompatActivity {
             }
 
             Toast.makeText(CheckoutCart.this, "付款成功，謝謝您的訂購！", Toast.LENGTH_LONG).show();
+            SharedPreferences.Editor editor = getSharedPreferences("checkout_data", MODE_PRIVATE).edit();
+            editor.clear();
+            editor.apply();
 
             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -204,6 +260,24 @@ public class CheckoutCart extends AppCompatActivity {
                                                 // 寫入 order/item 失敗處理
                                             });
                                 }
+
+                                // 新增 alarm 記錄
+                                Map<String, Object> alarmData = new HashMap<>();
+                                alarmData.put("alarms_info", "我們已經收到您的訂單，謝謝惠顧！");
+                                alarmData.put("alarms_photo", "egg_checkout");
+                                alarmData.put("alarms_time", new Date()); // 直接使用現在時間
+                                alarmData.put("alarms_type", "交易完成");
+
+                                db.collection("users")
+                                        .document(uid)
+                                        .collection("alarms")
+                                        .add(alarmData)
+                                        .addOnSuccessListener(documentReference -> {
+                                            Log.d("CheckoutCart", "Alarm added with ID: " + documentReference.getId());
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            Log.e("CheckoutCart", "Error adding alarm", e);
+                                        });
 
                                 // 最後跳轉頁面
                                 Intent intent = new Intent(CheckoutCart.this, MainActivity.class);
@@ -305,5 +379,27 @@ public class CheckoutCart extends AppCompatActivity {
         // 例如，更新 Firestore 中的訂單資料，或在結帳時應用折扣
 
         Toast.makeText(this, "已選擇優惠券: " + selectedCoupon, Toast.LENGTH_SHORT).show();
+    }
+
+    private void saveToPrefs() {
+        SharedPreferences.Editor editor = getSharedPreferences("checkout_data", MODE_PRIVATE).edit();
+        editor.putString("name", etName.getText().toString());
+        editor.putString("cardNum", etCardNum.getText().toString());
+        editor.putString("date", etDate.getText().toString());
+        editor.putString("code", etVerificationCode.getText().toString());
+        editor.apply();
+    }
+
+    private void putEditTextValues(Intent intent) {
+        intent.putExtra("name", etName.getText().toString());
+        intent.putExtra("cardNum", etCardNum.getText().toString());
+        intent.putExtra("date", etDate.getText().toString());
+        intent.putExtra("code", etVerificationCode.getText().toString());
+    }
+
+    // 建立簡化版 TextWatcher（只需實作 afterTextChanged）
+    private abstract class SimpleTextWatcher implements TextWatcher {
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        public void onTextChanged(CharSequence s, int start, int before, int count) {}
     }
 }

@@ -137,13 +137,13 @@
         app:layout_constraintTop_toBottomOf="@+id/v_up" />
 
     <TextView
-        android:id="@+id/revrvnohagb9"
+        android:id="@+id/tv_final_total"
         android:layout_width="146.54dp"
         android:layout_height="29.9dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:gravity="right"
-        android:text="$52.99"
+        android:text="$0"
         android:textAlignment="textEnd"
         android:textColor="#FDFBFB"
         android:textSize="14sp"
@@ -178,9 +178,9 @@
         android:textColor="#FDFBFB"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/rugqtneve0y"
-        app:layout_constraintStart_toStartOf="@+id/rugqtneve0y"
-        app:layout_constraintTop_toBottomOf="@+id/rugqtneve0y" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_shipping"
+        app:layout_constraintStart_toStartOf="@+id/tv_shipping"
+        app:layout_constraintTop_toBottomOf="@+id/tv_shipping" />
 
     <TextView
         android:id="@+id/rt37yj8luoj"
@@ -195,12 +195,12 @@
         app:layout_constraintTop_toBottomOf="@+id/v_down" />
 
     <TextView
-        android:id="@+id/rginpok5lmng"
+        android:id="@+id/tv_total_amount"
         android:layout_width="146.54dp"
         android:layout_height="29.9dp"
         android:layout_marginTop="24dp"
         android:gravity="right"
-        android:text="$52.99"
+        android:text="$0"
         android:textAlignment="textEnd"
         android:textColor="#FDFBFB"
         android:textSize="14sp"
@@ -224,7 +224,7 @@
         app:layout_constraintTop_toBottomOf="@+id/rh6uugcve8da" />
 
     <TextView
-        android:id="@+id/rugqtneve0y"
+        android:id="@+id/tv_shipping"
         android:layout_width="146.54dp"
         android:layout_height="29.9dp"
         android:layout_marginTop="8dp"
@@ -235,9 +235,9 @@
         android:textColor="#FDFBFB"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/rginpok5lmng"
-        app:layout_constraintStart_toStartOf="@+id/rginpok5lmng"
-        app:layout_constraintTop_toBottomOf="@+id/rginpok5lmng" />
+        app:layout_constraintEnd_toEndOf="@+id/tv_total_amount"
+        app:layout_constraintStart_toStartOf="@+id/tv_total_amount"
+        app:layout_constraintTop_toBottomOf="@+id/tv_total_amount" />
 
     <LinearLayout
         android:id="@+id/ll_commit"
@@ -314,7 +314,7 @@
             android:layout_height="51.21dp"
             android:layout_marginStart="18.05dp"
             android:scaleType="center"
-            app:srcCompat="@mipmap/ic_launcher" />
+            app:srcCompat="@mipmap/ic_launcher_round" />
 
     </LinearLayout>
 

@@ -95,6 +95,7 @@ id btn_bug
 id btn_chii
 id btn_choose_branch
 id btn_choose_coupon
+id btn_confirm_coupon
 id btn_confirm_delivery
 id btn_create
 id btn_create2
@@ -201,6 +202,7 @@ id iv_branch_info_img
 id iv_chii_res
 id iv_chii_res2
 id iv_circle_background
+id iv_coupon_img
 id iv_customer_service
 id iv_cut_img
 id iv_cut_img_org
@@ -234,6 +236,7 @@ id ll_date
 id ll_date_and_verify
 id ll_i_love_toast
 id ll_i_mystery_toast
+id ll_line
 id ll_toast_card
 id ll_toast_killer
 id ll_update_to_pro
@@ -258,16 +261,14 @@ id rb_sugar_half
 id rb_sugar_less
 id rb_sugar_none
 id rcmukyh1t2ij
-id revrvnohagb9
 id rg_ice
 id rg_sugar
-id rginpok5lmng
 id rh6uugcve8da
 id rnr6d2w3cqo
 id rt37yj8luoj
-id rugqtneve0y
 id rv_alarm
 id rv_common
+id rv_coupon
 id rv_favorite_branch
 id rv_fruit
 id rv_item_in_cart
@@ -306,8 +307,11 @@ id tv_cart
 id tv_choose
 id tv_choose2
 id tv_common
+id tv_coupon
 id tv_coupon_i_love_toast
+id tv_coupon_info
 id tv_coupon_mystery_toast
+id tv_coupon_name
 id tv_coupon_toast_killer
 id tv_create
 id tv_create2
@@ -325,6 +329,7 @@ id tv_ds_mystery_toast
 id tv_ds_toast_killer
 id tv_email_login
 id tv_favorite
+id tv_final_total
 id tv_forget_password
 id tv_fruit
 id tv_i_love_toast
@@ -375,6 +380,7 @@ id tv_price_toast_killer
 id tv_pro
 id tv_selected_branch
 id tv_service_phone_number
+id tv_shipping
 id tv_signout
 id tv_tel
 id tv_toast_intro
@@ -386,6 +392,8 @@ id tv_toast_name_cur
 id tv_toast_num
 id tv_toast_price
 id tv_total
+id tv_total_amount
+id tv_total_coupon
 id tv_unknown_i_love_toast
 id tv_unknown_mystery_toast
 id tv_unknown_toast_killer
@@ -398,6 +406,7 @@ id v_up
 layout activity_branch_info
 layout activity_check_cart
 layout activity_checkout_cart
+layout activity_choose_coupon
 layout activity_customer_service
 layout activity_daily_spin
 layout activity_delivery_info
@@ -415,6 +424,7 @@ layout branches
 layout button_ingredient
 layout buy_pro
 layout choose_user_img
+layout coupon
 layout dialog_edit_name
 layout favorite_add
 layout function_menu

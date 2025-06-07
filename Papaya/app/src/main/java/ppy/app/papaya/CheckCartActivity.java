@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,10 +64,15 @@ public class CheckCartActivity extends AppCompatActivity {
 
         llCommit = findViewById(R.id.ll_commit);
         llCommit.setOnClickListener(v -> {
-                Intent intent = new Intent(CheckCartActivity.this, CheckoutCart.class);
-                intent.putExtra("totalAmount", totalAmount); // 傳 long 數字
-                startActivity(intent);
-                finish();
+
+            if (totalAmount <= 0) {
+                Toast.makeText(this, "購物車是空的，無法結帳！", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            Intent intent = new Intent(CheckCartActivity.this, CheckoutCart.class);
+            intent.putExtra("totalAmount", totalAmount); // 傳 long 數字
+            startActivity(intent);
+            finish();
         });
     }
 

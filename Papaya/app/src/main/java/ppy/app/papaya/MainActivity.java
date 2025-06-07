@@ -333,7 +333,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (currentUser != null) {
-                    Intent intent = new Intent(MainActivity.this, DailySpin.class);
+                    Intent intent = new Intent(MainActivity.this, DailySpinActivity.class);
                     startActivity(intent);
                 }else{
                     Intent intent = new Intent(MainActivity.this, Login.class);
@@ -368,7 +368,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (currentUser != null) {
-                    Intent intent = new Intent(MainActivity.this, CustomerService.class);
+                    Intent intent = new Intent(MainActivity.this, CustomerServiceActivity.class);
                     startActivity(intent);
                 }else{
                     Intent intent = new Intent(MainActivity.this, Login.class);
@@ -424,6 +424,7 @@ public class MainActivity extends AppCompatActivity {
                         .document(uid)
                         .collection("alarms")
                         .whereGreaterThan("alarms_time", time24HoursAgo)
+                        .orderBy("alarms_time")
                         .get()
                         .addOnSuccessListener(queryDocumentSnapshots -> {
                             alarmList.clear();

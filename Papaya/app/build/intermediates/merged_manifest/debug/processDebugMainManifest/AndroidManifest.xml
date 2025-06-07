@@ -44,6 +44,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.Papaya" >
         <activity
+            android:name="ppy.app.papaya.ChooseCoupon"
+            android:exported="false" />
+        <activity
             android:name="ppy.app.papaya.DeliveryInfo"
             android:exported="false" />
         <activity
@@ -71,10 +74,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ppy.app.papaya.CustomerService"
+            android:name="ppy.app.papaya.CustomerServiceActivity"
             android:exported="false" />
         <activity
-            android:name="ppy.app.papaya.DailySpin"
+            android:name="ppy.app.papaya.DailySpinActivity"
             android:exported="false" />
 
         <meta-data
