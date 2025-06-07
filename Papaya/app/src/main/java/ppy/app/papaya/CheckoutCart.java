@@ -21,12 +21,15 @@ import androidx.appcompat.app.AlertDialog;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CheckoutCart extends AppCompatActivity {
 
@@ -128,19 +131,16 @@ public class CheckoutCart extends AppCompatActivity {
             String date = etDate.getText().toString().trim();
             String verificationCode = etVerificationCode.getText().toString().trim();
 
-            // 基本欄位空值檢查
             if (name.isEmpty() || cardNum.isEmpty() || date.isEmpty() || verificationCode.isEmpty()) {
                 Toast.makeText(CheckoutCart.this, "請填寫所有欄位", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // 卡號限制：16位且都是數字
             if (cardNum.length() != 16 || !cardNum.matches("\\d{16}")) {
                 Toast.makeText(CheckoutCart.this, "卡號必須為16位數字", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            // 日期格式檢查：月份在01~12之間
             String monthStr = date.substring(0, 2);
             int month = Integer.parseInt(monthStr);
             if (month < 1 || month > 12) {
@@ -153,11 +153,65 @@ public class CheckoutCart extends AppCompatActivity {
                 return;
             }
 
-            // 所有檢查通過
             Toast.makeText(CheckoutCart.this, "付款成功，謝謝您的訂購！", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(CheckoutCart.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+
+            String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            // Step 1：建立 order 文件（先建好，再取得 ID）
+            Map<String, Object> orderData = new HashMap<>();
+            orderData.put("order_user_id", uid);
+            orderData.put("order_card_number", cardNum);
+
+            DocumentReference deliveryInfoRef = db.collection("users").document(uid).collection("delivery").document("delivery_info");
+            deliveryInfoRef.get().addOnSuccessListener(deliverySnapshot -> {
+                if (deliverySnapshot.exists()) {
+                    Map<String, Object> deliveryInfo = deliverySnapshot.getData();
+                    if (deliveryInfo != null) {
+                        orderData.put("delivery_info", deliveryInfo);
+                    }
+                }
+
+                // 建立 order 文件
+                db.collection("orders").add(orderData).addOnSuccessListener(orderDocRef -> {
+                    // Step 2：取得使用者 cart_item 所有文件
+                    db.collection("users").document(uid).collection("cart_item")
+                            .get()
+                            .addOnSuccessListener(querySnapshot -> {
+                                for (QueryDocumentSnapshot doc : querySnapshot) {
+                                    Map<String, Object> itemData = new HashMap<>();
+                                    itemData.put("item_name", doc.getString("item_name"));
+                                    itemData.put("item_price", doc.getLong("item_price")); // 注意型別
+                                    itemData.put("item_quantity", doc.getLong("item_quantity"));
+                                    itemData.put("item_selected", doc.getString("item_selected"));
+
+                                    // 加入到 order 的 item 子集合，ID 同原本 cart_item 的文件 ID
+                                    orderDocRef.collection("item").document(doc.getId())
+                                            .set(itemData)
+                                            .addOnSuccessListener(aVoid -> {
+                                                // 資料寫入成功後，刪除原始 cart_item 文件
+                                                db.collection("users").document(uid)
+                                                        .collection("cart_item").document(doc.getId())
+                                                        .delete()
+                                                        .addOnSuccessListener(aVoid1 -> {
+                                                            // 刪除成功，可加上 Log 或提示
+                                                        })
+                                                        .addOnFailureListener(e -> {
+                                                            // 刪除失敗，可加上錯誤處理
+                                                        });
+                                            })
+                                            .addOnFailureListener(e -> {
+                                                // 寫入 order/item 失敗處理
+                                            });
+                                }
+
+                                // 最後跳轉頁面
+                                Intent intent = new Intent(CheckoutCart.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            });
+                });
+            });
         });
 
     }

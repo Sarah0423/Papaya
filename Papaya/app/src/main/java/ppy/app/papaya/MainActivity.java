@@ -34,6 +34,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
@@ -572,6 +573,44 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (currentUser == null) return;
+
+        String userUid = currentUser.getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        DocumentReference cartInfoRef = db.collection("users")
+                .document(userUid)
+                .collection("cart_info")
+                .document("summary");
+
+        // 用 snapshotListener 監聽 summary 資料變化
+        cartInfoListener = cartInfoRef.addSnapshotListener((documentSnapshot, error) -> {
+            if (error != null) {
+                llBtnCartCircle.setVisibility(View.GONE);
+                return;
+            }
+
+            if (documentSnapshot != null && documentSnapshot.exists()) {
+                Long totalQuantity = documentSnapshot.getLong("total_quantity");
+                Long totalPrice = documentSnapshot.getLong("total_price");
+                btnGotoCart.setText("$" + totalPrice);
+                if (totalQuantity != null && totalQuantity > 0) {
+                    llBtnCartCircle.setVisibility(View.VISIBLE);
+                    tvItemNum.setText(String.valueOf(totalQuantity));
+                } else {
+                    llBtnCartCircle.setVisibility(View.GONE);
+                }
+            } else {
+                llBtnCartCircle.setVisibility(View.GONE);
+            }
+        });
+    }
+
 
     @Override
     protected void onResume() {
@@ -593,13 +632,12 @@ public class MainActivity extends AppCompatActivity {
             if (documentSnapshot.exists()) {
                 long totalQuantity = documentSnapshot.getLong("total_quantity") != null ? documentSnapshot.getLong("total_quantity") : 0;
                 long totalPrice = documentSnapshot.getLong("total_price") != null ? documentSnapshot.getLong("total_price") : 0;
-
+                btnGotoCart.setText("$" + totalPrice);
                 if (totalQuantity <= 0) {
                     llBtnCartCircle.setVisibility(View.GONE);
                 } else {
                     llBtnCartCircle.setVisibility(View.VISIBLE);
                     tvItemNum.setText(String.valueOf(totalQuantity));
-                    btnGotoCart.setText("$" + totalPrice);
                 }
             } else {
                 llBtnCartCircle.setVisibility(View.GONE);
@@ -610,6 +648,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
+    ListenerRegistration cartInfoListener;
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (cartInfoListener != null) {
+            cartInfoListener.remove();
+        }
+    }
+
 
 
 }
