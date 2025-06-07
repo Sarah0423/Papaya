@@ -93,7 +93,9 @@ id btn_add_to_cart
 id btn_add_toast_killer
 id btn_bug
 id btn_chii
+id btn_choose_branch
 id btn_choose_coupon
+id btn_confirm_delivery
 id btn_create
 id btn_create2
 id btn_edit_favorite
@@ -115,6 +117,8 @@ id btn_rakko
 id btn_register
 id btn_register_function_menu
 id btn_return
+id btn_return_to_cart
+id btn_return_to_checkout
 id btn_save_name
 id btn_shisa
 id btn_signin_function_menu
@@ -127,9 +131,7 @@ id btn_usa
 id btn_write_delivery_info
 id btn_yilan
 id btn_yunlin
-id button2
-id button4
-id checkBox
+id cb_take_myself
 id circularImageView
 id constraintLayout
 id customer_service_layout
@@ -140,7 +142,6 @@ id editTextConfirmPassword
 id editTextName
 id editTextPassword
 id editTextTextEmailAddress1
-id editTextTextMultiLine
 id et_card_num
 id et_date
 id et_detail_info
@@ -149,6 +150,9 @@ id et_login_password
 id et_name
 id et_new_name
 id et_question_type
+id et_real_address
+id et_real_phone
+id et_realname
 id et_tv_verification_code
 id fl_non1
 id fl_non2
@@ -244,8 +248,6 @@ id r3ib3buhmk7
 id r3zra71bldk4
 id r70ny5s0y5h2
 id r83v5v0aefzq
-id rarkpp8c6rz
-id rb02o6a9khb
 id rb_ice_extra
 id rb_ice_hot
 id rb_ice_less
@@ -261,7 +263,6 @@ id rg_ice
 id rg_sugar
 id rginpok5lmng
 id rh6uugcve8da
-id rhqbwk1mlzl
 id rnr6d2w3cqo
 id rt37yj8luoj
 id rugqtneve0y
@@ -314,6 +315,7 @@ id tv_customer_service
 id tv_daily_spin
 id tv_date
 id tv_delivery
+id tv_delivery_address
 id tv_discount
 id tv_drink_name
 id tv_drink_num
@@ -364,12 +366,14 @@ id tv_order
 id tv_papaya
 id tv_password_login
 id tv_pay
+id tv_phone
 id tv_pointBalance
 id tv_price_i_love_toast
 id tv_price_in_cart
 id tv_price_mystery_toast
 id tv_price_toast_killer
 id tv_pro
+id tv_selected_branch
 id tv_service_phone_number
 id tv_signout
 id tv_tel
@@ -396,6 +400,7 @@ layout activity_check_cart
 layout activity_checkout_cart
 layout activity_customer_service
 layout activity_daily_spin
+layout activity_delivery_info
 layout activity_drink_info
 layout activity_favorite_branch
 layout activity_location_info
@@ -410,7 +415,6 @@ layout branches
 layout button_ingredient
 layout buy_pro
 layout choose_user_img
-layout delivery_information
 layout dialog_edit_name
 layout favorite_add
 layout function_menu

@@ -3344,7 +3344,9 @@ int id btn_add_to_cart 0x7f08006e
 int id btn_add_toast_killer 0x7f08006f
 int id btn_bug 0x7f080070
 int id btn_chii 0x7f080071
+int id btn_choose_branch 0x7f080334
 int id btn_choose_coupon 0x7f080072
+int id btn_confirm_delivery 0x7f080335
 int id btn_create 0x7f080073
 int id btn_create2 0x7f080074
 int id btn_edit_favorite 0x7f080075
@@ -3366,6 +3368,8 @@ int id btn_rakko 0x7f080084
 int id btn_register 0x7f080085
 int id btn_register_function_menu 0x7f080086
 int id btn_return 0x7f080087
+int id btn_return_to_cart 0x7f080336
+int id btn_return_to_checkout 0x7f080337
 int id btn_save_name 0x7f080088
 int id btn_shisa 0x7f080089
 int id btn_signin_function_menu 0x7f08008a
@@ -3378,13 +3382,12 @@ int id btn_usa 0x7f080090
 int id btn_write_delivery_info 0x7f080091
 int id btn_yilan 0x7f080092
 int id btn_yunlin 0x7f080093
-int id button2 0x7f080094
-int id button4 0x7f080095
 int id buttonPanel 0x7f080096
 int id cache_measures 0x7f080097
 int id callMeasure 0x7f080098
 int id cancel_button 0x7f080099
 int id carryVelocity 0x7f08009a
+int id cb_take_myself 0x7f080338
 int id center 0x7f08009b
 int id centerCrop 0x7f08009c
 int id centerInside 0x7f08009d
@@ -3393,7 +3396,6 @@ int id center_vertical 0x7f08009f
 int id chain 0x7f0800a0
 int id chain2 0x7f0800a1
 int id chains 0x7f0800a2
-int id checkBox 0x7f0800a3
 int id checkbox 0x7f0800a4
 int id checked 0x7f0800a5
 int id chronometer 0x7f0800a6
@@ -3465,7 +3467,6 @@ int id editTextConfirmPassword 0x7f0800e7
 int id editTextName 0x7f0800e8
 int id editTextPassword 0x7f0800e9
 int id editTextTextEmailAddress1 0x7f0800ea
-int id editTextTextMultiLine 0x7f0800eb
 int id edit_query 0x7f0800ec
 int id edit_text_id 0x7f0800ed
 int id elastic 0x7f0800ee
@@ -3482,6 +3483,9 @@ int id et_login_password 0x7f0800f8
 int id et_name 0x7f0800f9
 int id et_new_name 0x7f0800fa
 int id et_question_type 0x7f0800fb
+int id et_real_address 0x7f080339
+int id et_real_phone 0x7f08033c
+int id et_realname 0x7f08033a
 int id et_tv_verification_code 0x7f0800fc
 int id exitUntilCollapsed 0x7f0800fd
 int id expand_activities_button 0x7f0800fe
@@ -3759,9 +3763,7 @@ int id r3zra71bldk4 0x7f08020d
 int id r70ny5s0y5h2 0x7f08020e
 int id r83v5v0aefzq 0x7f08020f
 int id radio 0x7f080210
-int id rarkpp8c6rz 0x7f080211
 int id ratio 0x7f080212
-int id rb02o6a9khb 0x7f080213
 int id rb_ice_extra 0x7f080214
 int id rb_ice_hot 0x7f080215
 int id rb_ice_less 0x7f080216
@@ -3780,7 +3782,6 @@ int id rg_ice 0x7f080222
 int id rg_sugar 0x7f080223
 int id rginpok5lmng 0x7f080224
 int id rh6uugcve8da 0x7f080225
-int id rhqbwk1mlzl 0x7f080226
 int id right 0x7f080227
 int id rightToLeft 0x7f080228
 int id right_icon 0x7f080229
@@ -3948,6 +3949,7 @@ int id tv_customer_service 0x7f0802ca
 int id tv_daily_spin 0x7f0802cb
 int id tv_date 0x7f0802cc
 int id tv_delivery 0x7f0802cd
+int id tv_delivery_address 0x7f08033d
 int id tv_discount 0x7f0802ce
 int id tv_drink_name 0x7f0802cf
 int id tv_drink_num 0x7f0802d0
@@ -3998,12 +4000,14 @@ int id tv_order 0x7f0802fc
 int id tv_papaya 0x7f0802fd
 int id tv_password_login 0x7f0802fe
 int id tv_pay 0x7f0802ff
+int id tv_phone 0x7f08033e
 int id tv_pointBalance 0x7f080300
 int id tv_price_i_love_toast 0x7f080301
 int id tv_price_in_cart 0x7f080302
 int id tv_price_mystery_toast 0x7f080303
 int id tv_price_toast_killer 0x7f080304
 int id tv_pro 0x7f080305
+int id tv_selected_branch 0x7f08033b
 int id tv_service_phone_number 0x7f080306
 int id tv_signout 0x7f080307
 int id tv_tel 0x7f080308
@@ -4170,6 +4174,7 @@ int layout activity_check_cart 0x7f0b001d
 int layout activity_checkout_cart 0x7f0b001e
 int layout activity_customer_service 0x7f0b001f
 int layout activity_daily_spin 0x7f0b0020
+int layout activity_delivery_info 0x7f0b0089
 int layout activity_drink_info 0x7f0b0021
 int layout activity_favorite_branch 0x7f0b0022
 int layout activity_location_info 0x7f0b0023
@@ -4187,7 +4192,6 @@ int layout button_ingredient 0x7f0b002e
 int layout buy_pro 0x7f0b002f
 int layout choose_user_img 0x7f0b0030
 int layout custom_dialog 0x7f0b0031
-int layout delivery_information 0x7f0b0032
 int layout design_bottom_navigation_item 0x7f0b0033
 int layout design_bottom_sheet_dialog 0x7f0b0034
 int layout design_layout_snackbar 0x7f0b0035

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -28,6 +29,7 @@ import java.util.List;
 public class CheckoutCart extends AppCompatActivity {
 
     private ImageButton btnReturn;
+    private Button btnDeliveryInfo;
     private FirebaseFirestore db;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
@@ -50,12 +52,20 @@ public class CheckoutCart extends AppCompatActivity {
         uid = currentUser.getUid();
         db = FirebaseFirestore.getInstance();
 
-        btnReturn = findViewById(R.id.imageButton3);
+        btnReturn = findViewById(R.id.btn_return_to_cart);
         btnReturn.setOnClickListener(v -> {
             Intent intent = new Intent(CheckoutCart.this, CheckCartActivity.class);
             startActivity(intent);
             finish();
         });
+
+        btnDeliveryInfo = findViewById(R.id.btn_write_delivery_info);
+        btnDeliveryInfo.setOnClickListener(v -> {
+            Intent intent = new Intent(CheckoutCart.this, DeliveryInfo.class);
+            startActivity(intent);
+            finish();
+        });
+
         total = findViewById(R.id.rginpok5lmng);
         long totalAmount = getIntent().getLongExtra("totalAmount", 0);
         total.setText("$" + totalAmount);
