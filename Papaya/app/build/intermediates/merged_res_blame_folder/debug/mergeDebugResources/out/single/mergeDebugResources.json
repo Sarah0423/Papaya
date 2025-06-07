@@ -28,24 +28,20 @@
         "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\ru_pay.jpg"
     },
     {
-        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-mdpi_arrow.png.flat",
-        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-mdpi\\arrow.png"
-    },
-    {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_bigbread.jpg.flat",
         "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\bigbread.jpg"
     },
     {
-        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_bigtoast.jpg.flat",
-        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\bigtoast.jpg"
+        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-mdpi_arrow.png.flat",
+        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-mdpi\\arrow.png"
     },
     {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_splash_6.jpg.flat",
         "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\splash_6.jpg"
     },
     {
-        "merged": "ppy.app.papaya.app-debug-43:/layout_checkout_cart.xml.flat",
-        "source": "ppy.app.papaya.app-main-45:/layout/checkout_cart.xml"
+        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_bigtoast.jpg.flat",
+        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\bigtoast.jpg"
     },
     {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_linear_circle.xml.flat",
@@ -216,20 +212,20 @@
         "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-mdpi\\arrow_og.png"
     },
     {
-        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_egg_delivery.png.flat",
-        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\egg_delivery.png"
-    },
-    {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_favorite_branch.xml.flat",
         "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_favorite_branch.xml"
     },
     {
-        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_egg_delivery.png.flat",
+        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\egg_delivery.png"
     },
     {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_french_toast.jpg.flat",
         "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\french_toast.jpg"
+    },
+    {
+        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
     },
     {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_lr270fc5c2efe7121.xml.flat",
@@ -244,12 +240,12 @@
         "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\favorite.xml"
     },
     {
-        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_grain_toast.jpg.flat",
-        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\grain_toast.jpg"
-    },
-    {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_customer_service.xml.flat",
         "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_customer_service.xml"
+    },
+    {
+        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_grain_toast.jpg.flat",
+        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\grain_toast.jpg"
     },
     {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_arrow_down.xml.flat",
@@ -408,6 +404,10 @@
         "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\bigkuri.jpg"
     },
     {
+        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_checkout_cart.xml.flat",
+        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_checkout_cart.xml"
+    },
+    {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy1.jpg.flat",
         "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\ppy1.jpg"
     },
@@ -426,6 +426,10 @@
     {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_deliver_coupon.png.flat",
         "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\deliver_coupon.png"
+    },
+    {
+        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_card_selected.xml.flat",
+        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\card_selected.xml"
     },
     {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_taoyuan.png.flat",
@@ -738,6 +742,10 @@
     {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_toast.jpg.flat",
         "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\toast.jpg"
+    },
+    {
+        "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_card_unselected.xml.flat",
+        "source": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\card_unselected.xml"
     },
     {
         "merged": "C:\\Users\\dfcut\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_ic_launcher_background.xml.flat",

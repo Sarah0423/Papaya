@@ -257,7 +257,7 @@
             android:id="@+id/tv_total"
             android:layout_width="79dp"
             android:layout_height="wrap_content"
-            android:text="$52.99"
+            android:text="$0"
             android:textAlignment="textStart"
             android:textColor="#FDFBFB"
             android:textSize="24sp"

@@ -10,6 +10,8 @@ drawable add_num_circle
 drawable arrow_down
 drawable arrow_up
 drawable branch_info
+drawable card_selected
+drawable card_unselected
 drawable cr12b19c4e9
 drawable cr12b4cd96433
 drawable cr12be8f4d9
@@ -407,7 +409,6 @@ layout alarm_list
 layout branches
 layout button_ingredient
 layout buy_pro
-layout checkout_cart
 layout choose_user_img
 layout delivery_information
 layout dialog_edit_name

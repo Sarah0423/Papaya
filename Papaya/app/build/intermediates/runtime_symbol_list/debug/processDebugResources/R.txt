@@ -3034,6 +3034,8 @@ int drawable btn_radio_off_mtrl 0x7f070082
 int drawable btn_radio_off_to_on_mtrl_animation 0x7f070083
 int drawable btn_radio_on_mtrl 0x7f070084
 int drawable btn_radio_on_to_off_mtrl_animation 0x7f070085
+int drawable card_selected 0x7f070148
+int drawable card_unselected 0x7f070149
 int drawable common_full_open_on_phone 0x7f070086
 int drawable common_google_signin_btn_icon_dark 0x7f070087
 int drawable common_google_signin_btn_icon_dark_focused 0x7f070088
@@ -4183,7 +4185,6 @@ int layout browser_actions_context_menu_page 0x7f0b002b
 int layout browser_actions_context_menu_row 0x7f0b002c
 int layout button_ingredient 0x7f0b002d
 int layout buy_pro 0x7f0b002e
-int layout checkout_cart 0x7f0b002f
 int layout choose_user_img 0x7f0b0030
 int layout custom_dialog 0x7f0b0031
 int layout delivery_information 0x7f0b0032

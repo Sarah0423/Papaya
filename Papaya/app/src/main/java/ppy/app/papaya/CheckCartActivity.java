@@ -32,6 +32,7 @@ public class CheckCartActivity extends AppCompatActivity {
     private FirebaseUser currentUser;
     private String uid;
     private LinearLayout llCommit;
+    private long totalAmount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +64,7 @@ public class CheckCartActivity extends AppCompatActivity {
         llCommit = findViewById(R.id.ll_commit);
         llCommit.setOnClickListener(v -> {
                 Intent intent = new Intent(CheckCartActivity.this, CheckoutCart.class);
+                intent.putExtra("totalAmount", totalAmount); // 傳 long 數字
                 startActivity(intent);
                 finish();
         });
@@ -80,7 +82,7 @@ public class CheckCartActivity extends AppCompatActivity {
 
                     List<CartItem> cartItemList = new ArrayList<>();
                     int totalQuantity = 0;
-                    long totalAmount = 0;
+                    totalAmount = 0;
 
                     if (snapshots != null) {
                         for (QueryDocumentSnapshot doc : snapshots) {
