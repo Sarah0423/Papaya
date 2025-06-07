@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    tools:context=".DailySpin">
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="255dp"
+        android:layout_height="313dp"
+        android:layout_marginTop="16dp"
+        android:src="@mipmap/award"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_kuri"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/btn_chii"
+        android:layout_width="120dp"
+        android:layout_height="114dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/bigchii"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageButton
+        android:id="@+id/btn_shisa"
+        android:layout_width="120dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/bigshisa"
+        app:layout_constraintEnd_toEndOf="@+id/btn_chii"
+        app:layout_constraintStart_toStartOf="@+id/btn_chii"
+        app:layout_constraintTop_toBottomOf="@+id/btn_chii" />
+
+    <ImageButton
+        android:id="@+id/btn_rakko"
+        android:layout_width="120dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/bigrakko"
+        app:layout_constraintEnd_toEndOf="@+id/btn_shisa"
+        app:layout_constraintStart_toStartOf="@+id/btn_shisa"
+        app:layout_constraintTop_toBottomOf="@+id/btn_shisa" />
+
+    <ImageButton
+        android:id="@+id/btn_kuri"
+        android:layout_width="120dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/bigkuri"
+        app:layout_constraintEnd_toStartOf="@+id/btn_bug"
+        app:layout_constraintStart_toEndOf="@+id/btn_rakko"
+        app:layout_constraintTop_toBottomOf="@+id/btn_momo" />
+
+    <ImageButton
+        android:id="@+id/btn_bug"
+        android:layout_width="120dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/bigbug"
+        app:layout_constraintEnd_toEndOf="@+id/btn_kani"
+        app:layout_constraintStart_toStartOf="@+id/btn_kani"
+        app:layout_constraintTop_toBottomOf="@+id/btn_kani" />
+
+    <ImageButton
+        android:id="@+id/btn_momo"
+        android:layout_width="120dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/bigmomo"
+        app:layout_constraintEnd_toStartOf="@+id/btn_kani"
+        app:layout_constraintStart_toEndOf="@+id/btn_shisa"
+        app:layout_constraintTop_toBottomOf="@+id/btn_hachi" />
+
+    <ImageButton
+        android:id="@+id/btn_kani"
+        android:layout_width="120dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/bigkani"
+        app:layout_constraintEnd_toEndOf="@+id/imageButton4"
+        app:layout_constraintStart_toStartOf="@+id/btn_usa"
+        app:layout_constraintTop_toBottomOf="@+id/btn_usa" />
+
+    <ImageButton
+        android:id="@+id/btn_hachi"
+        android:layout_width="120dp"
+        android:layout_height="114dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/bighachi"
+        app:layout_constraintEnd_toStartOf="@+id/btn_usa"
+        app:layout_constraintStart_toEndOf="@+id/btn_chii"
+        app:layout_constraintTop_toTopOf="@+id/btn_chii" />
+
+    <ImageButton
+        android:id="@+id/btn_usa"
+        android:layout_width="120dp"
+        android:layout_height="114dp"
+        android:layout_marginEnd="16dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/bigusa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_chii" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cr12bff9500" />
+
+    <ImageButton
+        android:id="@+id/btn_return"
+        android:layout_width="98dp"
+        android:layout_height="65dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.512" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="選一個獎勵吧!"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

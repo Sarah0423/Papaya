@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+
+    <ImageButton
+        android:id="@+id/btn_return"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="13dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="名稱"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_user_register_img" />
+
+    <!-- 手機號碼 Text -->
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/cr12be8f4d9"
+        android:backgroundTint="#D0F5C9"
+        android:hint="   請輸入名稱"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textMail"
+        app:layout_constraintTop_toBottomOf="@id/textMail" />
+
+    <TextView
+        android:id="@+id/tv_email_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text="電子郵件"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textMail"
+        app:layout_constraintTop_toBottomOf="@id/editTextName" />
+
+
+    <EditText
+        android:id="@+id/et_login_email"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/cr12bffe7e7"
+        android:backgroundTint="#FAD1D1"
+        android:hint="   請輸入電子郵件"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextName"
+        app:layout_constraintStart_toStartOf="@+id/editTextName"
+        app:layout_constraintTop_toBottomOf="@id/tv_email_login" />
+
+    <!-- 密碼 Text -->
+    <TextView
+        android:id="@+id/textPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text="密碼"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textMail"
+        app:layout_constraintTop_toBottomOf="@id/et_login_email" />
+
+    <!-- 密碼 EditText -->
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/cr12bfff5cc"
+        android:hint="   請輸入密碼"
+        android:inputType="textPassword"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/et_login_email"
+        app:layout_constraintStart_toStartOf="@+id/et_login_email"
+        app:layout_constraintTop_toBottomOf="@id/textPassword" />
+
+    <!-- 確認密碼 Text -->
+    <TextView
+        android:id="@+id/textConfirmPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="31dp"
+        android:text="確認密碼"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/textPassword"
+        app:layout_constraintTop_toBottomOf="@id/editTextPassword" />
+
+    <!-- 確認密碼 EditText -->
+    <EditText
+        android:id="@+id/editTextConfirmPassword"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/cr12be8f4d9"
+        android:backgroundTint="#D0F5C9"
+        android:hint="   請再次輸入密碼"
+        android:inputType="textPassword"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
+        app:layout_constraintStart_toStartOf="@+id/editTextPassword"
+        app:layout_constraintTop_toBottomOf="@id/textConfirmPassword" />
+
+    <!-- 註冊 Button -->
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_register"
+        android:layout_width="83dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="註冊"
+        app:backgroundTint="#00BCD4"
+        app:cornerRadius="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword"
+        app:strokeColor="#00FFFFFF"
+        app:strokeWidth="2dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/iv_user_register_img"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="40dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/login_usagi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_cut_img"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_user_register_img"
+        app:layout_constraintEnd_toEndOf="@+id/iv_user_register_img"
+        app:layout_constraintStart_toStartOf="@+id/iv_user_register_img"
+        app:layout_constraintTop_toTopOf="@+id/iv_user_register_img"
+        app:srcCompat="@drawable/cut_user_img" />
+
+    <ImageButton
+        android:id="@+id/ib_choose_user_img"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="41dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/camera"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.022"
+        app:layout_constraintStart_toStartOf="@+id/iv_user_register_img"
+        app:layout_constraintTop_toTopOf="@+id/iv_user_register_img" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

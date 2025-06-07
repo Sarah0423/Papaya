@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -30,6 +31,7 @@ public class CheckCartActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private String uid;
+    private LinearLayout llCommit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,13 @@ public class CheckCartActivity extends AppCompatActivity {
         });
 
         listenToCartItems();
+
+        llCommit = findViewById(R.id.ll_commit);
+        llCommit.setOnClickListener(v -> {
+                Intent intent = new Intent(CheckCartActivity.this, CheckoutCart.class);
+                startActivity(intent);
+                finish();
+        });
     }
 
     private void listenToCartItems() {
@@ -111,3 +120,4 @@ public class CheckCartActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 }
+

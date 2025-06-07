@@ -4166,6 +4166,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_branch_info
 layout activity_check_cart
+layout activity_checkout_cart
 layout activity_customer_service
 layout activity_daily_spin
 layout activity_drink_info

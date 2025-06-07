@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FD9400"
+    android:orientation="vertical">
+    tools:context=".CheckoutCart">
+
+    <ImageButton
+        android:id="@+id/imageButton3"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/arrow" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="75dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="持卡人姓名"
+        android:textAlignment="textStart"
+        android:textColor="#FDFBFB"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/ll_credit_card"
+        app:layout_constraintTop_toBottomOf="@+id/ll_credit_card" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="370.65dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="1dp"
+        android:background="@drawable/cr6bffffff"
+        android:hint="持卡人姓名"
+        android:inputType="text"
+        android:paddingVertical="17dp"
+        android:paddingLeft="17dp"
+        android:paddingRight="34dp"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_card_num"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="卡號"
+        android:textAlignment="textStart"
+        android:textColor="#FDFBFB"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/et_name"
+        app:layout_constraintTop_toBottomOf="@+id/et_name" />
+
+    <EditText
+        android:id="@+id/et_card_num"
+        android:layout_width="370.65dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="1dp"
+        android:background="@drawable/cr6bffffff"
+        android:hint="1111 2222 3333 4444"
+        android:inputType="text"
+        android:paddingVertical="19dp"
+        android:paddingLeft="18dp"
+        android:paddingRight="36dp"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_card_num"
+        app:layout_constraintTop_toBottomOf="@+id/tv_card_num" />
+
+    <TextView
+        android:id="@+id/rnr6d2w3cqo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="卡別"
+        android:textAlignment="textStart"
+        android:textColor="#FDFBFB"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/imageButton3"
+        app:layout_constraintTop_toBottomOf="@+id/r70ny5s0y5h2" />
+
+    <TextView
+        android:id="@+id/r70ny5s0y5h2"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="35dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="信用卡付款"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+        app:layout_constraintStart_toEndOf="@+id/imageButton3" />
+
+    <ImageView
+        android:id="@+id/iv_user"
+        android:layout_width="53dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:scaleType="center"
+        android:src="@mipmap/user_usagi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/rh6uugcve8da"
+        android:layout_width="146.54dp"
+        android:layout_height="29.9dp"
+        android:layout_marginTop="24dp"
+        android:layout_weight="1"
+        android:text="小計"
+        android:textAlignment="textStart"
+        android:textColor="#FDFBFB"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/v_up"
+        app:layout_constraintTop_toBottomOf="@+id/v_up" />
+
+    <TextView
+        android:id="@+id/revrvnohagb9"
+        android:layout_width="146.54dp"
+        android:layout_height="29.9dp"
+        android:layout_marginTop="16dp"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:text="$52.99"
+        android:textAlignment="textEnd"
+        android:textColor="#FDFBFB"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/v_down"
+        app:layout_constraintTop_toBottomOf="@+id/v_down" />
+
+    <TextView
+        android:id="@+id/rzjetrxj8yyr"
+        android:layout_width="146.54dp"
+        android:layout_height="29.9dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:text="折扣"
+        android:textAlignment="textStart"
+        android:textColor="#FDFBFB"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/r83v5v0aefzq"
+        app:layout_constraintStart_toStartOf="@+id/r83v5v0aefzq"
+        app:layout_constraintTop_toBottomOf="@+id/r83v5v0aefzq" />
+
+    <TextView
+        android:id="@+id/tv_discount"
+        android:layout_width="146.54dp"
+        android:layout_height="29.9dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:text="-$30"
+        android:textAlignment="textEnd"
+        android:textColor="#FDFBFB"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/rugqtneve0y"
+        app:layout_constraintStart_toStartOf="@+id/rugqtneve0y"
+        app:layout_constraintTop_toBottomOf="@+id/rugqtneve0y" />
+
+    <TextView
+        android:id="@+id/rt37yj8luoj"
+        android:layout_width="146.54dp"
+        android:layout_height="29.9dp"
+        android:layout_marginTop="24dp"
+        android:text="總計"
+        android:textColor="#FDFBFB"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/v_down"
+        app:layout_constraintTop_toBottomOf="@+id/v_down" />
+
+    <TextView
+        android:id="@+id/rginpok5lmng"
+        android:layout_width="146.54dp"
+        android:layout_height="29.9dp"
+        android:layout_marginTop="24dp"
+        android:gravity="right"
+        android:text="$52.99"
+        android:textAlignment="textEnd"
+        android:textColor="#FDFBFB"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/v_up"
+        app:layout_constraintTop_toBottomOf="@+id/v_up" />
+
+    <TextView
+        android:id="@+id/r83v5v0aefzq"
+        android:layout_width="146.54dp"
+        android:layout_height="29.9dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:text="運費"
+        android:textAlignment="textStart"
+        android:textColor="#FDFBFB"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/rh6uugcve8da"
+        app:layout_constraintStart_toStartOf="@+id/rh6uugcve8da"
+        app:layout_constraintTop_toBottomOf="@+id/rh6uugcve8da" />
+
+    <TextView
+        android:id="@+id/rugqtneve0y"
+        android:layout_width="146.54dp"
+        android:layout_height="29.9dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:gravity="right"
+        android:text="$30"
+        android:textAlignment="textEnd"
+        android:textColor="#FDFBFB"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/rginpok5lmng"
+        app:layout_constraintStart_toStartOf="@+id/rginpok5lmng"
+        app:layout_constraintTop_toBottomOf="@+id/rginpok5lmng" />
+
+    <LinearLayout
+        android:id="@+id/ll_commit"
+        android:layout_width="372dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="31dp"
+        android:background="@drawable/cr12b19c4e9"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="26dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_width="79dp"
+            android:layout_height="wrap_content"
+            android:text="$52.99"
+            android:textAlignment="textStart"
+            android:textColor="#FDFBFB"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_pay"
+            android:layout_width="65dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="180dp"
+            android:layout_marginEnd="19dp"
+            android:text="付款"
+            android:textAlignment="textEnd"
+            android:textColor="#FDFBFB"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_credit_card"
+        android:layout_width="370.65dp"
+        android:layout_height="51.21dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/rnr6d2w3cqo"
+        app:layout_constraintTop_toBottomOf="@+id/rnr6d2w3cqo">
+
+        <ImageButton
+            android:id="@+id/ib_master"
+            android:layout_width="79dp"
+            android:layout_height="51.21dp"
+            android:scaleType="center"
+            android:src="@mipmap/master_card" />
+
+        <ImageButton
+            android:id="@+id/ib_visa"
+            android:layout_width="79dp"
+            android:layout_height="51.21dp"
+            android:layout_marginStart="18.05dp"
+            android:scaleType="center"
+            app:srcCompat="@mipmap/visa" />
+
+        <ImageButton
+            android:id="@+id/ib_rupay"
+            android:layout_width="79dp"
+            android:layout_height="51.21dp"
+            android:layout_marginStart="18.05dp"
+            android:scaleType="center"
+            app:srcCompat="@mipmap/ru_pay" />
+
+        <ImageButton
+            android:id="@+id/ib_jcb"
+            android:layout_width="79dp"
+            android:layout_height="51.21dp"
+            android:layout_marginStart="18.05dp"
+            android:scaleType="center"
+            app:srcCompat="@mipmap/ic_launcher" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_date_and_verify"
+        android:layout_width="370.65dp"
+        android:layout_height="87.16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/et_card_num"
+        app:layout_constraintStart_toStartOf="@+id/et_card_num"
+        app:layout_constraintTop_toBottomOf="@+id/et_card_num">
+
+        <LinearLayout
+            android:id="@+id/ll_date"
+            android:layout_width="180.3dp"
+            android:layout_height="87.16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="60dp"
+                android:layout_height="30dp"
+                android:text="有效日期"
+                android:textAlignment="textStart"
+                android:textColor="#FDFBFB"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_date"
+                android:layout_width="180.3dp"
+                android:layout_height="56.96dp"
+                android:layout_weight="1"
+                android:background="@drawable/cr6bffffff"
+                android:hint="mm/yy"
+                android:inputType="text"
+                android:paddingVertical="19dp"
+                android:paddingLeft="18dp"
+                android:paddingRight="36dp"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_verification_code"
+            android:layout_width="180.3dp"
+            android:layout_height="87.16dp"
+            android:layout_marginStart="10.3dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_verification_code"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:text="驗證碼"
+                android:textAlignment="textStart"
+                android:textColor="#FDFBFB"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/et_tv_verification_code"
+                android:layout_width="180.3dp"
+                android:layout_height="56.96dp"
+                android:layout_weight="1"
+                android:background="@drawable/cr6bffffff"
+                android:hint="123"
+                android:inputType="text"
+                android:paddingVertical="20dp"
+                android:paddingLeft="18dp"
+                android:paddingRight="36dp"
+                android:textColor="#000000"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_write_delivery_info"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="236dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:text="填寫運送資訊"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="@+id/ll_date_and_verify"
+        app:layout_constraintTop_toBottomOf="@+id/ll_date_and_verify"
+        app:strokeColor="#965002"
+        app:strokeWidth="1dp" />
+
+    <Button
+        android:id="@+id/btn_choose_coupon"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="236dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:text="選擇優惠券"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="@+id/btn_write_delivery_info"
+        app:layout_constraintStart_toStartOf="@+id/btn_write_delivery_info"
+        app:layout_constraintTop_toBottomOf="@+id/btn_write_delivery_info"
+        app:strokeColor="#965002"
+        app:strokeWidth="1dp" />
+
+    <View
+        android:id="@+id/v_up"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_marginVertical="12dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/ll_date_and_verify"
+        app:layout_constraintStart_toStartOf="@+id/ll_date_and_verify"
+        app:layout_constraintTop_toBottomOf="@+id/btn_choose_coupon" />
+
+    <View
+        android:id="@+id/v_down"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_marginVertical="12dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="@id/v_up"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/v_up"
+        app:layout_constraintTop_toBottomOf="@+id/rzjetrxj8yyr" />
+</androidx.constraintlayout.widget.ConstraintLayout>

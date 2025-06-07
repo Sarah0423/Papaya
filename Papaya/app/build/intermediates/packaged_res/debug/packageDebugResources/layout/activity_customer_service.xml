@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    tools:context=".CustomerService">
+
+    <!-- Button：線上客服 -->
+
+    <!-- 問題類型 -->
+
+    <ImageButton
+        android:id="@+id/btn_return"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="13dp"
+        android:background="@mipmap/arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- EditText 1 -->
+
+    <TextView
+        android:id="@+id/textProblemType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="40dp"
+        android:text="問題類型"
+        android:textColor="#FF7A22"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_return" />
+
+    <TextView
+        android:id="@+id/et_question_type"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/sff9500sw2cr15bffffff"
+        android:hint="   請選擇問題類型"
+        android:focusable="false"
+        android:clickable="true"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textProblemType" />
+
+    <!-- 詳細敘述 -->
+
+    <!-- EditText 2 -->
+
+    <!-- 送出按鈕 -->
+
+    <!-- 電話即時客服 -->
+
+    <TextView
+        android:id="@+id/textDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="36dp"
+        android:text="詳細敘述您的問題"
+        android:textColor="#FF7A22"
+        android:textColorLink="#FF5722"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_question_type" />
+
+    <EditText
+        android:id="@+id/et_detail_info"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/sff9500sw2cr15bffffff"
+        android:gravity="top"
+        android:hapticFeedbackEnabled="false"
+        android:hint="   請詳細敘述問題..."
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textDetail" />
+
+    <Button
+        android:id="@+id/btn_submit_form"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="24dp"
+        android:backgroundTint="#FF7A22"
+        android:text="送出"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_detail_info" />
+
+    <!-- 電話圖示 -->
+
+    <TextView
+        android:id="@+id/textCallSupport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="52dp"
+        android:text="電話即時客服"
+        android:textColor="#FF7A22"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_submit_form" />
+
+    <!-- 電話號碼 -->
+
+    <ImageView
+        android:id="@+id/imagePhone"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textCallSupport"
+        app:srcCompat="@android:drawable/sym_call_outgoing" />
+
+    <TextView
+        android:id="@+id/tv_service_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="00-000-0000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@id/imagePhone"
+        app:layout_constraintStart_toEndOf="@id/imagePhone"
+        app:layout_constraintTop_toTopOf="@id/imagePhone"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="線上客服"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toEndOf="@+id/btn_return"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
