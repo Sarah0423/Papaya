@@ -1,14 +1,20 @@
 package ppy.app.papaya;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -38,6 +44,7 @@ public class ChooseCoupon extends AppCompatActivity {
     private List<CouponInfo> couponList;
     private ImageButton btnReturn;
     private TextView tvTotalCoupon;
+    private Button btnConfirm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +64,62 @@ public class ChooseCoupon extends AppCompatActivity {
         btnReturn.setOnClickListener(v -> {
             Intent intent = new Intent(ChooseCoupon.this, CheckoutCart.class);
             startActivity(intent);
+        });
+
+        btnConfirm = findViewById(R.id.btn_confirm_coupon);
+        btnConfirm.setOnClickListener(v -> {
+            CouponInfo selected = adapter.getSelectedCoupon();
+            if (selected == null) {
+                Toast.makeText(this, "請先選擇一張優惠券", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // 折扣邏輯開始
+            String type = selected.getCouponType();
+            int discountAmount = 0;
+            long shippingFee = 30;
+            boolean freeDelivery = false;
+
+            // 從 Intent 拿目前總金額（不含折扣、運費）
+            long totalAmount = getIntent().getLongExtra("total_amount", 0);
+
+            if ("free_delivery".equals(type)) {
+                shippingFee = 0;
+            } else if ("discount_30".equals(type)) {
+                if (totalAmount >= 100) {
+                    discountAmount = 30;
+                } else {
+                    Toast.makeText(this, "滿 100 才能使用此折扣券", Toast.LENGTH_SHORT).show();
+                }
+            }else if ("discount_10percent_over100".equals(type)) {
+                if (totalAmount >= 100) {
+                    discountAmount = (int) (totalAmount * 0.1);
+                } else {
+                    Toast.makeText(this, "滿 100 才能使用此折扣券", Toast.LENGTH_SHORT).show();
+                    return; // 不讓使用
+                }
+            }
+            // 更新 Firestore cart_info/summary
+            String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            Map<String, Object> updates = new HashMap<>();
+            updates.put("discount", discountAmount);
+            updates.put("shipping_fee", shippingFee);
+
+            db.collection("users").document(uid)
+                    .collection("cart_info")
+                    .document("summary")
+                    .update(updates)
+                    .addOnSuccessListener(aVoid -> {
+                        Toast.makeText(this, "優惠券套用成功", Toast.LENGTH_SHORT).show();
+                        // 回前頁或關閉選擇頁
+                        setResult(RESULT_OK);
+                        finish();
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "更新失敗，請稍後再試", Toast.LENGTH_SHORT).show();
+                    });
         });
 
         rvCoupon = findViewById(R.id.rv_coupon);
@@ -93,12 +156,16 @@ public class ChooseCoupon extends AppCompatActivity {
                 .addOnSuccessListener(querySnapshot -> {
                     Log.d("COUPON_DEBUG", "成功抓到 owned_coupons，共 " + querySnapshot.size() + " 筆");
                     Set<Long> ownedIndexes = new HashSet<>();
+                    Date now = new Date(); // 取得目前時間
 
                     for (DocumentSnapshot ownedDoc : querySnapshot) {
                         Long ownedIndex = ownedDoc.getLong("coupon_index");
                         Log.d("COUPON_DEBUG", "owned coupon_index: " + ownedIndex);
-                        if (ownedIndex != null) {
-                            ownedIndexes.add(ownedIndex);
+                        Date expireAt = ownedDoc.getDate("expire_at");
+                        if (ownedIndex != null && expireAt != null) {
+                            if (expireAt.after(now)) { // 如果尚未過期
+                                ownedIndexes.add(ownedIndex);
+                            }
                         }
                     }
 

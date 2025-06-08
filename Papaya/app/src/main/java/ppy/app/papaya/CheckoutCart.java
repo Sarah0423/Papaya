@@ -47,7 +47,11 @@ public class CheckoutCart extends AppCompatActivity {
 
     private EditText etName, etCardNum, etDate, etVerificationCode;
 
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        fetchSummaryFromFirestore(); // ✨ 每次回來都重新抓
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,58 +105,8 @@ public class CheckoutCart extends AppCompatActivity {
                     ivUser.setImageResource(R.mipmap.login_usagi);
                 });
 
-        // 從 Firestore 讀取運費與折扣，再計算總金額
-        db.collection("users")
-                .document(uid)
-                .collection("cart_info")
-                .document("summary")
-                .get()
-                .addOnSuccessListener(documentSnapshot -> {
-                    if (documentSnapshot.exists()) {
-                        Long discount = documentSnapshot.getLong("discount");
-                        Long totalPrice = documentSnapshot.getLong("total_price");
-                        Long shippingFee = documentSnapshot.getLong("shipping_fee"); // 注意名稱一致！
 
-                        boolean needUpdate = false;
-                        if (discount == null) {
-                            discount = 0L;
-                            needUpdate = true;
-                        }
-                        if (totalPrice == null) {
-                            totalPrice = 0L;
-                            needUpdate = true;
-                        }
-                        if (shippingFee == null) {
-                            shippingFee = 30L;
-                            needUpdate = true;
-                        }
-                        if (needUpdate) {
-                            // 更新 Firestore 補齊欄位
-                            Map<String, Object> updateMap = new HashMap<>();
-                            updateMap.put("discount", discount);
-                            updateMap.put("total_price", totalPrice);
-                            updateMap.put("shipping_fee", shippingFee);
-                            db.collection("users")
-                                    .document(uid)
-                                    .collection("cart_info")
-                                    .document("summary")
-                                    .update(updateMap);
-                        }
-                        tvShipping.setText("$" + shippingFee);
-                        tvDiscount.setText("-$" + discount);
-                        tvTotalAmount.setText("$" + totalPrice);
-                        long finalTotal = totalPrice + shippingFee - discount;
-                        tvFinalTotal.setText("$" + finalTotal);
-                        tvTotal.setText("$" + finalTotal);
 
-                    } else {
-                        tvShipping.setText("$0");
-                        tvDiscount.setText("-$0");
-                        tvFinalTotal.setText("$0");
-                        tvTotal.setText("$0" );
-
-                    }
-                });
 
         etName = findViewById(R.id.et_name);
         etCardNum = findViewById(R.id.et_card_num);
@@ -307,6 +261,70 @@ public class CheckoutCart extends AppCompatActivity {
             });
         });
 
+    }
+
+
+    private void fetchSummaryFromFirestore() {
+        ImageView ivUser = findViewById(R.id.iv_user);
+        TextView tvTotalAmount = findViewById(R.id.tv_total_amount);
+        TextView tvShipping = findViewById(R.id.tv_shipping);
+        TextView tvDiscount = findViewById(R.id.tv_discount);
+        TextView tvFinalTotal = findViewById(R.id.tv_final_total);
+        TextView tvTotal = findViewById(R.id.tv_total);
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        db.collection("users")
+                .document(uid)
+                .collection("cart_info")
+                .document("summary")
+                .get()
+                .addOnSuccessListener(documentSnapshot -> {
+                    if (documentSnapshot.exists()) {
+                        Long discount = documentSnapshot.getLong("discount");
+                        Long totalPrice = documentSnapshot.getLong("total_price");
+                        Long shippingFee = documentSnapshot.getLong("shipping_fee");
+
+                        boolean needUpdate = false;
+                        if (discount == null) {
+                            discount = 0L;
+                            needUpdate = true;
+                        }
+                        if (totalPrice == null) {
+                            totalPrice = 0L;
+                            needUpdate = true;
+                        }
+                        if (shippingFee == null) {
+                            shippingFee = 30L;
+                            needUpdate = true;
+                        }
+
+                        if (needUpdate) {
+                            Map<String, Object> updateMap = new HashMap<>();
+                            updateMap.put("discount", discount);
+                            updateMap.put("total_price", totalPrice);
+                            updateMap.put("shipping_fee", shippingFee);
+                            db.collection("users")
+                                    .document(uid)
+                                    .collection("cart_info")
+                                    .document("summary")
+                                    .update(updateMap);
+                        }
+
+                        tvShipping.setText("$" + shippingFee);
+                        tvDiscount.setText("-$" + discount);
+                        tvTotalAmount.setText("$" + totalPrice);
+                        long finalTotal = totalPrice + shippingFee - discount;
+                        tvFinalTotal.setText("$" + finalTotal);
+                        tvTotal.setText("$" + finalTotal);
+
+                    } else {
+                        tvShipping.setText("$0");
+                        tvDiscount.setText("-$0");
+                        tvFinalTotal.setText("$0");
+                        tvTotal.setText("$0");
+                    }
+                });
     }
 
     private void showAvailableCoupons() {

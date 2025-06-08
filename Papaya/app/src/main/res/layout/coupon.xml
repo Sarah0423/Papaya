@@ -2,17 +2,21 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="338dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?attr/selectableItemBackground"
+    android:layout_width="400dp"
     android:layout_height="91dp"
     app:cardCornerRadius="12dp"
     android:padding="32dp">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:padding="11dp"
-        android:orientation="horizontal">
+        android:padding="11dp">
+
 
         <ImageView
             android:id="@+id/iv_coupon_img"
