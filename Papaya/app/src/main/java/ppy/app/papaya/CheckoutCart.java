@@ -68,9 +68,6 @@ public class CheckoutCart extends AppCompatActivity {
         Button btnChooseCoupon = findViewById(R.id.btn_choose_coupon);
         btnChooseCoupon.setOnClickListener(v -> showAvailableCoupons());
 
-        total = findViewById(R.id.tv_total_amount);
-        long totalAmount = getIntent().getLongExtra("totalAmount", 0);
-        total.setText("$" + totalAmount);
 
         ImageView ivUser = findViewById(R.id.iv_user);
         TextView tvTotalAmount = findViewById(R.id.tv_total_amount);
@@ -112,25 +109,47 @@ public class CheckoutCart extends AppCompatActivity {
                 .get()
                 .addOnSuccessListener(documentSnapshot -> {
                     if (documentSnapshot.exists()) {
-                        //Long shippingFee = documentSnapshot.getLong("shippingFee");
                         Long discount = documentSnapshot.getLong("discount");
+                        Long totalPrice = documentSnapshot.getLong("total_price");
+                        Long shippingFee = documentSnapshot.getLong("shipping_fee"); // 注意名稱一致！
 
-                        //if (shippingFee == null) shippingFee = 0L;
-                        if (discount == null) discount = 0L;
-                        long shippingFee = 30;
+                        boolean needUpdate = false;
+                        if (discount == null) {
+                            discount = 0L;
+                            needUpdate = true;
+                        }
+                        if (totalPrice == null) {
+                            totalPrice = 0L;
+                            needUpdate = true;
+                        }
+                        if (shippingFee == null) {
+                            shippingFee = 30L;
+                            needUpdate = true;
+                        }
+                        if (needUpdate) {
+                            // 更新 Firestore 補齊欄位
+                            Map<String, Object> updateMap = new HashMap<>();
+                            updateMap.put("discount", discount);
+                            updateMap.put("total_price", totalPrice);
+                            updateMap.put("shipping_fee", shippingFee);
+                            db.collection("users")
+                                    .document(uid)
+                                    .collection("cart_info")
+                                    .document("summary")
+                                    .update(updateMap);
+                        }
                         tvShipping.setText("$" + shippingFee);
                         tvDiscount.setText("-$" + discount);
-
-                        long finalTotal = totalAmount + shippingFee - discount;
-                        long Total = totalAmount + shippingFee - discount;
+                        tvTotalAmount.setText("$" + totalPrice);
+                        long finalTotal = totalPrice + shippingFee - discount;
                         tvFinalTotal.setText("$" + finalTotal);
                         tvTotal.setText("$" + finalTotal);
 
                     } else {
                         tvShipping.setText("$0");
                         tvDiscount.setText("-$0");
-                        tvFinalTotal.setText("$" + totalAmount);
-                        tvTotal.setText("$" + totalAmount);
+                        tvFinalTotal.setText("$0");
+                        tvTotal.setText("$0" );
 
                     }
                 });

@@ -102,11 +102,25 @@ public class DeliveryInfo extends AppCompatActivity {
                             cbTakeMyself.setChecked(true);
                             etAddress.setVisibility(View.GONE);
                             tvAddressLabel.setVisibility(View.GONE);
+
+                            // 新增：自取則更新 shipping_fee = 0
+                            db.collection("users")
+                                    .document(userId)
+                                    .collection("cart_info")
+                                    .document("summary")
+                                    .update("shipping_fee", 0L);
+
                         } else {
                             cbTakeMyself.setChecked(false);
                             etAddress.setText(address);
                             etAddress.setVisibility(View.VISIBLE);
                             tvAddressLabel.setVisibility(View.VISIBLE);
+
+                            db.collection("users")
+                                    .document(userId)
+                                    .collection("cart_info")
+                                    .document("summary")
+                                    .update("shipping_fee", 30L);
                         }
                     }
                 })
@@ -184,16 +198,25 @@ public class DeliveryInfo extends AppCompatActivity {
             deliveryInfo.put("address", address);
             deliveryInfo.put("branch", selectedBranch != null ? selectedBranch : "未選擇");
 
+            long shippingFee = isTakeMyself ? 0L : 30L;
+
             db.collection("users")
                     .document(userId)
                     .collection("delivery")
                     .document("delivery_info")
                     .set(deliveryInfo)
                     .addOnSuccessListener(aVoid -> {
+                        db.collection("users")
+                                .document(userId)
+                                .collection("cart_info")
+                                .document("summary")
+                                .update("shipping_fee", shippingFee)
+                                .addOnSuccessListener(aVoid2 -> {
                         Toast.makeText(this, "配送資訊已儲存", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(DeliveryInfo.this, CheckoutCart.class);
                         startActivity(intent);
                         finish();
+                    });
                     })
                     .addOnFailureListener(e -> {
                         Toast.makeText(this, "儲存失敗：" + e.getMessage(), Toast.LENGTH_SHORT).show();
