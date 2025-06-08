@@ -309,6 +309,7 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
+
         LinearLayout linearOrderLogin = functionMenuView.findViewById(R.id.order_layout);
 
         linearOrderLogin.setOnClickListener(new View.OnClickListener() {
