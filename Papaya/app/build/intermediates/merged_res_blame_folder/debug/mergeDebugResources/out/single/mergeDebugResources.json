@@ -128,6 +128,10 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\cr20bff9500.xml"
     },
     {
+        "merged": "ppy.app.papaya.app-debug-43:/layout_activity_delivery_status.xml.flat",
+        "source": "ppy.app.papaya.app-main-45:/layout/activity_delivery_status.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_cr18bffaa2b.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\cr18bffaa2b.xml"
     },
@@ -352,6 +356,10 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\favorite_add.xml"
     },
     {
+        "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_delivery_status.xml.flat",
+        "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_delivery_status.xml"
+    },
+    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_milktea_beverage.webp.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\milktea_beverage.webp"
     },
@@ -412,10 +420,6 @@
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\lr270ffffff00ffffff.xml"
     },
     {
-        "merged": "ppy.app.papaya.app-debug-43:/layout_function_menu.xml.flat",
-        "source": "ppy.app.papaya.app-main-45:/layout/function_menu.xml"
-    },
-    {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_cr15bffffff.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\cr15bffffff.xml"
     },
@@ -434,6 +438,10 @@
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_branches.xml.flat",
         "source": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\branches.xml"
+    },
+    {
+        "merged": "ppy.app.papaya.app-debug-43:/mipmap-mdpi_ic_delivery_bike.jpg.flat",
+        "source": "ppy.app.papaya.app-main-45:/mipmap-mdpi/ic_delivery_bike.jpg"
     },
     {
         "merged": "C:\\Users\\user\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_sf5f2efsw1cr5bffffff.xml.flat",

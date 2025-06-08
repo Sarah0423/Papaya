@@ -6,7 +6,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class DeliveryStatusActivity extends AppCompatActivity {
+public class DeliveryStatus extends AppCompatActivity {
 
     private TextView etaText;
     private ProgressBar progressBar;

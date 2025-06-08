@@ -3434,6 +3434,7 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id deliveryIcon
 id delivery_layout
 id deltaRelative
 id dependency_ordering
@@ -3489,6 +3490,7 @@ id et_real_address
 id et_real_phone
 id et_realname
 id et_tv_verification_code
+id etaText
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -3760,6 +3762,7 @@ id points_layout
 id position
 id postLayout
 id pressed
+id progressBar
 id progress_circular
 id progress_horizontal
 id r3ib3buhmk7
@@ -3913,6 +3916,7 @@ id textinput_suffix_text
 id time
 id title
 id titleDividerNoCustom
+id titleText
 id title_template
 id toggle
 id top
@@ -4185,6 +4189,7 @@ layout activity_choose_coupon
 layout activity_customer_service
 layout activity_daily_spin
 layout activity_delivery_info
+layout activity_delivery_status
 layout activity_drink_info
 layout activity_favorite_branch
 layout activity_location_info
@@ -4326,6 +4331,7 @@ mipmap grain_toast
 mipmap green_tea_beverage
 mipmap hazelnut_latte_beverage
 mipmap honey_toast
+mipmap ic_delivery_bike
 mipmap ic_launcher
 mipmap ic_launcher_foreground
 mipmap ic_launcher_round

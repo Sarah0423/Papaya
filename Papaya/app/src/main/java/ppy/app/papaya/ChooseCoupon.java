@@ -68,103 +68,25 @@ public class ChooseCoupon extends AppCompatActivity {
 
         btnConfirm = findViewById(R.id.btn_confirm_coupon);
         btnConfirm.setOnClickListener(v -> {
-            List<CouponInfo> selectedCoupons = adapter.getSelectedCoupons();
-            if (selectedCoupons.isEmpty()) {
-                Toast.makeText(this, "請先選擇優惠券", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // 限制每種類型最多一張
-            Map<String, CouponInfo> typeToCoupon = new HashMap<>();
-            for (CouponInfo coupon : selectedCoupons) {
-                typeToCoupon.put(coupon.getCouponType(), coupon);
-            }
-            List<CouponInfo> filteredCoupons = new ArrayList<>(typeToCoupon.values());
-
             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            long totalAmount = getIntent().getLongExtra("total_amount", 0);
-            AtomicLong totalDiscount = new AtomicLong(0);
-            long[] shippingFee = {30};
-            int[] completed = {0};
-            int totalCoupons = filteredCoupons.size();
-
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-            for (CouponInfo selected : filteredCoupons) {
-                String type = selected.getCouponType();
-                String couponId = selected.getCouponId();
+            db.collection("users").document(uid)
+                    .collection("cart_info").document("summary")
+                    .get()
+                    .addOnSuccessListener(docSnapshot -> {
+                        Long totalAmount = docSnapshot.getLong("total_price");
+                        if (totalAmount == null) {
+                            Toast.makeText(this, "無法取得總金額", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
 
-                db.collection("coupon").document(couponId).get().addOnSuccessListener(couponDoc -> {
-                    Map<String, Object> value = (Map<String, Object>) couponDoc.get("coupon_value");
-
-                    switch (type) {
-                        case "discount_percent":
-                            long threshold = ((Number) value.get("threshold")).longValue();
-                            long percentOff = ((Number) value.get("percent_off")).longValue();
-                            if (totalAmount >= threshold) {
-                                totalDiscount.addAndGet(Math.round(totalAmount * percentOff / 100.0));
-                            }
-                            break;
-
-                        case "discount_amount":
-                            threshold = ((Number) value.get("threshold")).longValue();
-                            long amount = ((Number) value.get("amount")).longValue();
-                            if (totalAmount >= threshold) {
-                                totalDiscount.addAndGet(amount);
-                            }
-                            break;
-
-                        case "discount_delivery":
-                            Boolean isFree = (Boolean) value.get("is_free");
-                            if (isFree != null && isFree) {
-                                shippingFee[0] = 0;
-                            }
-                            break;
-
-                        case "buy_x_get_y":
-                            long buy = ((Number) value.get("buy")).longValue();
-                            long get = ((Number) value.get("get")).longValue();
-                            String itemCategory = (String) value.get("item");
-
-                            db.collection("users").document(uid).collection("cart_item").get()
-                                    .addOnSuccessListener(cartDocs -> {
-                                        List<Long> matchingPrices = new ArrayList<>();
-                                        for (DocumentSnapshot item : cartDocs.getDocuments()) {
-                                            String photo = item.getString("item_photo");
-                                            Long quantity = item.getLong("item_quantity");
-                                            Long price = item.getLong("item_price");
-                                            if (photo != null && quantity != null && price != null && photo.contains(itemCategory)) {
-                                                for (int i = 0; i < quantity; i++) {
-                                                    matchingPrices.add(price);
-                                                }
-                                            }
-                                        }
-
-                                        if (matchingPrices.size() >= buy) {
-                                            Collections.sort(matchingPrices);
-                                            long discount = 0;
-                                            for (int i = 0; i < get && i < matchingPrices.size(); i++) {
-                                                discount += matchingPrices.get(i);
-                                            }
-                                            totalDiscount.addAndGet(discount);
-                                        }
-
-                                        checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
-                                    })
-                                    .addOnFailureListener(e -> {
-                                        Log.e("COUPON", "讀取 cart_item 失敗", e);
-                                        checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
-                                    });
-                            return; // 防止重複呼叫 checkAndFinalize
-                    }
-
-                    // 非 buy_x_get_y 在這裡呼叫 finalize check
-                    checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
-                }).addOnFailureListener(e -> {
-                    Log.e("COUPON", "讀取 coupon 失敗", e);
-                    checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
-                });
-            }
+                        processCoupons(uid, totalAmount);
+                    })
+                    .addOnFailureListener(e -> {
+                        Toast.makeText(this, "讀取總金額失敗", Toast.LENGTH_SHORT).show();
+                        Log.e("COUPON", "讀取 cart_info.summary 失敗", e);
+                    });
         });
 
         rvCoupon = findViewById(R.id.rv_coupon);
@@ -175,6 +97,104 @@ public class ChooseCoupon extends AppCompatActivity {
 
         fetchCoupons();
     }
+
+    private void processCoupons(String uid, long totalAmount) {
+        List<CouponInfo> selectedCoupons = adapter.getSelectedCoupons();
+        if (selectedCoupons.isEmpty()) {
+            Toast.makeText(this, "請先選擇優惠券", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Map<String, CouponInfo> typeToCoupon = new HashMap<>();
+        for (CouponInfo coupon : selectedCoupons) {
+            typeToCoupon.put(coupon.getCouponType(), coupon);
+        }
+        List<CouponInfo> filteredCoupons = new ArrayList<>(typeToCoupon.values());
+
+        AtomicLong totalDiscount = new AtomicLong(0);
+        long[] shippingFee = {30};
+        int[] completed = {0};
+        int totalCoupons = filteredCoupons.size();
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+        for (CouponInfo selected : filteredCoupons) {
+            String type = selected.getCouponType();
+            String couponId = selected.getCouponId();
+
+            db.collection("coupon").document(couponId).get().addOnSuccessListener(couponDoc -> {
+                Map<String, Object> value = (Map<String, Object>) couponDoc.get("coupon_value");
+
+                switch (type) {
+                    case "discount_percent":
+                        long threshold = ((Number) value.get("threshold")).longValue();
+                        long percentOff = ((Number) value.get("percent_off")).longValue();
+                        if (totalAmount >= threshold) {
+                            totalDiscount.addAndGet(Math.round(totalAmount * percentOff / 100.0));
+                        }
+                        checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
+                        break;
+
+                    case "discount_amount":
+                        threshold = ((Number) value.get("threshold")).longValue();
+                        long amount = ((Number) value.get("amount")).longValue();
+                        if (totalAmount >= threshold) {
+                            totalDiscount.addAndGet(amount);
+                        }
+                        checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
+                        break;
+
+                    case "discount_delivery":
+                        Boolean isFree = (Boolean) value.get("is_free");
+                        if (isFree != null && isFree) {
+                            shippingFee[0] = 0;
+                        }
+                        checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
+                        break;
+
+                    case "buy_x_get_y":
+                        long buy = ((Number) value.get("buy")).longValue();
+                        long get = ((Number) value.get("get")).longValue();
+                        String itemCategory = (String) value.get("item");
+
+                        db.collection("users").document(uid).collection("cart_item").get()
+                                .addOnSuccessListener(cartDocs -> {
+                                    List<Long> matchingPrices = new ArrayList<>();
+                                    for (DocumentSnapshot item : cartDocs.getDocuments()) {
+                                        String photo = item.getString("item_photo");
+                                        Long quantity = item.getLong("item_quantity");
+                                        Long price = item.getLong("item_price");
+                                        if (photo != null && quantity != null && price != null && photo.contains(itemCategory)) {
+                                            for (int i = 0; i < quantity; i++) {
+                                                matchingPrices.add(price);
+                                            }
+                                        }
+                                    }
+
+                                    if (matchingPrices.size() >= buy) {
+                                        Collections.sort(matchingPrices);
+                                        long discount = 0;
+                                        for (int i = 0; i < get && i < matchingPrices.size(); i++) {
+                                            discount += matchingPrices.get(i);
+                                        }
+                                        totalDiscount.addAndGet(discount);
+                                    }
+
+                                    checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
+                                })
+                                .addOnFailureListener(e -> {
+                                    Log.e("COUPON", "讀取 cart_item 失敗", e);
+                                    checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
+                                });
+                        break;
+                }
+            }).addOnFailureListener(e -> {
+                Log.e("COUPON", "讀取 coupon 失敗", e);
+                checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
+            });
+        }
+    }
+
 
     private void checkAndFinalize(String uid, long shippingFee, long discountAmount, int completed, int total) {
         Log.d("COUPON", "completed: " + completed + "/" + total + " discount: " + discountAmount);
