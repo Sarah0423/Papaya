@@ -11,13 +11,16 @@ import android.graphics.Color;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CouponAdapter extends RecyclerView.Adapter<CouponAdapter.CouponViewHolder> {
 
     private Context context;
     private List<CouponInfo> couponList;
-    private int selectedPosition = -1; // ⭐ 記錄目前選中的位置
+    private Map<String, CouponInfo> selectedCouponsByType = new HashMap<>();
 
     public CouponAdapter(Context context, List<CouponInfo> couponList) {
         this.context = context;
@@ -41,22 +44,22 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponAdapter.CouponView
                 coupon.getCouponPhoto(), "mipmap", context.getPackageName());
         holder.ivCouponImg.setImageResource(imageResId);
 
-        //  點擊後選中，並改變背景顏色
+        // 設定點擊行為
         holder.itemView.setOnClickListener(v -> {
-            int adapterPosition = holder.getAdapterPosition();
-            if (adapterPosition == RecyclerView.NO_POSITION) return;
+            String type = coupon.getCouponType();
+            String key = type.equals("discount_delivery") ? "delivery" : "other";
 
-            int previous = selectedPosition;
-            selectedPosition = adapterPosition;
-            if (previous != -1) notifyItemChanged(previous);
-            notifyItemChanged(selectedPosition);
+            if (selectedCouponsByType.containsKey(key) && selectedCouponsByType.get(key).equals(coupon)) {
+                selectedCouponsByType.remove(key); // 再次點擊 → 取消選取
+            } else {
+                selectedCouponsByType.put(key, coupon); // 選中這張券，取代舊的同類型
+            }
+            notifyDataSetChanged(); // 更新整個列表背景
         });
-        // 改變選中時的背景色
-        if (selectedPosition == position) {
-            holder.itemView.setBackgroundColor(Color.parseColor("#FFEB3B")); // 黃色表示選中
-        } else {
-            holder.itemView.setBackgroundColor(Color.WHITE); // 白色為未選
-        }
+
+        // 決定是否被選中
+        boolean isSelected = selectedCouponsByType.containsValue(coupon);
+        holder.itemView.setBackgroundColor(isSelected ? Color.parseColor("#FFEB3B") : Color.WHITE);
     }
 
     @Override
@@ -64,12 +67,8 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponAdapter.CouponView
         return couponList.size();
     }
 
-    // 對外提供：取得目前選中的 CouponInfo
-    public CouponInfo getSelectedCoupon() {
-        if (selectedPosition >= 0 && selectedPosition < couponList.size()) {
-            return couponList.get(selectedPosition);
-        }
-        return null;
+    public List<CouponInfo> getSelectedCoupons() {
+        return new ArrayList<>(selectedCouponsByType.values());
     }
 
     public static class CouponViewHolder extends RecyclerView.ViewHolder {

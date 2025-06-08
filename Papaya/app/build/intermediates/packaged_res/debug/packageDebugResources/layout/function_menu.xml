@@ -201,7 +201,7 @@
                 android:layout_width="65dp"
                 android:layout_height="24dp"
                 android:layout_marginStart="8dp"
-                android:text="每日轉盤"
+                android:text="每日抽獎"
                 android:textAlignment="center"
                 android:textSize="16dp" />
 

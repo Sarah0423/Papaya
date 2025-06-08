@@ -24,6 +24,7 @@ import androidx.appcompat.app.AlertDialog;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
@@ -43,7 +44,7 @@ public class CheckoutCart extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private String uid;
-    private TextView total;
+    private TextView total, tvTotalAmount, tvShipping, tvDiscount, tvFinalTotal, tvTotal;
 
     private EditText etName, etCardNum, etDate, etVerificationCode;
 
@@ -73,12 +74,12 @@ public class CheckoutCart extends AppCompatActivity {
         btnChooseCoupon.setOnClickListener(v -> showAvailableCoupons());
 
 
-        ImageView ivUser = findViewById(R.id.iv_user);
-        TextView tvTotalAmount = findViewById(R.id.tv_total_amount);
-        TextView tvShipping = findViewById(R.id.tv_shipping);
-        TextView tvDiscount = findViewById(R.id.tv_discount);
-        TextView tvFinalTotal = findViewById(R.id.tv_final_total);
-        TextView tvTotal = findViewById(R.id.tv_total);
+        ivUser = findViewById(R.id.iv_user);
+        tvTotalAmount = findViewById(R.id.tv_total_amount);
+        tvShipping = findViewById(R.id.tv_shipping);
+        tvDiscount = findViewById(R.id.tv_discount);
+        tvFinalTotal = findViewById(R.id.tv_final_total);
+        tvTotal = findViewById(R.id.tv_total);
 
         db.collection("users")
                 .document(uid)
@@ -238,7 +239,7 @@ public class CheckoutCart extends AppCompatActivity {
                                 Map<String, Object> alarmData = new HashMap<>();
                                 alarmData.put("alarms_info", "我們已經收到您的訂單，謝謝惠顧！");
                                 alarmData.put("alarms_photo", "egg_checkout");
-                                alarmData.put("alarms_time", new Date()); // 直接使用現在時間
+                                alarmData.put("alarms_time", new Date());
                                 alarmData.put("alarms_type", "交易完成");
 
                                 db.collection("users")
@@ -412,10 +413,53 @@ public class CheckoutCart extends AppCompatActivity {
     }
 
     private void applyCoupon(String selectedCoupon) {
-        // 在此處理應用優惠券的邏輯
-        // 例如，更新 Firestore 中的訂單資料，或在結帳時應用折扣
+        // 先從 coupon name 取出 coupon 文件（這裡你可以加個 whereEqualTo 查詢）
+        db.collection("coupons")
+                .whereEqualTo("coupon_name", selectedCoupon.split(" -")[0]) // 去掉到期日後的描述
+                .get()
+                .addOnSuccessListener(querySnapshot -> {
+                    if (!querySnapshot.isEmpty()) {
+                        DocumentSnapshot couponDoc = querySnapshot.getDocuments().get(0);
+                        String type = couponDoc.getString("coupon_type");
+                        long value = couponDoc.getLong("coupon_value");
+                        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        Toast.makeText(this, "已選擇優惠券: " + selectedCoupon, Toast.LENGTH_SHORT).show();
+                        db.collection("users").document(uid).collection("cart_info").document("summary")
+                                .get()
+                                .addOnSuccessListener(summaryDoc -> {
+                                    if (summaryDoc.exists()) {
+                                        long totalPrice = summaryDoc.getLong("total_price") != null ? summaryDoc.getLong("total_price") : 0;
+                                        long shippingFee = summaryDoc.getLong("shipping_fee") != null ? summaryDoc.getLong("shipping_fee") : 30;
+                                        long discount = 0;
+
+                                        switch (type) {
+                                            case "discount_percent":
+                                                discount = totalPrice * value / 100;
+                                                break;
+                                            case "discount_amount":
+                                                discount = value;
+                                                break;
+                                            case "free_delivery":
+                                                discount = shippingFee;
+                                                break;
+                                            // 其他 buy_x_get_y 可自行加上
+                                        }
+
+                                        long finalTotal = totalPrice + shippingFee - discount;
+
+                                        Map<String, Object> update = new HashMap<>();
+                                        update.put("discount", discount);
+
+                                        db.collection("users").document(uid).collection("cart_info").document("summary")
+                                                .update(update)
+                                                .addOnSuccessListener(aVoid -> {
+                                                    Toast.makeText(this, "已套用優惠券，總金額已更新", Toast.LENGTH_SHORT).show();
+                                                    fetchSummaryFromFirestore(); // ✨ 重新抓金額刷新畫面
+                                                });
+                                    }
+                                });
+                    }
+                });
     }
 
     private void saveToPrefs() {
