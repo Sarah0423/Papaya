@@ -98,7 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="-14dp"
-                    android:text="1"
+                    android:text="0"
                     android:textColor="@color/white" />
             </LinearLayout>
         </LinearLayout>
@@ -173,7 +173,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Create Your Own Toast"
+                        android:text="來客製吐司吧！"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="14sp"
@@ -186,7 +186,7 @@
                         android:layout_gravity="center"
                         android:layout_marginTop="5dp"
                         android:lineSpacingExtra="5sp"
-                        android:text="Choose From Our Options Of Designa\nAnd Make Your Own Toast !"
+                        android:text="選取你喜愛的配料,\n加入購物車 !"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="10sp" />
@@ -226,7 +226,8 @@
                     android:id="@+id/iv_chii_res2"
                     android:layout_width="188dp"
                     android:layout_height="130dp"
-                    app:srcCompat="@mipmap/bigtoast" />
+                    android:background="@color/white"
+                    app:srcCompat="@mipmap/papaya_toast" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -236,24 +237,35 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_create2"
+                        android:id="@+id/tv_toast_item_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:text="Create Your Own Toast"
+                        android:text="$45"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/tv_choose2"
+                        android:id="@+id/tv_toast_item_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="5dp"
+                        android:text="特製木瓜吐司"
+                        android:textColor="@color/white"
+                        android:textAlignment="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_toast_item_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="2dp"
                         android:lineSpacingExtra="5sp"
-                        android:text="Choose From Our Options Of Designa\nAnd Make Your Own Toast !"
+                        android:text="不必多說，點就對了！"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textSize="10sp" />
@@ -263,12 +275,12 @@
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btn_create2"
+                android:id="@+id/btn_create_papaya"
                 android:layout_width="wrap_content"
                 android:layout_height="33dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="-16.5dp"
-                android:text="Create Now"
+                android:text="Add"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="12dp"

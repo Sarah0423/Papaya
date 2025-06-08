@@ -309,7 +309,11 @@ public class ChooseCoupon extends AppCompatActivity {
                                         String type = couponDoc.getString("coupon_type");
 
                                         CouponInfo coupon = new CouponInfo(name, info, photo, type, couponDoc.getId());
-                                        coupon.setOwnedCouponId(ownedId); // ⭐ 加上 owned ID
+                                        coupon.setOwnedCouponId(ownedId);
+                                        Date expireAt = ownedDoc.getDate("expire_at");
+                                        if (expireAt != null) {
+                                            coupon.setExpireAt(new Timestamp(expireAt));
+                                        }
                                         couponList.add(coupon);
                                     }
                                     loadedCount[0]++;

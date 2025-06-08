@@ -35,11 +35,14 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.ListenerRegistration;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
     private FrameLayout functionMenuContainer;
     private View functionMenuView;
     private ImageButton ibIndex;
-    private LinearLayout llCreateToast;
     private LinearLayout llBtnLoginRegister;
     private LinearLayout pointsLayout;
     private LinearLayout logoutLayout;
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout UpdateToPro;
     private ImageView llBtnCartCircle;
     private TextView tvItemNum;
-    private Button btnGotoCart;
+    private Button btnGotoCart, btnCreate, btnCreatePapaya;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,11 +73,88 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        btnCreate = findViewById(R.id.btn_create);
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (user == null) {
+                    Toast.makeText(MainActivity.this, "請先登入", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(MainActivity.this, Login.class));
+                    return;
+                }else{
+                    Intent intent = new Intent(MainActivity.this, ToastInfo.class);
+                    intent.putExtra("toast_index", 0);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        btnCreatePapaya = findViewById(R.id.btn_create_papaya);
+        btnCreatePapaya.setOnClickListener(v -> {
+            if (user == null) {
+                Toast.makeText(MainActivity.this, "請先登入", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity.this, Login.class));
+                return;
+            }
+
+            String uid = user.getUid();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+            // 👉 更新 summary
+            DocumentReference cartInfoRef = db.collection("users")
+                    .document(uid)
+                    .collection("cart_info")
+                    .document("summary");
+
+            db.runTransaction(transaction -> {
+                DocumentSnapshot snapshot = transaction.get(cartInfoRef);
+
+                long currentTotalPrice = 0;
+                long currentTotalQuantity = 0;
+
+                if (snapshot.exists()) {
+                    currentTotalPrice = snapshot.getLong("total_price") != null ? snapshot.getLong("total_price") : 0;
+                    currentTotalQuantity = snapshot.getLong("total_quantity") != null ? snapshot.getLong("total_quantity") : 0;
+                }
+
+                long newPrice = currentTotalPrice + 45;
+                long newQuantity = currentTotalQuantity + 1;
+
+                HashMap<String, Object> update = new HashMap<>();
+                update.put("total_price", newPrice);
+                update.put("total_quantity", newQuantity);
+
+                transaction.set(cartInfoRef, update);
+                return null;
+            }).addOnSuccessListener(aVoid -> {
+                HashMap<String, Object> cartItem = new HashMap<>();
+                cartItem.put("item_name", "特製木瓜吐司");
+                cartItem.put("item_photo", "papaya_toast");
+                cartItem.put("item_price", 45);
+                cartItem.put("item_quantity", 1);
+                cartItem.put("item_selected", "木瓜果醬");
+                cartItem.put("item_user_id", uid);
+
+                db.collection("users")
+                        .document(uid)
+                        .collection("cart_item")
+                        .add(cartItem)
+                        .addOnSuccessListener(docRef -> {
+                            Toast.makeText(MainActivity.this, "已加入購物車", Toast.LENGTH_SHORT).show();
+                        })
+                        .addOnFailureListener(e -> {
+                            Toast.makeText(MainActivity.this, "加入購物車失敗：" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        });
+            }).addOnFailureListener(e -> {
+                Toast.makeText(MainActivity.this, "更新 summary 失敗：" + e.getMessage(), Toast.LENGTH_SHORT).show();
+            });
+        });
 
         llBtnCartCircle = findViewById(R.id.circularImageView);
         tvItemNum = findViewById(R.id.tv_item_num);
 
-        llCreateToast = findViewById(R.id.ll_create_toast);
         TabLayout tabLayout = findViewById(R.id.tabLayout);
         String[] categories = {"Toast", "Drink"};
 
@@ -123,7 +202,6 @@ public class MainActivity extends AppCompatActivity {
                 int position = tab.getPosition();
 
                 if (position == 0) { // Toast
-                    llCreateToast.setVisibility(View.VISIBLE);
                     rvToast.setAdapter(adapter); // 正確使用 ToastAdapter
                     toastItemList.clear(); // ✅ 清空正確的列表
 
@@ -142,7 +220,6 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "吐司資料讀取失敗", Toast.LENGTH_SHORT).show();
                             });
                 } else if (position == 1) { // Drink
-                    llCreateToast.setVisibility(View.INVISIBLE);
                     rvToast.setAdapter(drinkAdapter); // ✅ 使用 drinkAdapter
 
                     drinkItemList.clear();
@@ -196,7 +273,7 @@ public class MainActivity extends AppCompatActivity {
         // 控制顯示按鈕
         if (currentUser != null) {
             llBtnLoginRegister.setVisibility(View.GONE);
-            pointsLayout.setVisibility(View.VISIBLE);
+            //pointsLayout.setVisibility(View.VISIBLE);
             logoutLayout.setVisibility(View.VISIBLE);
             myFavoriteLayout.setVisibility(View.VISIBLE);
         }else{
@@ -315,8 +392,15 @@ public class MainActivity extends AppCompatActivity {
         linearOrderLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, OrderInfoActivity.class);
-                startActivity(intent);
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                if (currentUser != null) {
+                    Intent intent = new Intent(MainActivity.this, OrderInfoActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(MainActivity.this, "請先登入帳號", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
+                }
             }
         });
 
@@ -337,6 +421,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, DailySpinActivity.class);
                     startActivity(intent);
                 }else{
+                    Toast.makeText(MainActivity.this, "請先登入帳號", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, Login.class);
                     startActivity(intent);
                 }
@@ -358,11 +443,17 @@ public class MainActivity extends AppCompatActivity {
         linearDeliveryLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
+                FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                if (currentUser != null) {
+                    Intent intent = new Intent(MainActivity.this, DeliveryStatus.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(MainActivity.this, "請先登入帳號", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(MainActivity.this, Login.class);
+                    startActivity(intent);
+                }
             }
         });
-
 
         LinearLayout linearCustomerServiceLogin = functionMenuView.findViewById(R.id.customer_service_layout);
         linearCustomerServiceLogin.setOnClickListener(new View.OnClickListener() {
@@ -372,6 +463,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, CustomerServiceActivity.class);
                     startActivity(intent);
                 }else{
+                    Toast.makeText(MainActivity.this, "請先登入帳號", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(MainActivity.this, Login.class);
                     startActivity(intent);
                 }
@@ -398,7 +490,6 @@ public class MainActivity extends AppCompatActivity {
         rvAlarm.setLayoutManager(new LinearLayoutManager(this));
         rvAlarm.setAdapter(adapter);
 
-// 加上 14dp 的間隔
         int spaceInPx = (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP, 14, getResources().getDisplayMetrics());
         rvAlarm.addItemDecoration(new VerticalSpaceItemDecoration(spaceInPx));
@@ -425,7 +516,7 @@ public class MainActivity extends AppCompatActivity {
                         .document(uid)
                         .collection("alarms")
                         .whereGreaterThan("alarms_time", time24HoursAgo)
-                        .orderBy("alarms_time")
+                        .orderBy("alarms_time", Query.Direction.DESCENDING)  // ← 加這行
                         .get()
                         .addOnSuccessListener(queryDocumentSnapshots -> {
                             alarmList.clear();
@@ -442,6 +533,7 @@ public class MainActivity extends AppCompatActivity {
                         .addOnFailureListener(e -> {
                             Toast.makeText(MainActivity.this, "載入提醒失敗", Toast.LENGTH_SHORT).show();
                         });
+
             }
         });
 
@@ -628,7 +720,7 @@ public class MainActivity extends AppCompatActivity {
         DocumentReference cartInfoRef = db.collection("users")
                 .document(userUid)
                 .collection("cart_info")
-                .document("summary");  // ← 你實際使用的 document ID，確認一下是不是叫這個
+                .document("summary");
 
         cartInfoRef.get().addOnSuccessListener(documentSnapshot -> {
             if (documentSnapshot.exists()) {

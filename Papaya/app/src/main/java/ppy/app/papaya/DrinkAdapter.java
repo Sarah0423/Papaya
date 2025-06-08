@@ -29,11 +29,13 @@ import java.util.Map;
 
 public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.DrinkViewHolder> {
     private Context context;
+    private FirebaseAuth mAuth;
     private List<DrinkItem> drinkList;
 
     public DrinkAdapter(Context context, List<DrinkItem> drinkList) {
         this.context = context;
         this.drinkList = drinkList;
+        this.mAuth = FirebaseAuth.getInstance();
     }
 
     @NonNull
@@ -64,9 +66,16 @@ public class DrinkAdapter extends RecyclerView.Adapter<DrinkAdapter.DrinkViewHol
         }
 
         holder.btnGotoInfo.setOnClickListener(v -> {
-            Intent intent = new Intent(context, DrinkInfoActivity.class);
-            intent.putExtra("beverage_index", drinkItem.getBeverage_index());
-            context.startActivity(intent);
+            FirebaseUser user = mAuth.getCurrentUser();
+            if (user == null) {
+                Toast.makeText(context, "請先登入帳號", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, Login.class);
+                context.startActivity(intent);
+            }else {
+                Intent intent = new Intent(context, DrinkInfoActivity.class);
+                intent.putExtra("beverage_index", drinkItem.getBeverage_index());
+                context.startActivity(intent);
+            }
         });
 
 

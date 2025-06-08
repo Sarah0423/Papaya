@@ -7,17 +7,33 @@
     android:id="@+id/main"
     tools:context=".DailySpinActivity">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="255dp"
-        android:layout_height="313dp"
-        android:layout_marginTop="16dp"
-        android:src="@mipmap/award"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <ScrollView
+        android:id="@+id/scrollView_award"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:overScrollMode="always"
         app:layout_constraintTop_toBottomOf="@+id/btn_kuri"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="360dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_gravity="center"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/award" />
+        </FrameLayout>
+    </ScrollView>
 
     <ImageButton
         android:id="@+id/btn_chii"

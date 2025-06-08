@@ -50,5 +50,15 @@
                 android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
+    <TextView
+        android:id="@+id/tv_coupon_remaining_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="剩餘 1 小時"
+        android:textColor="#FF5722"
+        android:textSize="12sp" />
 
 </androidx.cardview.widget.CardView>

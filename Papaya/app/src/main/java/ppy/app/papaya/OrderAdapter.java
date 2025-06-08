@@ -44,15 +44,32 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
 
     @Override
     public void onBindViewHolder(@NonNull OrderViewHolder holder, int position) {
+        ImageView ivIsGet = holder.itemView.findViewById(R.id.iv_isget);
+        TextView tvOrderDetail = holder.itemView.findViewById(R.id.tv_order_detail);
         OrderItem item = orderList.get(position);
-        holder.tvOrderName.setText(item.getOrderId());
+        long currentTimeMillis = System.currentTimeMillis();
+        long orderTimeMillis = item.getOrderTimeMillis();
+        String address = item.getAddress();
+        String orderId = item.getOrderId();
+        String shortOrderId = orderId.length() > 12 ? orderId.substring(0, 12) + "..." : orderId;
+        holder.tvOrderName.setText(shortOrderId);
+
         holder.tvOrderPrice.setText("$" + item.getFinalPrice());
 
-        int resId = context.getResources().getIdentifier(item.getMapImageName(), "mipmap", context.getPackageName());
-        if (resId != 0) {
-            holder.ivOrder.setImageResource(resId);
+        if (address != null && address.contains("自取")) {
+            ivIsGet.setImageResource(R.mipmap.order_pickup);
+        } else if (currentTimeMillis - orderTimeMillis >= 5 * 60 * 1000) { // 超過 5 分鐘
+            ivIsGet.setImageResource(R.mipmap.order_arrive);
         } else {
-            holder.ivOrder.setImageResource(R.mipmap.bigtoast); // 預設圖片
+            ivIsGet.setImageResource(R.mipmap.order_delivering); // 預設
+        }
+
+        if (address != null && address.contains("自取")) {
+            tvOrderDetail.setText("自取");
+        } else if (currentTimeMillis - orderTimeMillis >= 5 * 60 * 1000) {
+            tvOrderDetail.setText("已送達");
+        } else {
+            tvOrderDetail.setText("運送中");
         }
 
         holder.itemView.setOnClickListener(v -> listener.onItemClick(item));

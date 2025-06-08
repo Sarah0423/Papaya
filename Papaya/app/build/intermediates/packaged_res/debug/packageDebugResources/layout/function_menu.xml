@@ -64,7 +64,8 @@
             android:layout_height="52dp"
             android:orientation="horizontal"
             android:translationX="25dp"
-            android:layout_marginTop="28dp">
+            android:layout_marginTop="28dp"
+            android:visibility="gone" >
 
             <ImageView
                 android:id="@+id/iv_pro_img"
@@ -120,7 +121,8 @@
             android:clickable="true"
             android:focusable="true"
             android:background="?attr/selectableItemBackground"
-            android:translationX="25dp">
+            android:translationX="25dp"
+            android:visibility="gone">
 
             <TextView
                 android:id="@+id/tv_balance"

@@ -3349,8 +3349,7 @@ int id btn_choose_coupon 0x7f080073
 int id btn_confirm_coupon 0x7f080074
 int id btn_confirm_delivery 0x7f080075
 int id btn_create 0x7f080076
-int id btn_create2 0x7f080077
-int id btn_edit_favorite 0x7f080078
+int id btn_create_papaya 0x7f080351
 int id btn_goto_cart 0x7f080079
 int id btn_goto_toast_info 0x7f08007a
 int id btn_hachi 0x7f08007b
@@ -3818,6 +3817,7 @@ int id scroll 0x7f080249
 int id scrollIndicatorDown 0x7f08024a
 int id scrollIndicatorUp 0x7f08024b
 int id scrollView 0x7f08024c
+int id scrollView_award 0x7f08034e
 int id scrollable 0x7f08024d
 int id search_badge 0x7f08024e
 int id search_bar 0x7f08024f
@@ -3849,6 +3849,7 @@ int id snapMargins 0x7f080268
 int id south 0x7f080269
 int id spacer 0x7f08026a
 int id special_effects_controller_view_tag 0x7f08026b
+int id spinner_orders 0x7f08034f
 int id splash_image 0x7f08026c
 int id spline 0x7f08026d
 int id split_action_bar 0x7f08026e
@@ -3946,16 +3947,15 @@ int id tv_branch_info_tel 0x7f0802ca
 int id tv_card_num 0x7f0802cb
 int id tv_cart 0x7f0802cc
 int id tv_choose 0x7f0802cd
-int id tv_choose2 0x7f0802ce
 int id tv_common 0x7f0802cf
 int id tv_coupon 0x7f0802d0
 int id tv_coupon_i_love_toast 0x7f0802d1
 int id tv_coupon_info 0x7f0802d2
 int id tv_coupon_mystery_toast 0x7f0802d3
 int id tv_coupon_name 0x7f0802d4
+int id tv_coupon_remaining_time 0x7f080352
 int id tv_coupon_toast_killer 0x7f0802d5
 int id tv_create 0x7f0802d6
-int id tv_create2 0x7f0802d7
 int id tv_customer_service 0x7f0802d8
 int id tv_daily_spin 0x7f0802d9
 int id tv_date 0x7f0802da
@@ -4011,6 +4011,7 @@ int id tv_num_in_cart 0x7f08030b
 int id tv_or 0x7f08030c
 int id tv_order 0x7f08030d
 int id tv_order_detail 0x7f08030e
+int id tv_order_detail_text 0x7f080350
 int id tv_order_name 0x7f08030f
 int id tv_order_price 0x7f080310
 int id tv_papaya 0x7f080311
@@ -4330,10 +4331,12 @@ int mipmap chocolate_milk_beverage 0x7f0d0017
 int mipmap coin 0x7f0d0018
 int mipmap cola_beverage 0x7f0d0019
 int mipmap crown 0x7f0d001a
+int mipmap deliver_arrive 0x7f0d0058
 int mipmap deliver_coupon 0x7f0d001b
 int mipmap discount_coupon 0x7f0d001c
 int mipmap down_arrow 0x7f0d001d
 int mipmap egg_checkout 0x7f0d001e
+int mipmap egg_coupon 0x7f0d005a
 int mipmap egg_delivery 0x7f0d001f
 int mipmap french_toast 0x7f0d0020
 int mipmap grain_toast 0x7f0d0021
@@ -4358,6 +4361,7 @@ int mipmap orange_juice_beverage 0x7f0d0033
 int mipmap order_arrive 0x7f0d0034
 int mipmap order_delivering 0x7f0d0035
 int mipmap order_pickup 0x7f0d0036
+int mipmap papaya_toast 0x7f0d0059
 int mipmap passion_fruit_sparkling_beverage 0x7f0d0037
 int mipmap peach_sparkling_beverage 0x7f0d0038
 int mipmap plus 0x7f0d0039

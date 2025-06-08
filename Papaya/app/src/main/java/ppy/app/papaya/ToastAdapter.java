@@ -8,22 +8,27 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.List;
 
 public class  ToastAdapter extends RecyclerView.Adapter<ToastAdapter.ToastViewHolder> {
 
     private Context context;
+    private FirebaseAuth mAuth;
     private List<ToastItem> toastItemList;
 
     public ToastAdapter(Context context, List<ToastItem> toastItemList) {
         this.context = context;
         this.toastItemList = toastItemList;
+        this.mAuth = FirebaseAuth.getInstance();
     }
 
     @NonNull
@@ -51,9 +56,16 @@ public class  ToastAdapter extends RecyclerView.Adapter<ToastAdapter.ToastViewHo
         }
 
         holder.btnGotoInfo.setOnClickListener(v -> {
-            Intent intent = new Intent(context, ToastInfo.class);
-            intent.putExtra("toast_index", toastItem.getToastIndex());
-            context.startActivity(intent);
+            FirebaseUser user = mAuth.getCurrentUser();
+            if (user == null) {
+                Toast.makeText(context, "請先登入帳號", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context, Login.class);
+                context.startActivity(intent);
+            }else {
+                Intent intent = new Intent(context, ToastInfo.class);
+                intent.putExtra("toast_index", toastItem.getToastIndex());
+                context.startActivity(intent);
+            }
         });
     }
 

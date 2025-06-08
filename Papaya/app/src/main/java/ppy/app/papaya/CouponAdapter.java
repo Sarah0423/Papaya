@@ -11,6 +11,8 @@ import android.graphics.Color;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.Timestamp;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -40,10 +42,35 @@ public class CouponAdapter extends RecyclerView.Adapter<CouponAdapter.CouponView
         holder.tvCouponName.setText(coupon.getCouponName());
         holder.tvCouponInfo.setText(coupon.getCouponInfo());
 
+        Timestamp expireAtTimestamp = coupon.getExpireAt();
+        TextView tvRemainingTime = holder.itemView.findViewById(R.id.tv_coupon_remaining_time);
+
         int imageResId = context.getResources().getIdentifier(
                 coupon.getCouponPhoto(), "mipmap", context.getPackageName());
         holder.ivCouponImg.setImageResource(imageResId);
 
+        if (expireAtTimestamp == null) {
+            tvRemainingTime.setText("無效時間");
+            holder.itemView.setAlpha(0.5f); // 灰色
+        } else {
+            long now = System.currentTimeMillis();
+            long expireAt = expireAtTimestamp.toDate().getTime();
+            long diffMillis = expireAt - now;
+
+            if (diffMillis <= 0) {
+                tvRemainingTime.setText("已過期");
+                holder.itemView.setAlpha(0.5f);
+            } else {
+                long minutes = diffMillis / (60 * 1000);
+                if (minutes < 60) {
+                    tvRemainingTime.setText("剩餘 " + minutes + " 分鐘");
+                } else {
+                    long hours = minutes / 60;
+                    tvRemainingTime.setText("剩餘 " + hours + " 小時");
+                }
+                holder.itemView.setAlpha(1f);
+            }
+        }
         // 設定點擊行為
         holder.itemView.setOnClickListener(v -> {
             String type = coupon.getCouponType();

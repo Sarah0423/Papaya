@@ -57,7 +57,7 @@ public class DailySpinActivity extends AppCompatActivity {
                     break;
                 case 4:
                     couponIndex = 4;
-                    prizeMessage = "獲得會員點數2點";
+                    prizeMessage = "獲得$60折價券";
                     break;
                 case 5:
                     couponIndex = 5;
@@ -99,7 +99,7 @@ public class DailySpinActivity extends AppCompatActivity {
                             // ===== 寫入 alarms =====
                             Map<String, Object> alarmData = new HashMap<>();
                             alarmData.put("alarms_info", prizeMessage);
-                            alarmData.put("alarms_photo", "egg_checkout");
+                            alarmData.put("alarms_photo", "egg_coupon");
                             alarmData.put("alarms_time", Timestamp.now());
                             alarmData.put("alarms_type", "獲得優惠券");
 

@@ -3350,8 +3350,7 @@ id btn_choose_coupon
 id btn_confirm_coupon
 id btn_confirm_delivery
 id btn_create
-id btn_create2
-id btn_edit_favorite
+id btn_create_papaya
 id btn_goto_cart
 id btn_goto_toast_info
 id btn_hachi
@@ -3819,6 +3818,7 @@ id scroll
 id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
+id scrollView_award
 id scrollable
 id search_badge
 id search_bar
@@ -3850,6 +3850,7 @@ id snapMargins
 id south
 id spacer
 id special_effects_controller_view_tag
+id spinner_orders
 id splash_image
 id spline
 id split_action_bar
@@ -3947,16 +3948,15 @@ id tv_branch_info_tel
 id tv_card_num
 id tv_cart
 id tv_choose
-id tv_choose2
 id tv_common
 id tv_coupon
 id tv_coupon_i_love_toast
 id tv_coupon_info
 id tv_coupon_mystery_toast
 id tv_coupon_name
+id tv_coupon_remaining_time
 id tv_coupon_toast_killer
 id tv_create
-id tv_create2
 id tv_customer_service
 id tv_daily_spin
 id tv_date
@@ -4012,6 +4012,7 @@ id tv_num_in_cart
 id tv_or
 id tv_order
 id tv_order_detail
+id tv_order_detail_text
 id tv_order_name
 id tv_order_price
 id tv_papaya
@@ -4331,10 +4332,12 @@ mipmap chocolate_milk_beverage
 mipmap coin
 mipmap cola_beverage
 mipmap crown
+mipmap deliver_arrive
 mipmap deliver_coupon
 mipmap discount_coupon
 mipmap down_arrow
 mipmap egg_checkout
+mipmap egg_coupon
 mipmap egg_delivery
 mipmap french_toast
 mipmap grain_toast
@@ -4359,6 +4362,7 @@ mipmap orange_juice_beverage
 mipmap order_arrive
 mipmap order_delivering
 mipmap order_pickup
+mipmap papaya_toast
 mipmap passion_fruit_sparkling_beverage
 mipmap peach_sparkling_beverage
 mipmap plus

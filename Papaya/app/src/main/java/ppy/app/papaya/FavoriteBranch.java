@@ -48,7 +48,6 @@ public class FavoriteBranch extends AppCompatActivity {
         FirebaseUser currentUser = auth.getCurrentUser();
 
         btnReturn = findViewById(R.id.btn_return);
-        btnEditFavorite = findViewById(R.id.btn_edit_favorite);
 
         RecyclerView recyclerView = findViewById(R.id.rv_favorite_branch);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

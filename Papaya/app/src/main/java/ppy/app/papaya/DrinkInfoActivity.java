@@ -83,6 +83,7 @@ public class DrinkInfoActivity extends AppCompatActivity {
             if (quantity > 1) {
                 quantity--;
                 tvDrinkNum.setText(String.valueOf(quantity));
+                tvDrinkPrice.setText("$" + (drinkPrice * quantity));
             } else {
                 Toast.makeText(this, "數量不能小於 1", Toast.LENGTH_SHORT).show();
             }
@@ -91,6 +92,7 @@ public class DrinkInfoActivity extends AppCompatActivity {
         ibPlusNum.setOnClickListener(v -> {
             quantity++;
             tvDrinkNum.setText(String.valueOf(quantity));
+            tvDrinkPrice.setText("$" + (drinkPrice * quantity));
         });
 
         // 🔹 步驟 3：查詢 Firestore 取得飲料資料
@@ -154,8 +156,8 @@ public class DrinkInfoActivity extends AppCompatActivity {
 
                             HashMap<String, Object> item = new HashMap<>();
                             item.put("item_name", drinkName);
-                            item.put("item_price", drinkPrice);
-                            item.put("item_quantity", 1);
+                            item.put("item_price", drinkPrice * quantity); // 👈 金額是單價 x 數量
+                            item.put("item_quantity", quantity);           // 👈 數量為當前 quantity
                             item.put("item_selected", selectedOption);
                             item.put("item_user_id", uid);
                             item.put("item_photo", drinkPhoto);
@@ -165,7 +167,7 @@ public class DrinkInfoActivity extends AppCompatActivity {
                                     .collection("cart_item")
                                     .add(item)
                                     .addOnSuccessListener(docRef -> {
-                                        Toast.makeText(this, "已加入購物車！", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(this, "已加入購物車", Toast.LENGTH_SHORT).show();
                                         finish();
                                     })
                                     .addOnFailureListener(e -> {

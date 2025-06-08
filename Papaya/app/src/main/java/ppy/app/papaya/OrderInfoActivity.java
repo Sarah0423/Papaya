@@ -3,15 +3,8 @@ package ppy.app.papaya;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,15 +12,18 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Date;
 
 public class OrderInfoActivity extends AppCompatActivity {
 
@@ -64,6 +60,12 @@ public class OrderInfoActivity extends AppCompatActivity {
         });
 
         rvOrders.setAdapter(adapter);
+
+        int spaceInDp = 16;
+        float density = getResources().getDisplayMetrics().density;
+        int spaceInPx = Math.round(spaceInDp * density);
+        rvOrders.addItemDecoration(new VerticalSpaceItemDecoration(spaceInPx));
+
 
         db = FirebaseFirestore.getInstance();
         uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -110,7 +112,13 @@ public class OrderInfoActivity extends AppCompatActivity {
                                         break; // ✅ 只取第一筆 summary 文件
                                     }
 
-                                    OrderItem data = new OrderItem(orderId, mapImg, finalTotal);
+                                    String address = deliveryInfo != null ? (String) deliveryInfo.get("address") : "";
+                                    long orderTimeMillis = orderDoc.getTimestamp("order_time") != null
+                                            ? orderDoc.getTimestamp("order_time").toDate().getTime()
+                                            : 0;
+
+                                    OrderItem data = new OrderItem(orderId, mapImg, finalTotal, address, orderTimeMillis);
+
                                     orderList.add(data);
                                     adapter.notifyDataSetChanged();
                                 });
@@ -131,7 +139,15 @@ public class OrderInfoActivity extends AppCompatActivity {
             String cardDisplay = cardNum != null && cardNum.length() >= 16
                     ? "**** **** **** " + cardNum.substring(12)
                     : "**** **** **** ????";
-            String time = String.valueOf(orderDoc.getTimestamp("order_time"));
+            final String[] time = {""};
+
+            Timestamp timestamp = orderDoc.getTimestamp("order_time");
+            if (timestamp != null) {
+                Date date = timestamp.toDate();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
+                sdf.setTimeZone(java.util.TimeZone.getTimeZone("Asia/Taipei"));
+                time[0] = sdf.format(date);
+            }
 
             db.collection("orders").document(orderId).collection("summary")
                     .get().addOnSuccessListener(summaryDocs -> {
@@ -168,7 +184,7 @@ public class OrderInfoActivity extends AppCompatActivity {
                                                     "地址：" + address + "\n" +
                                                     "訂購分店：" + branch + "\n\n" +
                                                     "信用卡號：" + cardDisplay + "\n" +
-                                                    "訂購時間：" + time + "\n\n" +
+                                                    "訂購時間：" + time[0] + "\n\n" +
                                                     "訂購商品：\n" + itemInfo + "\n" +
                                                     "=============================\n" +
                                                     "訂單金額：$" + finalPrice[0] + "\n";
