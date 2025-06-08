@@ -21,6 +21,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -192,6 +193,7 @@ public class CheckoutCart extends AppCompatActivity {
             Map<String, Object> orderData = new HashMap<>();
             orderData.put("order_user_id", uid);
             orderData.put("order_card_number", cardNum);
+            orderData.put("order_time", Timestamp.now());
 
             DocumentReference deliveryInfoRef = db.collection("users").document(uid).collection("delivery").document("delivery_info");
             deliveryInfoRef.get().addOnSuccessListener(deliverySnapshot -> {
