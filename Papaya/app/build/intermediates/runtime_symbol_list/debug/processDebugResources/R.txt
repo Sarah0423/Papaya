@@ -3552,6 +3552,7 @@ int id ib_plus_num_in_cart 0x7f08013e
 int id ib_pre_toast 0x7f08013f
 int id ib_rupay 0x7f080140
 int id ib_show_ingredients 0x7f080141
+int id ib_show_orders 0x7f080344
 int id ib_trash_in_cart 0x7f080142
 int id ib_unknown_user_img 0x7f080143
 int id ib_usagi_user_img 0x7f080144
@@ -3602,6 +3603,7 @@ int id iv_delivery 0x7f080170
 int id iv_dots 0x7f080171
 int id iv_favorite 0x7f080172
 int id iv_favorite_branch 0x7f080173
+int id iv_isget 0x7f080345
 int id iv_item_in_cart 0x7f080174
 int id iv_order 0x7f080175
 int id iv_pro_img 0x7f080176
@@ -3800,6 +3802,7 @@ int id rv_coupon 0x7f080236
 int id rv_favorite_branch 0x7f080237
 int id rv_fruit 0x7f080238
 int id rv_item_in_cart 0x7f080239
+int id rv_item_order 0x7f080346
 int id rv_jam 0x7f08023a
 int id rv_main_item 0x7f08023b
 int id rv_meat 0x7f08023c
@@ -3870,6 +3873,7 @@ int id submit_area 0x7f08027c
 int id supportScrollUp 0x7f08027d
 int id sv_ingredients 0x7f08027e
 int id sv_item_in_cart 0x7f08027f
+int id sv_item_order 0x7f080347
 int id tabLayout 0x7f080280
 int id tabMode 0x7f080281
 int id tag_accessibility_actions 0x7f080282
@@ -4005,7 +4009,11 @@ int id tv_mp_toast_killer 0x7f080303
 int id tv_mystery_toast 0x7f080304
 int id tv_name 0x7f080305
 int id tv_num_in_cart 0x7f080306
+int id tv_or 0x7f080348
 int id tv_order 0x7f080307
+int id tv_order_detail 0x7f080349
+int id tv_order_name 0x7f08034a
+int id tv_order_price 0x7f08034b
 int id tv_papaya 0x7f080308
 int id tv_password_login 0x7f080309
 int id tv_pay 0x7f08030a
@@ -4045,6 +4053,7 @@ int id up 0x7f08032b
 int id useLogo 0x7f08032c
 int id v_cart 0x7f08032d
 int id v_down 0x7f08032e
+int id v_order 0x7f08034c
 int id v_up 0x7f08032f
 int id vertical_only 0x7f080330
 int id view_offset_helper 0x7f080331
@@ -4195,6 +4204,7 @@ int layout activity_location_info 0x7f0b0026
 int layout activity_login 0x7f0b0027
 int layout activity_login_pro_info 0x7f0b0028
 int layout activity_main 0x7f0b0029
+int layout activity_order_info 0x7f0b008c
 int layout activity_splash 0x7f0b002a
 int layout activity_toast_info 0x7f0b002b
 int layout alarm 0x7f0b002c
@@ -4287,6 +4297,7 @@ int layout notification_template_custom_big 0x7f0b0082
 int layout notification_template_icon_group 0x7f0b0083
 int layout notification_template_part_chronometer 0x7f0b0084
 int layout notification_template_part_time 0x7f0b0085
+int layout order 0x7f0b008d
 int layout pro_info 0x7f0b0086
 int layout register 0x7f0b0087
 int layout select_dialog_item_material 0x7f0b0088

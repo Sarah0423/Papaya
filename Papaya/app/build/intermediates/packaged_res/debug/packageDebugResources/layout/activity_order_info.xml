@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OrderInfo">
+
+    <ImageButton
+        android:id="@+id/btn_return"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/arrow" />
+
+    <TextView
+        android:id="@+id/tv_or"
+        android:layout_width="125dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="35dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="訂單"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_return"
+        app:layout_constraintStart_toEndOf="@+id/btn_return" />
+
+
+
+    <View
+        android:id="@+id/v_order"
+        android:layout_width="370.65dp"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="12dp"
+        android:layout_marginTop="16dp"
+        android:background="#D0CFCF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_or" />
+
+    <ScrollView
+        android:id="@+id/sv_item_order"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintEnd_toEndOf="@id/v_order"
+        app:layout_constraintStart_toStartOf="@id/v_order"
+        app:layout_constraintTop_toBottomOf="@id/v_order">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_item_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

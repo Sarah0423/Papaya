@@ -181,6 +181,7 @@ id ib_plus_num_in_cart
 id ib_pre_toast
 id ib_rupay
 id ib_show_ingredients
+id ib_show_orders
 id ib_trash_in_cart
 id ib_unknown_user_img
 id ib_usagi_user_img
@@ -216,6 +217,7 @@ id iv_delivery
 id iv_dots
 id iv_favorite
 id iv_favorite_branch
+id iv_isget
 id iv_item_in_cart
 id iv_order
 id iv_pro_img
@@ -275,6 +277,7 @@ id rv_coupon
 id rv_favorite_branch
 id rv_fruit
 id rv_item_in_cart
+id rv_item_order
 id rv_jam
 id rv_main_item
 id rv_meat
@@ -283,6 +286,7 @@ id rzjetrxj8yyr
 id splash_image
 id sv_ingredients
 id sv_item_in_cart
+id sv_item_order
 id tabLayout
 id taiwan
 id textCallSupport
@@ -371,7 +375,11 @@ id tv_mp_toast_killer
 id tv_mystery_toast
 id tv_name
 id tv_num_in_cart
+id tv_or
 id tv_order
+id tv_order_detail
+id tv_order_name
+id tv_order_price
 id tv_papaya
 id tv_password_login
 id tv_pay
@@ -406,6 +414,7 @@ id tv_vegetable
 id tv_verification_code
 id v_cart
 id v_down
+id v_order
 id v_up
 layout activity_branch_info
 layout activity_check_cart
@@ -421,6 +430,7 @@ layout activity_location_info
 layout activity_login
 layout activity_login_pro_info
 layout activity_main
+layout activity_order_info
 layout activity_splash
 layout activity_toast_info
 layout alarm
@@ -436,6 +446,7 @@ layout function_menu
 layout item_in_cart
 layout item_toast
 layout modify_member_information
+layout order
 layout pro_info
 layout register
 mipmap americano_beverage
