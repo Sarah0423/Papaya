@@ -7,11 +7,26 @@
     android:layout_height="match_parent"
     tools:context=".DeliveryStatus">
 
+    <ImageButton
+        android:id="@+id/btn_return_to_order"
+        android:layout_width="98dp"
+        android:layout_height="65dp"
+        android:adjustViewBounds="true"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.512" />
+
+
     <TextView
         android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="您的外送即將抵達！"
+        android:layout_below="@id/imageView"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_centerHorizontal="true"

@@ -315,7 +315,7 @@ public class MainActivity extends AppCompatActivity {
         linearOrderLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Login.class);
+                Intent intent = new Intent(MainActivity.this, DeliveryStatus.class);
                 startActivity(intent);
             }
         });

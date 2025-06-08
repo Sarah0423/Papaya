@@ -3371,6 +3371,7 @@ int id btn_register_function_menu 0x7f080089
 int id btn_return 0x7f08008a
 int id btn_return_to_cart 0x7f08008b
 int id btn_return_to_checkout 0x7f08008c
+int id btn_return_to_order 0x7f08034d
 int id btn_save_name 0x7f08008d
 int id btn_shisa 0x7f08008e
 int id btn_signin_function_menu 0x7f08008f
@@ -4356,6 +4357,9 @@ int mipmap minus 0x7f0d0030
 int mipmap modify_member_background 0x7f0d0031
 int mipmap notification 0x7f0d0032
 int mipmap orange_juice_beverage 0x7f0d0033
+int mipmap order_arrive 0x7f0d0055
+int mipmap order_delivering 0x7f0d0056
+int mipmap order_pickup 0x7f0d0057
 int mipmap passion_fruit_sparkling_beverage 0x7f0d0034
 int mipmap peach_sparkling_beverage 0x7f0d0035
 int mipmap plus 0x7f0d0036

@@ -120,6 +120,7 @@ id btn_register_function_menu
 id btn_return
 id btn_return_to_cart
 id btn_return_to_checkout
+id btn_return_to_order
 id btn_save_name
 id btn_shisa
 id btn_signin_function_menu
@@ -501,6 +502,9 @@ mipmap minus
 mipmap modify_member_background
 mipmap notification
 mipmap orange_juice_beverage
+mipmap order_arrive
+mipmap order_delivering
+mipmap order_pickup
 mipmap passion_fruit_sparkling_beverage
 mipmap peach_sparkling_beverage
 mipmap plus

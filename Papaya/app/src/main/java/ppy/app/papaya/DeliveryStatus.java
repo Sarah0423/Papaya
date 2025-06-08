@@ -1,7 +1,9 @@
 package ppy.app.papaya;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,6 +12,7 @@ public class DeliveryStatus extends AppCompatActivity {
 
     private TextView etaText;
     private ProgressBar progressBar;
+    private ImageButton btnReturn;
 
     private static final int TOTAL_TIME = 5 * 60 * 1000; // 5 分鐘
     private static final int INTERVAL = 1000; // 每秒更新一次
@@ -23,7 +26,15 @@ public class DeliveryStatus extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         startCountdown();
+
+        btnReturn = findViewById(R.id.btn_return_to_order);
+        btnReturn.setOnClickListener(v -> {
+            Intent intent = new Intent(DeliveryStatus.this, MainActivity.class);
+            startActivity(intent);
+        });
     }
+
+
 
     private void startCountdown() {
         new CountDownTimer(TOTAL_TIME, INTERVAL) {
