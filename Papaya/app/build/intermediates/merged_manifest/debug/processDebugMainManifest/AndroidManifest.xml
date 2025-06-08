@@ -47,7 +47,7 @@
             android:name="ppy.app.papaya.OrderAdapter"
             android:exported="false" />
         <activity
-            android:name="ppy.app.papaya.OrderInfo"
+            android:name="ppy.app.papaya.OrderInfoActivity"
             android:exported="false" />
         <activity
             android:name="ppy.app.papaya.DeliveryStatus"

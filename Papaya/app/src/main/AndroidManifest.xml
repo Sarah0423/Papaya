@@ -16,7 +16,7 @@
             android:name=".OrderAdapter"
             android:exported="false" />
         <activity
-            android:name=".OrderInfo"
+            android:name=".OrderInfoActivity"
             android:exported="false" />
         <activity
             android:name=".DeliveryStatus"

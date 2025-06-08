@@ -7,15 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".DeliveryStatus">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="1000dp"
-        android:layout_height="80dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/cr12bff9500" />
-
     <ImageButton
         android:id="@+id/btn_return_to_order"
         android:layout_width="98dp"

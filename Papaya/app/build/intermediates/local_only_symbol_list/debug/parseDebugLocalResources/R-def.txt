@@ -182,7 +182,6 @@ id ib_plus_num_in_cart
 id ib_pre_toast
 id ib_rupay
 id ib_show_ingredients
-id ib_show_orders
 id ib_trash_in_cart
 id ib_unknown_user_img
 id ib_usagi_user_img
@@ -287,7 +286,6 @@ id rzjetrxj8yyr
 id splash_image
 id sv_ingredients
 id sv_item_in_cart
-id sv_item_order
 id tabLayout
 id taiwan
 id textCallSupport

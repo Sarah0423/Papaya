@@ -14,7 +14,7 @@ public class DeliveryStatus extends AppCompatActivity {
     private ProgressBar progressBar;
     private ImageButton btnReturn;
 
-    private static final int TOTAL_TIME = 5 * 60 * 1000; // 5 分鐘
+    private static final int TOTAL_TIME = 5 * 60 * 1000; // 5 分鐘1 * 10 * 1000
     private static final int INTERVAL = 1000; // 每秒更新一次
 
     @Override

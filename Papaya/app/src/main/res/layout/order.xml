@@ -44,14 +44,6 @@
                     android:textColor="#1E1E1E"
                     android:textSize="18sp" />
 
-                <ImageButton
-                    android:id="@+id/ib_show_orders"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:background="@null"
-                    android:scaleType="fitCenter"
-                    app:srcCompat="@drawable/ic_expand" />
-
 
                 <TextView
                     android:id="@+id/tv_order_detail"
