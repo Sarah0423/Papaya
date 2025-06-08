@@ -1,28 +1,36 @@
 package ppy.app.papaya;
 
 public class CouponInfo {
-    private String couponId;
     private String couponName;
     private String couponInfo;
     private String couponPhoto;
     private String couponType;
+    private String couponId;       // ✅ 對應 /coupon/{id}
+    private String ownedCouponId;  // ✅ 對應 /users/{uid}/owned_coupons/{id}
 
-    public CouponInfo(String name, String info, String photo, String couponType, String couponId) {
-        this.couponName = name;
-        this.couponInfo = info;
-        this.couponPhoto = photo;
-        this.couponType = couponType;
-        this.couponId = couponId;
-    }
-    public CouponInfo(String couponName, String couponInfo, String couponPhoto, String couponType) {
-        this.couponId = couponId;
+    public CouponInfo(String couponName, String couponInfo, String couponPhoto, String couponType, String couponId) {
         this.couponName = couponName;
         this.couponInfo = couponInfo;
         this.couponPhoto = couponPhoto;
         this.couponType = couponType;
+        this.couponId = couponId;
     }
 
-    public String getCouponId() {return  couponId;}
+    public void setOwnedCouponId(String ownedCouponId) {
+        this.ownedCouponId = ownedCouponId;
+    }
+
+    public String getOwnedCouponId() {
+        return ownedCouponId;
+    }
+
+    public String getCouponId() {
+        return couponId;
+    }
+
+    public String getCouponType() {
+        return couponType;
+    }
 
     public String getCouponName() {
         return couponName;
@@ -34,9 +42,5 @@ public class CouponInfo {
 
     public String getCouponPhoto() {
         return couponPhoto;
-    }
-
-    public String getCouponType() {
-        return couponType;
     }
 }

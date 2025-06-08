@@ -115,6 +115,8 @@ public class ChooseCoupon extends AppCompatActivity {
         long[] shippingFee = {30};
         int[] completed = {0};
         int totalCoupons = filteredCoupons.size();
+        final String[] usedDeliveryCouponId = {null};
+        final String[] usedDiscountCouponId = {null};
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -131,8 +133,10 @@ public class ChooseCoupon extends AppCompatActivity {
                         long percentOff = ((Number) value.get("percent_off")).longValue();
                         if (totalAmount >= threshold) {
                             totalDiscount.addAndGet(Math.round(totalAmount * percentOff / 100.0));
+                            usedDiscountCouponId[0] = selected.getOwnedCouponId();
                         }
-                        checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
+                        checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons,
+                                usedDiscountCouponId[0], usedDeliveryCouponId[0]);
                         break;
 
                     case "discount_amount":
@@ -140,16 +144,20 @@ public class ChooseCoupon extends AppCompatActivity {
                         long amount = ((Number) value.get("amount")).longValue();
                         if (totalAmount >= threshold) {
                             totalDiscount.addAndGet(amount);
+                            usedDiscountCouponId[0] = selected.getOwnedCouponId();
                         }
-                        checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
+                        checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons,
+                                usedDiscountCouponId[0], usedDeliveryCouponId[0]);
                         break;
 
                     case "discount_delivery":
                         Boolean isFree = (Boolean) value.get("is_free");
                         if (isFree != null && isFree) {
                             shippingFee[0] = 0;
+                            usedDeliveryCouponId[0] = selected.getOwnedCouponId();
                         }
-                        checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
+                        checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons,
+                                usedDiscountCouponId[0], usedDeliveryCouponId[0]);
                         break;
 
                     case "buy_x_get_y":
@@ -178,36 +186,47 @@ public class ChooseCoupon extends AppCompatActivity {
                                             discount += matchingPrices.get(i);
                                         }
                                         totalDiscount.addAndGet(discount);
+                                        usedDiscountCouponId[0] = selected.getOwnedCouponId();
                                     }
 
-                                    checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
+                                    checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons,
+                                            usedDiscountCouponId[0], usedDeliveryCouponId[0]);
                                 })
                                 .addOnFailureListener(e -> {
                                     Log.e("COUPON", "讀取 cart_item 失敗", e);
-                                    checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
+                                    checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons,
+                                            usedDiscountCouponId[0], usedDeliveryCouponId[0]);
                                 });
                         break;
                 }
             }).addOnFailureListener(e -> {
                 Log.e("COUPON", "讀取 coupon 失敗", e);
-                checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons);
+                checkAndFinalize(uid, shippingFee[0], totalDiscount.get(), ++completed[0], totalCoupons,
+                        usedDiscountCouponId[0], usedDeliveryCouponId[0]);
             });
         }
     }
 
 
-    private void checkAndFinalize(String uid, long shippingFee, long discountAmount, int completed, int total) {
-        Log.d("COUPON", "completed: " + completed + "/" + total + " discount: " + discountAmount);
+    private void checkAndFinalize(String uid, long shippingFee, long discountAmount,
+                                  int completed, int total,
+                                  String usedDiscountCouponId, String usedDeliveryCouponId) {
         if (completed == total) {
-            finalizeCouponUpdate(uid, shippingFee, discountAmount);
+            finalizeCouponUpdate(uid, shippingFee, discountAmount, usedDiscountCouponId, usedDeliveryCouponId);
         }
     }
 
-    private void finalizeCouponUpdate(String uid, long shippingFee, long discountAmount) {
+    private void finalizeCouponUpdate(String uid, long shippingFee, long discountAmount,
+                                      String usedDiscountCouponId, String usedDeliveryCouponId) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> updates = new HashMap<>();
         updates.put("discount", discountAmount);
         updates.put("shipping_fee", shippingFee);
+
+        if (usedDiscountCouponId != null)
+            updates.put("coupon_discount", usedDiscountCouponId);
+        if (usedDeliveryCouponId != null)
+            updates.put("coupon_delivery", usedDeliveryCouponId);
 
         db.collection("users").document(uid)
                 .collection("cart_info").document("summary")
@@ -223,6 +242,7 @@ public class ChooseCoupon extends AppCompatActivity {
                 });
     }
 
+
     private void updateCouponDisplay() {
         Collections.sort(couponList, Comparator.comparing(CouponInfo::getCouponType));
         adapter.notifyDataSetChanged();
@@ -230,7 +250,10 @@ public class ChooseCoupon extends AppCompatActivity {
     }
 
     private void fetchCoupons() {
-        // coupon_index 對應的 Firestore 文件名稱
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        String uid = auth.getCurrentUser().getUid();
+
         Map<Long, String> indexToDocId = new HashMap<>();
         indexToDocId.put(1L, "FREE_DELIVERY");
         indexToDocId.put(2L, "DISCOUNT_30");
@@ -239,43 +262,44 @@ public class ChooseCoupon extends AppCompatActivity {
         indexToDocId.put(5L, "DISCOUNT_10PERCENT_OVER100");
         indexToDocId.put(6L, "TOAST_BTGO");
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        String uid = auth.getCurrentUser().getUid();
-
         db.collection("users").document(uid).collection("owned_coupons")
                 .whereEqualTo("is_used", false)
                 .get()
                 .addOnSuccessListener(querySnapshot -> {
-                    Set<Long> ownedIndexes = new HashSet<>();
+                    List<DocumentSnapshot> validCoupons = new ArrayList<>();
                     Date now = new Date();
 
-                    for (DocumentSnapshot ownedDoc : querySnapshot.getDocuments()) {
-                        Long ownedIndex = ownedDoc.getLong("coupon_index");
-                        Date expireAt = ownedDoc.getDate("expire_at");
-                        if (ownedIndex != null && expireAt != null && expireAt.after(now)) {
-                            ownedIndexes.add(ownedIndex);
+                    for (DocumentSnapshot doc : querySnapshot.getDocuments()) {
+                        Date expireAt = doc.getDate("expire_at");
+                        if (expireAt != null && expireAt.after(now)) {
+                            validCoupons.add(doc); // 每張保留，不去重複
                         }
                     }
 
-                    if (ownedIndexes.isEmpty()) {
+                    if (validCoupons.isEmpty()) {
                         tvTotalCoupon.setText("你目前沒有可用的優惠券");
                         return;
                     }
 
                     couponList.clear();
-                    List<Long> indexList = new ArrayList<>(ownedIndexes);
-                    final int totalToLoad = indexList.size();
+                    final int totalToLoad = validCoupons.size();
                     final int[] loadedCount = {0};
 
-                    for (Long index : indexList) {
-                        String docId = indexToDocId.get(index);
-                        if (docId == null) {
+                    for (DocumentSnapshot ownedDoc : validCoupons) {
+                        Long index = ownedDoc.getLong("coupon_index");
+                        String ownedId = ownedDoc.getId(); // ⭐ 每張券的唯一 ID
+                        if (index == null) {
                             loadedCount[0]++;
                             continue;
                         }
 
-                        db.collection("coupon").document(docId)
+                        String couponDocId = indexToDocId.get(index);
+                        if (couponDocId == null) {
+                            loadedCount[0]++;
+                            continue;
+                        }
+
+                        db.collection("coupon").document(couponDocId)
                                 .get()
                                 .addOnSuccessListener(couponDoc -> {
                                     if (couponDoc.exists()) {
@@ -284,7 +308,9 @@ public class ChooseCoupon extends AppCompatActivity {
                                         String photo = couponDoc.getString("coupon_photo");
                                         String type = couponDoc.getString("coupon_type");
 
-                                        couponList.add(new CouponInfo(name, info, photo, type, couponDoc.getId()));
+                                        CouponInfo coupon = new CouponInfo(name, info, photo, type, couponDoc.getId());
+                                        coupon.setOwnedCouponId(ownedId); // ⭐ 加上 owned ID
+                                        couponList.add(coupon);
                                     }
                                     loadedCount[0]++;
                                     if (loadedCount[0] == totalToLoad) updateCouponDisplay();

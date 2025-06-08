@@ -229,6 +229,46 @@ public class CheckoutCart extends AppCompatActivity {
                                                         .addOnFailureListener(e -> {
                                                             // 刪除失敗，可加上錯誤處理
                                                         });
+                                                db.collection("users").document(uid)
+                                                        .collection("cart_info").document("summary")
+                                                        .get()
+                                                        .addOnSuccessListener(summarySnapshot -> {
+                                                            if (summarySnapshot.exists()) {
+                                                                Map<String, Object> summaryData = new HashMap<>();
+
+                                                                Long discount = summarySnapshot.getLong("discount");
+                                                                Long shippingFee = summarySnapshot.getLong("shipping_fee");
+                                                                Long totalPrice = summarySnapshot.getLong("total_price");
+                                                                Long totalQuantity = summarySnapshot.getLong("total_quantity");
+                                                                String couponDiscount = summarySnapshot.getString("coupon_discount");
+                                                                String couponDelivery = summarySnapshot.getString("coupon_delivery");
+
+                                                                if (discount != null) summaryData.put("discount", discount);
+                                                                if (shippingFee != null) summaryData.put("shipping_fee", shippingFee);
+                                                                if (totalPrice != null) summaryData.put("total_price", totalPrice);
+                                                                if (totalQuantity != null) summaryData.put("total_quantity", totalQuantity);
+                                                                if (couponDiscount != null) summaryData.put("coupon_discount", couponDiscount);
+                                                                if (couponDelivery != null) summaryData.put("coupon_delivery", couponDelivery);
+
+                                                                orderDocRef.collection("summary").add(summaryData)
+                                                                        .addOnSuccessListener(summaryDocRef -> {
+                                                                            Log.d("CheckoutCart", "訂單 summary 儲存成功");
+
+                                                                            // ✅ 新增：標記使用掉的優惠券為已使用
+                                                                            if (couponDiscount != null) {
+                                                                                db.collection("users").document(uid)
+                                                                                        .collection("owned_coupons").document(couponDiscount)
+                                                                                        .update("is_used", true);
+                                                                            }
+                                                                            if (couponDelivery != null) {
+                                                                                db.collection("users").document(uid)
+                                                                                        .collection("owned_coupons").document(couponDelivery)
+                                                                                        .update("is_used", true);
+                                                                            }
+                                                                        });
+                                                            }
+                                                        })
+                                                        .addOnFailureListener(e -> Log.e("CheckoutCart", "無法取得 summary", e));
                                             })
                                             .addOnFailureListener(e -> {
                                                 // 寫入 order/item 失敗處理
