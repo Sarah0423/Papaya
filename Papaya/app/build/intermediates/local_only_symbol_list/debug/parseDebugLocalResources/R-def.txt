@@ -6,6 +6,8 @@ color ic_launcher_background
 color orange
 color white
 dimen item_spacing
+drawable _702399_coupon_discount_gift_sale_voucher_icon
+drawable _77d28820ef79967fea608ee88f69c6d_t
 drawable add_num_circle
 drawable arrow_down
 drawable arrow_up
@@ -46,6 +48,7 @@ drawable ic_expand
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable index
+drawable istockphoto_1195522154_612x612
 drawable linear_circle
 drawable location
 drawable logout

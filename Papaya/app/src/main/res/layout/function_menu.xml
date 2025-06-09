@@ -98,7 +98,7 @@
                 android:layout_height="48dp"
                 android:text="登入"
                 android:textAlignment="center"
-                android:textSize="24dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
 
             <Button
@@ -108,7 +108,7 @@
                 android:layout_marginStart="54dp"
                 android:text="註冊"
                 android:textAlignment="center"
-                android:textSize="24dp"
+                android:textSize="17dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -168,7 +168,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/order" />
+                android:src="@drawable/order"/>
 
             <TextView
                 android:id="@+id/tv_order"
@@ -195,8 +195,8 @@
                 android:id="@+id/iv_daily_spin"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:textAlignment="center"
-                tools:srcCompat="@drawable/ic_launcher_background" />
+                android:src="@drawable/_702399_coupon_discount_gift_sale_voucher_icon"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/tv_daily_spin"
@@ -225,7 +225,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/delivery" />
+                android:src="@drawable/delivery" />
 
             <TextView
                 android:id="@+id/tv_delivery"
@@ -254,7 +254,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/customer_service" />
+                android:src="@drawable/customer_service" />
 
             <TextView
                 android:id="@+id/tv_customer_service"
@@ -283,7 +283,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/branch_info" />
+                android:src="@drawable/branch_info"/>
 
             <TextView
                 android:id="@+id/tv_branch_info"
@@ -312,7 +312,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/logout" />
+                android:src="@drawable/logout" />
 
             <TextView
                 android:id="@+id/tv_signout"
@@ -341,7 +341,7 @@
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:textAlignment="center"
-                tools:srcCompat="@drawable/favorite" />
+                android:src="@drawable/favorite"/>
 
             <TextView
                 android:id="@+id/tv_favorite"
