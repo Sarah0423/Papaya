@@ -44,16 +44,16 @@
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\lemon_black_tea_beverage.jpg"
     },
     {
+        "merged": "ppy.app.papaya.app-debug-43:/layout_activity_branch_info.xml.flat",
+        "source": "ppy.app.papaya.app-main-45:/layout/activity_branch_info.xml"
+    },
+    {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_login.xml.flat",
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_login.xml"
     },
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_master_card.jpg.flat",
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\master_card.jpg"
-    },
-    {
-        "merged": "ppy.app.papaya.app-debug-43:/drawable__77d28820ef79967fea608ee88f69c6d_t.jpeg.flat",
-        "source": "ppy.app.papaya.app-main-45:/drawable/_77d28820ef79967fea608ee88f69c6d_t.jpeg"
     },
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-mdpi_crown.png.flat",
@@ -208,12 +208,12 @@
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xxxhdpi\\taipei.png"
     },
     {
-        "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_choose_coupon.xml.flat",
-        "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_choose_coupon.xml"
-    },
-    {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_splash_9.jpg.flat",
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\splash_9.jpg"
+    },
+    {
+        "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_choose_coupon.xml.flat",
+        "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_choose_coupon.xml"
     },
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy3.jpg.flat",
@@ -270,10 +270,6 @@
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_favorite_fill.xml.flat",
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\favorite_fill.xml"
-    },
-    {
-        "merged": "ppy.app.papaya.app-debug-43:/drawable_istockphoto_1195522154_612x612.jpg.flat",
-        "source": "ppy.app.papaya.app-main-45:/drawable/istockphoto_1195522154_612x612.jpg"
     },
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_login_usagi.jpg.flat",
@@ -396,6 +392,10 @@
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\egg_coupon.png"
     },
     {
+        "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable__77d28820ef79967fea608ee88f69c6d_t.jpeg.flat",
+        "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\_77d28820ef79967fea608ee88f69c6d_t.jpeg"
+    },
+    {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_egg_checkout.png.flat",
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\mipmap-xhdpi\\egg_checkout.png"
     },
@@ -426,10 +426,6 @@
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\layout_activity_daily_spin.xml.flat",
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\layout\\activity_daily_spin.xml"
-    },
-    {
-        "merged": "ppy.app.papaya.app-debug-43:/drawable__702399_coupon_discount_gift_sale_voucher_icon.png.flat",
-        "source": "ppy.app.papaya.app-main-45:/drawable/_702399_coupon_discount_gift_sale_voucher_icon.png"
     },
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_pro_info_button_color2.xml.flat",
@@ -464,8 +460,8 @@
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\logout.xml"
     },
     {
-        "merged": "ppy.app.papaya.app-debug-43:/layout_function_menu.xml.flat",
-        "source": "ppy.app.papaya.app-main-45:/layout/function_menu.xml"
+        "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable__702399_coupon_discount_gift_sale_voucher_icon.png.flat",
+        "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\_702399_coupon_discount_gift_sale_voucher_icon.png"
     },
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xhdpi_bigrakko.jpg.flat",
@@ -698,6 +694,10 @@
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_cr18bffffff.xml.flat",
         "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\cr18bffffff.xml"
+    },
+    {
+        "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\drawable_istockphoto_1195522154_612x612.jpg.flat",
+        "source": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-main-45:\\drawable\\istockphoto_1195522154_612x612.jpg"
     },
     {
         "merged": "C:\\Users\\88690\\.gradle\\daemon\\8.10.2\\ppy.app.papaya.app-debug-43:\\mipmap-xxxhdpi_ppy2.jpg.flat",
