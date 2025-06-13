@@ -39,8 +39,8 @@
 
 ## 👥 開發成員
 
-| 姓名 | 學號 | GitHub 帳號 |
-|------|------|----------------|
+| GitHub 帳號 |
+|------|
 | [@3shany](https://github.com/3shany) |
 | [@MERORO911](https://github.com/MERORO911) |
 | [@Sarah0423](https://github.com/Sarah0423) |
