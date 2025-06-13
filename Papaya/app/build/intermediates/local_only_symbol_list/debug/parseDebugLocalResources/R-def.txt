@@ -456,6 +456,7 @@ mipmap americano_beverage
 mipmap arrow
 mipmap arrow_og
 mipmap award
+mipmap award1
 mipmap bigbread
 mipmap bigbug
 mipmap bigchii
