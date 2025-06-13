@@ -4312,6 +4312,7 @@ int mipmap arrow 0x7f0d0001
 int mipmap arrow_og 0x7f0d0002
 int mipmap award 0x7f0d0003
 int mipmap award1 0x7f0d005b
+int mipmap award2 0x7f0d005c
 int mipmap bigbread 0x7f0d0004
 int mipmap bigbug 0x7f0d0005
 int mipmap bigchii 0x7f0d0006
